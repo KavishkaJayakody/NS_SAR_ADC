@@ -1,0 +1,45 @@
+// VerilogA for FYP_22, behavioral_DAC_10bit, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module behavioral_DAC_10bit(B9, B8, B7, B6, B5, B4, B3, B2, B1, B0, VOUT, VREF, VGND);
+    input B9, B8, B7, B6, B5, B4, B3, B2, B1, B0;
+    input VREF, VGND;
+    output VOUT;
+
+    electrical B9, B8, B7, B6, B5, B4, B3, B2, B1, B0;
+    electrical VREF, VGND, VOUT;
+
+    parameter real Vth = 0.9; // Logic threshold
+    parameter real trise = 100p;
+    parameter real tfall = 100p;
+
+    real result;
+    real full_scale;
+    real lsb;
+
+    analog begin
+        // Calculate the decimal value of the bits
+        // MSB (B9) has weight 512, LSB (B0) has weight 1
+        result = 0;
+        if (V(B9) > Vth) result = result + 512;
+        if (V(B8) > Vth) result = result + 256;
+        if (V(B7) > Vth) result = result + 128;
+        if (V(B6) > Vth) result = result + 64;
+        if (V(B5) > Vth) result = result + 32;
+        if (V(B4) > Vth) result = result + 16;
+        if (V(B3) > Vth) result = result + 8;
+        if (V(B2) > Vth) result = result + 4;
+        if (V(B1) > Vth) result = result + 2;
+        if (V(B0) > Vth) result = result + 1;
+
+        // Calculate the output voltage based on VREF and VGND
+        // Formula: VOUT = VGND + (Bit_Value / 1024) * (VREF - VGND)
+        full_scale = V(VREF) - V(VGND);
+        lsb = full_scale / 1024.0;
+
+        V(VOUT) <+ transition(V(VGND) + (result * lsb), 0, trise, tfall);
+    end
+endmodule
+
