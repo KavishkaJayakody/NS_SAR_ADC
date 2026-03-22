@@ -1,4 +1,4 @@
-//Revision 3
+//Revision 5
 //NOTE
 // Default config view template for AMS netlister(s) in ADE.
 // Note:
@@ -14,7 +14,7 @@ viewlist spectre, spice, pspice, verilog, verilogams, behavioral, functional, sy
 stoplist spectre;
 
 
-cell NS_SAR_analog.analog_switch binding :veriloga;
+cell NS_SAR_analog.analog_switch binding :schematic;
 cell NS_SAR_analog.analog_mux binding :schematic;
 
 
