@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8-Bit NS-SAR ADC Core: Timing Specification</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    .page {
+        background-color: #fff;
+        width: 210mm;
+        height: 297mm;
+        margin: 10mm auto;
+        padding: 15mm 20mm;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+    }
+    @media print {
+        body { background-color: #fff; }
+        .page { margin: 0; box-shadow: none; }
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #C8102E;
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+    }
+    .logo img {
+        height: 60px;
+    }
+    .title-block h1 {
+        margin: 0;
+        font-size: 22px;
+        color: #C8102E;
+        text-align: right;
+    }
+    .title-block p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: #8A8F98;
+        text-align: right;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 16px;
+        color: #C8102E;
+        border-bottom: 1px solid #8A8F98;
+        padding-bottom: 4px;
+        margin: 12px 0 8px 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    th, td {
+        border: 1px solid #8A8F98;
+        padding: 5px 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #E6E8EB;
+        color: #0A1A2F;
+        font-weight: 600;
+        width: 50%;
+    }
+    .note {
+        background-color: #E6E8EB;
+        border-left: 4px solid #C8102E;
+        color: #0A1A2F;
+        padding: 8px 10px;
+        font-size: 12px;
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+    .diagram-section {
+        margin-bottom: 12px;
+    }
+    .diagram-title {
+        font-weight: 600;
+        margin-bottom: 4px;
+        font-size: 13px;
+        color: #0A1A2F;
+    }
+    .diagram {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #E6E8EB;
+        color: #0A1A2F;
+        padding: 8px;
+        border: 1px solid #8A8F98;
+        white-space: pre;
+        font-size: 11px;
+        font-weight: bold;
+        overflow-x: auto;
+    }
+    .diagram-caption {
+        font-size: 11px;
+        color: #8A8F98;
+        margin-top: 4px;
+        font-style: italic;
+    }
+    p {
+        margin: 4px 0;
+        font-size: 13px;
+    }
+    .footer {
+        position: absolute;
+        bottom: 15mm;
+        left: 20mm;
+        right: 20mm;
+        text-align: center;
+        font-size: 11px;
+        color: #8A8F98;
+        border-top: 1px solid #8A8F98;
+        padding-top: 8px;
+    }
+</style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <div class="logo">
+                <img src="../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Timing Specification Document</p>
+            </div>
+        </header>
+
+        <h2>1. System Targets</h2>
+        <table>
+            <tr><th>Target Output Data Rate</th><td>1 ksps</td></tr>
+            <tr><th>Oversampling Ratio (OSR)</th><td>8</td></tr>
+            <tr><th>Target Sampling Rate</th><td>8 ksps</td></tr>
+        </table>
+
+        <h2>2. Clock Cycle Allocation</h2>
+        <table>
+            <tr><th>Conversions per output code</th><td>8 conversions</td></tr>
+            <tr><th>Cycles per A/D conversion</th><td>9 clock cycles</td></tr>
+            <tr><th>Padding for Noise Shaping (NS)</th><td>3 clock cycles (average)</td></tr>
+            <tr><th>Total cycles per conversion</th><td>12 clock cycles (average)</td></tr>
+            <tr><th>Total cycles per output code</th><td>96 clock cycles</td></tr>
+        </table>
+
+        <h2>3. Clock Frequency Requirements</h2>
+        <table>
+            <tr><th>Required Clock Rate</th><td>96 kHz (Period &approx; 10.417 &mu;s)</td></tr>
+            <tr><th>Relaxed System Clock Input</th><td>100 kHz (Period = 10.0 &mu;s)</td></tr>
+            <tr><th>Resulting Output Data Rate at 100 kHz</th><td>~1.042 ksps</td></tr>
+        </table>
+        <div class="note">
+            <strong>Note:</strong> The system is designed for a nominal 96 kHz input clock, meanwhile relaxing the strict 96 kHz requirement to accommodate a 4.16% higher upper target capability of 100 kHz.
+        </div>
+
+        <h2>4. Timing Diagrams</h2>
+        
+        <div class="diagram-section">
+            <div class="diagram-title">4.1 Timing per Code Output</div>
+            <div class="diagram">/CONV0\/CONV1\/CONV2\/CONV3\/CONV4\/CONV5\/CONV6\/CONV7\
+\     /\     /\     /\     /\     /\     /\     /\     /</div>
+            <div class="diagram-caption">* CONV: Conversion (single 8-bit SAR resolution + NS loop)</div>
+        </div>
+
+        <div class="diagram-section">
+            <div class="diagram-title">4.2 Timing per Conversion (Non-Overlapping)</div>
+            <div class="diagram">/SAMP\/BIT7\/BIT6\/BIT5\/BIT4\/BIT3\/BIT2\/BIT1\/BIT0\/ NS \/ NS \/ NS \
+\    /\    /\    /\    /\    /\    /\    /\    /\    /\    /\    /\    /</div>
+            <div class="diagram-caption">* SAMP: Sample phase | BITx: Bit decision phase | NS: Noise shaping loop phase</div>
+        </div>
+
+        <div class="diagram-section">
+            <div class="diagram-title">4.3 Timing per Conversion (Overlapped Architecture)</div>
+            <p>An overlapped architecture variant can be considered to optimize timing:</p>
+            <div class="diagram">/SAMP\/BIT7\/BIT6\/BIT5\/BIT4\/BIT3\/BIT2\/BIT1\/BIT0\/FIN \/SET \/    \
+\    /\    /\    /\    /\    /\ NS /\ NS /\ NS /\ NS /\    /\    /\    /</div>
+            <div class="diagram-caption">* FIN: Final residue transfer into the integrator | SET: Integrator settling phase</div>
+        </div>
+
+        <h2>5. Asynchronous Design Notes</h2>
+        <p>Non-overlapping clocks will be utilized for robust asynchronous event handling.</p>
+        
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0
+        </div>
+    </div>
+</body>
+</html>

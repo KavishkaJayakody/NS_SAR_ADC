@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Specification: Noise-Shaping (NS) SAR ADC</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            width: 210mm;
+            height: 297mm;
+            margin: 10mm auto;
+            padding: 15mm 20mm;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        @media print {
+            body { background-color: #fff; }
+            .container { margin: 0; box-shadow: none; }
+        }
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 12px;
+        }
+        .header-logos img {
+            height: 45px;
+            object-fit: contain;
+        }
+        h1 {
+            color: #C8102E;
+            text-align: center;
+            font-size: 24px;
+            margin: 0 0 8px 0;
+        }
+        .metadata {
+            text-align: center;
+            font-size: 13px;
+            color: #8A8F98;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #C8102E;
+        }
+        .metadata strong {
+            color: #0A1A2F;
+        }
+        h2 {
+            color: #C8102E;
+            font-size: 16px;
+            margin: 12px 0 8px 0;
+            border-bottom: 1px solid #8A8F98;
+            padding-bottom: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+        th, td {
+            border: 1px solid #8A8F98;
+            padding: 5px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #E6E8EB;
+            color: #0A1A2F;
+            width: 45%;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-logos">
+        <img src="../resources/tinytapeout_logo.png" alt="TinyTapeout Logo">
+        <img src="../resources/sky130_logo.png" alt="SkyWater 130 Logo">
+        <img src="../resources/uom_logo.png" alt="University of Moratuwa Logo">
+        <img src="../resources/entc_logo.png" alt="ENTC Logo">
+        <img src="../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+    </div>
+    <h1>Design Specification: Noise-Shaping (NS) SAR ADC</h1>
+    <div class="metadata">
+        <strong>Project:</strong> TinyTapeout (Sky130) &nbsp;|&nbsp; 
+        <strong>Designer:</strong> Silicon_Edge &nbsp;|&nbsp; 
+        <strong>Date:</strong> March 2026
+    </div>
+
+    <h2>1. General Process &amp; Architecture</h2>
+    <table>
+        <tr><th>Process Technology</th><td>Skywater 130nm (Sky130)</td></tr>
+        <tr><th>Architecture</th><td>8-bit SAR Core with Noise Shaping (NS)</td></tr>
+        <tr><th>Target Performance</th><td>10-bit ENOB (via Noise Shaping/OSR)</td></tr>
+        <tr><th>Target Area</th><td>1x2 tiles (160x225µm)</td></tr>
+    </table>
+
+    <h2>2. Voltage &amp; Dynamic Range</h2>
+    <table>
+        <tr><th>Supply Voltage (VDD)</th><td>1.8 V</td></tr>
+        <tr><th>Reference Voltage</th><td>0.9 V / 1.0 V</td></tr>
+        <tr><th>Common Mode Voltage</th><td>0.9 V</td></tr>
+        <tr><th>Input Type</th><td>Differential</td></tr>
+        <tr><th>Input Voltage Range</th><td>-0.9 V to +0.9 V (Differential Swing)</td></tr>
+    </table>
+
+    <h2>3. Timing &amp; Frequency</h2>
+    <table>
+        <tr><th>Sampling Rate (fs)</th><td>1*8 ksps</td></tr>
+        <tr><th>Data Rate</th><td>1 ksps</td></tr>
+        <tr><th>Application Profile</th><td>Low-frequency Sensors</td></tr>
+    </table>
+
+    <h2>4. Static &amp; Dynamic Performance</h2>
+    <table>
+        <tr><th>Differential Non-Linearity (DNL)</th><td>± 0.5 LSB</td></tr>
+        <tr><th>Integral Non-Linearity (INL)</th><td>± 1.0 LSB</td></tr>
+        <tr><th>Effective Number of Bits (ENOB)</th><td>10 bits (Targeted)</td></tr>
+    </table>
+
+    <h2>5. Power Consumption</h2>
+    <table>
+        <tr><th>Total Supply Current (IDD)</th><td>30 µA (Design Limit)</td></tr>
+        <tr><th>Comparator Current Contribution</th><td>20 µA</td></tr>
+    </table>
+
+    <h2>6. Physical Constraints</h2>
+    <table>
+        <tr><th>Area Allocation</th><td>1x2 TinyTapeout Analog Tiles</td></tr>
+        <tr><th>Layout Constraint</th><td>Compatible with TT Digital Wrapper and Analog Pins</td></tr>
+        <tr><th>PDK Compatibility</th><td>sky130_fd_pr (Standard/MiM Cap)</td></tr>
+    </table>
+</div>
+
+</body>
+</html>

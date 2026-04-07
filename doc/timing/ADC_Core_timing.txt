@@ -1,0 +1,57 @@
+====================================================
+8-Bit NS-SAR ADC Core: Timing Specification Document
+====================================================
+
+1. System Targets
+-----------------
+- Target Output Data Rate: 1 ksps
+- Oversampling Ratio (OSR): 8
+- Target Sampling Rate: 8 ksps
+
+2. Clock Cycle Allocation
+-------------------------
+- 8 conversions per output code
+- 9 clock cycles per A/D conversion
+- 3 clock cycles average padding per conversion for Noise Shaping (NS)
+- Total: 12 clock cycles per conversion on average
+- Total per output code: 12 cycles/conversion * 8 conversions = 96 clock cycles
+
+3. Clock Frequency Requirements
+-------------------------------
+- Required Clock Rate: 96 kHz (Period ≈ 10.417 µs)
+- Relaxed System Clock Input: 100 kHz (Period = 10.0 µs)
+- Resulting Output Data Rate at 100 kHz: ~1.042 ksps
+
+Note:   The system is designed for a nominal 96 kHz input clock, meanwhile relaxing the strict 
+        96 kHz requirement to accommodate a 4.16% higher upper target capability of 100 kHz.
+
+4. Timing Diagrams
+------------------
+
+### Timing per Code Output
+
+/CONV0\/CONV1\/CONV2\/CONV3\/CONV4\/CONV5\/CONV6\/CONV7\
+\     /\     /\     /\     /\     /\     /\     /\     /  
+
+* CONV: Conversion (single 8-bit SAR resolution + NS loop)
+
+### Timing per Conversion (Non-Overlapping)
+
+/SAMP\/BIT7\/BIT6\/BIT5\/BIT4\/BIT3\/BIT2\/BIT1\/BIT0\/ NS \/ NS \/ NS \
+\    /\    /\    /\    /\    /\    /\    /\    /\    /\    /\    /\    /
+
+* SAMP: Sample phase
+* BITx: Bit decision phase
+* NS: Noise shaping loop phase
+
+### Timing per Conversion (Overlapped Architecture)
+An overlapped architecture variant can be considered to optimize timing:
+
+/SAMP\/BIT7\/BIT6\/BIT5\/BIT4\/BIT3\/BIT2\/BIT1\/BIT0\/FIN \/SET \/    \
+\    /\    /\    /\    /\    /\ NS /\ NS /\ NS /\ NS /\    /\    /\    /
+* FIN: Final residue transfer into the integrator
+* SET: Integrator settling phase
+
+5. Asynchronous Design Notes
+----------------------------
+Non-overlapping clocks will be utilized for robust asynchronous event handling.
