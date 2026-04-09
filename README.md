@@ -1,8 +1,9 @@
 <div align="center">
-  <img src="doc/tinytapeout_logo.png" alt="TinyTapeout Logo" height="70" style="margin-right: 40px;" />
-  <img src="doc/sky130_logo.png" alt="SkyWater 130 Logo" height="70" />
-  <img src="doc/uom_logo.png" alt="University of Moratuwa Logo" height="70" />
-  <img src="doc/entc_logo.png" alt="ENTC Logo" height="70" />
+  <img src="doc/resources/tinytapeout_logo.png" alt="TinyTapeout Logo" height="70" style="margin-right: 40px;" />
+  <img src="doc/resources/sky130_logo.png" alt="SkyWater 130 Logo" height="70" />
+  <img src="doc/resources/uom_logo.png" alt="University of Moratuwa Logo" height="70" />
+  <img src="doc/resources/entc_logo.png" alt="ENTC Logo" height="70" />
+  <img src="doc/resources/silicon_edge_logo.png" alt="ENTC Logo" height="70" />
 </div>
 <br>
 
