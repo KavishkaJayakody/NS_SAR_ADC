@@ -1,0 +1,210 @@
+# Capacitor Array Sizing:
+
+For a well-designed SAR ADC, quantization noise should typically dominate over other noise sources, 
+of which thermal noise (kT/C) is the most significant. To maximize the performance of the ADC and 
+preserve the Effective Number of Bits (ENOB), we must ensure that kT/C << P_q (Quantization Noise Power).
+
+Note: For these derivations and calculations, a single/differential-ended ADC models are used as required.
+
+## 1. Thermal Noise Model
+The noise power introduced across the DAC capacitor by the sampling resistor can be modeled as:
+    P_tn = 4kTR * B
+Where 'R' is the total noise-generating resistance, and 'B' is the noise equivalent bandwidth.
+Due to the RC low-pass filter nature of the sampling network, the noise equivalent bandwidth is:
+    B = 1 / (2*pi*RC)
+
+While a rough estimate might suggest P_tn = 2kT/(pi*C), integrating the noise power 
+across the RC network over the entire frequency range yields the exact total thermal noise power:
+    P_tn = kT/C
+
+If we set an upper limit to kT/C, then the total sampling thermal noise will be bounded. 
+Hereafter, we will refer to this thermal noise power as P_kt/c = kT/C.
+
+## 2. SNR and ENOB Degradation
+For an ideal quantizer, the Signal-to-Noise Ratio (SNR) in dB is governed by:
+    SNR_ideal(dB) ≈ 6.02 * N + 1.76  (where N is the number of bits)
+
+When other noise sources are considered, the overall SNR decreases, resulting in a lower ENOB.
+    SNR(dB) = 10 * log10(P_sig / P_tot)
+
+For an ideal quantizer, P_tot = P_q. 
+Now, assume additional noise sources are introduced and can be represented as a scaled factor 'a' of P_q:
+    P_other = P_kt/c + P_comp + P_switch = a * P_q
+    
+The total noise power becomes:
+    P_tot = P_q + a * P_q = (1 + a) * P_q
+
+The degraded SNR is then:
+    SNR_degraded(dB) = 10 * log10(P_sig / ((1 + a) * P_q))
+                     = 10 * log10(P_sig / P_q) - 10 * log10(1 + a)
+                     = SNR_ideal(dB) - 10 * log10(1 + a)
+
+Relating this to ENOB:
+    6.02 * ENOB + 1.76 = (6.02 * N + 1.76) - 10 * log10(1 + a)
+    ENOB_reduction = 10 * log10(1 + a) / 6.02 ≈ 1.66 * log10(1 + a)
+
+### ENOB Reduction Table
+| a (Noise Ratio) | ENOB Reduction (Bits) |
+|-----------------|-----------------------|
+| 0.01            | 0.007                 |
+| 0.10            | 0.070                 |
+| 0.20            | 0.130                 |
+| 0.40            | 0.240                 |
+| 0.50            | 0.290                 |
+| 1.00            | 0.500                 |
+| 2.00            | 0.790                 |
+| 3.00            | 1.000                 |
+
+## 3. Quantization Noise Power (P_q) (Differential Ended)
+    P_q = LSB^2 / 12 = (2 * V_ref / 2^N)^2 / 12 = 4 * V_ref^2 / (12 * 2^(2N)) = V_ref^2 / (3 * 2^(2N))
+
+For our specific design:
+    V_ref = 1.0 V
+    N = 8 bits
+    P_q = 1^2 / (3 * 2^16) = 1 / 196608 ≈ 5.086 * 10^-6 V^2
+
+## 4. Capacitor Sizing for Thermal Noise
+Assuming the dominant extra noise source is kT/C (so a ≈ A):
+    kT/C < a * P_q
+    kT/C < a * 5.086 * 10^-6 V^2
+
+Considering the maximum operating temperature of 125°C (398.15 K) ensures the inequality holds for all lower temperatures:
+    k = 1.38 * 10^-23 J/K
+    T = 398.15 K
+    kT = 5.494 * 10^-21 J
+
+    (5.494 * 10^-21) / C < a * 5.086 * 10^-6
+    C > 1.080 * 10^-15 / a  (in Farads)
+
+### Minimum Capacitance Requirements (at 125°C)
+| a (Noise Ratio) | Min Total C_DAC | Min Unit Cap (C_DAC / 2^8) |
+|-----------------|-----------------|----------------------------|
+| 0.01            | 108.0 fF        | 0.422 fF                   |
+| 0.10            |  10.8 fF        | 0.042 fF                   |
+| 1.00            |   1.1 fF        | 0.004 fF                   |
+
+## 5. Conclusion
+Quantitative analysis shows that the minimum capacitance required to meet thermal noise constraints 
+is significantly smaller than practical, manufacturable capacitor sizes for an 8-bit architecture. 
+Therefore, capacitor sizing for this ADC is not limited by kT/C noise, but rather bounded by matching limitations, 
+settling time, and parasitic considerations. We can also use a statistic-based approach for the noise model, 
+but the deterministic derivations above are sufficient to loosen the noise-based size restrictions.
+
+## 6. Capacitor Array Mismatch Analysis (Pelgrom's Model)
+To avoid linearity degradation (INL/DNL), matching between adjacent unit capacitors (`C_u`) must strictly adhere to Pelgrom's mismatch model:
+    σ(ΔC / C) = A_c / √(Area)
+
+### 6.1 SPICE Model Extraction for Sky130 MiM Capacitors
+We target the Metal-Insulator-Metal (MiM) capacitor devices available in the `sky130_fd_pr` library (`sky130_fd_pr__cap_mim_m3_1` / `_2`). The PDK SPICE model defines matching distributions as follows:
+    .param carea = 'camimc*(wc)*(lc)'
+    .param cperim = 'cpmimc*((wc)+(lc))*2'
+    .param czero = 'carea + cperim' dev/gauss='0.01*2.8*(carea + cperim)/sqrt(wc*lc*mf)'
+
+Extracting the Gaussian deviation parameter yields the Pelgrom area coefficient:
+    A_c = 0.01 * 2.8 = 0.028  (or 2.8% * µm)
+
+The normalized capacitance densities are:
+*   **Area Capacitance (`C_area`)**: 2.0 fF/µm²
+*   **Perimeter Capacitance (`C_perim`)**: 0.19 fF/µm
+
+### 6.2 Mathematical Grounding: Stochastic Analysis of the DAC
+The output of a capacitive DAC is defined by the ratio of the switched capacitors to the total capacitance. In a fully differential architecture, the differential output V_diff is:
+    V_diff = (V_P+ - V_P-) - (V_N+ - V_N-)
+
+**The Unit Capacitor Model**
+Each unit capacitor C_i is modeled as an independent and identically distributed (i.i.d.) random variable:
+    C_i ~ N(μ_C, σ_C^2)
+The relative standard deviation (coefficient of variation) is defined by Pelgrom’s Law:
+    σ_C / μ_C = A_C / sqrt(W * L)
+
+**Variance of a Binary Weighted Bit**
+The k-th bit capacitor C_k is the sum of n = 2^(k-1) unit capacitors. By the property of the sum of independent normal variables:
+    Var(C_k) = Σ(i=1 to 2^(k-1)) Var(C_u) = 2^(k-1) * σ_u^2
+
+**The Differential DNL at Mid-Scale**
+The Differential Non-Linearity (DNL) is worst at the MSB transition (0... -> 1...). The error E_DNL is the difference between the MSB capacitor and the sum of all lower-order capacitors (C_rem):
+    E_DNL = C_MSB - C_rem
+
+For an 8-bit ADC, C_MSB has 2^7 = 128 units, and C_rem also has 128 units.
+    Var(E_DNL, single) = Var(C_128 units) + Var(C_128 units) = 256 * σ_u^2
+
+In a fully differential system, we have two such arrays (P and N) acting in opposition. The total differential error variance is:
+    Var(E_DNL, diff) = Var(E_DNL, P) + Var(E_DNL, N) = 256*σ_u^2 + 256*σ_u^2 = 512*σ_u^2
+    σ_DNL, diff = sqrt(512) * σ_u = 2^((N+1)/2) * σ_u
+
+### 6.3 Derivation of the Sizing Constraint
+To ensure DNL < 0.5 LSB with a 3σ yield (99.7%), we set the boundary condition:
+
+       Probability Density
+               ^
+               |       .
+               |      / \
+               |     /   \
+               |    /  |  \
+ Yield Boundary|   /   |   \
+      (-3σ) ---+--/----+----\-- (+3σ)
+               | /     |     \
+  Max Error    |/      |      \|
+(-0.5 LSB) ----|-------+-------|---- (+0.5 LSB)
+               |       |       |
+ --------------+-------+-------+--------------> DNL Error
+           -0.5*μ_C    0    +0.5*μ_C
+
+    3 * σ_DNL, diff < 0.5 * μ_C
+
+Substituting the differential variance:
+    3 * sqrt(512) * σ_u < 0.5 * μ_C
+    67.88 * σ_u < 0.5 * μ_C
+    σ_u / μ_C < 0.5 / 67.88 ≈ 0.007366
+
+### 6.4 Physical Sizing for SKY130
+Given the PDK parameters: A_C = 0.028 µm, C_area = 2 fF/µm², C_perim = 0.19 fF/µm.
+
+*Step 1: Solving for Minimum Area*
+Using Pelgrom's Equation:
+    sqrt(Area) > A_C / 0.007366 = 0.028 / 0.007366 ≈ 3.801 µm
+    Area_min ≈ 14.45 µm^2
+
+*Step 2: Determining Dimensions (Square Geometry)*
+For a square capacitor to minimize fringe field asymmetry:
+    W = L = sqrt(14.45) ≈ 3.8 µm
+
+*Step 3: Final Unit Capacitance (C_u) Calculation*
+    C_total = (Area * C_area) + (Perimeter * C_perim)
+    C_total = (14.45 * 2) + (4 * 3.8 * 0.19)
+    C_total = 28.9 + 2.888 = 31.79 fF
+
+### 6.5 Sizing Summary
+| Parameter                   | Symbol      | Value             |
+|-----------------------------|-------------|-------------------|
+| Max Allowable Sigma         | σ_u/μ_C     | 0.736%            |
+| Required Area               | A           | 14.45 µm²         |
+| Unit Dimensions             | W, L        | 3.8 µm x 3.8 µm   |
+| Unit Capacitance            | C_u         | 31.8 fF           |
+| Total Array Cap (per side)  | C_tot       | 8.14 pF           |
+
+### 6.6 Practical Unit Capacitor Selection
+The calculations above establish the absolute lower limit for the unit capacitor (W = L = 3.8 µm, C_u ≈ 31.8 fF) to satisfy matching constraints. For layout simplicity and better matching margin, we evaluate slightly larger, integer-dimensioned geometries:
+
+*   **Option A: 4 µm x 4 µm**
+    *   Area = 16 µm², Perimeter = 16 µm
+    *   C_u = (16 * 2.0) + (16 * 0.19) = 35.04 fF
+
+*   **Option B: 5 µm x 5 µm**
+    *   Area = 25 µm², Perimeter = 20 µm
+    *   C_u = (25 * 2.0) + (20 * 0.19) = 53.8 fF
+
+We will choose one of these two practical unit sizes for the final layout implementation based on overall array area routing considerations.
+
+## 7. Architecture Implications and Area Feasibility
+A standard binary-weighted Capacitor DAC for an 8-bit differential architecture requires 512 total unit capacitors (256 per side).
+    Total Active Cap Area = 512 * 14.45 µm² ≈ 7,398.4 µm²
+    
+*   Required Area (Array Only): ~7,400 µm²
+*   Available Area (Total 1x2 Tiles): 36,000 µm² (160 x 225 µm)
+
+Unlike previous worst-case approximations, this stochastic analysis proves that implementing a standard full-binary CDAC is highly feasible within the allocated TinyTapeout area constraints without requiring complex area-reduction strategies.
+
+## 8. References
+1. Hsu, C. P. (2013). "Analysis of capacitor mismatch in SAR ADC." IEEE Trans. on Circuits and Systems.
+2. Mueller, J. H., Strache, S., Busch, L., Wunderlich, R., & Heinen, S. (2013). "The Impact of Noise and Mismatch on SAR ADCs and a Calibratable Capacitance Array Based Approach for High Resolutions." INTL JOURNAL OF ELECTRONICS AND TELECOMMUNICATIONS, VOL. 59, NO. 2, PP. 161–167. DOI: 10.2478/eletel-2013-0019

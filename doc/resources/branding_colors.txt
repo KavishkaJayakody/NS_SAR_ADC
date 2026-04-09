@@ -1,0 +1,33 @@
+1. Primary Accent — “Silicon Red”
+
+Used for: EDGE text + the dynamic incision pointer detail in the logo
+
+HEX: #C8102E
+
+Why: Strong, industry-aligned engineering grade, not flashy marketing red.
+
+⚫ 2. Core Background — “Deep Silicon Navy”
+
+Used for: Main background for branding, slides, and white papers
+
+HEX: #0A1A2F
+
+Why: More sophisticated and gives better contrast than plain black.
+
+⚪ 3. Signal White — “Analog White”
+
+Used for: Waveform and SILICON text
+
+HEX: #E6E8EB
+
+Why: A softened, scientific white that reduces glare on dark backgrounds.
+
+⚙️ 4. IC Gray — “Silicon Material”
+
+Used for: The chip block
+
+HEX: #8A8F98
+
+Why: A neutral, material-like color that looks realistic in flat design.
+
+The key Usage Rule for this palette is to maintain a controlled balance of 70% Navy, 20% White/Gray, and a MAX of 10% Red, keeping the red rare and impactful.

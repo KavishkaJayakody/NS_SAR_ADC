@@ -16,22 +16,25 @@
         }
         @page {
             size: A4;
-            margin: 0;
+            margin: 15mm 20mm;
         }
-        .container {
+        .section {
             background-color: #fff;
-            width: 210mm;
-            height: 297mm;
+            max-width: 210mm;
             margin: 10mm auto;
             padding: 15mm 20mm;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
+            page-break-before: always;
+            break-before: page;
+        }
+        .section:first-of-type {
+            page-break-before: auto;
+            break-before: auto;
         }
         @media print {
             body { background-color: #fff; }
-            .container { margin: 0; box-shadow: none; }
+            .section { margin: 0; padding: 0; box-shadow: none; max-width: none; }
         }
         .header-logos {
             display: flex;
@@ -89,7 +92,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="section">
     <div class="header-logos">
         <img src="../resources/tinytapeout_logo.png" alt="TinyTapeout Logo">
         <img src="../resources/sky130_logo.png" alt="SkyWater 130 Logo">

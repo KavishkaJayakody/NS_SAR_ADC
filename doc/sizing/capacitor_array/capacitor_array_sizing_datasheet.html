@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capacitor Array Sizing: Thermal Noise and Mismatch Analysis</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    .section {
+        background-color: #fff;
+        width: 210mm;
+        height: 297mm;
+        margin: 10mm auto;
+        padding: 15mm 20mm;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        page-break-before: always;
+        break-before: page;
+        position: relative;
+        overflow: hidden;
+    }
+    .section:first-of-type {
+        page-break-before: auto;
+        break-before: auto;
+    }
+    @media print {
+        body { background-color: #fff; }
+        .section { 
+            margin: 0; 
+            box-shadow: none; 
+            /* Keep padding, width, and height intact for exact A4 print sizing */
+        }
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #C8102E; /* Silicon Red */
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+    }
+    .logo img {
+        height: 60px;
+    }
+    .title-block h1 {
+        margin: 0;
+        font-size: 22px;
+        color: #C8102E; /* Silicon Red */
+        text-align: right;
+    }
+    .title-block p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: #8A8F98; /* IC Gray */
+        text-align: right;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 16px;
+        color: #C8102E; /* Silicon Red */
+        border-bottom: 1px solid #8A8F98; /* IC Gray */
+        padding-bottom: 4px;
+        margin: 12px 0 8px 0;
+    }
+    h3 {
+        font-size: 14px;
+        color: #0A1A2F; /* Deep Silicon Navy */
+        margin: 10px 0 4px 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    th, td {
+        border: 1px solid #8A8F98; /* IC Gray */
+        padding: 5px 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #E6E8EB; /* Signal White */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        font-weight: 600;
+    }
+    .note {
+        background-color: #E6E8EB; /* Signal White */
+        border-left: 4px solid #C8102E; /* Silicon Red */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px 10px;
+        font-size: 12px;
+        font-style: italic;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .diagram-section {
+        margin-bottom: 12px;
+    }
+    .diagram {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #E6E8EB; /* Signal White */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px;
+        border: 1px solid #8A8F98; /* IC Gray */
+        white-space: pre;
+        font-size: 12px;
+        font-weight: bold;
+        overflow-x: auto;
+        margin: 6px 0;
+    }
+    .math-block {
+        background-color: #E6E8EB; /* Signal White */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px 12px;
+        border: 1px solid #8A8F98; /* IC Gray */
+        margin: 10px 0;
+        overflow-x: auto;
+        font-size: 11.5px;
+    }
+    p {
+        margin: 4px 0;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+    ul {
+        margin: 4px 0 10px 20px;
+        padding: 0;
+        font-size: 13px;
+    }
+    li {
+        margin-bottom: 4px;
+    }
+    code {
+        background-color: #E6E8EB;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+        color: #0A1A2F;
+    }
+    .footer {
+        position: absolute;
+        bottom: 15mm;
+        left: 20mm;
+        right: 20mm;
+        text-align: center;
+        font-size: 11px;
+        color: #8A8F98; /* IC Gray */
+        border-top: 1px solid #8A8F98;
+        padding-top: 8px;
+    }
+</style>
+<script>
+  MathJax = {
+    tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Capacitor Array Sizing Analysis</p>
+            </div>
+        </header>
+
+        <p>For a well-designed SAR ADC, quantization noise should typically dominate over other noise sources, of which thermal noise (\(kT/C\)) is the most significant. To maximize the performance of the ADC and preserve the Effective Number of Bits (ENOB), we must ensure that \( kT/C \ll P_q \) (Quantization Noise Power).</p>
+        <p><em>Note: For these derivations and calculations, a single/differential-ended ADC models are used as required.</em></p>
+
+        <h2>1. Thermal Noise Model</h2>
+        <p>The noise power introduced across the DAC capacitor by the sampling resistor can be modeled as:</p>
+        <div class="math-block">\[ P_{tn} = 4kTR \cdot B \]</div>
+        <p>Where \( R \) is the total noise-generating resistance, and \( B \) is the noise equivalent bandwidth. Due to the RC low-pass filter nature of the sampling network, the noise equivalent bandwidth is:</p>
+        <div class="math-block">\[ B = \frac{1}{2\pi RC} \]</div>
+        <p>While a rough estimate using the bandwidth yields \( \frac{2kT}{\pi C} \), integrating the noise power across the RC network over the entire frequency range yields the exact total thermal noise power:</p>
+        <div class="math-block">\[ P_{tn} = \frac{kT}{C} \]</div>
+        <p>If we set an upper limit to \( kT/C \), then the total sampling thermal noise will be bounded. Hereafter, we will refer to this thermal noise power as \( P_{kt/c} = kT/C \).</p>
+
+        <h2>2. SNR and ENOB Degradation</h2>
+        <p>For an ideal quantizer, the Signal-to-Noise Ratio (SNR) in dB is governed by:</p>
+        <div class="math-block">\[ \text{SNR}_{ideal}\text{(dB)} \approx 6.02 \cdot N + 1.76 \]</div>
+        <p><em>(where \( N \) is the number of bits)</em></p>
+        <p>When other noise sources are considered, the overall SNR decreases, resulting in a lower ENOB:</p>
+        <div class="math-block">\[ \text{SNR(dB)} = 10 \log_{10}\left(\frac{P_{sig}}{P_{tot}}\right) \]</div>
+                <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 2 of 3
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Capacitor Array Sizing Analysis</p>
+            </div>
+        </header>
+        
+        <!-- Continue your content for the next page here... -->
+        <p>For an ideal quantizer, \( P_{tot} = P_q \). Now, assume additional noise sources are introduced and can be represented as a scaled factor \( a \) of \( P_q \):</p>
+        <div class="math-block">
+            \[ P_{other} = P_{kt/c} + P_{comp} + P_{switch} = a \cdot P_q \]
+            \[ P_{tot} = P_q + a \cdot P_q = (1 + a) \cdot P_q \]
+        </div>
+        <p>The degraded SNR and ENOB reduction are then:</p>
+        <div class="math-block">
+            \[ \text{SNR}_{degraded}\text{(dB)} = \text{SNR}_{ideal}\text{(dB)} - 10 \log_{10}(1 + a) \]
+            \[ \text{ENOB}_{reduction} = \frac{10 \log_{10}(1 + a)}{6.02} \approx 1.66 \log_{10}(1 + a) \]
+        </div>
+
+        <table>
+            <tr><th style="width:50%;">a (Noise Ratio)</th><th style="width:50%;">ENOB Reduction (Bits)</th></tr>
+            <tr><td>0.01</td><td>0.007</td></tr>
+            <tr><td>0.10</td><td>0.070</td></tr>
+            <tr><td>0.20</td><td>0.130</td></tr>
+            <tr><td>0.40</td><td>0.240</td></tr>
+            <tr><td>0.50</td><td>0.290</td></tr>
+            <tr><td>1.00</td><td>0.500</td></tr>
+            <tr><td>2.00</td><td>0.790</td></tr>
+            <tr><td>3.00</td><td>1.000</td></tr>
+        </table>
+
+        <h2>3. Quantization Noise Power (\( P_q \))(Differential Ended)</h2>
+        <div class="math-block">\[ P_q = \frac{\text{LSB}^2}{12} = \frac{\left(\frac{2 \cdot V_{ref}}{2^N}\right)^2}{12} = \frac{4 \cdot V_{ref}^2}{12 \cdot 2^{2N}} = \frac{V_{ref}^2}{3 \cdot 2^{2N}} \]</div>
+        <p>For our specific design (\( V_{ref} = 1.0 \text{ V} \), \( N = 8 \text{ bits} \)):</p>
+        <div class="math-block">\[ P_q = \frac{1^2}{3 \cdot 2^{16}} = \frac{1}{196608} \approx 5.086 \times 10^{-6} \text{ V}^2 \]</div>
+
+        <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 1 of 3
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Capacitor Array Sizing Analysis</p>
+            </div>
+        </header>
+        
+        <!-- Continue your content for the next page here... -->
+
+        <h2>4. Capacitor Sizing for Thermal Noise</h2>
+        <p>Assuming the dominant extra noise source is \( kT/C \) (so \( a \approx A \)), considering the maximum operating temperature of 125&deg;C (398.15 K) ensures the inequality holds for all lower temperatures:</p>
+        <div class="math-block">
+            \[ \frac{kT}{C} < a \cdot 5.086 \times 10^{-6} \text{ V}^2 \]
+            \[ \frac{5.494 \times 10^{-21}}{C} < a \cdot 5.086 \times 10^{-6} \]
+            \[ C > \frac{1.080 \times 10^{-15}}{a} \text{ (F)} \]
+        </div>
+
+        <table>
+            <tr><th>a (Noise Ratio)</th><th>Min Total C_DAC</th><th>Min Unit Cap (C_DAC / 2^8)</th></tr>
+            <tr><td>0.01</td><td>108.0 fF</td><td>0.422 fF</td></tr>
+            <tr><td>0.10</td><td>10.8 fF</td><td>0.042 fF</td></tr>
+            <tr><td>1.00</td><td>1.1 fF</td><td>0.004 fF</td></tr>
+        </table>
+
+        <div class="note">
+            <strong>Conclusion:</strong> Quantitative analysis shows that the minimum capacitance required to meet thermal noise constraints is significantly smaller than practical, manufacturable capacitor sizes for an 8-bit architecture. Therefore, capacitor sizing for this ADC is not limited by kT/C noise, but rather bounded by matching limitations, settling time, and parasitic considerations. We can also use a statistic-based approach for the noise model, but the deterministic derivations above are sufficient to loosen the noise-based size restrictions.
+        </div>
+
+        <h2>5. Capacitor Array Mismatch Analysis (Pelgrom's Model)</h2>
+        <p>To avoid linearity degradation (INL/DNL), matching between adjacent unit capacitors (\( C_u \)) must strictly adhere to Pelgrom's mismatch model:</p>
+        <div class="math-block">\[ \sigma\left(\frac{\Delta C}{C}\right) = \frac{A_c}{\sqrt{\text{Area}}} \]</div>
+
+        <h3>5.1 SPICE Model Extraction for Sky130 MiM Capacitors</h3>
+        <p>We target the Metal-Insulator-Metal (MiM) capacitor devices available in the <code>sky130_fd_pr</code> library (<code>sky130_fd_pr__cap_mim_m3_1</code> / <code>_2</code>). The PDK SPICE model defines matching distributions as follows:</p>
+        <div class="diagram">.param carea = 'camimc*(wc)*(lc)'
+.param cperim = 'cpmimc*((wc)+(lc))*2'
+.param czero = 'carea + cperim' dev/gauss='0.01*2.8*(carea + cperim)/sqrt(wc*lc*mf)'</div>
+        <p>Extracting the Gaussian deviation parameter yields the Pelgrom area coefficient: \( A_c = 0.01 \cdot 2.8 = 0.028 \) (or \( 2.8\% \cdot \mu\text{m} \)).</p>
+        <ul>
+            <li><strong>Area Capacitance (\( C_{area} \))</strong>: \( 2.0 \text{ fF/}\mu\text{m}^2 \)</li>
+            <li><strong>Perimeter Capacitance (\( C_{perim} \))</strong>: \( 0.19 \text{ fF/}\mu\text{m} \)</li>
+        </ul>
+
+                <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 2 of 3
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Capacitor Array Sizing Analysis</p>
+            </div>
+        </header>
+        
+        <!-- Continue your content for the next page here... -->
+
+        <h3>5.2 Mathematical Grounding: Stochastic Analysis of the DAC</h3>
+        <p>The output of a capacitive DAC is defined by the ratio of the switched capacitors to the total capacitance. In a fully differential architecture, the differential output \(V_{diff}\) is:</p>
+        <div class="math-block">\[ V_{diff} = (V_{P+} - V_{P-}) - (V_{N+} - V_{N-}) \]</div>
+        <p><strong>The Unit Capacitor Model</strong><br>
+        Each unit capacitor \( C_i \) is modeled as an independent and identically distributed (i.i.d.) random variable: \( C_i \sim \mathcal{N}(\mu_{C}, \sigma_{C}^2) \). The relative standard deviation (coefficient of variation) is defined by Pelgrom’s Law:</p>
+        <div class="math-block">\[ \frac{\sigma_{C}}{\mu_{C}} = \frac{A_C}{\sqrt{W \cdot L}} \]</div>
+        <p><strong>Variance of a Binary Weighted Bit</strong><br>
+        The \(k\)-th bit capacitor \(C_k\) is the sum of \(n = 2^{k-1}\) unit capacitors. By the property of the sum of independent normal variables:</p>
+        <div class="math-block">\[ Var(C_k) = \sum_{i=1}^{2^{k-1}} Var(C_u) = 2^{k-1} \cdot \sigma_u^2 \]</div>
+        <p><strong>The Differential DNL at Mid-Scale</strong><br>
+        The Differential Non-Linearity (DNL) is worst at the MSB transition (\(0... \to 1...\)). The error \(E_{DNL}\) is the difference between the MSB capacitor and the sum of all lower-order capacitors (\(C_{rem}\)):</p>
+        <div class="math-block">\[ E_{DNL} = C_{MSB} - C_{rem} \]</div>
+        <p>For an 8-bit ADC, \(C_{MSB}\) has \(2^7 = 128\) units, and \(C_{rem}\) also has 128 units. In a single-ended setup:</p>
+        <div class="math-block">\[ Var(E_{DNL, single}) = Var(C_{128}) + Var(C_{128}) = 256 \cdot \sigma_u^2 \]</div>
+        <p>In a fully differential system, we have two such arrays (\(P\) and \(N\)) acting in opposition. The total differential error variance is:</p>
+        <div class="math-block">
+            \[ Var(E_{DNL, diff}) = Var(E_{DNL, P}) + Var(E_{DNL, N}) = 256\sigma_u^2 + 256\sigma_u^2 = 512\sigma_u^2 \]
+            \[ \sigma_{DNL, diff} = \sqrt{512} \cdot \sigma_u = 2^{(N+1)/2} \cdot \sigma_u \]
+        </div>
+
+                        <!-- END OF CURRENT PAGE -->
+            <div class="footer">
+                &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 2 of 3
+            </div>
+        </div>
+
+        <!-- START OF NEW PAGE -->
+        <div class="section">
+            <header>
+                <div class="logo">
+                    <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+                </div>
+                <div class="title-block">
+                    <h1>8-Bit NS-SAR ADC Core</h1>
+                    <p>Capacitor Array Sizing Analysis</p>
+                </div>
+            </header>
+            
+            <!-- Continue your content for the next page here... -->
+
+        <h3>5.3 Derivation of the Sizing Constraint</h3>
+        <p>To ensure DNL &lt; 0.5 LSB with a 3&sigma; yield (99.7%), we set the boundary condition: \( 3 \cdot \sigma_{DNL, diff} < 0.5 \cdot \mu_C \). Substituting the differential variance:</p>
+
+        <div class="math-block">
+            \[ 3 \cdot \sqrt{512} \cdot \sigma_u < 0.5 \cdot \mu_C \]
+            \[ 67.88 \cdot \sigma_u < 0.5 \cdot \mu_C \implies \frac{\sigma_u}{\mu_C} < \frac{0.5}{67.88} \approx 0.007366 \]
+        </div>
+
+        <h3>5.4 Physical Sizing for SKY130</h3>
+        <p>Given the PDK parameters: \(A_C = 0.028 \text{ }\mu\text{m}\), \(C_{area} = 2 \text{ fF/}\mu\text{m}^2\), and \(C_{perim} = 0.19 \text{ fF/}\mu\text{m}\).</p>
+        <p><strong>Step 1: Solving for Minimum Area</strong><br>Using Pelgrom's Equation:</p>
+        <div class="math-block">\[ \sqrt{\text{Area}} > \frac{A_C}{0.007366} = \frac{0.028}{0.007366} \approx 3.801 \text{ }\mu\text{m} \implies \text{Area}_{min} \approx 14.45 \text{ }\mu\text{m}^2 \]</div>
+        <p><strong>Step 2: Determining Dimensions (Square Geometry)</strong><br>For a square capacitor to minimize fringe field asymmetry:</p>
+        <div class="math-block">\[ W = L = \sqrt{14.45} \approx \mathbf{3.8 \text{ }\mu\text{m}} \]</div>
+        <p><strong>Step 3: Final Unit Capacitance (\(C_u\)) Calculation</strong></p>
+        <div class="math-block">\[ C_{total} = (14.45 \cdot 2.0) + (4 \cdot 3.8 \cdot 0.19) = 28.9 + 2.888 = \mathbf{31.79 \text{ fF}} \]</div>
+
+        <h3>5.5 Summary for Technical Report</h3>
+        <table>
+            <tr><th>Parameter</th><th>Symbol</th><th>Mathematical Derivation</th><th>Value</th></tr>
+            <tr><td>Max Allowable Sigma</td><td>\(\sigma_u/\mu_C\)</td><td>\(\frac{0.5}{3 \cdot \sqrt{2^{N+1}}}\)</td><td>0.736%</td></tr>
+            <tr><td>Required Area</td><td>\(A\)</td><td>\((A_C / \sigma_{rel})^2\)</td><td>14.45 &mu;m&sup2;</td></tr>
+            <tr><td>Unit Dimensions</td><td>\(W, L\)</td><td>\(\sqrt{A}\)</td><td>3.8 &mu;m &times; 3.8 &mu;m</td></tr>
+            <tr><td>Unit Capacitance</td><td>\(C_u\)</td><td>\(A \cdot C_{area} + P \cdot C_{perim}\)</td><td>31.8 fF</td></tr>
+            <tr><td>Total Array Cap (per side)</td><td>\(C_{tot}\)</td><td>\(2^8 \cdot C_u\)</td><td>8.14 pF</td></tr>
+        </table>
+
+                                    <!-- END OF CURRENT PAGE -->
+            <div class="footer">
+                &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 2 of 3
+            </div>
+        </div>
+
+        <!-- START OF NEW PAGE -->
+        <div class="section">
+            <header>
+                <div class="logo">
+                    <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+                </div>
+                <div class="title-block">
+                    <h1>8-Bit NS-SAR ADC Core</h1>
+                    <p>Capacitor Array Sizing Analysis</p>
+                </div>
+            </header>
+            
+            <!-- Continue your content for the next page here... -->
+
+        <h3>5.6 Practical Unit Capacitor Selection</h3>
+        <p>The calculations in the previous section establish the absolute lower limit for the unit capacitor (\( W = L = 3.8 \text{ }\mu\text{m} \), \( C_u \approx 31.8 \text{ fF} \)) to satisfy stochastic matching constraints. For layout simplicity and to provide an additional margin for matching, we evaluate slightly larger, integer-dimensioned geometries:</p>
+        
+        <ul>
+            <li><strong>Option A: \( 4 \text{ }\mu\text{m} \times 4 \text{ }\mu\text{m} \)</strong>
+                <ul>
+                    <li>Area = \( 16 \text{ }\mu\text{m}^2 \), Perimeter = \( 16 \text{ }\mu\text{m} \)</li>
+                    <li>\( C_{u} = (16 \cdot 2.0) + (16 \cdot 0.19) = 32.0 + 3.04 = \mathbf{35.04 \text{ fF}} \)</li>
+                </ul>
+            </li>
+            <li><strong>Option B: \( 5 \text{ }\mu\text{m} \times 5 \text{ }\mu\text{m} \)</strong>
+                <ul>
+                    <li>Area = \( 25 \text{ }\mu\text{m}^2 \), Perimeter = \( 20 \text{ }\mu\text{m} \)</li>
+                    <li>\( C_{u} = (25 \cdot 2.0) + (20 \cdot 0.19) = 50.0 + 3.8 = \mathbf{53.8 \text{ fF}} \)</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <p>We will choose one of these two practical unit sizes for the final layout implementation based on the final routing density and available area.</p>
+
+
+        <h2>6. Architecture Implications and Area Feasibility</h2>
+        <p>A standard binary-weighted Capacitor DAC for an 8-bit differential architecture requires 512 total unit capacitors (256 per side).</p>
+        <div class="math-block">\[ \text{Total Active Cap Area} = 512 \cdot 14.45 \text{ }\mu\text{m}^2 \approx 7,398.4 \text{ }\mu\text{m}^2 \]</div>
+        <ul>
+            <li>Required Area (Array Only): <strong>~7,400 &mu;m&sup2;</strong></li>
+            <li>Available Area (Total 1x2 Tiles): <strong>36,000 &mu;m&sup2; (160 x 225 &mu;m)</strong></li>
+        </ul>
+        <p>Unlike previous worst-case approximations, this stochastic analysis proves that implementing a standard full-binary CDAC is highly feasible within the allocated TinyTapeout area constraints without requiring complex area-reduction strategies.</p>
+
+        <h2>7. References</h2>
+        <ul>
+            <li>Hsu, C. P. (2013). "Analysis of capacitor mismatch in SAR ADC." <em>IEEE Trans. on Circuits and Systems</em>.</li>
+            <li>Jan Henning Mueller, Sebastian Strache, Laurens Busch, Ralf Wunderlich, and Stefan Heinen. "The Impact of Noise and Mismatch on SAR ADCs and a Calibratable Capacitance Array Based Approach for High Resolutions." <em>INTL JOURNAL OF ELECTRONICS AND TELECOMMUNICATIONS</em>, 2013, VOL. 59, NO. 2, PP. 161–167. DOI: 10.2478/eletel-2013-0019</li>
+        </ul>
+        
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 3 of 3
+        </div>
+    </div>
+</body>
+</html>

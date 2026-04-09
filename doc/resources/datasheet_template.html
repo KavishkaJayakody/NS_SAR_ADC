@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Document Title] - Silicon Edge</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    @page {
+        size: A4;
+        margin: 0; /* Prevents browser from adding extra margins that break the exact A4 height */
+    }
+    .section {
+        background-color: #fff;
+        width: 210mm;
+        height: 297mm;
+        margin: 10mm auto;
+        padding: 15mm 20mm;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        page-break-before: always;
+        break-before: page;
+        position: relative;
+        overflow: hidden;
+    }
+    .section:first-of-type {
+        page-break-before: auto;
+        break-before: auto;
+    }
+    @media print {
+        body { background-color: #fff; }
+        .section { 
+            margin: 0; 
+            box-shadow: none; 
+            /* Keep padding, width, and height intact for exact A4 print sizing */
+        }
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #C8102E; /* Silicon Red */
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+    }
+    .logo img {
+        height: 60px;
+    }
+    .title-block h1 {
+        margin: 0;
+        font-size: 22px;
+        color: #C8102E; /* Silicon Red */
+        text-align: right;
+    }
+    .title-block p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: #8A8F98; /* IC Gray */
+        text-align: right;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 16px;
+        color: #C8102E; /* Silicon Red */
+        border-bottom: 1px solid #8A8F98; /* IC Gray */
+        padding-bottom: 4px;
+        margin: 12px 0 8px 0;
+    }
+    h3 {
+        font-size: 14px;
+        color: #0A1A2F; /* Deep Silicon Navy */
+        margin: 10px 0 4px 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    th, td {
+        border: 1px solid #8A8F98; /* IC Gray */
+        padding: 5px 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #E6E8EB; /* Signal White */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        font-weight: 600;
+    }
+    .note {
+        background-color: #E6E8EB; /* Signal White */
+        border-left: 4px solid #C8102E; /* Silicon Red */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px 10px;
+        font-size: 12px;
+        font-style: italic;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .math-block {
+        background-color: #E6E8EB; /* Signal White */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px 12px;
+        border: 1px solid #8A8F98; /* IC Gray */
+        margin: 10px 0;
+        overflow-x: auto;
+        font-size: 11.5px;
+    }
+    p, ul, li {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+    .footer {
+        position: absolute;
+        bottom: 15mm;
+        left: 20mm;
+        right: 20mm;
+        text-align: center;
+        font-size: 11px;
+        color: #8A8F98; /* IC Gray */
+        border-top: 1px solid #8A8F98;
+        padding-top: 8px;
+    }
+</style>
+<script>
+  MathJax = {
+    tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <!-- START OF PAGE 1 -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <!-- Relative path assumes this file is in the resources folder -->
+                <img src="silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>[Project / Core Name]</h1>
+                <p>[Document Subtitle / Topic]</p>
+            </div>
+        </header>
+
+        <h2>1. [Section Heading]</h2>
+        <p>[Insert your detailed content, derivations, and explanations here.]</p>
+
+        <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | [Document Name] Rev [X.X] | Page 1 of [Y]
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE (Copy the block below to add more pages) -->
+    <!--
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>[Project / Core Name]</h1>
+                <p>[Document Subtitle / Topic]</p>
+            </div>
+        </header>
+        
+        <h2>2. [Next Section Heading]</h2>
+        <p>[Continue content here...]</p>
+        
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | [Document Name] Rev [X.X] | Page 2 of [Y]
+        </div>
+    </div>
+    -->
+</body>
+</html>
