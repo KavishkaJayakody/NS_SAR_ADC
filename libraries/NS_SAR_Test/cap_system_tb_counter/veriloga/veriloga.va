@@ -1,0 +1,80 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module cap_system_tb_counter (clk, reset, out, out_n, phase1);
+
+    // Parameters
+    parameter real vhigh = 1.8;
+    parameter real vlow = 0;
+    parameter real vth = 0.9;
+    parameter real trise = 1p;
+    parameter real trise_smp = 1p;
+    parameter real tfall = 1p;
+    parameter real tfall_smp = 1p;
+
+    input clk, reset;
+    output [7:0] out, out_n;
+    output phase1;
+    
+    electrical clk, reset;
+    electrical [7:0] out, out_n;
+    electrical phase1, phase1_n;
+
+    integer state;      
+    integer therm_out;   // For the 'out' bus
+    integer therm_out_n; // For the 'out_n' bus pattern
+    real vp1_target;
+    genvar i;
+    integer j;
+
+    analog begin
+
+        // 1. State Machine Logic
+        @(initial_step) state = 1;
+
+        @(cross(V(clk) - vth, 1)) begin
+            if (V(reset) > vth) begin
+                state = 1;
+            end else begin
+                if (state >= 12) state = 1;
+                else state = state + 1;
+            end
+        end
+
+        // 2. Modified Thermometer Logic
+        if (state == 1) begin
+            // SAMPLE PHASE: All bits high for out, as requested
+            therm_out = 255; 
+            therm_out_n = 255; 
+            vp1_target = vhigh;
+        end else if (state >= 2 && state <= 9) begin
+            // States 2-9: Bits fill from MSB down
+            // Pattern for 'out': 10000000, 11000000, 11100000...
+            // Pattern for 'out_n': 01111111, 00111111, 00011111...
+            therm_out = 0;
+            therm_out_n = 255;
+            for (j = 0; j <= (state - 2); j = j + 1) begin
+                therm_out   = therm_out   | (128 >> j);
+                therm_out_n = therm_out_n ^ (128 >> j); // Flip MSB bits to 0 one by one
+            end
+            vp1_target = vlow;
+        end else begin
+            // States 10-12: Hold at Half
+            therm_out   = 192; // 11000000
+            therm_out_n = 63; // 00111111
+            vp1_target = vlow;
+        end
+
+        // 3. Drive Phase 1 Outputs
+        V(phase1)   <+ transition(vp1_target, 0, trise_smp, tfall_smp);
+
+        // 4. Drive CDAC Bits
+        for (i = 0; i < 8; i = i + 1) begin
+            // Drive main 'out' bus
+            V(out[i])   <+ transition(((therm_out >> i) & 1) ? vhigh : vlow, 0, trise, tfall);
+            
+            // Drive modified 'out_n' bus (011..., 0011...)
+            V(out_n[i]) <+ transition(((therm_out_n >> i) & 1) ? vhigh : vlow, 0, trise, tfall);
+        end
+    end
+endmodule

@@ -1,4 +1,4 @@
-// VerilogA for FYP_22, analog_comparator, veriloga
+// VerilogA for NS_SAR_Analog, analog_comparator, veriloga
 
 `include "constants.vams"
 `include "disciplines.vams"

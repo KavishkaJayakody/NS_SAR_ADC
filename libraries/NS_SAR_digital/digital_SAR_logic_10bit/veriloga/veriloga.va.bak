@@ -1,9 +1,0 @@
-// VerilogA for FYP_22, digital_SAR_logic_10bit, veriloga
-
-`include "constants.vams"
-`include "disciplines.vams"
-
-module digital_SAR_logic_10bit;
-
-
-endmodule

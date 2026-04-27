@@ -1,0 +1,162 @@
+// VerilogA for NS_SAR_Digital, digital_SAR_logic_8bit, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+// Logic Levels
+`define LOGIC_Vinput 1.8
+`define LOGIC_Vref   0.0
+`define LOGIC_gnd    1.8
+`define LOGIC_sample 1.8
+`define LOGIC_hold   0.0
+`define HIGH         1.8
+`define LOW          0.0
+
+module digital_SAR_logic_8bit(CLK, COMP, C_COMP, B0, B1, B2, B3, B4, B5, B6, B7, CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CNC, CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7, SP, SN, EOC);
+    input CLK, COMP;
+    output B0, B1, B2, B3, B4, B5, B6, B7;
+    output CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7;
+    output CNC, CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7;
+    output C_COMP, SP, SN, EOC;
+
+    electrical CLK, COMP, C_COMP, EOC, B0, B1, B2, B3, B4, B5, B6, B7, CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CNC, CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7, SP, SN;
+
+    // Registers
+    real regp0, regp1, regp2, regp3, regp4, regp5, regp6, regp7;
+    real regn0, regn1, regn2, regn3, regn4, regn5, regn6, regn7;
+    real dat0, dat1, dat2, dat3, dat4, dat5, dat6, dat7;
+    real out0, out1, out2, out3, out4, out5, out6, out7, eoc;
+    real regpc, regnc, regps, regns, comp_clk;
+
+    // Clock Divider
+    integer count;
+    real slow_clk;
+    parameter integer DIV_RATIO = 2;
+    parameter real Vth = 0.9;
+    parameter real td = 1n;
+    parameter real tr = 1n;
+
+    integer state;
+    parameter SAMPLE  = 0;
+    parameter TRIAL_7 = 1;
+    parameter STEP_6  = 2; parameter STEP_5 = 3; parameter STEP_4 = 4;
+    parameter STEP_3  = 5; parameter STEP_2 = 6; parameter STEP_1 = 7;
+    parameter STEP_0  = 8;
+    parameter NS1    = 9;
+	parameter NS2	 =10;
+	parameter DONE	 =11;
+
+
+    analog begin
+        @(initial_step) begin
+            state = SAMPLE; count = 0; slow_clk = 0;
+            regp7=0; regp6=0; regp5=0; regp4=0; regp3=0; regp2=0; regp1=0; regp0=0;
+            regn7=0; regn6=0; regn5=0; regn4=0; regn3=0; regn2=0; regn1=0; regn0=0;
+            dat7=0;  dat6=0;  dat5=0;  dat4=0;  dat3=0;  dat2=0;  dat1=0;  dat0=0;
+            out7=0;  out6=0;  out5=0;  out4=0;  out3=0;  out2=0;  out1=0;  out0=0;
+            regpc=0; regnc=0; regps=0; regns=0;
+        end
+
+        // Clock Divider
+        @(cross(V(CLK) - Vth, +1)) begin
+            count = count + 1;
+            if (count >= DIV_RATIO) begin
+                slow_clk = `HIGH;
+                count = 0;
+            end else if(count <= DIV_RATIO/2) begin
+                slow_clk = `LOW;
+            end
+        end
+
+        // Main SAR Logic
+        @(cross(slow_clk - Vth, +1)) begin
+            if (state == SAMPLE) begin
+                regps = `LOGIC_sample; regns = `LOGIC_sample;
+                regpc = `LOGIC_Vinput; regnc = `LOGIC_Vinput;
+                regp7=`LOGIC_Vinput; regp6=`LOGIC_Vinput; regp5=`LOGIC_Vinput; regp4=`LOGIC_Vinput;
+                regp3=`LOGIC_Vinput; regp2=`LOGIC_Vinput; regp1=`LOGIC_Vinput; regp0=`LOGIC_Vinput;
+                regn7=`LOGIC_Vinput; regn6=`LOGIC_Vinput; regn5=`LOGIC_Vinput; regn4=`LOGIC_Vinput;
+                regn3=`LOGIC_Vinput; regn2=`LOGIC_Vinput; regn1=`LOGIC_Vinput; regn0=`LOGIC_Vinput;
+				eoc = `LOW ;
+                state = TRIAL_7;
+            end
+            else if (state == TRIAL_7) begin
+                regps = `LOGIC_hold; regns = `LOGIC_hold;
+                regp7 = `LOGIC_Vref; regnc = `LOGIC_Vref; regpc = `LOGIC_gnd;
+                regp6=`LOGIC_gnd;  regp5=`LOGIC_gnd;  regp4=`LOGIC_gnd;  regp3=`LOGIC_gnd;
+                regp2=`LOGIC_gnd;  regp1=`LOGIC_gnd;  regp0=`LOGIC_gnd;
+                regn7=`LOGIC_gnd;  regn6=`LOGIC_Vref; regn5=`LOGIC_Vref; regn4=`LOGIC_Vref;
+                regn3=`LOGIC_Vref; regn2=`LOGIC_Vref; regn1=`LOGIC_Vref; regn0=`LOGIC_Vref;
+				eoc = `LOW;
+                state = STEP_6;
+            end
+            else if (state == STEP_6) begin
+                if (V(COMP) > Vth) begin dat7=`HIGH; regp7=`LOGIC_Vref; regn7=`LOGIC_gnd; end
+                else               begin dat7=`LOW;  regp7=`LOGIC_gnd;  regn7=`LOGIC_Vref; end
+                regp6=`LOGIC_Vref; regn6=`LOGIC_gnd; state = STEP_5;
+            end
+            else if (state == STEP_5) begin
+                if (V(COMP) > Vth) begin dat6=`HIGH; regp6=`LOGIC_Vref; regn6=`LOGIC_gnd; end
+                else               begin dat6=`LOW;  regp6=`LOGIC_gnd;  regn6=`LOGIC_Vref; end
+                regp5=`LOGIC_Vref; regn5=`LOGIC_gnd; state = STEP_4;
+            end
+            else if (state == STEP_4) begin
+                if (V(COMP) > Vth) begin dat5=`HIGH; regp5=`LOGIC_Vref; regn5=`LOGIC_gnd; end
+                else               begin dat5=`LOW;  regp5=`LOGIC_gnd;  regn5=`LOGIC_Vref; end
+                regp4=`LOGIC_Vref; regn4=`LOGIC_gnd; state = STEP_3;
+            end
+            else if (state == STEP_3) begin
+                if (V(COMP) > Vth) begin dat4=`HIGH; regp4=`LOGIC_Vref; regn4=`LOGIC_gnd; end
+                else               begin dat4=`LOW;  regp4=`LOGIC_gnd;  regn4=`LOGIC_Vref; end
+                regp3=`LOGIC_Vref; regn3=`LOGIC_gnd; state = STEP_2;
+            end
+            else if (state == STEP_2) begin
+                if (V(COMP) > Vth) begin dat3=`HIGH; regp3=`LOGIC_Vref; regn3=`LOGIC_gnd; end
+                else               begin dat3=`LOW;  regp3=`LOGIC_gnd;  regn3=`LOGIC_Vref; end
+                regp2=`LOGIC_Vref; regn2=`LOGIC_gnd; state = STEP_1;
+            end
+            else if (state == STEP_1) begin
+                if (V(COMP) > Vth) begin dat2=`HIGH; regp2=`LOGIC_Vref; regn2=`LOGIC_gnd; end
+                else               begin dat2=`LOW;  regp2=`LOGIC_gnd;  regn2=`LOGIC_Vref; end
+                regp1=`LOGIC_Vref; regn1=`LOGIC_gnd; state = STEP_0;
+            end
+            else if (state == STEP_0) begin
+                if (V(COMP) > Vth) begin dat1=`HIGH; regp1=`LOGIC_Vref; regn1=`LOGIC_gnd; end
+                else               begin dat1=`LOW;  regp1=`LOGIC_gnd;  regn1=`LOGIC_Vref; end
+                regp0=`LOGIC_Vref; regn0=`LOGIC_gnd; state = NS1;
+            end
+            else if (state == NS1) begin
+                if (V(COMP) > Vth) begin dat0=`HIGH; regp0=`LOGIC_Vref; regn0=`LOGIC_gnd; end
+                else               begin dat0=`LOW;  regp0=`LOGIC_gnd;  regn0=`LOGIC_Vref; end
+                state = NS2;
+			end
+            else if (state == NS2) begin
+                state = DONE;
+            end
+            else if (state == DONE) begin
+                out7=dat7; out6=dat6; out5=dat5; out4=dat4; out3=dat3; out2=dat2; out1=dat1; out0=dat0; eoc = `HIGH;
+                state = SAMPLE;
+            end
+        end
+
+        comp_clk = 1.8 - slow_clk;
+
+        // Output Drive
+        V(B7) <+ transition(out7, td, tr); V(B6) <+ transition(out6, td, tr); V(B5) <+ transition(out5, td, tr);
+        V(B4) <+ transition(out4, td, tr); V(B3) <+ transition(out3, td, tr); V(B2) <+ transition(out2, td, tr); 
+        V(B1) <+ transition(out1, td, tr); V(B0) <+ transition(out0, td, tr);
+
+        V(CP7) <+ transition(regp7, td, tr); V(CP6) <+ transition(regp6, td, tr); V(CP5) <+ transition(regp5, td, tr);
+        V(CP4) <+ transition(regp4, td, tr); V(CP3) <+ transition(regp3, td, tr); V(CP2) <+ transition(regp2, td, tr); 
+        V(CP1) <+ transition(regp1, td, tr); V(CP0) <+ transition(regp0, td, tr);
+
+        V(CN7) <+ transition(regn7, td, tr); V(CN6) <+ transition(regn6, td, tr); V(CN5) <+ transition(regn5, td, tr);
+        V(CN4) <+ transition(regn4, td, tr); V(CN3) <+ transition(regn3, td, tr); V(CN2) <+ transition(regn2, td, tr); 
+        V(CN1) <+ transition(regn1, td, tr); V(CN0) <+ transition(regn0, td, tr);
+
+        V(CPC) <+ transition(regpc, td, tr); V(CNC) <+ transition(regnc, td, tr);
+        V(SP) <+ transition(regps, td, tr);  V(SN) <+ transition(regns, td, tr);
+        V(C_COMP) <+ transition(comp_clk, td, tr);
+		V(EOC) <+ transition(eoc, td, tr);
+    end
+endmodule

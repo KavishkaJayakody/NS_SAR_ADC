@@ -1,0 +1,36 @@
+`include "disciplines.vams"
+`include "constants.vams"
+
+module input_select_switch_res (VREF_P, VIN, SW, SW_N, VDD, VSS, VOUT);
+
+    // Define Pins
+    input VREF_P, VIN, SW, SW_N, VDD, VSS;
+    output VOUT;
+    electrical VREF_P, VIN, SW, SW_N, VDD, VSS, VOUT;
+
+    // Parameters
+    parameter real r_on = 10;       // On-resistance in Ohms
+    parameter real r_off = 1G;       // Off-resistance in Ohms
+    parameter real v_thresh = 0.9;   // Logic threshold (e.g., 1.8V / 2)
+
+    real res_ref, res_in;
+
+    analog begin
+        
+        // Determine resistances based on SW pin
+        if (V(SW) > v_thresh) begin
+            res_in  = r_on;
+            res_ref = r_off;
+        end else begin
+            res_in  = r_off;
+            res_ref = r_on;
+        end
+
+        // Model the switches as voltage-controlled resistors (conductance)
+        // I = V/R -> I = V * G
+        I(VIN, VOUT)  <+ V(VIN, VOUT) / res_in;
+        I(VREF_P, VOUT) <+ V(VREF_P, VOUT) / res_ref;
+
+    end
+
+endmodule

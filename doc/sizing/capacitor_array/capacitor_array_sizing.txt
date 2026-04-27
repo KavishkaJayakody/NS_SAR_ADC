@@ -190,17 +190,23 @@ The calculations above establish the absolute lower limit for the unit capacitor
     *   Area = 16 µm², Perimeter = 16 µm
     *   C_u = (16 * 2.0) + (16 * 0.19) = 35.04 fF
 
-*   **Option B: 5 µm x 5 µm**
+*   **Option B: 4.5 µm x 4.5 µm (Chosen Implementation)**
+    *   Area = 20.25 µm², Perimeter = 18 µm
+    *   C_u = (20.25 * 2.0) + (18 * 0.19) = 43.92 fF
+
+*   **Option C: 5 µm x 5 µm**
     *   Area = 25 µm², Perimeter = 20 µm
     *   C_u = (25 * 2.0) + (20 * 0.19) = 53.8 fF
 
-We will choose one of these two practical unit sizes for the final layout implementation based on overall array area routing considerations.
+We have chosen Option B (4.5 µm x 4.5 µm) for the final layout implementation as it provides an excellent balance between matching margin, total capacitance, and available routing area.
 
 ## 7. Architecture Implications and Area Feasibility
 A standard binary-weighted Capacitor DAC for an 8-bit differential architecture requires 512 total unit capacitors (256 per side).
-    Total Active Cap Area = 512 * 14.45 µm² ≈ 7,398.4 µm²
+    Total Active Cap Area = 512 * 20.25 µm² = 10,368 µm²
+    Total Estimated Area (with 100% overhead) = 10,368 * 2 = 20,736 µm²
     
-*   Required Area (Array Only): ~7,400 µm²
+*   Required Active Area (Array Only): 10,368 µm²
+*   Total Estimated Area (including 100% allocation for dummies, spacing, and interconnects): ~20,736 µm²
 *   Available Area (Total 1x2 Tiles): 36,000 µm² (160 x 225 µm)
 
 Unlike previous worst-case approximations, this stochastic analysis proves that implementing a standard full-binary CDAC is highly feasible within the allocated TinyTapeout area constraints without requiring complex area-reduction strategies.

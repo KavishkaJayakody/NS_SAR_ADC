@@ -1,0 +1,41 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module vcm_switch(A, B, SAMPLE, SAMPLE_N, VDD, VSS);
+    inout A, B;
+    input SW, SW_N;
+    input VDD, VSS;
+
+    electrical A, B, SW, SW_N, VDD, VSS;
+
+    parameter real ron = 10;
+    parameter real roff = 1000M;
+    parameter real vth = 0.5;
+    parameter real i_limit = 0.1m; // 0.1mA Limit
+
+    real g_inst;
+    real i_ideal;
+
+    analog begin
+        // 1. Determine Conductance
+        if (V(SW, VSS) > vth) begin
+            g_inst = 1.0 / ron;
+        end else begin
+            g_inst = 1.0 / roff;
+        end
+
+        // 2. Calculate Ideal Ohm's Law Current
+        i_ideal = g_inst * V(A, B);
+
+        // 3. Apply Hard Current Limiting (Clamping at +/- 0.1mA)
+        if (i_ideal > i_limit)
+            I(A, B) <+ i_limit;
+        else if (i_ideal < -i_limit)
+            I(A, B) <+ -i_limit;
+        else
+            I(A, B) <+ i_ideal;
+            
+        // Note: For charge injection studies, consider adding a 
+        // small parallel capacitance or a transition delay to SW.
+    end
+endmodule

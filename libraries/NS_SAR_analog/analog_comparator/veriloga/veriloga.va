@@ -1,16 +1,16 @@
-// VerilogA for FYP_22, analog_comparator, veriloga
+// VerilogA for NS_SAR_Analog, analog_comparator, veriloga
 
 `include "constants.vams"
 `include "disciplines.vams"
 
-module analog_comparator(INP, INN, OUT, VDD, VSS);
+module analog_comparator(INP, INN, OUT, VDD, VSS, CLK);
 
     // Port Directions
-    input INP, INN, VDD, VSS;
+    input INP, INN, VDD, VSS, CLK;
     output OUT;
 
     // Discipline Declarations (Must match port names exactly)
-    electrical INP, INN, OUT, VDD, VSS;
+    electrical INP, INN, OUT, VDD, VSS, CLK;
 
     // Parameters
     parameter real VOS = 0.0;         // Input offset voltage

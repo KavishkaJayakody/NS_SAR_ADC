@@ -1,0 +1,42 @@
+// VerilogA for NS_SAR_Analog, gate_driver_vcm, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module gate_driver_vcm (SAMPLE, VDD, VSS, SW, SW_N);
+
+    // Node Definitions
+    output SW, SW_N;
+    input SAMPLE;
+    input VDD, VSS;
+
+    electrical SW, SW_N;
+    electrical SAMPLE, VDD, VSS;
+
+    // Parameters
+    parameter real v_thresh = 0.9; 
+    parameter real tr = 1p; // Sharpened transitions for modern processes
+    parameter real tf = 1p;
+	parameter real td = 1n;
+
+    real hi, lo;
+    real out, out_n;
+
+    analog begin
+        hi = V(VDD);
+        lo = V(VSS);
+		if (V(SAMPLE)>v_thresh) begin
+			out = hi;
+			out_n = lo;
+		end
+		else begin
+			out = lo;
+			out_n = hi;
+		end	
+
+        // Drive outputs
+        V(SW)      <+ transition(out, 0, tr, tf);
+        V(SW_N)    <+ transition(out_n, 0, tr, tf);
+
+    end
+endmodule

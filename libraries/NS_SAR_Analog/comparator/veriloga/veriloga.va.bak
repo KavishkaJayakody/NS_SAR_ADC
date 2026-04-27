@@ -1,0 +1,23 @@
+// VerilogA for NS_SAR_Analog, comparator, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module comparator(OUT, CLK, IBIAS, VDD, VN, VP, VSS);
+output OUT;
+electrical OUT;
+input CLK;
+electrical CLK;
+input IBIAS;
+electrical IBIAS;
+input VDD;
+electrical VDD;
+input VN;
+electrical VN;
+input VP;
+electrical VP;
+input VSS;
+electrical VSS;
+
+
+endmodule

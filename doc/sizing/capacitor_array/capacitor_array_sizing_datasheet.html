@@ -177,6 +177,8 @@
             <div class="title-block">
                 <h1>8-Bit NS-SAR ADC Core</h1>
                 <p>Capacitor Array Sizing Analysis</p>
+                <p style="font-size: 11px; font-weight: normal; margin-top: 2px;">Prepared by Kavishka Jayakody</p>
+
             </div>
         </header>
 
@@ -416,7 +418,13 @@
                     <li>\( C_{u} = (16 \cdot 2.0) + (16 \cdot 0.19) = 32.0 + 3.04 = \mathbf{35.04 \text{ fF}} \)</li>
                 </ul>
             </li>
-            <li><strong>Option B: \( 5 \text{ }\mu\text{m} \times 5 \text{ }\mu\text{m} \)</strong>
+            <li><strong>Option B: \( 4.5 \text{ }\mu\text{m} \times 4.5 \text{ }\mu\text{m} \) (Chosen Implementation)</strong>
+                <ul>
+                    <li>Area = \( 20.25 \text{ }\mu\text{m}^2 \), Perimeter = \( 18 \text{ }\mu\text{m} \)</li>
+                    <li>\( C_{u} = (20.25 \cdot 2.0) + (18 \cdot 0.19) = 40.5 + 3.42 = \mathbf{43.92 \text{ fF}} \)</li>
+                </ul>
+            </li>
+            <li><strong>Option C: \( 5 \text{ }\mu\text{m} \times 5 \text{ }\mu\text{m} \)</strong>
                 <ul>
                     <li>Area = \( 25 \text{ }\mu\text{m}^2 \), Perimeter = \( 20 \text{ }\mu\text{m} \)</li>
                     <li>\( C_{u} = (25 \cdot 2.0) + (20 \cdot 0.19) = 50.0 + 3.8 = \mathbf{53.8 \text{ fF}} \)</li>
@@ -424,14 +432,18 @@
             </li>
         </ul>
         
-        <p>We will choose one of these two practical unit sizes for the final layout implementation based on the final routing density and available area.</p>
+        <p>We have chosen Option B (\( 4.5 \text{ }\mu\text{m} \times 4.5 \text{ }\mu\text{m} \)) for the final layout implementation as it provides an excellent balance between matching margin, total capacitance, and available routing area.</p>
 
 
         <h2>6. Architecture Implications and Area Feasibility</h2>
         <p>A standard binary-weighted Capacitor DAC for an 8-bit differential architecture requires 512 total unit capacitors (256 per side).</p>
-        <div class="math-block">\[ \text{Total Active Cap Area} = 512 \cdot 14.45 \text{ }\mu\text{m}^2 \approx 7,398.4 \text{ }\mu\text{m}^2 \]</div>
+        <div class="math-block">
+            \[ \text{Total Active Cap Area} = 512 \cdot 20.25 \text{ }\mu\text{m}^2 = 10,368 \text{ }\mu\text{m}^2 \]
+            \[ \text{Total Estimated Area (with 100\% overhead)} = 10,368 \cdot 2 = 20,736 \text{ }\mu\text{m}^2 \]
+        </div>
         <ul>
-            <li>Required Area (Array Only): <strong>~7,400 &mu;m&sup2;</strong></li>
+            <li>Required Active Area (Array Only): <strong>10,368 &mu;m&sup2;</strong></li>
+            <li>Total Estimated Area (including 100% allocation for dummies, spacing, and interconnects): <strong>~20,736 &mu;m&sup2;</strong></li>
             <li>Available Area (Total 1x2 Tiles): <strong>36,000 &mu;m&sup2; (160 x 225 &mu;m)</strong></li>
         </ul>
         <p>Unlike previous worst-case approximations, this stochastic analysis proves that implementing a standard full-binary CDAC is highly feasible within the allocated TinyTapeout area constraints without requiring complex area-reduction strategies.</p>

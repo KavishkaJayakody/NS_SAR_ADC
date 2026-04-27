@@ -1,0 +1,21 @@
+# Cadence lock files
+*.cdslck
+*.cdslck.*
+
+# Cadence OA files
+*.oa
+
+# Simulation results
+simulations/
+
+# Temporary files
+*.tmp
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.o
+*.exe

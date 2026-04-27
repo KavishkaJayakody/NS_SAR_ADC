@@ -1,0 +1,284 @@
+# VCM Switch / Input Selector Switch Sizing Analysis
+Prepared by Kavishka Jayakody
+
+The VCM switch / input selector switch is a critical component of the SAR ADC, responsible for accurately 
+capturing the input signal and securing the sampled charge within the capacitor array. 
+Each capacitor effectively interfaces with two switching elements: top-plate switches (the VCM switch) and bottom-plate switches (input selector switch / MUX switches).
+
+Because the VCM switch is common to all top plates and the input selector switch is common to all bottom plates, they dominantly contribute to the 
+total array's dynamic behavior compared to the MUX switches (available for each unit capacitor), which are distributed across 
+multiple capacitor banks. Given that the positive and negative capacitor arrays are identical 
+and feature two separate VCM switches / input selector switches, this analysis focuses on sizing a single VCM switch / input selector switch.
+
+## 1. Design Considerations
+Sizing the VCM switch / input selector switch involves balancing several key performance metrics:
+*   CDAC Settling Time -> Determines the maximum allowable on-resistance (R_on)
+*   Switch Non-linearities -> The dependence of R_on on the input voltage (V_in) and capacitor voltage (V_cap)
+*   Holding Time and Charge Leakage -> Ensuring captured charge does not degrade during conversion
+*   Charge Injection and Clock Feedthrough -> Minimizing errors introduced during the turn-off event
+
+For the sizing of the VCM switch, extreme care should be taken regarding both the R_on and I_leak constraints, which require opposite sizing requirements.
+For the sizing of the input selector switch, the I_leak constraint can be relaxed since it is connected to the bottom plate, and strict enforcement of charge conservation on the bottom plate is not necessary.
+Therefore, we can take actions to minimize the R_on.
+Care should be taken to minimize charge injection in both switches.
+
+## 2. Array Capacitance
+Based on previous capacitor array sizing calculations, the unit capacitor (C_u) 
+implementation was chosen to be 4.5 µm x 4.5 µm, yielding approximately 43.92 fF.
+
+For an 8-bit architecture, the total capacitance per array (C_array) is:
+    C_array = 43.92 fF * 256 = 11.244 pF
+
+## 3. Settling Time and Maximum R_on Criteria
+To analyze the switch-on state, the input switch is modeled as a static resistor (R_on).
+
+### 3.1 Worst-Case Voltage Step
+Assume the maximum voltage step across the capacitor array is V_ref = 0.9 V (effectively 
+2*V_ref = 1.8 V differentially). While a full-scale step is highly unlikely during normal 
+continuous tracking operation, designing for this worst-case scenario guarantees robust 
+settling under all conditions.
+
+The voltage settling on the capacitor follows:
+    V_cap(t) = V_0 * (1 - e^(-t / tau))
+Where the time constant is:
+    tau = R_on * C_array
+
+### 3.2 Settling Time Target
+We allocate 0.5 of a clock period for the capacitor settling time.
+*   For a relaxed 100 kHz clock, T_clk = 10 µs (provides a tighter margin).
+*   For a standard 96 kHz clock, T_clk = 10.42 µs.
+
+Choosing the tighter margin (100 kHz clock), the available settling time (t_settle) is 5 µs.
+
+### 3.3 Resolution Requirement
+To ensure the sampled voltage represents the true input accurately, the settling error 
+by the end of the sampling phase (t_settle) must be less than 0.5 LSB.
+
+The voltage error at time t is:
+    V_error(t) = V_0 * e^(-t / tau)
+
+We require V_error(t_settle) < 0.5 LSB.
+Since 1 LSB = V_FS / 2^N, 0.5 LSB = V_FS / 2^(N+1).
+(Note that V_FS cancels out, making the required R_on independent of the 0.9 V reference(V_FS = 2V_ref and V_0 = Vref)).
+
+    V_0 * e^(-t_settle / tau) < V_FS / 2^(N+1)
+    e^(-t_settle / tau) < 2^-(N)
+    -t_settle / tau < -(N) * ln(2)
+    t_settle / tau > (N) * ln(2)
+
+Note: While Nln(2) is for differential case, rigorous 0.5 LSB settling for a worst-case full-scale step requires 
+(N+1)ln(2) which can be seen in single ended cases where V_{FS}=  V_{ref} . We will choose this criteria to favor accuracy.
+
+Substituting tau = R_on * C_array:
+    t_settle / (R_on * C_array) >= (N+1) * ln(2)
+    R_on <= t_settle / (C_array * (N+1) * ln(2))
+
+### 3.4 R_on Calculation
+Substituting the physical design values:
+    t_settle = 5 µs = 5 * 10^-6 s
+    N = 8
+    C_array = 11.244 pF = 11.244 * 10^-12 F
+    ln(2) ≈ 0.693
+
+    R_on <= (5 * 10^-6) / (11.244 * 10^-12 * (8+1) * 0.693)
+    R_on <= (5 * 10^-6) / (70.13 * 10^-12)
+    R_on <= 71,300 Ohms
+
+## 4. Conclusion
+The upper bound for the VCM switch / input selector switch on-resistance (R_on) is 71.3 kΩ. To account for PVT 
+(Process, Voltage, Temperature) variations and switch non-linearities across the full input 
+voltage range, the switch should be sized such that its peak resistance remains well below 
+this 71.3 kΩ threshold across all operating conditions. This is a very loose constraint for 
+the R_on. Practical simulations show that the actual R_on is significantly less for any 
+process corner.
+
+(Note: Further analysis will be appended for charge injection, clock feedthrough, 
+and leakage currents).
+
+## 5. Capacitor Array Leakage Current Analysis
+### 5.1 Circuit Modeling
+To analyze the leakage current, we model the capacitor array (C_array) with VCM switches and combined bottom-plate switches. For a single side of the differential array, the simplified model is:
+* V_in is connected through an "off" resistance (r_off) to the top plate of the capacitor.
+* The capacitor C_array is in series with another "off" resistance (r_off) connected to ground.
+* V_cap represents the voltage across the capacitor array.
+
+### 5.2 Leakage Analysis Equations
+For the leakage analysis, we use the fundamental charge equation:
+    Q_cap = C_array * V_cap
+For a small time interval (Δt), the change in charge relates to the change in voltage as follows:
+    ΔQ_cap / Δt = C_array * (ΔV_cap / Δt)
+The term ΔQ_cap / Δt represents the leakage current (I_leakage). Therefore:
+    I_leakage = C_array * (ΔV_cap / Δt)
+
+### 5.3 Determining Worst-Case Parameters
+To find the maximum allowable leakage current, we need the minimum allowable voltage drop (ΔV_min) and the maximum hold time (Δt_max).
+Calculating Δt_max (Hold Period):
+* Design frequency (min): 96 kHz
+* Clock Period (t): 1 / 96 kHz ≈ 10.42 µs
+* Hold Periods: The conversion takes multiple clock cycles(8 clocks for a SAR conversion). To account for noise shaping and a safety margin, we assume the hold state lasts for 11 out of 12 clock cycles per conversion.
+* Calculation: 11 * 10.42 µs = 114.62 µs
+* Result: Δt_max ≈ 115 µs
+
+### 5.4 Maximum Allowable Voltage Drop
+The maximum allowable voltage drop per array is defined as half of the Least Significant Bit (LSB) voltage to maintain conversion accuracy:
+    ΔV = V_LSB / 2 = 2 * V_ref / 2^(N+1) = 0.9 / 2^9
+(Note: "0.9 / 2^9", is used for 8-bit resolution where the margin is applied at N+1 to account the errors introduced by both arrays)
+ΔV_min calculation: 0.9 / 512 ≈ 1.7578125 mV
+
+### 5.5 Maximum Leakage Current Calculation
+Using the values derived above and a capacitor array value of 11.244 pF:
+    I_leakage_max = 11.244 pF * (1.7578125 mV / 115 µs)
+    I_leakage_max = 171.858 pA
+Design Limit:
+To ensure stability and accuracy, the allowable leakage must be less than the calculated limit:
+    I_leakage_allowable < I_leakage_limit = 170 pA
+
+### 5.6 Design Recommendations
+By using this design limit, the following constraints are established for the system:
+* Use capacitor arrays where C_array > 11.244 pF (larger capacitance reduces the voltage droop for a fixed leakage).
+* Maintain a clock frequency f_clk > 96 kHz (higher frequencies shorten the hold time, reducing the impact of leakage).
+
+## 6. VCM FET Sizing Analysis
+VCM FET sizing requires the consideration of both R_on and I_leak. Therefore, we will design the VCM switch to strictly satisfy the above requirements, and design the input selector switch to complement R_on since its I_leak constraint can be relaxed.
+
+### 6.1 Design Strategy and Goals
+The sizing of the transmission gate (TG) necessitates a careful optimization between on-resistance (R_on) and leakage current (I_leak). To mitigate charge injection effects through first-order cancellation, the NMOS and PMOS devices are symmetrically sized (W_n = W_p and L_n = L_p).
+* To minimize R_on: Channel length (L) must be minimized while width (W) is maximized.
+* To minimize I_leak: Channel length (L) must be increased while width (W) is minimized.
+
+### 6.2 Simulation Methodology and Test Environment
+Robustness is verified by simulating the design across worst-case Process, Voltage, and Temperature (PVT) corners:
+* Worst-Case R_on: Evaluated at the SS (Slow-Slow) process corner at -25°C, where carrier mobility is lowest.
+* Worst-Case I_leak: Evaluated at the FF (Fast-Fast) process corner at 125°C, where subthreshold and junction leakage currents peak.
+
+[ATTACH IMAGE: Testbench Schematic]
+Description: Cadence schematic illustrating the transmission gate setup with the capacitor array load and the DC/Parametric simulation sources.
+* R_on Testbench: A 1 mV differential is forced across the TG input and output, and the resulting current is measured to calculate resistance.
+* I_leak Testbench: The TG output is biased at the common-mode voltage (VCM), mirroring the SAR logic's tendency to drive the C_array top-plate toward VCM. The input voltage is swept to evaluate leakage.
+
+Simulation Strategy:
+Initial parametric sweeps of W and V_in across discrete lengths (150 nm to 220 nm) revealed edge-case vulnerabilities:
+* L = 150 nm: Displayed excessive I_leak at the upper limits of the input voltage range.
+* L = 220 nm: Exhibited inadequate R_on performance near the mid-rail input voltages.
+
+Consequently, the methodology was refined: V_in was fixed at the previously identified worst-case potentials (e.g., mid-rail for maximum R_on, and 0.05V / 1.75V for maximum I_leak, suppressing the absolute extremes to reflect realistic operational limits). W and L were then systematically swept to identify the optimal design boundary.
+
+### 6.3 Parametric Sweep Results
+The following tables summarize the design boundary conditions required to satisfy the established R_on and I_leak limits. Note that these values are approximations utilized to qualitatively guide the dimension selection process.
+
+Table 1: R_on Boundary Constraints (SS Corner, -25°C)
+Determines the maximum allowable L for a given W to satisfy the R_on upper bound.
+
+| Width (W) | Length (L) Limit | Status   |
+|-----------|------------------|----------|
+| 3.0 µm    | < 150 nm         | ✘ (Fail) |
+| 3.5 µm    | < 154 nm         | ✔ (Pass) |
+| 4.0 µm    | < 159 nm         | ✔ (Pass) |
+| 4.5 µm    | < 164 nm         | ✔ (Pass) |
+| 5.0 µm    | < 168 nm         | ✔ (Pass) |
+| 5.5 µm    | < 176 nm         | ✔ (Pass) |
+| 6.0 µm    | < 182 nm         | ✔ (Pass) |
+| 6.5 µm    | < 190 nm         | ✔ (Pass) |
+| 7.0 µm    | < 198 nm         | ✔ (Pass) |
+| 7.5 µm    | < 205 nm         | ✔ (Pass) |
+
+Table 2: I_leak Boundary Constraints (FF Corner, 125°C)
+Determines the minimum required L for a given W to strictly enforce the I_leak upper bound.
+
+| Width (W) | Length (L) Limit | Status   |
+|-----------|------------------|----------|
+| 3.0 µm    | > 224 nm         | ✔ (Pass) |
+| 3.5 µm    | > 222 nm         | ✔ (Pass) |
+| 4.0 µm    | > 221 nm         | ✔ (Pass) |
+| 4.5 µm    | > 220 nm         | ✔ (Pass) |
+| 5.0 µm    | > 220 nm         | ✔ (Pass) |
+| 5.5 µm    | > 215.5 nm       | ✔ (Pass) |
+| 6.0 µm    | > 211 nm         | ✔ (Pass) |
+| 6.5 µm    | > 207.5 nm       | ✔ (Pass) |
+| 7.0 µm    | > 204 nm         | ✔ (Pass) |
+| 7.5 µm    | > 205 nm         | ✔ (Pass) |
+
+*Note: Extreme rail conditions (V_in = 0V and 1.8V) induce complex leakage mechanisms that fall outside the typical tracking envelope and were excluded from this specific boundary selection phase.*
+
+### 6.4 Proposed Device Sizes
+Evaluating the parametric sweep results to identify the minimum device footprint that simultaneously satisfies both the R_on and I_leak constraints across all worst-case corners yields the following optimal dimensions:
+* W_n = W_p = 7.5 µm
+* L_n = L_p = 205 nm
+
+### 6.5 Final Simulation Verification
+Deploying the proposed physical dimensions, the final verification simulations confirm the design viability:
+
+* On-Resistance (R_on): Evaluated under the SS corner at -25°C, the constraint R_on < 71.2 kΩ is strictly satisfied across the dominant input range, demonstrating significant headroom compared to the initial boundaries.
+[ATTACH IMAGES: 3 Ron vs Vin Plots]
+Description: Plots illustrating the R_on curves across the 0V to 1.8V input span, capturing the peak resistance in the mid-rail region across different corners.
+
+* Leakage Current (I_leak): Evaluated under the FF corner at 125°C, the constraint I_leak < 170 pA is strictly satisfied across the entire functional input range (excluding extreme rails).
+[ATTACH IMAGES: 3 Ileak vs Vin Plots]
+Description: Plots illustrating leakage current versus input voltage, featuring a horizontal threshold marker at the 170 pA design limit across different corners.
+
+### 6.6 Design Rounding Considerations
+If layout constraints necessitate rounding the channel length (L) to a standard grid, the dimensions can be adjusted to 200 nm or 210 nm:
+* Rounding to L = 200 nm: Increases the leakage current (I_leak) significantly at the input voltage extremes.
+* Rounding to L = 210 nm: Increases the peak on-resistance (R_on), particularly in the mid-rail region.
+
+Recommendation: It is recommended to round up to L = 210 nm while slightly increasing the device width (e.g., W = 7.6 µm). The reasoning is that the rate at which R_on degrades is relatively lower compared to the exponential increase in I_leak at shorter channel lengths. Furthermore, the established R_on upper bound (71.3 kΩ) already contains significant redundancy, easily absorbing the minor resistance penalty introduced by this adjustment.
+
+## 7. Charge Injection and Switch Non-Linearities
+
+### 7.1 Charge Injection Mitigation
+To minimize the charge injection from the gate capacitance into the capacitor array (C_array) during the turn-off event, dummy switching devices are employed. Specifically, two dummy NMOS and two dummy PMOS devices are added alongside the active transmission gate devices. These dummy devices are sized with half the width (W/2) of the active devices and are driven by complementary clock signals to absorb the injected channel charge.
+
+### 7.2 Switch Non-Linearities
+To address switch non-linearities (such as the variation of R_on with the input voltage), a bootstrapped switch architecture is often considered. However, in this design, a bootstrapped switch will not be utilized. The primary reasons are the inherent limitations of operating with low-voltage devices, alongside the significant circuit complexity and area overhead it would introduce. The symmetrically sized transmission gate, coupled with the conservatively established R_on margins, provides sufficient linearity to satisfy the target 8-bit resolution.
+
+## 8. Input Selector Sizing
+### 8.1 Overview
+The Input Selector is a multiplexer that selects a voltage from either V_in (differential V_inp/V_inn) or V_ref and feeds it to the capacitor array (unit capacitor muxes). This switching occurs during the sampling and conversion phases of the ADC.
+
+### 8.2 Design Goals and Constraints
+Primary Goal: Minimize the On-Resistance (R_on) to ensure fast settling.
+Constraints: Area and charge injection must be managed.
+Note on Leakage: Leakage currents are not a primary concern for accuracy at this stage. While they can impact power, they are overlooked in this initial design cycle.
+
+### 8.3 Device Sizing Selection
+Initial simulations used the sizing from the Common-Mode (V_CM) switch. However, simulations under worst-case conditions (SS corner, -25°C) showed that the R_on was too high.
+To address this, the width was held constant while the length was reduced to the process minimum to maximize drive strength and minimize resistance.
+
+Proposed Design Device Dimensions:
+* W_p = W_n = 7.5 µm (aligned with V_CM switch width)
+* L_p = L_n = 150 nm (Minimum Length)
+
+[IMAGE PLACEHOLDER: Input Selector Transmission Gate Schematic]
+Description: A schematic showing the two transmission gates (one for V_in, one for V_ref) connected to a common output node.
+
+## 9. Capacitor Array Unit Cell Mux Sizing
+### 9.1 Settling Considerations
+For the unit capacitor cell, the sizing is governed strictly by R_on requirements. Since the bottom plate is always connected to an external supply during these phases, leakage (I_leak) is not a critical consideration. The calculation follows the settling time requirement for an N-bit converter.
+
+### 9.2 Resistance Calculations
+The required R_on is derived from the settling time (tau) needed to reach the required accuracy:
+    R_on <= t_settle / (C_unit * (N+1) * ln(2))
+
+Using the following parameters (with slight variations between simulated and calculated capacitance):
+* t_settle = 5 µs
+* C_unit ≈ 48.45 fF
+* N = 8 bits
+
+    R_on <= (5 * 10^-6) / (48.45 * 10^-15 * (8+1) * 0.693)
+    R_on <= 18.45 MΩ
+
+[IMAGE PLACEHOLDER: Unit Capacitor Mux Schematic]
+Description: A diagram showing the unit capacitor with its associated NMOS/PMOS switches for selecting V_in/V_ref or GND.
+
+### 9.3 Effective Resistance and Implementation
+When considering the parallel operation of the array, the effective resistance limit for the combined muxes is:
+    R_on,eff,mux <= 18.45 MΩ / 2^8 ≈ 72 kΩ
+
+This resistance is in series with the V_CM switch and the Input Select R_on. This implies that the individual unit mux switches should have extremely low resistances to not dominate the RC constant.
+If we assume the total effective resistance of all switches is roughly 1 kΩ, then the R_on for a single unit mux switch would be:
+    R_on = 1 kΩ * 256 = 256 kΩ
+
+Conclusion: This target is easily achievable using standard transistors with relatively small gate widths. According to simulations, a width (W) greater than 1µm with the minimum length (L = 150nm) is sufficient to meet the R_on target. The final dimensions can be optimized based on layout area availability, allowing for a compact layout of the capacitor array.
+
+[IMAGE PLACEHOLDER: RC Settling Simulation Plot]
+Description: A transient simulation plot showing the voltage settling on the capacitor top plate within the allotted 5 µs sampling window.

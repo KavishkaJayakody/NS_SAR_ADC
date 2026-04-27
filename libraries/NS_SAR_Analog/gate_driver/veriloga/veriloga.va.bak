@@ -1,0 +1,61 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module gate_driver (SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SEL_VREF_N_N, SAMPLE, VREF, VDD, VSS);
+
+    // Node Definitions
+    output SEL_VIN, SEL_VIN_N;
+    output SEL_VREF_P, SEL_VREF_P_N;
+    output SEL_VREF_N, SEL_VREF_N_N;
+    input SAMPLE, VREF;
+    input VDD, VSS;
+
+    electrical SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SEL_VREF_N_N;
+    electrical SAMPLE, VREF, VDD, VSS;
+
+    // Parameters
+    parameter real v_thresh = 0.9; 
+    parameter real tr = 1p; // Sharpened transitions for modern processes
+    parameter real tf = 1p;
+	parameter real td = 1n;
+
+    // Internal variables
+    real out1, out2, out3, out4, out5, out6;
+    real hi, lo;
+    integer select;
+
+    analog begin
+        hi = V(VDD);
+        lo = V(VSS);
+
+        // Convert analog inputs to a 2-bit integer for the case statement
+        select = (V(SAMPLE) > v_thresh ? 2 : 0) + (V(VREF) > v_thresh ? 1 : 0);
+
+        case (select)
+            2'b00: begin // SAMPLE=0, VREF=0 -> VREF_N flips
+                out1=lo; out2=hi; out3=lo; out4=hi; out5=hi; out6=lo;
+            end
+            2'b01: begin // SAMPLE=0, VREF=1 -> VREF_P flips
+                out1=lo; out2=hi; out3=hi; out4=lo; out5=lo; out6=hi;
+            end
+            2'b10: begin // SAMPLE=1, VREF=0 -> VIN flips
+                out1=lo; out2=hi; out3=lo; out4=hi; out5=lo; out6=hi;
+            end
+            2'b11: begin // SAMPLE=1, VREF=1 -> All 01 (Based on your scribble)
+                out1=hi; out2=lo; out3=lo; out4=hi; out5=lo; out6=hi;
+            end
+            default: begin
+                out1=lo; out2=hi; out3=lo; out4=hi; out5=lo; out6=hi;
+            end
+        endcase
+
+        // Drive outputs
+        V(SEL_VIN)      <+ transition(out1, td, tr, tf);
+        V(SEL_VIN_N)    <+ transition(out2, td, tr, tf);
+        V(SEL_VREF_P)   <+ transition(out5, 0, tr, tf);
+        V(SEL_VREF_P_N) <+ transition(out6, 0, tr, tf);
+        V(SEL_VREF_N)   <+ transition(out3, 0, tr, tf);
+        V(SEL_VREF_N_N) <+ transition(out4, 0, tr, tf);
+
+    end
+endmodule

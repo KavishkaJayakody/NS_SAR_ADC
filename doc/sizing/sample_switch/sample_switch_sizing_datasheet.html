@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VCM Switch / Input Selector Switch Sizing Analysis - Silicon Edge</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    .section {
+        background-color: #fff;
+        width: 210mm;
+        height: 297mm;
+        margin: 10mm auto;
+        padding: 15mm 20mm;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        page-break-before: always;
+        break-before: page;
+        position: relative;
+        overflow: hidden;
+    }
+    .section:first-of-type {
+        page-break-before: auto;
+        break-before: auto;
+    }
+    @media print {
+        body { background-color: #fff; }
+        .section { 
+            margin: 0; 
+            box-shadow: none; 
+        }
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #C8102E; /* Silicon Red */
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+    }
+    .logo img {
+        height: 60px;
+    }
+    .title-block h1 {
+        margin: 0;
+        font-size: 22px;
+        color: #C8102E; /* Silicon Red */
+        text-align: right;
+    }
+    .title-block p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: #8A8F98; /* IC Gray */
+        text-align: right;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 16px;
+        color: #C8102E; /* Silicon Red */
+        border-bottom: 1px solid #8A8F98; /* IC Gray */
+        padding-bottom: 4px;
+        margin: 12px 0 8px 0;
+    }
+    h3 {
+        font-size: 14px;
+        color: #0A1A2F; /* Deep Silicon Navy */
+        margin: 10px 0 4px 0;
+    }
+    .note {
+        background-color: #E6E8EB; /* Signal White */
+        border-left: 4px solid #C8102E; /* Silicon Red */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px 10px;
+        font-size: 12px;
+        font-style: italic;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .math-block {
+        background-color: #E6E8EB; /* Signal White */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px 12px;
+        border: 1px solid #8A8F98; /* IC Gray */
+        margin: 10px 0;
+        overflow-x: auto;
+        font-size: 11.5px;
+    }
+    p, ul, li {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+    .footer {
+        position: absolute;
+        bottom: 15mm;
+        left: 20mm;
+        right: 20mm;
+        text-align: center;
+        font-size: 11px;
+        color: #8A8F98; /* IC Gray */
+        border-top: 1px solid #8A8F98;
+        padding-top: 8px;
+    }
+</style>
+<script>
+  MathJax = {
+    tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <!-- START OF PAGE 1 -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+                <p style="font-size: 11px; font-weight: normal; margin-top: 2px;">Prepared by Kavishka Jayakody</p>
+
+            </div>
+        </header>
+
+        <h2>1. Introduction</h2>
+        <p>The VCM switch / input selector switch is a critical component of the SAR ADC, responsible for accurately capturing the input signal and securing the sampled charge within the capacitor array. Each capacitor effectively interfaces with two switching elements: top-plate switches (the VCM switch) and bottom-plate switches (input selector switch / MUX switches).</p>
+        <p>Because the VCM switch is common to all top plates and the input selector switch is common to all bottom plates, they dominantly contribute to the total array's dynamic behavior compared to the MUX switches (available for each unit capacitor), which are distributed across multiple capacitor banks. Given that the positive and negative capacitor arrays are identical and feature two separate VCM switches / input selector switches, this analysis focuses on sizing a single VCM switch / input selector switch.</p>
+
+        <div class="note">
+            <div style="text-align: center; margin-bottom: 8px;">
+                <img src="plots/8bit_SAR_block_diagram.png" alt="SAR ADC Switch placement" style="max-width: 100%; max-height: 250px; border: 1px solid #8A8F98;">
+            </div>
+            <strong>Description:</strong> Schematic with the switch placement is clearly visible.
+        </div>
+        <h2>2. Design Considerations</h2>
+        <p>Sizing the VCM switch / input selector switch involves balancing several key performance metrics:</p>
+        <ul>
+            <li><strong>CDAC Settling Time:</strong> Determines the maximum allowable on-resistance (\( R_{on} \)).</li>
+            <li><strong>Switch Non-linearities:</strong> The dependence of \( R_{on} \) on the input voltage (\( V_{in} \)) and capacitor voltage (\( V_{cap} \)).</li>
+            <li><strong>Holding Time &amp; Charge Leakage:</strong> Ensuring the captured charge does not degrade significantly during the conversion phase.</li>
+            <li><strong>Charge Injection &amp; Clock Feedthrough:</strong> Minimizing errors introduced during the switch turn-off event.</li>
+        </ul>
+        <p>For the sizing of the VCM switch, extreme care should be taken regarding both the \( R_{on} \) and \( I_{leak} \) constraints, which impose opposite sizing requirements.</p>
+        <p>For the sizing of the input selector switch, the \( I_{leak} \) constraint can be relaxed since it is connected to the bottom plate, and strict enforcement of charge conservation on the bottom plate is not necessary. Therefore, we can take actions to minimize the \( R_{on} \). Care should be taken to minimize charge injection in both switches.</p>
+
+                                                <!-- END OF CURRENT PAGE -->
+            <div class="footer">
+                &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 1 of 11
+            </div>
+        </div>
+
+        <!-- START OF NEW PAGE -->
+        <div class="section">
+            <header>
+                <div class="logo">
+                    <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+                </div>
+                <div class="title-block">
+                    <h1>8-Bit NS-SAR ADC Core</h1>
+                    <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+                </div>
+            </header>
+            
+            <!-- Continue your content for the next page here... -->
+        <h2>3. Array Capacitance</h2>
+        <p>Based on previous capacitor array sizing calculations, the unit capacitor (\( C_u \)) implementation was chosen to be 4.5 &mu;m &times; 4.5 &mu;m, yielding approximately 43.92 fF.</p>
+        <p>For an 8-bit architecture, the total capacitance per array (\( C_{array} \)) is:</p>
+        <div class="math-block">\[ C_{array} = 43.92 \text{ fF} \times 256 = 11.244 \text{ pF} \]</div>
+
+        <h2>4. Settling Time and Maximum \( R_{on} \) Criteria</h2>
+        <p>To analyze the switch-on state, the input switch is modeled as a static resistor (\( R_{on} \)).</p>
+        <div class="note">
+            <div style="text-align: center; margin-bottom: 8px;">
+                <img src="plots/r_on_block_diagram.png" alt="Modeling ON devices as static resistances" style="max-width: 100%; max-height: 250px; border: 1px solid #8A8F98;">
+            </div>
+            <strong>Description:</strong> Modelling the input switch as a static resistances as series and parallel resistances/parallel capacitors.
+        </div>
+        
+        <h3>4.1 Worst-Case Voltage Step</h3>
+            <p>
+            Assume the maximum voltage step across the capacitor array is 
+            \(V_{0} = | V_{CM} - V_{in,p/n} | = | V_{CM} - (V_{CM} \pm V_{sig}) | = V_{sig}\), where 
+            \( V_{in,p/n} \) represents the peak input voltage. Given that 
+            \( V_{sig} = 0.5 V_{ref} = 0.9 \text{ V} \), this defines the worst-case 
+            single-ended transition. Designing for this scenario guarantees 
+            robust settling under all conditions. The voltage settling on the capacitor follows:
+            </p>
+        <div class="math-block">\[ V_{cap}(t) = V_{0} \left(1 - e^{-t/\tau}\right) \]</div>
+        <p>Where the time constant is \( \tau = R_{on} \cdot C_{array} \).</p>
+
+
+
+        <h3>4.2 Settling Time Target</h3>
+        <p>We allocate 0.5 of a clock period for the capacitor settling time. For a relaxed 100 kHz clock, \( T_{clk} = 10 \text{ \mu s} \) (providing a tighter margin than the standard 96 kHz clock). The available settling time (\( t_{settle} \)) is <strong>5 &mu;s</strong>.</p>
+
+                                                        <!-- END OF CURRENT PAGE -->
+            <div class="footer">
+                &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 1 of 11
+            </div>
+        </div>
+
+        <!-- START OF NEW PAGE -->
+        <div class="section">
+            <header>
+                <div class="logo">
+                    <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+                </div>
+                <div class="title-block">
+                    <h1>8-Bit NS-SAR ADC Core</h1>
+                    <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+                </div>
+            </header>
+            
+            <!-- Continue your content for the next page here... -->
+        <h3>4.3 Resolution Requirement</h3>
+        <p>To ensure the sampled voltage represents the true input accurately, the settling error by the end of the sampling phase (\( t_{settle} \)) must be less than 0.5 LSB. The worst-case voltage error at time \( t \) is:</p>
+        <div class="math-block">\[ V_{error}(t) = V_{0} e^{-t/\tau} \]</div>
+        <p>We require \( V_{error}(t_{settle}) < 0.5 \text{ LSB} \). Since \( 1 \text{ LSB} = \frac{V_{FS}}{2^N} \), \( 0.5 \text{ LSB} = \frac{V_{FS}}{2^{N+1}} \). <em>(Note that \( V_{FS} \) cancels out, making the required \( R_{on} \) independent of the 1.8 V reference. \( V_{FS} \)= 2  \( V_{ref} \) and \( V_{0} = V_{ref} \)).</em></p>
+        <div class="math-block">
+        \begin{align*}
+        V_{0} e^{-t_{settle}/\tau} &< \frac{V_{FS}}{2^{N+1}} \\
+        0.5 V_{ref} e^{-t_{settle}/\tau} &< \frac{2 V_{ref}}{2^{N+1}} \\
+        e^{-t_{settle}/\tau} &< 2^{-(N-1)} \\
+        \frac{t_{settle}}{\tau} &> (N-1) \ln(2)
+        \end{align*}
+        </div>
+        <div class="math-block">\[ R_{on} \leq \frac{t_{settle}}{C_{array} \cdot (N-1) \cdot \ln(2)} \]</div>
+
+        <h3>4.4 \( R_{on} \) Calculation</h3>
+        <p>Substituting the physical design values (\( t_{settle} = 5 \times 10^{-6} \text{ s}, N = 8, C_{array} = 11.244 \times 10^{-12} \text{ F} \)):</p>
+        <div class="math-block">\[ R_{on} \leq \frac{5 \times 10^{-6}}{11.244 \times 10^{-12} \times (8-1) \times 0.693} \approx \mathbf{91.7 \text{ k}\Omega} \]</div>
+
+        <p><em>(Note: While \( (N-1) \ln(2) \) is for differential case expecting 0.5 LSB settling for a worst-case full-scale step for each capacitor array. \( (N)\ln(2) \) gives a 0.5 LSB settling for differential case. We will not consider that for worst case scenario sizing(ss corner -25 C) but we will ensure that the typical corner will meet that requirements.)</em></p>
+
+
+        <div class="note"><strong>Conclusion:</strong> The upper bound for the VCM switch / input selector switch on-resistance (\( R_{on} \)) is 91.7 k&Omega;. To account for PVT variations and switch non-linearities, the switch should be sized such that its peak resistance remains below this threshold across all operating conditions. This is a very loose constraint for the \( R_{on} \)</div>
+
+        <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 2 of 11
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+            </div>
+        </header>
+        
+        <h2>5. Capacitor Array Leakage Current Analysis</h2>
+        
+        <h3>5.1 Circuit Modeling</h3>
+        <p>To analyze the leakage current, we model the capacitor array (\(C_{array}\)) with VCM switches and combined bottom-plate switches. For a single side of the differential array, the simplified model is:</p>
+        <ul>
+            <li>\(V_{CM}\) is connected through an "off" resistance (\(r_{off}\)) to the top plate of the capacitor.</li>
+            <li>The capacitor \(C_{array}\) is in series with another "off" resistance (\(r_{off}\)) connected to ground.</li>
+            <li>\(V_{cap}\) represents the voltage across the capacitor array.</li>
+        </ul>
+
+        <h3>5.2 Leakage Analysis Equations</h3>
+        <p>For the leakage analysis, we use the fundamental charge equation:</p>
+        <div class="math-block">\[Q_{cap} = C_{array} \cdot V_{cap}\]</div>
+        <p>For a small time interval (\(\Delta t\)), the change in charge relates to the change in voltage as follows:</p>
+        <div class="math-block">\[\frac{\Delta Q_{cap}}{\Delta t} = C_{array} \frac{\Delta V_{cap}}{\Delta t}\]</div>
+        <p>The term \(\frac{\Delta Q_{cap}}{\Delta t}\) represents the leakage current (\(I_{leakage}\)). Therefore:</p>
+        <div class="math-block">\[I_{leakage} = C_{array} \frac{\Delta V_{cap}}{\Delta t}\]</div>
+
+        <h3>5.3 Determining Worst-Case Parameters</h3>
+        <p>To find the maximum allowable leakage current, we need the minimum allowable voltage drop (\(\Delta V_{min}\)) and the maximum hold time (\(\Delta t_{max}\)).</p>
+        <p><strong>Calculating \(\Delta t_{max}\) (Hold Period):</strong></p>
+        <ul>
+            <li><strong>Design frequency (min):</strong> 96 kHz</li>
+            <li><strong>Clock Period (\(t\)):</strong> \( \frac{1}{96\text{ kHz}} \approx 10.42\text{ µs} \)</li>
+            <li><strong>Hold Periods:</strong> The conversion takes multiple clock cycles (8 clocks for a single SAR conversion). To account for noise shaping and a safety margin, we assume the hold state lasts for 11 out of 12 clock cycles per conversion.</li>
+            <li><strong>Calculation:</strong> \( 11 \times 10.42\text{ µs} = 114.62\text{ µs} \)</li>
+            <li><strong>Result:</strong> \(\Delta t_{max} \approx \mathbf{115\text{ µs}}\)</li>
+        </ul>
+               <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 3 of 11
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+            </div>
+        </header>
+
+        <h3>5.4 Maximum Allowable Voltage Drop</h3>
+        <p>The maximum allowable voltage drop per array is defined as half of the Least Significant Bit (LSB) voltage to maintain conversion accuracy:</p>
+        <div class="math-block">\[\Delta V = \frac{V_{LSB}}{2} = \frac{2V_{ref}}{2^{N+1}} = \frac{1.8}{2^8}\]</div>
+        <p><strong>\(\Delta V_{max}\) calculation:</strong> \( \frac{1.8}{256} \approx \mathbf{7.03125\text{ mV}} \)</p>
+
+        <h3>5.5 Maximum Leakage Current Calculation</h3>
+        <p>Using the values derived above and a capacitor array value of \(11.244\text{ pF}\):</p>
+        <div class="math-block">
+            \[I_{leakage\_max} = 11.244\text{ pF} \times \frac{7.03125\text{ mV}}{115\text{ µs}}\]
+            \[I_{leakage\_max} = \mathbf{687.5\text{ pA}}\]
+        </div>
+        <p><strong>Design Limit:</strong><br>To ensure stability and accuracy, the allowable leakage must be less than the calculated limit:</p>
+        <div class="math-block">\[I_{leakage\_allowable} &lt; I_{leakage\_limit} = \mathbf{685\text{ pA}}\]</div>
+
+        <h3>5.6 Design Recommendations</h3>
+        <p>By using this design limit, the following constraints are established for the system:</p>
+        <ul>
+            <li>Use capacitor arrays where <strong>\(C_{array} &gt; 11.244\text{ pF}\)</strong> (larger capacitance reduces the voltage droop for a fixed leakage).</li>
+            <li>Maintain a clock frequency <strong>\(f_{clk} &gt; 96\text{ kHz}\)</strong> (higher frequencies shorten the hold time, reducing the impact of leakage).</li>
+        </ul>
+
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 4 of 11
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+            </div>
+        </header>
+
+        <h2>6. VCM Switch FET Sizing Analysis</h2>
+        
+        <p>VCM FET sizing requires the consideration of both \( R_{on} \) and \( I_{leak} \). Therefore, we will design the VCM switch to strictly satisfy the above requirements, and design the input selector switch to complement \( R_{on} \) since its \( I_{leak} \) constraint can be relaxed.</p>
+
+        <h3>6.1 Design Strategy and Goals</h3>
+        <p>The sizing of the transmission gate (TG) necessitates a careful optimization between on-resistance (\( R_{on} \)) and leakage current (\( I_{leak} \)). To mitigate charge injection effects through first-order cancellation, the NMOS and PMOS devices are symmetrically sized (\( W_n = W_p \) and \( L_n = L_p \)).</p>
+        <ul>
+            <li><strong>To minimize \( R_{on} \):</strong> Channel length (\( L \)) must be minimized while width (\( W \)) is maximized.</li>
+            <li><strong>To minimize \( I_{leak} \):</strong> Channel length (\( L \)) must be increased while width (\( W \)) is minimized.</li>
+        </ul>
+
+        <h3>6.2 Simulation Methodology and Test Environment</h3>
+        <p>Robustness is verified by simulating the design across worst-case Process, Voltage, and Temperature (PVT) corners:</p>
+        <ul>
+            <li><strong>Worst-Case \( R_{on} \):</strong> Evaluated at the SS (Slow-Slow) process corner at -25&deg;C, where carrier mobility is lowest.</li>
+            <li><strong>Worst-Case \( I_{leak} \):</strong> Evaluated at the FF (Fast-Fast) process corner at 125&deg;C, where subthreshold and junction leakage currents peak.</li>
+        </ul>
+
+        <div class="note">
+            <div style="text-align: center; margin-bottom: 8px;">
+                <img src="plots/measurement_setup.png" alt="Testbench Schematic" style="max-width: 100%; max-height: 250px; border: 1px solid #8A8F98;">
+            </div>
+            <strong>Description:</strong> Cadence schematic illustrating the transmission gate setup with the capacitor array load and the DC/Parametric simulation sources.
+        </div>
+        
+        <p><strong>Testbench Configuration:</strong></p>
+        <ul>
+            <li><strong>\( R_{on} \) Characterization:</strong> A 1 mV differential is forced across the TG input and output, and the resulting current is measured to calculate resistance.</li>
+            <li><strong>\( I_{leak} \) Characterization:</strong> The TG output is biased at the common-mode voltage (\( V_{CM} \)), mirroring the SAR logic's tendency to drive the \( C_{array} \) top-plate toward \( V_{CM} \). The input voltage is swept to evaluate leakage.</li>
+        </ul>
+
+                <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 5 of 11
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+            </div>
+        </header>
+
+        <p><strong>Simulation Strategy:</strong></p>
+        <p>Initial parametric sweeps of \( W \) and \( V_{in} \) across discrete lengths (150 nm to 220 nm) revealed edge-case vulnerabilities:</p>
+        <ul>
+            <li><strong>\( L = 150 \text{ nm} \):</strong> Displayed excessive \( I_{leak} \) at the upper limits of the input voltage range.</li>
+            <li><strong>\( L = 220 \text{ nm} \):</strong> Exhibited inadequate \( R_{on} \) performance near the mid-rail input voltages.</li>
+        </ul>
+        <p>Consequently, the methodology was refined: \( V_{in} \) was fixed at the previously identified worst-case potentials (e.g., mid-rail for maximum \( R_{on} \), and 0.05V / 1.75V for maximum \( I_{leak} \), suppressing the absolute extremes to reflect realistic operational limits). \( W \) and \( L \) were then systematically swept to identify the optimal design boundary.</p>
+
+
+
+        <h3>6.3 Parametric Sweep Results</h3>
+        <p>The following tables summarize the design boundary conditions required to satisfy the established \( R_{on} \) and \( I_{leak} \) limits. Note that these values are approximations utilized to qualitatively guide the dimension selection process.</p>
+
+        <p><strong>Table 1: \( R_{on} \) Boundary Constraints (SS Corner, -25&deg;C)</strong><br>
+        <em>Determines the maximum allowable \( L \) for a given \( W \) to satisfy the \( R_{on} \) upper bound.</em></p>
+        <table>
+            <tr>
+                <th>Width (W)</th>
+                <th>Length (L) Limit</th>
+                <th>Status</th>
+            </tr>
+            <tr><td>3.0 &mu;m</td><td>&lt; 150 nm</td><td>&#10008; (Fail)</td></tr>
+            <tr><td>3.5 &mu;m</td><td>&lt; 154 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>4.0 &mu;m</td><td>&lt; 159 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>4.5 &mu;m</td><td>&lt; 164 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>5.0 &mu;m</td><td>&lt; 168 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>5.5 &mu;m</td><td>&lt; 176 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>6.0 &mu;m</td><td>&lt; 182 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>6.5 &mu;m</td><td>&lt; 190 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>7.0 &mu;m</td><td>&lt; 198 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>7.5 &mu;m</td><td>&lt; 205 nm</td><td>&#10004; (Pass)</td></tr>
+        </table>
+
+                <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 6 of 11
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+            </div>
+        </header>
+
+        <p><strong>Table 2: \( I_{leak} \) Boundary Constraints (FF Corner, 125&deg;C)</strong><br>
+        <em>Determines the minimum required \( L \) for a given \( W \) to strictly enforce the \( I_{leak} \) upper bound.</em></p>
+        <table>
+            <tr>
+                <th>Width (W)</th>
+                <th>Length (L) Limit</th>
+                <th>Status</th>
+            </tr>
+            <tr><td>3.0 &mu;m</td><td>&gt; 224 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>3.5 &mu;m</td><td>&gt; 222 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>4.0 &mu;m</td><td>&gt; 221 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>4.5 &mu;m</td><td>&gt; 220 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>5.0 &mu;m</td><td>&gt; 220 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>5.5 &mu;m</td><td>&gt; 215.5 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>6.0 &mu;m</td><td>&gt; 211 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>6.5 &mu;m</td><td>&gt; 207.5 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>7.0 &mu;m</td><td>&gt; 204 nm</td><td>&#10004; (Pass)</td></tr>
+            <tr><td>7.5 &mu;m</td><td>&gt; 205 nm</td><td>&#10004; (Pass)</td></tr>
+        </table>
+
+        <p><em>Note: Extreme rail conditions (\( V_{in} \approx 0\text{V} \) and \( 1.8\text{V} \)) induce complex leakage mechanisms that fall outside the typical tracking envelope and were excluded from this specific boundary selection phase.</em></p>
+ 
+        <h3>6.4 Proposed Device Sizes</h3>
+        <p>Evaluating the parametric sweep results to identify the minimum device footprint that simultaneously satisfies both the \( R_{on} \) and \( I_{leak} \) constraints across all worst-case corners yields the following optimal dimensions:</p>
+        <ul>
+            <li><strong>\( W_n = W_p = 7.5 \text{ &mu;m} \)</strong></li>
+            <li><strong>\( L_n = L_p = 205 \text{ nm} \)</strong></li>
+        </ul>
+
+        <h3>6.5 Final Simulation Verification</h3>
+        <p>Deploying the proposed physical dimensions, the final verification simulations confirm the design viability:</p>
+        <ul>
+            <li><strong>On-Resistance (\( R_{on} \)):</strong> Evaluated under the SS corner at -25&deg;C, the constraint \( R_{on} &lt; 71.2 \text{ k}\Omega \) is strictly satisfied across the dominant input range, demonstrating significant headroom compared to the initial boundaries.</li>
+        </ul>
+        <div class="note">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <img src="plots/final_ron_ss_-25.png" alt="Ron Plot 1" style="width: 32%; max-height: 200px; object-fit: contain; border: 1px solid #8A8F98; background-color: #fff;">
+                <img src="plots/final_ron_tt_25.png" alt="Ron Plot 2" style="width: 32%; max-height: 200px; object-fit: contain; border: 1px solid #8A8F98; background-color: #fff;">
+                <img src="plots/final_ron_ff_125.png" alt="Ron Plot 3" style="width: 32%; max-height: 200px; object-fit: contain; border: 1px solid #8A8F98; background-color: #fff;">
+            </div>
+            <strong>Description:</strong> Plots illustrating the \( R_{on} \) curves across the 0V to 1.8V input span, capturing the peak resistance in the mid-rail region across different corners.
+        </div>
+                        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 7 of 11
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+            </div>
+        </header>
+        <ul>
+            <li><strong>Leakage Current (\( I_{leak} \)):</strong> Evaluated under the FF corner at 125&deg;C, the constraint \( I_{leak} &lt; 170 \text{ pA} \) is strictly satisfied across the entire functional input range (excluding extreme rails).</li>
+        </ul>
+        <div class="note">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <img src="plots/final_leakage_ss_-25.png" alt="Ileak Plot 1" style="width: 32%; max-height: 200px; object-fit: contain; border: 1px solid #8A8F98; background-color: #fff;">
+                <img src="plots/final_leakage_tt_25.png" alt="Ileak Plot 2" style="width: 32%; max-height: 200px; object-fit: contain; border: 1px solid #8A8F98; background-color: #fff;">
+                <img src="plots/final_leakage_ff_125.png" alt="Ileak Plot 3" style="width: 32%; max-height: 200px; object-fit: contain; border: 1px solid #8A8F98; background-color: #fff;">
+            </div>
+            <strong>Description:</strong> Plots illustrating leakage current versus input voltage, featuring a horizontal threshold marker at the 170 pA design limit across different corners.
+        </div>
+
+        <h3>6.6 Design Rounding Considerations</h3>
+        <p>If layout constraints necessitate rounding the channel length (\( L \)) to a standard grid, the dimensions can be adjusted to 200 nm or 210 nm:</p>
+        <ul>
+            <li><strong>Rounding to \( L = 200 \text{ nm} \):</strong> Increases the leakage current (\( I_{leak} \)) significantly at the input voltage extremes.</li>
+            <li><strong>Rounding to \( L = 210 \text{ nm} \):</strong> Increases the peak on-resistance (\( R_{on} \)), particularly in the mid-rail region.</li>
+        </ul>
+        <div class="note">
+            <strong>Recommendation:</strong> It is recommended to round up to <strong>\( L = 210 \text{ nm} \)</strong> while slightly increasing the device width (e.g., <strong>\( W = 7.6 \text{ &mu;m} \)</strong>). The reasoning is that the rate at which \( R_{on} \) degrades is relatively lower compared to the exponential increase in \( I_{leak} \) at shorter channel lengths. Furthermore, the established \( R_{on} \) upper bound (71.3 k&Omega;) already contains significant redundancy, easily absorbing the minor resistance penalty introduced by this adjustment.
+        </div>
+
+        <h2>7. Charge Injection and Switch Non-Linearities</h2>
+        
+        <h3>7.1 Charge Injection Mitigation</h3>
+        <p>To minimize the charge injection from the gate capacitance into the capacitor array (\( C_{array} \)) during the turn-off event, dummy switching devices are employed. Specifically, two dummy NMOS and two dummy PMOS devices are added alongside the active transmission gate devices. These dummy devices are sized with <strong>half the width (\( W/2 \))</strong> of the active devices and are driven by complementary clock signals to absorb the injected channel charge.</p>
+
+        <h3>7.2 Switch Non-Linearities</h3>
+        <p>To address switch non-linearities (such as the variation of \( R_{on} \) with the input voltage), a bootstrapped switch architecture is often considered. However, in this design, a bootstrapped switch will <strong>not</strong> be utilized. The primary reasons are the inherent limitations of operating with low-voltage devices, alongside the significant circuit complexity and area overhead it would introduce. The symmetrically sized transmission gate, coupled with the conservatively established \( R_{on} \) margins, provides sufficient linearity to satisfy the target 8-bit resolution.</p>
+
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 8 of 11
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+            </div>
+        </header>
+
+        <h2>8. Input Selector Sizing</h2>
+
+        <h3>8.1 Overview</h3>
+        <p>The Input Selector is a multiplexer that selects a voltage from either \(V_{in}\) (differential \(V_{inp}/V_{inn}\)) or \(V_{ref}\) and feeds it to the capacitor array (unit capacitor muxes). This switching occurs during the sampling and conversion phases of the ADC.</p>
+
+        <h3>8.2 Design Goals and Constraints</h3>
+        <ul>
+            <li><strong>Primary Goal:</strong> Minimize the On-Resistance (\(R_{on}\)) to ensure fast settling during sampling.</li>
+            <li><strong>Care should be taken for:</strong> Minimize the On-Resistance (\(R_{on}\)) to ensure fast settling during conversion when CDAC switches are toggled. </li>
+            <li><strong>Constraints:</strong> Area and charge injection must be managed.</li>
+        </ul>
+        <div class="note">
+            <li><strong>Note on Leakage:</strong> Leakage currents are not a primary concern for accuracy at this stage. While they can impact power, they are overlooked in this initial design cycle.</li>
+            <li><strong>Note on CDAC Switching:</strong>When the CDAC capacitors are toggled significant current is drawn through the switch which can cause voltage drops. The effect of this is prominant in MSB capacitor switching and the IR drop forces the topplate voltage to drop below VSS which adversly effect top plate charge leakage. So care should be taken to minimize Ron as much as possible to minimize the voltage drop and ensure the top plate voltage does not drop below VSS in MSB capacitor switching.</li>
+        </div>
+
+        <h3>8.3 Device Sizing Selection</h3>
+        <p>Initial simulations used the sizing from the Common-Mode (\(V_{CM}\)) switch. However, simulations under worst-case conditions (SS corner, -25&deg;C) showed that the \(R_{on}\) was too high.</p>
+        <p>To address this, the width was increased while the length was reduced to the process minimum to maximize drive strength and minimize resistance such that the gate areas of the switches are equal.(Not a strict requirement)</p>
+        <p><strong>Proposed Design Device Dimensions:</strong></p>
+        <ul>
+            <li>\(W_p = W_n = 11\text{ µm}\) (aligned with \(V_{CM}\) switch gate area with minimum length)</li>
+            <li>\(L_p = L_n = 150\text{ nm}\) (Minimum Length)</li>
+        </ul>
+
+        <div class="note">
+            <div style="display: flex; justify-content: center; margin-bottom: 8px;">
+                <img src="plots/input_select_schem.png" alt="unit_cap_schematic" style="width: 27%; max-height: 220px; object-fit: contain; border: 1px solid #8A8F98; background-color: #fff;">
+            </div>
+            Description: Schematic showing the two transmission gates (for \(V_{in}\) and \(V_{ref}\)) connected to a common output node.
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 9 of 11
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+            </div>
+        </header>
+
+        <h2>9. Capacitor Array Unit Cell Mux Sizing</h2>
+
+        <h3>9.1 Settling Considerations</h3>
+        <p>For the unit capacitor cell, the sizing is governed strictly by \(R_{on}\) requirements. Since the bottom plate is always connected to an external supply during these phases, leakage (\(I_{leak}\)) is not a critical consideration. The calculation follows the settling time requirement for an \(N\)-bit converter.</p>
+
+        <h3>9.2 Resistance Calculations</h3>
+        <p>The required \(R_{on}\) is derived from the settling time (\(\tau\)) needed to reach the required accuracy:</p>
+        <div class="math-block">\[R_{on} \le \frac{t_{settle}}{C_{unit} \cdot (N-1) \cdot \ln(2)}\]</div>
+        <p>Using the following parameters (with slight variations between simulated and calculated capacitance):</p>
+        <ul>
+            <li>\(t_{settle} = 5\text{ µs}\)</li>
+            <li>\(C_{unit} \approx 48.45\text{ fF}\)</li>
+            <li>\(N = 8\) bits</li>
+        </ul>
+        <div class="math-block">\[R_{on} \le \frac{5 \times 10^{-6}}{48.45 \times 10^{-15} \cdot (8-1) \cdot 0.693} \approx 23.72\text{ M}\Omega\]</div>
+
+        <div class="note">
+            <div style="display: flex; justify-content: center; margin-bottom: 8px;">
+                <img src="plots/Ron_unit_cell_mux_schem.png" alt="unit_cap_schematic" style="width: 50%; max-height: 200px; object-fit: contain; border: 1px solid #8A8F98; background-color: #fff;">
+            </div>
+            Description: A diagram showing the unit capacitor with its associated NMOS/PMOS switches for selecting \(V_{in}/V_{ref}\) or \(GND\).
+        </div>
+
+        <h3>9.3 Effective Resistance and Implementation</h3>
+        <p>When considering the parallel operation of the array, the effective resistance limit for the combined muxes is:</p>
+        <div class="math-block">\[R_{on,eff,mux} \le \frac{23.72\text{ M}\Omega}{2^8} \approx 92.6\text{ k}\Omega\]</div>
+           <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 10 of 11
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>VCM Switch / Input Selector Switch Sizing Analysis</p>
+            </div>
+        </header> 
+        <p>This resistance is the total resistance ( total mux resistance in series with the \(V_{CM}\) switch and the Input Select \(R_{on}\)). This implies that the individual unit mux switches should have extremely low resistances to not dominate the RC constant(The previusly calculated \(R_{on}\) upper limit is lower than this value).</p>
+        <p>If we assume the total effective resistance of all switches is roughly \(1\text{ k}\Omega\), then the \(R_{on}\) for a single unit mux switch would be:</p>
+        <div class="math-block">\[R_{on} = 1\text{ k}\Omega \times 256 = 256\text{ k}\Omega\]</div>
+        <div class="note">
+            <div style="display: flex; justify-content: center; margin-bottom: 8px;">
+                <img src="plots/Ron_unit_cell_mux_ss_-25.png" alt="unit_cap_mux_R_on" style="width: 60%; max-height: 250px; object-fit: contain; border: 1px solid #8A8F98; background-color: #fff;">
+            </div>
+            Description: A plot showing the parametric sweep with minimum length and varying width
+        </div>
+
+        <div class="note">
+            <strong>Conclusion:</strong> This target is easily achievable using standard transistors with relatively small gate widths. According to simulations, a width (\(W\)) greater than 1&mu;m with the minimum length (\(L = 150\text{ nm}\)) is sufficient to meet the \(R_{on}\) target. The final dimensions can be optimized based on layout area availability, allowing for a compact layout of the capacitor array.
+        </div>
+
+
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 11 of 11
+        </div>
+    </div>
+</body>
+</html>

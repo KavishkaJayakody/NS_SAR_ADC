@@ -1,0 +1,9 @@
+// VerilogA for NS_SAR_Test, sample_switch, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module sample_switch;
+
+
+endmodule
