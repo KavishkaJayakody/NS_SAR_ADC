@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparator Sizing Analysis - Silicon Edge</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    .section {
+        background-color: #fff;
+        width: 210mm;
+        height: 297mm;
+        margin: 10mm auto;
+        padding: 15mm 20mm;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        page-break-before: always;
+        break-before: page;
+        position: relative;
+        overflow: hidden;
+    }
+    .section:first-of-type {
+        page-break-before: auto;
+        break-before: auto;
+    }
+    @media print {
+        body { background-color: #fff; }
+        .section { 
+            margin: 0; 
+            box-shadow: none; 
+        }
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #C8102E; /* Silicon Red */
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+    }
+    .logo img {
+        height: 60px;
+    }
+    .title-block h1 {
+        margin: 0;
+        font-size: 22px;
+        color: #C8102E; /* Silicon Red */
+        text-align: right;
+    }
+    .title-block p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: #8A8F98; /* IC Gray */
+        text-align: right;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 16px;
+        color: #C8102E; /* Silicon Red */
+        border-bottom: 1px solid #8A8F98; /* IC Gray */
+        padding-bottom: 4px;
+        margin: 12px 0 8px 0;
+    }
+    h3 {
+        font-size: 14px;
+        color: #0A1A2F; /* Deep Silicon Navy */
+        margin: 10px 0 4px 0;
+    }
+    h4 {
+        font-size: 13px;
+        color: #0A1A2F; /* Deep Silicon Navy */
+        margin: 10px 0 4px 0;
+    }
+    .note {
+        background-color: #E6E8EB; /* Signal White */
+        border-left: 4px solid #C8102E; /* Silicon Red */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px 10px;
+        font-size: 12px;
+        font-style: italic;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    p {
+        margin: 4px 0;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+    ul, ol {
+        margin: 4px 0 10px 20px;
+        padding: 0;
+        font-size: 13px;
+    }
+    li {
+        margin-bottom: 4px;
+    }
+    .image-placeholder {
+        background-color: #E6E8EB;
+        border: 1px dashed #8A8F98;
+        color: #8A8F98;
+        text-align: center;
+        padding: 20px;
+        margin: 10px 0;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .diagram {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #E6E8EB; /* Signal White */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px;
+        border: 1px solid #8A8F98; /* IC Gray */
+        white-space: pre;
+        font-size: 12px;
+        font-weight: bold;
+        overflow-x: auto;
+        margin: 6px 0;
+    }
+    .math-block {
+        background-color: #E6E8EB; /* Signal White */
+        color: #0A1A2F; /* Deep Silicon Navy */
+        padding: 8px 12px;
+        border: 1px solid #8A8F98; /* IC Gray */
+        margin: 10px 0;
+        overflow-x: auto;
+        font-size: 11.5px;
+    }
+    code {
+        background-color: #E6E8EB;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+        color: #0A1A2F;
+    }
+    .footer {
+        position: absolute;
+        bottom: 15mm;
+        left: 20mm;
+        right: 20mm;
+        text-align: center;
+        font-size: 11px;
+        color: #8A8F98; /* IC Gray */
+        border-top: 1px solid #8A8F98;
+        padding-top: 8px;
+    }
+</style>
+<script>
+  MathJax = {
+    tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Comparator Sizing Analysis</p>
+                <p style="font-size: 11px; font-weight: normal; margin-top: 2px;">Prepared by Kavishka Jayakody</p>
+            </div>
+        </header>
+
+        <h2>1. Introduction</h2>
+        <p>The comparator is the most critical decision-making component within a Successive Approximation Register (SAR) ADC core. Its primary function is to accurately evaluate the differential voltage across the capacitor array (CDAC) top plates to determine which node holds the higher potential. Crucially, this evaluation must be performed while strictly conserving the sampled charge on the top plates. Therefore, designing a highly accurate and robust comparator is essential to the overall precision and performance of the ADC.</p>
+        <p>To meet these requirements, we have opted for a multi-stage comparator architecture consisting of a preamplifier, a StrongARM latch (dynamic latch), and an SR (Set-Reset) latch. Each stage is carefully tailored to address specific design challenges, which are detailed in the subsequent sections.</p>
+        <div class="image-placeholder">[Image Placeholder: Block Diagram of the Comparator and its Stages]</div>
+
+        <h3>1.1 SPICE Model Extraction for Sky130 Devices</h3>
+        <p>We will use the following <code>sky130_fd_pr</code> PDK extracted values related to the <code>nfet_01v8</code>/<code>pfet_01v8</code> standard VT (nvt) and low VT (lvt) cells for the schematic modelling. For device sizing, we will consider the mismatch of Vth only, although matching can be carried out based on other aspects.</p>
+        
+        <p>Extracted from mismatch corner file (<code>sky130A\libs.ref\sky130_fd_pr\spice\sky130_fd_pr__nfet_01v8__mismatch.corner.spice</code>):</p>
+        <div class="diagram">.param sky130_fd_pr__nfet_01v8__vth0_slope=3.356e-03</div>
+        
+        <p>Extracted from device model file (<code>sky130A\libs.ref\sky130_fd_pr\spice\sky130_fd_pr__nfet_01v8.pm3.spice</code>):</p>
+        <div class="diagram">+ vth0 = {0.49439+sky130_fd_pr__nfet_01v8__vth0_diff_0+MC_MM_SWITCH*AGAUSS(0,1.0,1)*(sky130_fd_pr__nfet_01v8__vth0_slope/sqrt(l*w*mult))}</div>
+
+        <p>Thereby we can deduce the Pelgrom relationship for the standard deviation of the threshold voltage mismatch:</p>
+        <div class="math-block">\[ \sigma(\Delta V_{th}) = \frac{A_{vth}}{\sqrt{W \cdot L \cdot m}} \]</div>
+        <p>Where the Pelgrom area coefficient \( A_{vth} \) is:</p>
+        <div class="math-block">\[ A_{vth} = 3.356 \text{ mV}\cdot\mu\text{m} \]</div>
+
+                                <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 2 of 3
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Comparator Sizing Analysis</p>
+            </div>
+        </header>
+        
+        <!-- Continue your content for the next page here... -->
+
+ 
+        <h2>2. StrongARM Latch</h2>
+        <p>The core decision element is implemented using a StrongARM latch, chosen for its proven effectiveness, fast regeneration speed, and ability to provide a full rail-to-rail digital output. The topology primarily consists of two cross-coupled inverters driven by an input differential pair, along with clocked reset switches to initialize the latch before each comparison phase.</p>
+        <p>While a dynamic latch can be optimized for speed, low offset, and low power consumption, dynamic latches inherently suffer from input-referred offset, including signal-dependent dynamic offsets that can occur even in offset-optimized layouts. Sizing the input differential pair demands the utmost care, as it directly controls the critical trade-offs between speed, offset variance, and power consumption.</p>
+        <div class="image-placeholder">[Image Placeholder: Schematic of the StrongARM Latch]</div>
+
+        <h3>2.1 Design of the StrongARM Latch</h3>
+        <p>We are interested in the following design parameters:</p>
+        <ul>
+            <li>Input offset</li>
+            <li>Speed</li>
+            <li>Power consumption</li>
+            <li>Metastability</li>
+            <li>Kickback noise</li>
+            <li>Input referred electronic noise</li>
+        </ul>
+
+        <h4>2.1.1 Design Spec Definitions</h4>
+        <ul>
+            <li><strong>Input offset:</strong> \( 1 \text{ LSB} = \frac{1.8}{2^8} = 7 \text{ mV} \), but we will keep the offset less than \( 7 \text{ mV} \).</li>
+            <li><strong>Clock rate:</strong> 96 kHz &rarr; 100 kHz.</li>
+            <li><strong>Power consumption (current):</strong> &lt; 5 &mu;A.</li>
+        </ul>
+        <p>We will begin the dimensioning with near minimum. The performance of the latch must be satisfactory for all corners and worst conditions. So we will choose slow-slow (SS) corner and -25&deg;C.</p>
+        <p>Target rise time and fall times to 10 ps. (This is stricter for our design; we can easily relax that to 10-100 ns, but an initial 10 ps target will be assumed).</p>
+
+        <h4>2.1.2 Transistor Dimensioning</h4>
+        <p><strong>Differential Pair (M1, M2)</strong></p>
+        <p>We use the Pelgrom model for mismatch:</p>
+        <div class="math-block">\[ \sigma(\Delta V_{TH}) = \frac{A_{VTH}}{\sqrt{W \cdot L}} \]</div>
+        <p>If we assume minimum dimension: \( W = 0.42 \text{ }\mu\text{m}, L = 0.15 \text{ }\mu\text{m} \).</p>
+        <div class="math-block">\[ \Delta V_{TH} = \frac{3.356}{\sqrt{0.42 \times 0.15}} \approx 13.37 \text{ mV} \]</div>
+
+                                <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 1 of 5
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Comparator Sizing Analysis</p>
+            </div>
+        </header>
+        
+        <!-- Continue your content for the next page here... -->
+        <p><em>(Not desirable)</em></p>
+        <p>We will go for \( W = 2 \text{ }\mu\text{m}, L = 0.15 \text{ }\mu\text{m} \):</p>
+        <div class="math-block">\[ \Delta V_{TH} = \frac{3.356}{\sqrt{2 \times 0.15}} \approx 6.127 \text{ mV} \]</div>
+        <p>Which is a marginally acceptable value.</p>
+
+        <p><strong>M7 Sizing</strong><br>
+        (Section noted, pending specific dimensions)</p>
+
+        <p><strong>M3, M4</strong><br>
+        The mismatch according to the referred text is divided by a factor of 3-5, but still considering matching effects, let's go with \( W = 1 \text{ }\mu\text{m}, L = 0.15 \text{ }\mu\text{m} \) for now.</p>
+
+        <p><strong>M5, M6</strong><br>
+        The effect of M5, M6 at the initial stages of latch operation can be neglected since they remain inactive and the gain of other parts are high. But they play a part in regeneration and the regeneration speed depends on the sizes. We can go for min length devices considering the mismatch tolerability. But we first check \( 2 \text{ }\mu\text{m} \times 0.15 \text{ }\mu\text{m} \) and optimize the selection later.</p>
+
+        <p><strong>Reset Switches</strong><br>
+        The reset switches will also be assumed to have minimum dimensions.</p>
+            
+        <h4>2.1.3 Simulation Notes &amp; Observations</h4>
+        <ul>
+            <li>Vcm &uarr; &rarr; \(\tau_{settle}\) &darr;</li>
+            <li>temp &uarr; &rarr; \(\tau_{settle}\) &darr; (Note: &approx; for \(Vcm = 0.9\) | for low \(Vcm\), \(\tau_{settle}\) &darr;)</li>
+            <li>SS &uarr;</li>
+            <li>FS is the worst corner for settling.</li>
+        </ul>
+
+        <h4>2.1.4 Design &amp; Sizing Strategy</h4>
+        <p>The sizing was done identical for all the transistors in the signal paths and minimum sizes for reset transistors to minimize the effects of injected charges making node voltages rise (this is of no concern but implemented to make the nodes not pass \(VDD\)).</p>
+        <p>The simulations show that the settling time worsens with decrease in input common mode, low temperature and at FS corner for the implemented dimensions, low voltage. However, all the practically possible worst conditions showed a settling time less than half period (5 ms).</p>
+        
+        <p>Operating Conditions (at difference of 1mV):</p>
+        <ul>
+            <li>\(1.5 &lt; VDD &lt; 2.1\)</li>
+            <li>\(-25 &lt; temp &lt; 125\)</li>
+            <li>\(0.6 &lt; Vcm &lt; 1.8\)</li>
+        </ul>
+        <p>Further optimizations on the settling time will not be carried out since the design requirements are already met.</p>
+
+        <h4>2.1.5 Power Consumption Analysis</h4>
+        <p>The design shows peak dynamic current consumption of \(300\) uA. But at the extreme current making conditions the static current is less than 6mA and typical conditions static current is at pA range. No power optimizations needed unless parasites come into effect.</p>
+                    <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 2 of 5
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Comparator Sizing Analysis</p>
+            </div>
+        </header>
+        
+        <!-- Continue your content for the next page here... -->
+        <h2>3. Preamplifier Stage</h2>
+        <p>To mitigate the inherent offset of the StrongARM latch, a preamplifier stage is introduced to feed the latch. The preamplifier serves several vital functions:</p>
+        <ol>
+            <li>It provides raw voltage gain, significantly reducing the input-referred offset of the subsequent latch stage.</li>
+            <li>It isolates the sensitive CDAC top plates from the severe kickback noise generated by the dynamic switching of the latch, preventing corruption of the sampled voltages.</li>
+            <li>It provides a high-impedance input to conserve the charge on the capacitor array.</li>
+        </ol>
+        <p>For the preamplifier, raw gain is the primary design target; precise linearity and settling time are not critical in this context. However, while the preamplifier minimizes the latch's offset, it introduces its own static offset into the system. To eliminate this, an auto-zeroing technique will be employed. Implementing auto-zeroing effectively cancels the preamplifier's offset, which in turn allows us to significantly relax the sizing constraints that would otherwise be required to minimize mismatch.</p>
+       <h3>3.1 Design of the Preamplifier</h3>
+        <p> The preamplifier is basically a differential amplifier with PMOS current source loads with a circuit configuration for output common mode regulation. The implemented schematic is as follows:</p>
+        <div class="image-placeholder">[Image Placeholder: Schematic of the implemented preamplifier]</div>
+        <p>Upon initial simulation/calculations, the standard <code>pfet_01v8</code> devices were not suitable for the PMOS loads since the threshold values of the devices and hence the headroom for output voltage swings were not desirable. So <code>pfet_01v8_lvt</code> devices were used. Further, to improve the headroom, the tail current sources were chosen to be <code>nfet_01v8_lvt</code> devices.</p>
+        <p>The primary design goals for the preamplifier was to implement a differential amplifier with 10&ndash;20 gain, consume less than 20 mA, and input common mode voltage at 0.9 V. Linearity and settling time were not of interest. Since the preamp will be driving another set of MOS transistors, the slew rate concern was relaxed due to low output capacitance. However, hypothetical approximations showed that the chosen tail currents can drive the capacitance with ease.</p>
+                    <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 3 of 5
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Comparator Sizing Analysis</p>
+            </div>
+        </header>
+        
+        <!-- Continue your content for the next page here... -->
+        <h3>3.2 Sizing of the Differential Amplifier</h3>
+        <p>We will start the sizing with an initial current distribution of 2.5 µA per signal path, which gives a tail current of 5 µA. For initial calculations, we will ignore the feedback path of output common mode. We will target for a gain of 20 (10&ndash;20).</p>
+        <p><em>Note: For sizing, \(g_m/I_D\) methodology is used.</em></p>
+        
+        <p>The gain of the amplifier is given by:</p>
+        <div class="math-block">\[ A = g_{mn} (r_{op} \parallel r_{on}) \]</div>
+        
+        <p>In general, \(r_{op} &gt; r_{on}\) and \(r_{op}\) is 2, 3 times of \(r_{on}\) for equal dimensioned devices. Taking this into account, we will choose initial sizing as \(W_p = 2W_n\) as a typical design choice.</p>
+        <p>It is justifiable to present the above as:</p>
+        <div class="math-block">
+            \[ (r_{op} \parallel r_{on}) \geq \frac{r_{on}}{2} \]
+            \[ g_{mn} (r_{op} \parallel r_{on}) \geq g_{mn} \frac{r_{on}}{2} = 20 \]
+            \[ g_{mn} r_{on} = \frac{g_{mn}}{g_{ds}} = 40 \]
+        </div>
+        
+        <p>We will set \(\frac{g_{mn}}{g_{ds}} &gt; 40\) and refer the tables (\(g_m/I_D\) method). The tables suggest a device length limit for diff pair as \(L &gt; 0.3 \text{ }\mu\text{m}\) and \(g_m/I_D\) values as \(g_m/I_D &gt; 2.14\).</p>
+        <p>We will choose \(L\) to be \(1 \text{ }\mu\text{m}\). For low power high gain applications, choose \(g_m/I_D\) values high. By the \(g_m/I_D\) tables we can see that:</p>
+
+        <table style="width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; text-align: left;">
+            <thead>
+                <tr style="background-color: #E6E8EB; border-bottom: 2px solid #8A8F98;">
+                    <th style="padding: 6px;">\(g_m/I_D\)</th>
+                    <th style="padding: 6px;">\(f_t\)</th>
+                    <th style="padding: 6px;">\(I_D/W\)</th>
+                    <th style="padding: 6px;">\(W\) (\(\mu\)m)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #E6E8EB;">
+                    <td style="padding: 6px;">5</td>
+                    <td style="padding: 6px;">2G</td>
+                    <td style="padding: 6px;">18.2</td>
+                    <td style="padding: 6px;">0.137</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E6E8EB;">
+                    <td style="padding: 6px;">10</td>
+                    <td style="padding: 6px;">1.27G</td>
+                    <td style="padding: 6px;">6</td>
+                    <td style="padding: 6px;">0.416</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E6E8EB;">
+                    <td style="padding: 6px;">15</td>
+                    <td style="padding: 6px;">0.8G</td>
+                    <td style="padding: 6px;">2.4</td>
+                    <td style="padding: 6px;">1.04</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E6E8EB;">
+                    <td style="padding: 6px;">16.67</td>
+                    <td style="padding: 6px;">0.6G</td>
+                    <td style="padding: 6px;">1.68</td>
+                    <td style="padding: 6px;">1.5</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>According to the mismatch calculation in the latch for diff pair, \(1 \text{ }\mu\text{m} \times 1 \text{ }\mu\text{m}\) will be suitable. But keeping a margin, we will choose \(W_n = 1.5 \text{ }\mu\text{m}\).</p>
+        <ul>
+            <li><strong>Differential pair NMOS dimensions:</strong> \(L_n = 1 \text{ }\mu\text{m}\), \(W_n = 1.5 \text{ }\mu\text{m}\), \(m=1\).</li>
+            <li>Choose the same device parameters for PMOS load as well with multiplicity 2: \(L_p = 1 \text{ }\mu\text{m}\), \(W_p = 1.5 \text{ }\mu\text{m}\), \(m=2\).</li>
+        </ul>
+        <p>For common mode feedback PMOS devices, same dimensions can be used while adjusting the tail current to match the output common mode voltage. Tail currents for these devices were based on simulations and design iterations.
+        The tail currents were chosen such that the output swing is symmetrical around the possible output voltage range. The current mirror dimensions were also matched to the diff pair dimensions while the multiplicity of each output/input node was decided based on the branch current ratio.</p>
+         
+        <!-- END OF CURRENT PAGE -->
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 4 of 5
+        </div>
+    </div>
+
+    <!-- START OF NEW PAGE -->
+    <div class="section">
+        <header>
+            <div class="logo">
+                <img src="../../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>8-Bit NS-SAR ADC Core</h1>
+                <p>Comparator Sizing Analysis</p>
+            </div>
+        </header>
+        
+        <!-- Continue your content for the next page here... -->
+   
+        <p>After a few design iterations, at the typical corner 27&deg;C:</p>
+        <ul>
+            <li><strong>Preamp gain:</strong> &approx; 23 (for 1 mV input)</li>
+            <li><strong>\(V_{cm}\) out:</strong> 1.4 V</li>
+            <li><strong>Output range:</strong> 1 V &ndash; 1.8 V (Severe clipping occurs at high inputs. Since linearity is not of concern, not considered.)</li>
+            <li><strong>Total current:</strong> &lt; 20 µA</li>
+        </ul>
+
+        <p>Extreme input \(V_{cm}\), temperature, corners showed a gain as low as 6. Other than that, the output range, output common mode, swing, current, slew showed acceptable performance.</p>
+        <p>Further optimization will not be considered unless required after layout and parasitic extraction. However, due to concerns on the offset and its amplification, an auto-zeroing technique is to be implemented for robust mismatch rejection.</p>
+
+    
+        <h2>4. SR Latch (Output Stage)</h2>
+        <p>The output of the StrongARM latch drives a subsequent SR latch. This final stage is necessary to capture the dynamic decisions from the StrongARM latch and hold them as a consistent, stable logic level for the SAR digital logic. Additionally, it buffers the StrongARM latch, shielding its sensitive internal nodes from external capacitive loading that could otherwise degrade its speed or symmetry.</p>
+
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 5 of 5
+        </div>
+    </div>
+</body>
+</html>
