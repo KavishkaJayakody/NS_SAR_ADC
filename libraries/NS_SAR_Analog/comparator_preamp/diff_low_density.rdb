@@ -1,0 +1,13 @@
+comparator_preamp 1000
+CDR.diff.local.low:L263148
+1 1 1 Jun 16 23:26:11 2026
+DENSITY diff_layers -lt 0.280000 -window 700.000000 700.000000 -step 70.000000 70.000000 -inside_of layer fill_extent_not_SEALID -rdb diff_low_density.rdb CDR.diff.local.low:L263148
+p 1 4
+DV 0.22041
+DA 758.16
+DA diff_layers 167.106
+-580 -360
+34055 -360
+34055 21530
+-580 21530
+

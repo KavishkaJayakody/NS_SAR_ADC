@@ -1,0 +1,1898 @@
+[05/04 01:11:54      0s] 
+[05/04 01:11:54      0s] Cadence Innovus(TM) Implementation System.
+[05/04 01:11:54      0s] Copyright 2018 Cadence Design Systems, Inc. All rights reserved worldwide.
+[05/04 01:11:54      0s] 
+[05/04 01:11:54      0s] Version:	v18.10-p002_1, built Tue May 29 19:19:55 PDT 2018
+[05/04 01:11:54      0s] Options:	
+[05/04 01:11:54      0s] Date:		Mon May  4 01:11:54 2026
+[05/04 01:11:54      0s] Host:		aed (x86_64 w/Linux 3.10.0-1160.108.1.el7.x86_64) (4cores*8cpus*Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz 8192KB)
+[05/04 01:11:54      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[05/04 01:11:54      0s] 
+[05/04 01:11:54      0s] License:
+[05/04 01:11:54      0s] 		invs	Innovus Implementation System	18.1	Denied
+[05/04 01:11:54      0s] 		invsb	Innovus Implementation System Basic	18.1	checkout succeeded
+[05/04 01:11:54      0s] 		4 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[05/04 01:12:03      9s] @(#)CDS: Innovus v18.10-p002_1 (64bit) 05/29/2018 19:19 (Linux 2.6.18-194.el5)
+[05/04 01:12:03      9s] @(#)CDS: NanoRoute 18.10-p002_1 NR180522-1057/18_10-UB (database version 2.30, 418.7.1) {superthreading v1.46}
+[05/04 01:12:03      9s] @(#)CDS: AAE 18.10-p004 (64bit) 05/29/2018 (Linux 2.6.18-194.el5)
+[05/04 01:12:03      9s] @(#)CDS: CTE 18.10-p003_1 () May 15 2018 10:23:07 ( )
+[05/04 01:12:03      9s] @(#)CDS: SYNTECH 18.10-a012_1 () Apr 19 2018 01:27:21 ( )
+[05/04 01:12:03      9s] @(#)CDS: CPE v18.10-p005
+[05/04 01:12:03      9s] @(#)CDS: IQRC/TQRC 18.1.1-s118 (64bit) Fri Mar 23 17:23:45 PDT 2018 (Linux 2.6.18-194.el5)
+[05/04 01:12:03      9s] @(#)CDS: OA 22.50-p083 Tue Jan  2 17:02:41 2018
+[05/04 01:12:03      9s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[05/04 01:12:03      9s] @(#)CDS: RCDB 11.13
+[05/04 01:12:03      9s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_16228_aed_user22_pw0Ei3.
+
+[05/04 01:12:03      9s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[05/04 01:12:04     10s] 
+[05/04 01:12:04     10s] **INFO:  MMMC transition support version v31-84 
+[05/04 01:12:04     10s] 
+[05/04 01:12:04     10s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[05/04 01:12:04     10s] <CMD> suppressMessage ENCEXT-2799
+[05/04 01:12:04     10s] <CMD> getVersion
+[05/04 01:12:04     10s] <CMD> win
+[05/04 01:13:56     28s] <CMD> set init_gnd_net VSS
+[05/04 01:13:56     28s] <CMD> set init_lef_file {../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T.tlef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef}
+[05/04 01:13:56     28s] <CMD> set init_verilog inverter_synth.v
+[05/04 01:13:56     28s] <CMD> set init_mmmc_file inverter.sdc
+[05/04 01:13:56     28s] <CMD> set init_top_cell test_inverter
+[05/04 01:13:56     28s] <CMD> set init_pwr_net VDD
+[05/04 01:13:56     28s] <CMD> set_units -capacitance 1000.0fF
+[05/04 01:13:56     28s] **WARN: (TCLCMD-1461):	Skipped unsupported command: set_units
+[05/04 01:13:56     28s] <CMD> set_units -time 1000.0ps
+[05/04 01:13:56     28s] **WARN: (TCLCMD-1461):	Skipped unsupported command: set_units
+[05/04 01:13:56     28s] <CMD> current_design test_inverter
+[05/04 01:13:56     28s] **WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'test_inverter'
+[05/04 01:13:56     28s] **ERROR: (TCLCMD-917):	Cannot find 'designs' that match 'test_inverter'
+<CMD> create_clock -name "clk" -period 10000.0 -waveform {0.0 5000.0} 
+[05/04 01:13:56     28s] **ERROR: (TCLCMD-1129):	Design must be in memory before running 'create_clock'.
+<CMD> init_design
+[05/04 01:13:56     28s] #% Begin Load MMMC data ... (date=05/04 01:13:56, mem=488.2M)
+[05/04 01:13:56     28s] **WARN: (TCLCMD-1461):	Skipped unsupported command: set_units
+[05/04 01:13:56     28s] **WARN: (TCLCMD-1461):	Skipped unsupported command: set_units
+[05/04 01:13:56     28s] **WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'test_inverter'
+[05/04 01:13:56     28s] **ERROR: (TCLCMD-917):	Cannot find 'designs' that match 'test_inverter'
+**ERROR: (TCLCMD-1129):	Design must be in memory before running 'create_clock'.
+<CMD> set init_gnd_net VSS
+[05/04 01:15:39     37s] <CMD> set init_lef_file {../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T.tlef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef}
+[05/04 01:15:39     37s] <CMD> set init_verilog inverter_synth.v
+[05/04 01:15:39     37s] <CMD> set init_top_cell test_inverter
+[05/04 01:15:39     37s] <CMD> set init_pwr_net VDD
+[05/04 01:15:39     37s] <CMD> init_design
+[05/04 01:15:39     37s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[05/04 01:15:39     37s] 
+[05/04 01:15:39     37s] Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T.tlef ...
+[05/04 01:15:39     37s] 
+[05/04 01:15:39     37s] Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef ...
+[05/04 01:15:39     37s] Set DBUPerIGU to M2 pitch 460.
+[05/04 01:15:39     37s] 
+[05/04 01:15:39     37s] Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef ...
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'FILL1' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'FILL2' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'FILL4' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'FILL8' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'FILL16' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'FILL32' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'FILL64' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'TIEHI' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'TIELO' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-58):	MACRO 'ANTENNA' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-58' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-61):	10 duplicated MACRO definitions have been found in the LEF file(s). Their content except DENSITY and PIN ANTENNA* data have been ignored.
+[05/04 01:15:39     37s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/04 01:15:39     37s] Type 'man IMPLF-61' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[05/04 01:15:39     37s] Type 'man IMPLF-200' for more detail.
+[05/04 01:15:39     37s] 
+[05/04 01:15:39     37s] viaInitial starts at Mon May  4 01:15:39 2026
+viaInitial ends at Mon May  4 01:15:39 2026
+*** End library_loading (cpu=0.00min, real=0.00min, mem=0.0M, fe_cpu=0.63min, fe_real=3.75min, fe_mem=600.5M) ***
+[05/04 01:15:39     37s] % Begin Load netlist data ... (date=05/04 01:15:39, mem=493.6M)
+[05/04 01:15:39     37s] *** Begin netlist parsing (mem=600.5M) ***
+[05/04 01:15:39     37s] Created 0 new cells from 0 timing libraries.
+[05/04 01:15:39     37s] Reading netlist ...
+[05/04 01:15:39     37s] Backslashed names will retain backslash and a trailing blank character.
+[05/04 01:15:39     37s] Reading verilog netlist 'inverter_synth.v'
+[05/04 01:15:39     37s] 
+[05/04 01:15:39     37s] *** Memory Usage v#1 (Current mem = 602.527M, initial mem = 251.484M) ***
+[05/04 01:15:39     37s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=602.5M) ***
+[05/04 01:15:39     37s] % End Load netlist data ... (date=05/04 01:15:39, total cpu=0:00:00.0, real=0:00:00.0, peak res=496.4M, current mem=496.4M)
+[05/04 01:15:39     37s] Set top cell to test_inverter.
+[05/04 01:15:39     37s] Hooked 0 DB cells to tlib cells.
+[05/04 01:15:39     37s] Starting recursive module instantiation check.
+[05/04 01:15:39     37s] No recursion found.
+[05/04 01:15:39     37s] Building hierarchical netlist for Cell test_inverter ...
+[05/04 01:15:39     37s] *** Netlist is unique.
+[05/04 01:15:39     37s] Setting Std. cell height to 4140 DBU (smallest netlist inst).
+[05/04 01:15:39     37s] ** info: there are 118 modules.
+[05/04 01:15:39     37s] ** info: there are 1 stdCell insts.
+[05/04 01:15:39     37s] 
+[05/04 01:15:39     37s] *** Memory Usage v#1 (Current mem = 627.949M, initial mem = 251.484M) ***
+[05/04 01:15:39     37s] **WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+[05/04 01:15:39     37s] Type 'man IMPFP-3961' for more detail.
+[05/04 01:15:39     37s] **WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+[05/04 01:15:39     37s] Type 'man IMPFP-3961' for more detail.
+[05/04 01:15:39     37s] Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+[05/04 01:15:39     37s] Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+[05/04 01:15:39     37s] Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+[05/04 01:15:39     37s] Set Default Net Delay as 1000 ps.
+[05/04 01:15:39     37s] Set Default Net Load as 0.5 pF. 
+[05/04 01:15:39     37s] Set Default Input Pin Transition as 0.1 ps.
+[05/04 01:15:39     37s] **WARN: (IMPSYT-7328):	The design has been initialized in physical-only mode because the init_mmmc_file global variable was not defined. Timing analysis will not be possible within this session. You can only use commands that do not depend on timing data. If you need to use timing, you need to restart with an init_mmmc_file to define the timing setup, or you can save this design and use restoreDesign -mmmc_file <viewDef.tcl> to add the timing setup information.
+[05/04 01:15:39     37s] Extraction setup called explicitly through PreRoutePatternsIfNeeded call.
+[05/04 01:15:39     37s] Extraction setup Started 
+[05/04 01:15:39     37s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[05/04 01:16:50     44s] <CMD> getIoFlowFlag
+[05/04 01:17:31     47s] <CMD> setIoFlowFlag 0
+[05/04 01:17:31     47s] <CMD> floorPlan -site CoreSite -r 2.09620253165 0.698734 10.0 10.0 10.0 10.0
+[05/04 01:17:31     47s] Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+[05/04 01:17:31     47s] Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+[05/04 01:17:31     47s] Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+[05/04 01:17:31     47s] <CMD> uiSetTool select
+[05/04 01:17:31     47s] <CMD> getIoFlowFlag
+[05/04 01:17:31     47s] <CMD> fit
+[05/04 01:17:35     48s] <CMD> gui_select -rect {10.201 13.559 11.176 12.696}
+[05/04 01:17:36     48s] <CMD> gui_select -rect {10.313 13.934 12.076 10.708}
+[05/04 01:18:03     51s] <CMD> setPlaceMode -fp false
+[05/04 01:18:03     51s] <CMD> place_design
+[05/04 01:18:03     51s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[05/04 01:18:03     51s] **WARN: (IMPSP-9513):	Timing constraint file does not exist
+[05/04 01:18:03     51s] **WARN: (IMPSP-9514):	Non-TimingDriven placement will be performed.
+[05/04 01:18:03     51s] *** Starting placeDesign default flow ***
+[05/04 01:18:03     51s] Deleted 0 physical inst  (cell - / prefix -).
+[05/04 01:18:03     51s] Extracting standard cell pins and blockage ...... 
+[05/04 01:18:03     51s] Pin and blockage extraction finished
+[05/04 01:18:03     51s] Extracting macro/IO cell pins and blockage ...... 
+[05/04 01:18:03     51s] Pin and blockage extraction finished
+[05/04 01:18:03     51s] *** Starting "NanoPlace(TM) placement v#1 (mem=745.3M)" ...
+[05/04 01:18:03     51s] No user-set net weight.
+[05/04 01:18:03     51s] no activity file in design. spp won't run.
+[05/04 01:18:03     51s] Options: clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+[05/04 01:18:03     51s] Scan chains were not defined.
+[05/04 01:18:03     51s] #std cell=1 (0 fixed + 1 movable) #block=0 (0 floating + 0 preplaced)
+[05/04 01:18:03     51s] #ioInst=0 #net=2 #term=4 #term/net=2.00, #fixedIo=0, #floatIo=0, #fixedPin=0, #floatPin=2
+[05/04 01:18:03     51s] stdCell: 1 single + 0 double + 0 multi
+[05/04 01:18:03     51s] Total standard cell length = 0.0014 (mm), area = 0.0000 (mm^2)
+[05/04 01:18:03     51s] OPERPROF: Starting SiteArrayInit at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting spIGRtCostMap_init at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished spIGRtCostMap_init at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayMainInit_V17 at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting SiteArrayFPInit_V17 at level 3, MEM:745.3M
+[05/04 01:18:03     51s] **WARN: (IMPSP-362):	Site 'CoreSite' has one std.Cell height, so ignoring its X-symmetry.
+[05/04 01:18:03     51s] Type 'man IMPSP-362' for more detail.
+[05/04 01:18:03     51s] Core basic site is CoreSite
+[05/04 01:18:03     51s] OPERPROF:       Starting Placement-Init-Site-Array-V17 at level 4, MEM:745.3M
+[05/04 01:18:03     51s] SiteArray: one-level site array dimensions = 2 x 5
+[05/04 01:18:03     51s] SiteArray: use 40 bytes
+[05/04 01:18:03     51s] SiteArray: current memory after site array memory allocatiion 745.3M
+[05/04 01:18:03     51s] SiteArray: FP blocked sites are writable
+[05/04 01:18:03     51s] OPERPROF:         Starting SiteArray/Init-VDDOnBottom at level 5, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Finished SiteArray/Init-VDDOnBottom at level 5, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Starting InitTechSitePattern at level 5, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Finished InitTechSitePattern at level 5, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Starting SiteArr/FP-Init-2 at level 5, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Finished SiteArr/FP-Init-2 at level 5, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Starting SiteArr/FP-Blockage at level 5, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Finished SiteArr/FP-Blockage at level 5, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Finished Placement-Init-Site-Array-V17 at level 4, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Starting Placement-Build-Cache-Physical-Only-Inst-Cache at level 4, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Finished Placement-Build-Cache-Physical-Only-Inst-Cache at level 4, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Starting Placement-Build-Follow-Pin at level 4, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Starting RoutingBlockageAnalysis at level 5, MEM:745.3M
+[05/04 01:18:03     51s] Estimated cell power/ground rail width = 0.517 um
+[05/04 01:18:03     51s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[05/04 01:18:03     51s] Mark StBox On SiteArr starts
+[05/04 01:18:03     51s] Mark StBox On SiteArr ends
+[05/04 01:18:03     51s] OPERPROF:         Finished RoutingBlockageAnalysis at level 5, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] spiAuditVddOnBottomForRows for llg="default" starts
+[05/04 01:18:03     51s] spiAuditVddOnBottomForRows ends
+[05/04 01:18:03     51s] OPERPROF:       Finished Placement-Build-Follow-Pin at level 4, CPU:0.000, REAL:0.006, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Starting SiteArary/SetupFPBlocked at level 4, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Finished SiteArary/SetupFPBlocked at level 4, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished SiteArrayFPInit_V17 at level 3, CPU:0.010, REAL:0.027, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting SiteArrayInitPartitionBorders at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished SiteArrayInitPartitionBorders at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting InitBlockedSiteAsBlockedInst at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished InitBlockedSiteAsBlockedInst at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting SiteArrayMarkPreplaceInsts at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished SiteArrayMarkPreplaceInsts at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting SiteCapAdjustOnNarrowBlockage at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Starting PlacementInitFenceForDensity at level 4, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Starting SiteArrayInitFenceEdgeBit at level 5, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Finished SiteArrayInitFenceEdgeBit at level 5, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Starting SiteArrayInitObstEdgeBit at level 5, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:         Finished SiteArrayInitObstEdgeBit at level 5, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Finished PlacementInitFenceForDensity at level 4, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Starting PlacementCleanupFence at level 4, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Finished PlacementCleanupFence at level 4, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished SiteCapAdjustOnNarrowBlockage at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayMainInit_V17 at level 2, CPU:0.010, REAL:0.046, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished SiteArrayInit at level 1, CPU:0.010, REAL:0.047, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Starting pre-place ADS at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting PlacementInitFenceForDensity at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting SiteArrayInitFenceEdgeBit at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished SiteArrayInitFenceEdgeBit at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting SiteArrayInitObstEdgeBit at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished SiteArrayInitObstEdgeBit at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished PlacementInitFenceForDensity at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting PlacementCleanupFence at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished PlacementCleanupFence at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting pre-place ADS Build Supply Map at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting ADS RRMInitG at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished ADS RRMInitG at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting ADS RRMCPTSL at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Starting ADS RRMBLKB at level 4, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Finished ADS RRMBLKB at level 4, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Starting ADS RRMCPTTR at level 4, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:       Finished ADS RRMCPTTR at level 4, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished ADS RRMCPTSL at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished pre-place ADS Build Supply Map at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting PlacementInitFenceForDensity at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting SiteArrayInitFenceEdgeBit at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished SiteArrayInitFenceEdgeBit at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Starting SiteArrayInitObstEdgeBit at level 3, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:     Finished SiteArrayInitObstEdgeBit at level 3, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished PlacementInitFenceForDensity at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting PlacementCleanupFence at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished PlacementCleanupFence at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] ADSU 0.600 -> 0.600
+[05/04 01:18:03     51s] OPERPROF: Finished pre-place ADS at level 1, CPU:0.000, REAL:0.007, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] Average module density = 0.600.
+[05/04 01:18:03     51s] Density for the design = 0.600.
+[05/04 01:18:03     51s]        = stdcell_area 3 sites (6 um^2) / alloc_area 5 sites (10 um^2).
+[05/04 01:18:03     51s] Pin Density = 0.4000.
+[05/04 01:18:03     51s]             = total # of pins 4 / total area 10.
+[05/04 01:18:03     51s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] Initial padding reaches pin density 0.667 for top
+[05/04 01:18:03     51s] Min area ratio padding skipped minAreaTgt 1.050, addOnArea -1.250
+[05/04 01:18:03     51s] InitPadU 0.600 -> 1.200 for top
+[05/04 01:18:03     51s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Starting PlacementInitFence at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished PlacementInitFence at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Starting spSectionHeadInit at level 1, MEM:745.3M
+[05/04 01:18:03     51s] OPERPROF: Finished spSectionHeadInit at level 1, CPU:0.000, REAL:0.000, MEM:745.3M
+[05/04 01:18:03     51s] === lastAutoLevel = 3 
+[05/04 01:18:03     51s] 0 delay mode for cte enabled initNetWt.
+[05/04 01:18:03     51s] no activity file in design. spp won't run.
+[05/04 01:18:03     51s] [spp] 0
+[05/04 01:18:03     51s] [adp] 0:1:0:1
+[05/04 01:18:03     51s] 0 delay mode for cte disabled initNetWt.
+[05/04 01:18:03     51s] **WARN: (IMPSP-9531):	Turning off clkGateAware when timingDriven is off
+[05/04 01:18:04     51s] Iteration  1: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 743.3M
+[05/04 01:18:04     51s] Iteration  2: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 744.3M
+[05/04 01:18:04     51s] exp_mt_sequential is set from setPlaceMode option to 1
+[05/04 01:18:04     51s] Setting dotProdMode from setPlaceMode option to Single-thread sequential mode
+[05/04 01:18:04     51s] place_exp_mt_interval set to default 32
+[05/04 01:18:04     51s] place_exp_mt_interval_bias (first half) set to default 0.750000
+[05/04 01:18:04     51s] Iteration  3: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 744.3M
+[05/04 01:18:04     51s] Iteration  4: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 744.3M
+[05/04 01:18:04     51s] Iteration  5: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:18:04     51s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 744.3M
+[05/04 01:18:04     51s] Iteration  6: Total net bbox = 4.508e+01 (2.21e+01 2.30e+01)
+[05/04 01:18:04     51s]               Est.  stn bbox = 4.508e+01 (2.21e+01 2.30e+01)
+[05/04 01:18:04     51s]               cpu = 0:00:00.0 real = 0:00:01.0 mem = 744.3M
+[05/04 01:18:04     51s] *** cost = 4.508e+01 (2.21e+01 2.30e+01) (cpu for global=0:00:00.0) real=0:00:01.0***
+[05/04 01:18:04     51s] net ignore based on current view = 0
+[05/04 01:18:04     51s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF: Starting spFreeFakeNetlist at level 1, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF: Finished spFreeFakeNetlist at level 1, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] Solver runtime cpu: 0:00:00.0 real: 0:00:00.0
+[05/04 01:18:04     51s] Core Placement runtime cpu: 0:00:00.0 real: 0:00:01.0
+[05/04 01:18:04     51s] **WARN: (IMPSP-9025):	No scan chain specified/traced.
+[05/04 01:18:04     51s] Type 'man IMPSP-9025' for more detail.
+[05/04 01:18:04     51s] OPERPROF: Starting RefinePlaceInit at level 1, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:   Starting DPlace-Init at level 2, MEM:744.3M
+[05/04 01:18:04     51s] #spOpts: mergeVia=F 
+[05/04 01:18:04     51s] OPERPROF:     Starting SiteArrayInit at level 3, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:       Starting spIGRtCostMap_init at level 4, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:       Finished spIGRtCostMap_init at level 4, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:       Starting SiteArrayMainInit_V17 at level 4, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Starting SiteArrayFPInit_V17 at level 5, MEM:744.3M
+[05/04 01:18:04     51s] Core basic site is CoreSite
+[05/04 01:18:04     51s] OPERPROF:           Starting Placement-Init-Site-Array-V17 at level 6, MEM:744.3M
+[05/04 01:18:04     51s] SiteArray: one-level site array dimensions = 2 x 5
+[05/04 01:18:04     51s] SiteArray: use 40 bytes
+[05/04 01:18:04     51s] SiteArray: current memory after site array memory allocatiion 744.3M
+[05/04 01:18:04     51s] SiteArray: FP blocked sites are writable
+[05/04 01:18:04     51s] OPERPROF:             Starting SiteArray/Init-VDDOnBottom at level 7, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:             Finished SiteArray/Init-VDDOnBottom at level 7, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:             Starting InitTechSitePattern at level 7, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:             Finished InitTechSitePattern at level 7, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:             Starting SiteArr/FP-Init-2 at level 7, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:             Finished SiteArr/FP-Init-2 at level 7, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:             Starting SiteArr/FP-Blockage at level 7, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:             Finished SiteArr/FP-Blockage at level 7, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:           Finished Placement-Init-Site-Array-V17 at level 6, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:           Starting Placement-Build-Cache-Physical-Only-Inst-Cache at level 6, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:           Finished Placement-Build-Cache-Physical-Only-Inst-Cache at level 6, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:           Starting Placement-Build-Follow-Pin at level 6, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:             Starting RoutingBlockageAnalysis at level 7, MEM:744.3M
+[05/04 01:18:04     51s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[05/04 01:18:04     51s] Mark StBox On SiteArr starts
+[05/04 01:18:04     51s] Mark StBox On SiteArr ends
+[05/04 01:18:04     51s] OPERPROF:             Finished RoutingBlockageAnalysis at level 7, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:           Finished Placement-Build-Follow-Pin at level 6, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:           Starting SiteArary/SetupFPBlocked at level 6, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:           Finished SiteArary/SetupFPBlocked at level 6, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Finished SiteArrayFPInit_V17 at level 5, CPU:0.000, REAL:0.002, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Starting SiteArrayInitPartitionBorders at level 5, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Finished SiteArrayInitPartitionBorders at level 5, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Starting InitBlockedSiteAsBlockedInst at level 5, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Finished InitBlockedSiteAsBlockedInst at level 5, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Starting SiteArrayMarkPreplaceInsts at level 5, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Finished SiteArrayMarkPreplaceInsts at level 5, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Starting CMU at level 5, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:         Finished CMU at level 5, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:       Finished SiteArrayMainInit_V17 at level 4, CPU:0.000, REAL:0.002, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:     Finished SiteArrayInit at level 3, CPU:0.000, REAL:0.002, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:     Starting PlacementInitSBTree at level 3, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:     Finished PlacementInitSBTree at level 3, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:     Starting PlacementInitFenceForDPlace at level 3, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:       Starting SiteArrayInitFenceEdgeBit at level 4, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:       Finished SiteArrayInitFenceEdgeBit at level 4, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:       Starting SiteArrayInitObstEdgeBit at level 4, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:       Finished SiteArrayInitObstEdgeBit at level 4, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:     Finished PlacementInitFenceForDPlace at level 3, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] [CPU] DPlace-Init (cpu=0:00:00.0, real=0:00:00.0, mem=744.3MB).
+[05/04 01:18:04     51s] OPERPROF:   Finished DPlace-Init at level 2, CPU:0.000, REAL:0.004, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF: Finished RefinePlaceInit at level 1, CPU:0.000, REAL:0.004, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF: Starting RefinePlace at level 1, MEM:744.3M
+[05/04 01:18:04     51s] *** Starting refinePlace (0:00:51.1 mem=744.3M) ***
+[05/04 01:18:04     51s] Total net bbox length = 4.508e+01 (2.208e+01 2.300e+01) (ext = 4.508e+01)
+[05/04 01:18:04     51s] Move report: placeLevelShifters moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[05/04 01:18:04     51s] OPERPROF:   Starting CellHaloInit at level 2, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:   Finished CellHaloInit at level 2, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:   Starting CellHaloInit at level 2, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:   Finished CellHaloInit at level 2, CPU:0.000, REAL:0.000, MEM:744.3M
+[05/04 01:18:04     51s] OPERPROF:   Starting RefinePlace2 at level 2, MEM:744.3M
+[05/04 01:18:04     51s] Starting refinePlace ...
+[05/04 01:18:04     51s]   Spread Effort: high, standalone mode, useDDP on.
+[05/04 01:18:04     51s] [CPU] RefinePlace/preRPlace (cpu=0:00:00.0, real=0:00:00.0, mem=746.3MB) @(0:00:51.1 - 0:00:51.1).
+[05/04 01:18:04     51s] Move report: preRPlace moves 1 insts, mean move: 0.23 um, max move: 0.23 um
+[05/04 01:18:04     51s] 	Max move on inst (g2): (10.35, 10.12) --> (10.58, 10.12)
+[05/04 01:18:04     51s] 	Length: 3 sites, height: 1 rows, site name: CoreSite, cell type: CLKINVX2
+[05/04 01:18:04     51s] wireLenOptFixPriorityInst 0 inst fixed
+[05/04 01:18:04     51s] Placement tweakage begins.
+[05/04 01:18:04     51s] wire length = 0.000e+00
+[05/04 01:18:04     51s] wire length = 0.000e+00
+[05/04 01:18:04     51s] Placement tweakage ends.
+[05/04 01:18:04     51s] Move report: tweak moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[05/04 01:18:04     51s] 
+[05/04 01:18:04     51s] Running Spiral with 1 thread in Normal Mode  fetchWidth=8 
+[05/04 01:18:04     51s] Move report: legalization moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[05/04 01:18:04     51s] [CPU] RefinePlace/Legalization (cpu=0:00:00.0, real=0:00:00.0, mem=746.3MB) @(0:00:51.1 - 0:00:51.1).
+[05/04 01:18:04     51s] Move report: Detail placement moves 1 insts, mean move: 0.23 um, max move: 0.23 um
+[05/04 01:18:04     51s] 	Max move on inst (g2): (10.35, 10.12) --> (10.58, 10.12)
+[05/04 01:18:04     51s] 	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 746.3MB
+[05/04 01:18:04     51s] Statistics of distance of Instance movement in refine placement:
+[05/04 01:18:04     51s]   maximum (X+Y) =         0.23 um
+[05/04 01:18:04     51s]   inst (g2) with max move: (10.35, 10.12) -> (10.58, 10.12)
+[05/04 01:18:04     51s]   mean    (X+Y) =         0.23 um
+[05/04 01:18:04     51s] Summary Report:
+[05/04 01:18:04     51s] Instances move: 1 (out of 1 movable)
+[05/04 01:18:04     51s] Instances flipped: 0
+[05/04 01:18:04     51s] Mean displacement: 0.23 um
+[05/04 01:18:04     51s] Max displacement: 0.23 um (Instance: g2) (10.35, 10.12) -> (10.58, 10.12)
+[05/04 01:18:04     51s] 	Length: 3 sites, height: 1 rows, site name: CoreSite, cell type: CLKINVX2
+[05/04 01:18:04     51s] Total instances moved : 1
+[05/04 01:18:04     51s] OPERPROF:   Finished RefinePlace2 at level 2, CPU:0.000, REAL:0.042, MEM:746.3M
+[05/04 01:18:04     51s] Total net bbox length = 4.830e+01 (2.254e+01 2.576e+01) (ext = 4.830e+01)
+[05/04 01:18:04     51s] Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 746.3MB
+[05/04 01:18:04     51s] [CPU] RefinePlace/total (cpu=0:00:00.0, real=0:00:00.0, mem=746.3MB) @(0:00:51.1 - 0:00:51.1).
+[05/04 01:18:04     51s] *** Finished refinePlace (0:00:51.1 mem=746.3M) ***
+[05/04 01:18:04     51s] OPERPROF: Finished RefinePlace at level 1, CPU:0.000, REAL:0.050, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Starting spFreeFakeNetlist at level 1, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Finished spFreeFakeNetlist at level 1, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] *** End of Placement (cpu=0:00:00.0, real=0:00:01.0, mem=746.3M) ***
+[05/04 01:18:04     51s] #spOpts: mergeVia=F 
+[05/04 01:18:04     51s] OPERPROF: Starting SiteArrayInit at level 1, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:   Starting spIGRtCostMap_init at level 2, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:   Finished spIGRtCostMap_init at level 2, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:   Starting SiteArrayMainInit_V17 at level 2, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:     Starting SiteArrayFPInit_V17 at level 3, MEM:746.3M
+[05/04 01:18:04     51s] Core basic site is CoreSite
+[05/04 01:18:04     51s] OPERPROF:       Starting Placement-Init-Site-Array-V17 at level 4, MEM:746.3M
+[05/04 01:18:04     51s] SiteArray: one-level site array dimensions = 2 x 5
+[05/04 01:18:04     51s] SiteArray: use 40 bytes
+[05/04 01:18:04     51s] SiteArray: current memory after site array memory allocatiion 746.3M
+[05/04 01:18:04     51s] SiteArray: FP blocked sites are writable
+[05/04 01:18:04     51s] OPERPROF:         Starting SiteArray/Init-VDDOnBottom at level 5, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:         Finished SiteArray/Init-VDDOnBottom at level 5, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:         Starting InitTechSitePattern at level 5, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:         Finished InitTechSitePattern at level 5, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:         Starting SiteArr/FP-Init-2 at level 5, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:         Finished SiteArr/FP-Init-2 at level 5, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:         Starting SiteArr/FP-Blockage at level 5, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:         Finished SiteArr/FP-Blockage at level 5, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:       Finished Placement-Init-Site-Array-V17 at level 4, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:       Starting Placement-Build-Cache-Physical-Only-Inst-Cache at level 4, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:       Finished Placement-Build-Cache-Physical-Only-Inst-Cache at level 4, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:       Starting Placement-Build-Follow-Pin at level 4, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:         Starting RoutingBlockageAnalysis at level 5, MEM:746.3M
+[05/04 01:18:04     51s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[05/04 01:18:04     51s] Mark StBox On SiteArr starts
+[05/04 01:18:04     51s] Mark StBox On SiteArr ends
+[05/04 01:18:04     51s] OPERPROF:         Finished RoutingBlockageAnalysis at level 5, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:       Finished Placement-Build-Follow-Pin at level 4, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:       Starting SiteArary/SetupFPBlocked at level 4, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:       Finished SiteArary/SetupFPBlocked at level 4, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:     Finished SiteArrayFPInit_V17 at level 3, CPU:0.010, REAL:0.002, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:     Starting SiteArrayInitPartitionBorders at level 3, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:     Finished SiteArrayInitPartitionBorders at level 3, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:     Starting InitBlockedSiteAsBlockedInst at level 3, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:     Finished InitBlockedSiteAsBlockedInst at level 3, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:     Starting SiteArrayMarkPreplaceInsts at level 3, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:     Finished SiteArrayMarkPreplaceInsts at level 3, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:   Finished SiteArrayMainInit_V17 at level 2, CPU:0.010, REAL:0.002, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Finished SiteArrayInit at level 1, CPU:0.010, REAL:0.002, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Starting Cal-LLG-Density-Map at level 1, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Finished Cal-LLG-Density-Map at level 1, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] default core: bins with density > 0.750 =  0.00 % ( 0 / 1 )
+[05/04 01:18:04     51s] Density distribution unevenness ratio = 0.000%
+[05/04 01:18:04     51s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Starting spFreeFakeNetlist at level 1, MEM:746.3M
+[05/04 01:18:04     51s] OPERPROF: Finished spFreeFakeNetlist at level 1, CPU:0.000, REAL:0.000, MEM:746.3M
+[05/04 01:18:04     51s] 
+[05/04 01:18:04     51s] Starting congestion repair ...
+[05/04 01:18:04     51s] User Input Parameters:
+[05/04 01:18:04     51s] - Congestion Driven    : On
+[05/04 01:18:04     51s] - Timing Driven        : Off
+[05/04 01:18:04     51s] - Area-Violation Based : On
+[05/04 01:18:04     51s] - Start Rollback Level : -5
+[05/04 01:18:04     51s] - Legalized            : On
+[05/04 01:18:04     51s] - Window Based         : Off
+[05/04 01:18:04     51s] 
+[05/04 01:18:04     51s] Starting Early Global Route congestion estimation: mem = 747.3M
+[05/04 01:18:04     51s] (I)       Reading DB...
+[05/04 01:18:04     51s] (I)       Read data from FE... (mem=747.3M)
+[05/04 01:18:04     51s] (I)       Read nodes and places... (mem=747.3M)
+[05/04 01:18:04     51s] (I)       Done Read nodes and places (cpu=0.000s, mem=747.3M)
+[05/04 01:18:04     51s] (I)       Read nets... (mem=747.3M)
+[05/04 01:18:04     51s] (I)       Done Read nets (cpu=0.000s, mem=747.3M)
+[05/04 01:18:04     51s] (I)       Done Read data from FE (cpu=0.000s, mem=747.3M)
+[05/04 01:18:04     51s] (I)       before initializing RouteDB syMemory usage = 747.3 MB
+[05/04 01:18:04     51s] (I)       congestionReportName   : 
+[05/04 01:18:04     51s] (I)       layerRangeFor2DCongestion : 
+[05/04 01:18:04     51s] (I)       buildTerm2TermWires    : 1
+[05/04 01:18:04     51s] (I)       doTrackAssignment      : 1
+[05/04 01:18:04     51s] (I)       dumpBookshelfFiles     : 0
+[05/04 01:18:04     51s] (I)       numThreads             : 1
+[05/04 01:18:04     51s] (I)       bufferingAwareRouting  : false
+[05/04 01:18:04     51s] [NR-eGR] honorMsvRouteConstraint: false
+[05/04 01:18:04     51s] (I)       honorPin               : false
+[05/04 01:18:04     51s] (I)       honorPinGuide          : true
+[05/04 01:18:04     51s] (I)       honorPartition         : false
+[05/04 01:18:04     51s] (I)       honorPartitionAllowFeedthru: false
+[05/04 01:18:04     51s] (I)       allowPartitionCrossover: false
+[05/04 01:18:04     51s] (I)       honorSingleEntry       : true
+[05/04 01:18:04     51s] (I)       honorSingleEntryStrong : true
+[05/04 01:18:04     51s] (I)       handleViaSpacingRule   : false
+[05/04 01:18:04     51s] (I)       handleEolSpacingRule   : false
+[05/04 01:18:04     51s] (I)       PDConstraint           : none
+[05/04 01:18:04     51s] (I)       expBetterNDRHandling   : false
+[05/04 01:18:04     51s] [NR-eGR] honorClockSpecNDR      : 0
+[05/04 01:18:04     51s] (I)       routingEffortLevel     : 3
+[05/04 01:18:04     51s] (I)       effortLevel            : standard
+[05/04 01:18:04     51s] [NR-eGR] minRouteLayer          : 2
+[05/04 01:18:04     51s] [NR-eGR] maxRouteLayer          : 127
+[05/04 01:18:04     51s] (I)       relaxedTopLayerCeiling : 127
+[05/04 01:18:04     51s] (I)       relaxedBottomLayerFloor: 2
+[05/04 01:18:04     51s] (I)       numRowsPerGCell        : 1
+[05/04 01:18:04     51s] (I)       speedUpLargeDesign     : 0
+[05/04 01:18:04     51s] (I)       multiThreadingTA       : 1
+[05/04 01:18:04     51s] (I)       optimizationMode       : false
+[05/04 01:18:04     51s] (I)       routeSecondPG          : false
+[05/04 01:18:04     51s] (I)       scenicRatioForLayerRelax: 0.00
+[05/04 01:18:04     51s] (I)       detourLimitForLayerRelax: 0.00
+[05/04 01:18:04     51s] (I)       punchThroughDistance   : 500.00
+[05/04 01:18:04     51s] (I)       scenicBound            : 1.15
+[05/04 01:18:04     51s] (I)       maxScenicToAvoidBlk    : 100.00
+[05/04 01:18:04     51s] (I)       source-to-sink ratio   : 0.00
+[05/04 01:18:04     51s] (I)       targetCongestionRatioH : 1.00
+[05/04 01:18:04     51s] (I)       targetCongestionRatioV : 1.00
+[05/04 01:18:04     51s] (I)       layerCongestionRatio   : 0.70
+[05/04 01:18:04     51s] (I)       m1CongestionRatio      : 0.10
+[05/04 01:18:04     51s] (I)       m2m3CongestionRatio    : 0.70
+[05/04 01:18:04     51s] (I)       localRouteEffort       : 1.00
+[05/04 01:18:04     51s] (I)       numSitesBlockedByOneVia: 8.00
+[05/04 01:18:04     51s] (I)       supplyScaleFactorH     : 1.00
+[05/04 01:18:04     51s] (I)       supplyScaleFactorV     : 1.00
+[05/04 01:18:04     51s] (I)       highlight3DOverflowFactor: 0.00
+[05/04 01:18:04     51s] (I)       routeVias              : 
+[05/04 01:18:04     51s] (I)       readTROption           : true
+[05/04 01:18:04     51s] (I)       extraSpacingFactor     : 1.00
+[05/04 01:18:04     51s] [NR-eGR] numTracksPerClockWire  : 0
+[05/04 01:18:04     51s] (I)       routeSelectedNetsOnly  : false
+[05/04 01:18:04     51s] (I)       clkNetUseMaxDemand     : false
+[05/04 01:18:04     51s] (I)       extraDemandForClocks   : 0
+[05/04 01:18:04     51s] (I)       steinerRemoveLayers    : false
+[05/04 01:18:04     51s] (I)       demoteLayerScenicScale : 1.00
+[05/04 01:18:04     51s] (I)       nonpreferLayerCostScale : 100.00
+[05/04 01:18:04     51s] (I)       similarTopologyRoutingFast : false
+[05/04 01:18:04     51s] (I)       spanningTreeRefinement : false
+[05/04 01:18:04     51s] (I)       spanningTreeRefinementAlpha : -1.00
+[05/04 01:18:04     51s] (I)       starting read tracks
+[05/04 01:18:04     51s] (I)       build grid graph
+[05/04 01:18:04     51s] (I)       build grid graph start
+[05/04 01:18:04     51s] [NR-eGR] met1 has no routable track
+[05/04 01:18:04     51s] [NR-eGR] met2 has single uniform track structure
+[05/04 01:18:04     51s] [NR-eGR] met3 has single uniform track structure
+[05/04 01:18:04     51s] [NR-eGR] met4 has single uniform track structure
+[05/04 01:18:04     51s] [NR-eGR] met5 has single uniform track structure
+[05/04 01:18:04     51s] (I)       build grid graph end
+[05/04 01:18:04     51s] (I)       merge level 0
+[05/04 01:18:04     51s] (I)       numViaLayers=5
+[05/04 01:18:04     51s] (I)       Reading via M1M2_PR_R for layer: 0 
+[05/04 01:18:04     51s] (I)       Reading via M2M3_PR_R for layer: 1 
+[05/04 01:18:04     51s] (I)       Reading via M3M4_PR for layer: 2 
+[05/04 01:18:04     51s] (I)       Reading via M4M5_PR for layer: 3 
+[05/04 01:18:04     51s] (I)       end build via table
+[05/04 01:18:04     51s] [NR-eGR] Read 0 PG shapes in 0.000 seconds
+[05/04 01:18:04     51s] 
+[05/04 01:18:04     51s] [NR-eGR] numRoutingBlks=0 numInstBlks=0 numPGBlocks=0 numBumpBlks=0 numBoundaryFakeBlks=0
+[05/04 01:18:04     51s] (I)       **WARNING: No rule is found. Cannot read pre-routed nets.
+[05/04 01:18:04     51s] (I)       **WARNING: No rule is found. Cannot read pre-routed nets.
+[05/04 01:18:04     51s] (I)       readDataFromPlaceDB
+[05/04 01:18:04     51s] (I)       Read net information..
+[05/04 01:18:04     51s] [NR-eGR] Read numTotalNets=0  numIgnoredNets=0
+[05/04 01:18:04     51s] (I)       Read testcase time = 0.000 seconds
+[05/04 01:18:04     51s] 
+[05/04 01:18:04     51s] (I)       read default dcut vias
+[05/04 01:18:04     51s] (I)       Reading via M1M2_PR for layer: 0 
+[05/04 01:18:04     51s] (I)       Reading via M2M3_PR for layer: 1 
+[05/04 01:18:04     51s] (I)       Reading via M3M4_PR for layer: 2 
+[05/04 01:18:04     51s] (I)       Reading via M4M5_PR for layer: 3 
+[05/04 01:18:04     51s] (I)       early_global_route_priority property id does not exist.
+[05/04 01:18:04     51s] (I)       build grid graph start
+[05/04 01:18:04     51s] (I)       build grid graph end
+[05/04 01:18:04     51s] (I)       Model blockage into capacity
+[05/04 01:18:04     51s] (I)       Read numBlocks=%  numPreroutedWires=%  numCapScreens=%
+[05/04 01:18:04     51s] (I)       Modeling time = 0.000 seconds
+[05/04 01:18:04     51s] 
+[05/04 01:18:04     51s] (I)       Number of ignored nets = 0
+[05/04 01:18:04     51s] (I)       Number of fixed nets = 0.  Ignored: Yes
+[05/04 01:18:04     51s] (I)       Number of clock nets = 0.  Ignored: No
+[05/04 01:18:04     51s] (I)       Number of analog nets = 0.  Ignored: Yes
+[05/04 01:18:04     51s] (I)       Number of special nets = 0.  Ignored: Yes
+[05/04 01:18:04     51s] (I)       Number of mixed signal nets = 0.  Ignored: Yes
+[05/04 01:18:04     51s] (I)       Number of skip routing nets = 0.  Ignored: Yes
+[05/04 01:18:04     51s] (I)       Number of nets with ignore route flag = 0.  Ignored: No
+[05/04 01:18:04     51s] (I)       Number of nets with one or no pins = 0.  Ignored: Yes
+[05/04 01:18:04     51s] (I)       Number of two pin nets which has pins at the same location = 0.  Ignored: Yes
+[05/04 01:18:04     51s] (I)       Before initializing earlyGlobalRoute syMemory usage = 747.3 MB
+[05/04 01:18:04     51s] (I)       Ndr track 0 does not exist
+[05/04 01:18:04     51s] (I)       Layer1  viaCost=200.00
+[05/04 01:18:04     51s] (I)       Layer2  viaCost=300.00
+[05/04 01:18:04     51s] (I)       Layer3  viaCost=300.00
+[05/04 01:18:04     51s] (I)       Layer4  viaCost=200.00
+[05/04 01:18:04     51s] (I)       ---------------------Grid Graph Info--------------------
+[05/04 01:18:04     51s] (I)       Routing area        : (1840, 1840) - (22540, 24380)
+[05/04 01:18:04     51s] (I)       Core area           : (10120, 10120) - (12420, 14260)
+[05/04 01:18:04     51s] (I)       Site width          :   460  (dbu)
+[05/04 01:18:04     51s] (I)       Row height          :  4140  (dbu)
+[05/04 01:18:04     51s] (I)       GCell width         :  4140  (dbu)
+[05/04 01:18:04     51s] (I)       GCell height        :  4140  (dbu)
+[05/04 01:18:04     51s] (I)       Grid                :     5     6     5
+[05/04 01:18:04     51s] (I)       Layer numbers       :     1     2     3     4     5
+[05/04 01:18:04     51s] (I)       Vertical capacity   :     0  4140     0  4140     0
+[05/04 01:18:04     51s] (I)       Horizontal capacity :     0     0  4140     0  4140
+[05/04 01:18:04     51s] (I)       Default wire width  :   140   140   300   300  1600
+[05/04 01:18:04     51s] (I)       Default wire space  :   140   140   300   300  1600
+[05/04 01:18:04     51s] (I)       Default wire pitch  :   280   280   600   600  3200
+[05/04 01:18:04     51s] (I)       Default pitch size  :   280   460   610   615  3660
+[05/04 01:18:04     51s] (I)       First track coord   :     0   460   360   895  2800
+[05/04 01:18:04     51s] (I)       Num tracks per GCell: 14.79  9.00  6.79  6.73  1.13
+[05/04 01:18:04     51s] (I)       Total num of tracks :     0    48    40    35     6
+[05/04 01:18:04     51s] (I)       Num of masks        :     1     1     1     1     1
+[05/04 01:18:04     51s] (I)       Num of trim masks   :     0     0     0     0     0
+[05/04 01:18:04     51s] (I)       --------------------------------------------------------
+[05/04 01:18:04     51s] 
+[05/04 01:18:04     51s] [NR-eGR] ============ Routing rule table ============
+[05/04 01:18:04     51s] [NR-eGR] Rule id: 0  Nets: 0 
+[05/04 01:18:04     51s] (I)       id=0  isDef=1  ndrTrackId=0  ndrViaId=-1  extraSpace=0  numShields=0  maxHorDemand=1  maxVerDemand=1
+[05/04 01:18:04     51s] (I)       Pitch:  L1=280  L2=460  L3=610  L4=615  L5=3660
+[05/04 01:18:04     51s] (I)       NumUsedTracks:  L1=1  L2=1  L3=1  L4=1  L5=1
+[05/04 01:18:04     51s] (I)       NumFullyUsedTracks:  L1=1  L2=1  L3=1  L4=1  L5=1
+[05/04 01:18:04     51s] [NR-eGR] ========================================
+[05/04 01:18:04     51s] [NR-eGR] 
+[05/04 01:18:04     51s] (I)       blocked tracks on layer1 : = 0 / 0 (0.00%)
+[05/04 01:18:04     51s] (I)       blocked tracks on layer2 : = 0 / 0 (0.00%)
+[05/04 01:18:04     51s] (I)       blocked tracks on layer3 : = 0 / 0 (0.00%)
+[05/04 01:18:04     51s] (I)       blocked tracks on layer4 : = 0 / 0 (0.00%)
+[05/04 01:18:04     51s] (I)       blocked tracks on layer5 : = 0 / 0 (0.00%)
+[05/04 01:18:04     51s] (I)       After initializing earlyGlobalRoute syMemory usage = 747.3 MB
+[05/04 01:18:04     51s] (I)       Loading and dumping file time : 0.00 seconds
+[05/04 01:18:04     51s] [NR-eGR] No Net to Route
+[05/04 01:18:04     51s] (I)       total 2D Cap : 728 = (230 H, 498 V)
+[05/04 01:18:04     51s] [NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
+[05/04 01:18:04     51s] [NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
+[05/04 01:18:04     51s] Early Global Route congestion estimation runtime: 0.00 seconds, mem = 747.3M
+[05/04 01:18:04     51s] [hotspot] +------------+---------------+---------------+
+[05/04 01:18:04     51s] [hotspot] |            |   max hotspot | total hotspot |
+[05/04 01:18:04     51s] [hotspot] +------------+---------------+---------------+
+[05/04 01:18:04     51s] [hotspot] | normalized |          0.00 |          0.00 |
+[05/04 01:18:04     51s] [hotspot] +------------+---------------+---------------+
+[05/04 01:18:04     51s] Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+[05/04 01:18:04     51s] [hotspot] max/total 0.00/0.00, big hotspot (>10) total 0.00
+[05/04 01:18:04     51s] 
+[05/04 01:18:04     51s] === incrementalPlace Internal Loop 1 ===
+[05/04 01:18:04     51s] Skipped repairing congestion.
+[05/04 01:18:04     51s] Starting Early Global Route wiring: mem = 755.3M
+[05/04 01:18:04     51s] [NR-eGR] No Net to Route
+[05/04 01:18:04     51s] [NR-eGR] --------------------------------------------------------------------------
+[05/04 01:18:04     51s] [NR-eGR]   met1  (1F) length: 0.000000e+00um, number of vias: 0
+[05/04 01:18:04     51s] [NR-eGR]   met2  (2V) length: 0.000000e+00um, number of vias: 0
+[05/04 01:18:04     51s] [NR-eGR]   met3  (3H) length: 0.000000e+00um, number of vias: 0
+[05/04 01:18:04     51s] [NR-eGR]   met4  (4V) length: 0.000000e+00um, number of vias: 0
+[05/04 01:18:04     51s] [NR-eGR]   met5  (5H) length: 0.000000e+00um, number of vias: 0
+[05/04 01:18:04     51s] [NR-eGR] Total length: 0.000000e+00um, number of vias: 0
+[05/04 01:18:04     51s] [NR-eGR] --------------------------------------------------------------------------
+[05/04 01:18:04     51s] [NR-eGR] Total eGR-routed clock nets wire length: 0.000000e+00um 
+[05/04 01:18:04     51s] [NR-eGR] --------------------------------------------------------------------------
+[05/04 01:18:04     51s] Early Global Route wiring runtime: 0.00 seconds, mem = 755.3M
+[05/04 01:18:04     51s] End of congRepair (cpu=0:00:00.0, real=0:00:00.0)
+[05/04 01:18:04     51s] *** Finishing placeDesign default flow ***
+[05/04 01:18:04     51s] **placeDesign ... cpu = 0: 0: 0, real = 0: 0: 1, mem = 755.3M **
+[05/04 01:18:04     51s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[05/04 01:18:08     51s] <CMD> gui_select -rect {-0.189 -0.169 0.411 1.444}
+[05/04 01:18:09     51s] <CMD> gui_select -rect {-0.264 -0.019 2.324 3.957}
+[05/04 01:18:10     51s] <CMD> gui_select -rect {-1.014 0.694 1.837 -1.219}
+[05/04 01:18:18     52s] <CMD> pan -1.403 -2.957
+[05/04 01:18:22     53s] <CMD> deselectAll
+[05/04 01:18:22     53s] <CMD> selectObject IO_Pin A
+[05/04 01:18:22     53s] <CMD> deselectAll
+[05/04 01:18:23     53s] <CMD> selectObject IO_Pin A
+[05/04 01:18:24     53s] <CMD> gui_select -rect {-0.352 -0.001 -0.110 0.395}
+[05/04 01:18:25     53s] <CMD> gui_select -rect {-0.280 -0.001 0.264 0.284}
+[05/04 01:18:35     54s] <CMD> deselectAll
+[05/04 01:18:43     55s] <CMD> selectObject Pin g2/Y
+[05/04 01:18:44     55s] <CMD> gui_select -rect {11.492 13.342 11.509 13.579}
+[05/04 01:18:45     55s] <CMD> gui_select -rect {11.517 13.356 11.384 13.559}
+[05/04 01:18:47     55s] <CMD> pan -0.086 1.687
+[05/04 01:18:48     56s] <CMD> pan -0.114 0.334
+[05/04 01:18:49     56s] <CMD> pan -0.368 -0.110
+[05/04 01:18:50     56s] <CMD> pan -0.867 0.081
+[05/04 01:18:54     56s] <CMD> deselectAll
+[05/04 01:18:55     56s] <CMD> fit
+[05/04 01:19:09     58s] <CMD> setLayerPreference block -isVisible 0
+[05/04 01:19:10     58s] <CMD> setLayerPreference block -isVisible 1
+[05/04 01:19:10     58s] <CMD> setLayerPreference block -isVisible 0
+[05/04 01:19:11     58s] <CMD> setLayerPreference block -isVisible 1
+[05/04 01:19:14     58s] <CMD> setLayerPreference allM0 -isVisible 0
+[05/04 01:19:14     58s] <CMD> setLayerPreference allM0 -isVisible 1
+[05/04 01:19:17     58s] <CMD> setLayerPreference node_gird -isVisible 1
+[05/04 01:19:18     58s] <CMD> setLayerPreference node_gird -isVisible 0
+[05/04 01:19:20     59s] <CMD> setLayerPreference node_bump -isVisible 0
+[05/04 01:19:20     59s] <CMD> setLayerPreference node_bump -isVisible 1
+[05/04 01:19:22     59s] <CMD> setLayerPreference node_misc -isVisible 1
+[05/04 01:19:22     59s] <CMD> setLayerPreference node_misc -isVisible 0
+[05/04 01:19:24     59s] <CMD> setLayerPreference node_misc -isVisible 1
+[05/04 01:19:25     59s] <CMD> setLayerPreference node_misc -isVisible 0
+[05/04 01:19:26     59s] <CMD> setLayerPreference node_misc -isVisible 1
+[05/04 01:19:26     59s] <CMD> setLayerPreference node_misc -isVisible 0
+[05/04 01:19:27     59s] <CMD> setLayerPreference node_misc -isVisible 1
+[05/04 01:20:10     63s] <CMD> setSrouteMode -viaConnectToShape { noshape }
+[05/04 01:20:10     63s] <CMD> sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { met1(1) met5(5) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { met1(1) met5(5) } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { met1(1) met5(5) }
+[05/04 01:20:10     63s] *** Begin SPECIAL ROUTE on Mon May  4 01:20:10 2026 ***
+[05/04 01:20:10     63s] SPECIAL ROUTE ran on directory: /home/user22/NS_SAR_ADC/libraries/NS_SAR_Digital/inverter
+[05/04 01:20:10     63s] SPECIAL ROUTE ran on machine: aed (Linux 3.10.0-1160.108.1.el7.x86_64 x86_64 3.40Ghz)
+[05/04 01:20:10     63s] 
+[05/04 01:20:10     63s] Begin option processing ...
+[05/04 01:20:10     63s] srouteConnectPowerBump set to false
+[05/04 01:20:10     63s] routeSpecial set to true
+[05/04 01:20:10     63s] srouteBlockPin set to "useLef"
+[05/04 01:20:10     63s] srouteBottomLayerLimit set to 1
+[05/04 01:20:10     63s] srouteBottomTargetLayerLimit set to 1
+[05/04 01:20:10     63s] srouteConnectConverterPin set to false
+[05/04 01:20:10     63s] srouteCrossoverViaBottomLayer set to 1
+[05/04 01:20:10     63s] srouteCrossoverViaTopLayer set to 5
+[05/04 01:20:10     63s] srouteFloatingStripeTarget set to "blockring padring ring stripe ringpin blockpin followpin"
+[05/04 01:20:10     63s] srouteFollowCorePinEnd set to 3
+[05/04 01:20:10     63s] srouteJogControl set to "preferWithChanges differentLayer"
+[05/04 01:20:10     63s] srouteNoViaOnWireShape set to "padring ring stripe blockring blockpin coverpin blockwire corewire followpin iowire"
+[05/04 01:20:10     63s] sroutePadPinAllPorts set to true
+[05/04 01:20:10     63s] sroutePreserveExistingRoutes set to true
+[05/04 01:20:10     63s] srouteRoutePowerBarPortOnBothDir set to true
+[05/04 01:20:10     63s] srouteStopBlockPin set to "nearestTarget"
+[05/04 01:20:10     63s] srouteTopLayerLimit set to 5
+[05/04 01:20:10     63s] srouteTopTargetLayerLimit set to 5
+[05/04 01:20:10     63s] End option processing: cpu: 0:00:00, real: 0:00:00, peak: 1598.00 megs.
+[05/04 01:20:10     63s] 
+[05/04 01:20:10     63s] Reading DB technology information...
+[05/04 01:20:10     63s] Finished reading DB technology information.
+[05/04 01:20:10     63s] Reading floorplan and netlist information...
+[05/04 01:20:10     63s] Finished reading floorplan and netlist information.
+[05/04 01:20:10     63s] Read in 11 layers, 5 routing layers, 1 overlap layer
+[05/04 01:20:10     63s] Read in 117 macros, 2 used
+[05/04 01:20:10     63s] Read in 1 components
+[05/04 01:20:10     63s]   1 core components: 0 unplaced, 1 placed, 0 fixed
+[05/04 01:20:10     63s] Read in 2 logical pins
+[05/04 01:20:10     63s] Read in 2 nets
+[05/04 01:20:10     63s] Read in 2 special nets
+[05/04 01:20:10     63s] Begin power routing ...
+[05/04 01:20:10     63s] **WARN: (IMPSR-1253):	Cannot find any standard cell pin connected to net VDD.
+[05/04 01:20:10     63s] Run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as 'USE POWER' or 'USE GROUND'.
+[05/04 01:20:10     63s] **WARN: (IMPSR-1254):	Cannot find any block pin of net VDD. Check netlist, or change option to include the pin.
+[05/04 01:20:10     63s] **WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net VDD. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+[05/04 01:20:10     63s] Type 'man IMPSR-1256' for more detail.
+[05/04 01:20:10     63s] Cannot find any AREAIO class pad pin of net VDD. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[05/04 01:20:10     63s] **WARN: (IMPSR-1253):	Cannot find any standard cell pin connected to net VSS.
+[05/04 01:20:10     63s] Run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as 'USE POWER' or 'USE GROUND'.
+[05/04 01:20:10     63s] **WARN: (IMPSR-1254):	Cannot find any block pin of net VSS. Check netlist, or change option to include the pin.
+[05/04 01:20:10     63s] **WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net VSS. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+[05/04 01:20:10     63s] Type 'man IMPSR-1256' for more detail.
+[05/04 01:20:10     63s] Cannot find any AREAIO class pad pin of net VSS. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[05/04 01:20:10     63s] **WARN: (IMPSR-468):	Cannot find any standard cell pin connected to net VDD.
+[05/04 01:20:10     63s] Use setSrouteMode -corePinReferenceMacro <standard cell> to specify a reference macro for followpin connection, or run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as "USE POWER" or "USE GROUND".
+[05/04 01:20:10     63s] **WARN: (IMPSR-468):	Cannot find any standard cell pin connected to net VDD.
+[05/04 01:20:10     63s] Use setSrouteMode -corePinReferenceMacro <standard cell> to specify a reference macro for followpin connection, or run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as "USE POWER" or "USE GROUND".
+[05/04 01:20:10     63s] CPU time for FollowPin 0 seconds
+[05/04 01:20:10     63s] **WARN: (IMPSR-468):	Cannot find any standard cell pin connected to net VSS.
+[05/04 01:20:10     63s] Use setSrouteMode -corePinReferenceMacro <standard cell> to specify a reference macro for followpin connection, or run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as "USE POWER" or "USE GROUND".
+[05/04 01:20:10     63s] **WARN: (IMPSR-468):	Cannot find any standard cell pin connected to net VSS.
+[05/04 01:20:10     63s] Use setSrouteMode -corePinReferenceMacro <standard cell> to specify a reference macro for followpin connection, or run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as "USE POWER" or "USE GROUND".
+[05/04 01:20:10     63s] CPU time for FollowPin 0 seconds
+[05/04 01:20:10     63s]   Number of IO ports routed: 0
+[05/04 01:20:10     63s]   Number of Block ports routed: 0
+[05/04 01:20:10     63s]   Number of Stripe ports routed: 0
+[05/04 01:20:10     63s]   Number of Core ports routed: 0  open: 4
+[05/04 01:20:10     63s]   Number of Pad ports routed: 0
+[05/04 01:20:10     63s]   Number of Power Bump ports routed: 0
+[05/04 01:20:10     63s]   Number of Followpin connections: 2
+[05/04 01:20:10     63s] End power routing: cpu: 0:00:00, real: 0:00:00, peak: 1608.00 megs.
+[05/04 01:20:10     63s] 
+[05/04 01:20:10     63s] 
+[05/04 01:20:10     63s] 
+[05/04 01:20:10     63s]  Begin updating DB with routing results ...
+[05/04 01:20:10     63s]  Updating DB with 0 via definition ...
+[05/04 01:20:10     63s] sroute created 2 wires.
+[05/04 01:20:10     63s] ViaGen created 0 via, deleted 0 via to avoid violation.
+[05/04 01:20:10     63s] +--------+----------------+----------------+
+[05/04 01:20:10     63s] |  Layer |     Created    |     Deleted    |
+[05/04 01:20:10     63s] +--------+----------------+----------------+
+[05/04 01:20:10     63s] |  met1  |        2       |       NA       |
+[05/04 01:20:10     63s] +--------+----------------+----------------+
+[05/04 01:20:51     67s] <CMD> pan 1.120 1.653
+[05/04 01:20:52     67s] <CMD> fit
+[05/04 01:22:08     73s] **ERROR: (IMPSYT-16250):	Choose the pin list first.
+[05/04 01:22:12     74s] <CMD> getPinAssignMode -pinEditInBatch -quiet
+[05/04 01:22:12     74s] <CMD> setPinAssignMode -pinEditInBatch true
+[05/04 01:22:12     74s] <CMD> editPin -fixOverlap 1 -layer 1 -pin {}
+[05/04 01:22:12     74s] **ERROR: (IMPPTN-963):	Either specified pin name for the selected partition does not exist or has status 'cover'. Specify the pin or the list of pins correctly and run the command again.
+<CMD> setPinAssignMode -pinEditInBatch false
+[05/04 01:22:28     76s] <CMD> set ptngSprNoRefreshPins 1
+[05/04 01:22:28     76s] <CMD> setPtnPinStatus -cell test_inverter -pin A -status unplaced -silent
+[05/04 01:22:28     76s] <CMD> set ptngSprNoRefreshPins 0
+[05/04 01:22:28     76s] <CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+[05/04 01:22:32     76s] <CMD> set ptngSprNoRefreshPins 1
+[05/04 01:22:32     76s] <CMD> setPtnPinStatus -cell test_inverter -pin B -status unplaced -silent
+[05/04 01:22:32     76s] <CMD> set ptngSprNoRefreshPins 0
+[05/04 01:22:32     76s] <CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+[05/04 01:22:33     76s] <CMD> set ptngSprNoRefreshPins 1
+[05/04 01:22:33     76s] <CMD> setPtnPinStatus -cell test_inverter -pin B -status unplaced -silent
+[05/04 01:22:33     76s] <CMD> set ptngSprNoRefreshPins 0
+[05/04 01:22:33     76s] <CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+[05/04 01:22:37     77s] <CMD> selectObject Pin g2/Y
+[05/04 01:22:39     77s] <CMD> gui_select -rect {11.512 13.342 11.015 13.485}
+[05/04 01:22:40     77s] <CMD> gui_select -rect {11.478 13.334 11.111 13.450}
+[05/04 01:22:51     78s] <CMD> setNanoRouteMode -quiet -timingEngine {}
+[05/04 01:22:51     78s] <CMD> setNanoRouteMode -quiet -routeTopRoutingLayer default
+[05/04 01:22:51     78s] <CMD> setNanoRouteMode -quiet -routeBottomRoutingLayer default
+[05/04 01:22:51     78s] <CMD> setNanoRouteMode -quiet -drouteEndIteration default
+[05/04 01:22:51     78s] **WARN: (IMPTCM-77):	Option "-routeEcoOnlyInLayers" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+[05/04 01:22:51     78s] <CMD> setNanoRouteMode -quiet -routeWithTimingDriven false
+[05/04 01:22:51     78s] <CMD> setNanoRouteMode -quiet -routeWithSiDriven false
+[05/04 01:22:51     78s] Running Native NanoRoute ...
+[05/04 01:22:51     78s] <CMD> routeDesign -globalDetail
+[05/04 01:22:51     78s] report_message: '-start_cmd/-end_cmd' can not be nested. Retire previous calls.
+[05/04 01:22:51     78s] #routeDesign: cpu time = 00:00:00, elapsed time = 00:00:00, memory = 655.45 (MB), peak = 655.45 (MB)
+[05/04 01:22:51     78s] #WARNING (NRIG-96) Selected single pass global detail route "-globalDetail". Clock eco and post optimizations will not be run. See "man NRIG-96" for more details.
+[05/04 01:22:51     78s] #**INFO: setDesignMode -flowEffort standard
+[05/04 01:22:51     78s] #**INFO: multi-cut via swapping will not be performed after routing.
+[05/04 01:22:51     78s] #**INFO: All auto set options tuned by routeDesign will be restored to their original settings on command completion.
+[05/04 01:22:51     78s] OPERPROF: Starting checkPlace at level 1, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Starting PlacementCheckFixedInst at level 2, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Finished PlacementCheckFixedInst at level 2, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Starting SiteArrayInit at level 2, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:     Starting spIGRtCostMap_init at level 3, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:     Finished spIGRtCostMap_init at level 3, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:     Starting SiteArrayMainInit_V17 at level 3, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:       Starting SiteArrayFPInit_V17 at level 4, MEM:768.6M
+[05/04 01:22:51     78s] Core basic site is CoreSite
+[05/04 01:22:51     78s] OPERPROF:         Starting Placement-Init-Site-Array-V17 at level 5, MEM:768.6M
+[05/04 01:22:51     78s] SiteArray: one-level site array dimensions = 2 x 5
+[05/04 01:22:51     78s] SiteArray: use 40 bytes
+[05/04 01:22:51     78s] SiteArray: current memory after site array memory allocatiion 768.6M
+[05/04 01:22:51     78s] SiteArray: FP blocked sites are writable
+[05/04 01:22:51     78s] OPERPROF:           Starting SiteArray/Init-VDDOnBottom at level 6, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:           Finished SiteArray/Init-VDDOnBottom at level 6, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:           Starting InitTechSitePattern at level 6, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:           Finished InitTechSitePattern at level 6, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:           Starting SiteArr/FP-Init-2 at level 6, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:           Finished SiteArr/FP-Init-2 at level 6, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:           Starting SiteArr/FP-Blockage at level 6, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:           Finished SiteArr/FP-Blockage at level 6, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:         Finished Placement-Init-Site-Array-V17 at level 5, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:         Starting Placement-Build-Cache-Physical-Only-Inst-Cache at level 5, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:         Finished Placement-Build-Cache-Physical-Only-Inst-Cache at level 5, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:         Starting Placement-Build-Follow-Pin at level 5, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:         Finished Placement-Build-Follow-Pin at level 5, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:         Starting SiteArary/SetupFPBlocked at level 5, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:         Finished SiteArary/SetupFPBlocked at level 5, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:       Finished SiteArrayFPInit_V17 at level 4, CPU:0.000, REAL:0.001, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:       Starting SiteArrayInitPartitionBorders at level 4, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:       Finished SiteArrayInitPartitionBorders at level 4, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:       Starting InitBlockedSiteAsBlockedInst at level 4, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:       Finished InitBlockedSiteAsBlockedInst at level 4, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:       Starting SiteArrayMarkPreplaceInsts at level 4, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:       Finished SiteArrayMarkPreplaceInsts at level 4, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:     Finished SiteArrayMainInit_V17 at level 3, CPU:0.000, REAL:0.001, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Finished SiteArrayInit at level 2, CPU:0.000, REAL:0.001, MEM:768.6M
+[05/04 01:22:51     78s] Begin checking placement ... (start mem=768.6M, init mem=768.6M)
+[05/04 01:22:51     78s] OPERPROF:   Starting checkPlace/Loop-Through-Inst-Misc-Oper at level 2, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Finished checkPlace/Loop-Through-Inst-Misc-Oper at level 2, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Starting checkPlace/Loop-Through-Inst-Misc-Oper at level 2, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Finished checkPlace/Loop-Through-Inst-Misc-Oper at level 2, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Starting checkPlace/Loop-Through-Inst-Misc-Oper at level 2, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Finished checkPlace/Loop-Through-Inst-Misc-Oper at level 2, CPU:0.000, REAL:0.009, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Starting checkPlace/Vio-Check at level 2, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Finished checkPlace/Vio-Check at level 2, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Starting checkPlace/Adj-Rule-Check at level 2, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Finished checkPlace/Adj-Rule-Check at level 2, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] *info: Placed = 1             
+[05/04 01:22:51     78s] *info: Unplaced = 0           
+[05/04 01:22:51     78s] Placement Density:60.00%(6/10)
+[05/04 01:22:51     78s] Placement Density (including fixed std cells):60.00%(6/10)
+[05/04 01:22:51     78s] OPERPROF:   Starting CheckPlaceCleanup at level 2, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:     Starting PlacementCleanupFence at level 3, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:     Finished PlacementCleanupFence at level 3, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:     Starting spFreeFakeNetlist at level 3, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:     Finished spFreeFakeNetlist at level 3, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Finished CheckPlaceCleanup at level 2, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] Finished checkPlace (total: cpu=0:00:00.0, real=0:00:00.0; vio checks: cpu=0:00:00.0, real=0:00:00.0; mem=768.6M)
+[05/04 01:22:51     78s] OPERPROF:   Starting Placement-Reset-Physical-Only-Inst-Cache at level 2, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF:   Finished Placement-Reset-Physical-Only-Inst-Cache at level 2, CPU:0.000, REAL:0.000, MEM:768.6M
+[05/04 01:22:51     78s] OPERPROF: Finished checkPlace at level 1, CPU:0.000, REAL:0.021, MEM:768.6M
+[05/04 01:22:51     78s] **WARN: (IMPCK-8086):	The command changeUseClockNetStatus is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+[05/04 01:22:52     78s] 
+[05/04 01:22:52     78s] changeUseClockNetStatus Option :  -noFixedNetWires 
+[05/04 01:22:52     78s] *** Changed status on (0) nets in Clock.
+[05/04 01:22:52     78s] *** End changeUseClockNetStatus (cpu=0:00:00.0, real=0:00:01.0, mem=768.6M) ***
+[05/04 01:22:52     78s] #ROUTE-DESIGN-CMD: N5-process: 0 [db_process_node=]
+[05/04 01:22:52     78s] 
+[05/04 01:22:52     78s] globalDetailRoute
+[05/04 01:22:52     78s] 
+[05/04 01:22:52     78s] #setNanoRouteMode -routeConcurrentMinimizeViaCountEffort "high"
+[05/04 01:22:52     78s] #setNanoRouteMode -routeReserveSpaceForMultiCut true
+[05/04 01:22:52     78s] #setNanoRouteMode -routeWithSiDriven false
+[05/04 01:22:52     78s] #setNanoRouteMode -routeWithTimingDriven false
+[05/04 01:22:52     78s] #Start globalDetailRoute on Mon May  4 01:22:52 2026
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #WARNING (NRIG-39) NanoRoute cannot route to pin PIN/A of net A because it might be a logical pin and does not have physical shapes. To fix the problem, check the pin connection in the netlist and ensure the pin shapes exist in the floorplan.
+[05/04 01:22:52     78s] #WARNING (NRIG-39) NanoRoute cannot route to pin PIN/B of net B because it might be a logical pin and does not have physical shapes. To fix the problem, check the pin connection in the netlist and ensure the pin shapes exist in the floorplan.
+[05/04 01:22:52     78s] ### Net info: total nets: 4
+[05/04 01:22:52     78s] ### Net info: dirty nets: 0
+[05/04 01:22:52     78s] ### Net info: marked as disconnected nets: 0
+[05/04 01:22:52     78s] ### Net info: fully routed nets: 0
+[05/04 01:22:52     78s] ### Net info: trivial (single pin) nets: 0
+[05/04 01:22:52     78s] ### Net info: unrouted nets: 4
+[05/04 01:22:52     78s] ### Net info: re-extraction nets: 0
+[05/04 01:22:52     78s] ### Net info: ignored nets: 0
+[05/04 01:22:52     78s] ### Net info: skip routing nets: 0
+[05/04 01:22:52     78s] #WARNING (NRDB-2005) SPECIAL_NET VDD has special wires but no definitions for instance pins or top level pins. This will cause routability problems later.
+[05/04 01:22:52     78s] #WARNING (NRDB-2005) SPECIAL_NET VSS has special wires but no definitions for instance pins or top level pins. This will cause routability problems later.
+[05/04 01:22:52     78s] #WARNING (NRDB-976) The TRACK STEP 0.6100 for preferred direction tracks is smaller than the PITCH 0.6900 for LAYER met3. This will cause routability problems for NanoRoute.
+[05/04 01:22:52     78s] #WARNING (NRDB-976) The TRACK STEP 0.6150 for preferred direction tracks is smaller than the PITCH 0.6900 for LAYER met4. This will cause routability problems for NanoRoute.
+[05/04 01:22:52     78s] #NanoRoute Version 18.10-p002_1 NR180522-1057/18_10-UB
+[05/04 01:22:52     78s] #RTESIG:78da8dcebd0ac230140560679fe29276a8603537ffae82ab4a51d7a210d340692549dfdf
+[05/04 01:22:52     78s] #       826bb5cee7e39c93e5b7430504cd0669f9a294d508c70a0d958c9548a5dea2a9c7e8ba27
+[05/04 01:22:52     78s] #       cb2c3f9d2f5c70a050f82e5967c31a866803449b92efdcea433453f0bcb7d142f1e8fb76
+[05/04 01:22:52     78s] #       d2204a398f98d0401aef1a02454c614ca69d501a52187e7649be9b1f9482fd81b402f2f5
+[05/04 01:22:52     78s] #       d1e20d0a956424
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #RTESIG:78da8dcebd0ac230140560679fe29276a8603537ffae82ab4a51d7a210d340692549dfdf
+[05/04 01:22:52     78s] #       826bb5cee7e39c93e5b7430504cd0669f9a294d508c70a0d958c9548a5dea2a9c7e8ba27
+[05/04 01:22:52     78s] #       cb2c3f9d2f5c70a050f82e5967c31a866803449b92efdcea433453f0bcb7d142f1e8fb76
+[05/04 01:22:52     78s] #       d2204a398f98d0401aef1a02454c614ca69d501a52187e7649be9b1f9482fd81b402f2f5
+[05/04 01:22:52     78s] #       d1e20d0a956424
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Start routing data preparation on Mon May  4 01:22:52 2026
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #WARNING (NRDB-2040) Rule LEF_DEFAULT doesn't specify any vias that satisfy all of the area rules for layer met3 
+[05/04 01:22:52     78s] # met1         H   Track-Pitch = 0.4600    Line-2-Via Pitch = 0.3400
+[05/04 01:22:52     78s] # met2         V   Track-Pitch = 0.4600    Line-2-Via Pitch = 0.3400
+[05/04 01:22:52     78s] # met3         H   Track-Pitch = 0.6100    Line-2-Via Pitch = 0.6100
+[05/04 01:22:52     78s] # met4         V   Track-Pitch = 0.6150    Line-2-Via Pitch = 0.6150
+[05/04 01:22:52     78s] # met5         H   Track-Pitch = 3.6600    Line-2-Via Pitch = 3.2000
+[05/04 01:22:52     78s] #Regenerating Ggrids automatically.
+[05/04 01:22:52     78s] #Auto generating G-grids with size=15 tracks, using layer met3's pitch = 0.6150.
+[05/04 01:22:52     78s] #Using automatically generated G-grids.
+[05/04 01:22:52     78s] #Done routing data preparation.
+[05/04 01:22:52     78s] #cpu time = 00:00:00, elapsed time = 00:00:00, memory = 669.96 (MB), peak = 702.77 (MB)
+[05/04 01:22:52     78s] #Merging special wires...
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Finished routing data preparation on Mon May  4 01:22:52 2026
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Cpu time = 00:00:00
+[05/04 01:22:52     78s] #Elapsed time = 00:00:00
+[05/04 01:22:52     78s] #Increased memory = 6.82 (MB)
+[05/04 01:22:52     78s] #Total memory = 670.04 (MB)
+[05/04 01:22:52     78s] #Peak memory = 702.77 (MB)
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Start global routing on Mon May  4 01:22:52 2026
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #WARNING (NRGR-22) Design is already detail routed.
+[05/04 01:22:52     78s] #Routing data preparation, pin analysis, global routing and track assignment statistics:
+[05/04 01:22:52     78s] #Cpu time = 00:00:00
+[05/04 01:22:52     78s] #Elapsed time = 00:00:00
+[05/04 01:22:52     78s] #Increased memory = 7.10 (MB)
+[05/04 01:22:52     78s] #Total memory = 670.12 (MB)
+[05/04 01:22:52     78s] #Peak memory = 702.77 (MB)
+[05/04 01:22:52     78s] ### max drc and si pitch = 3200 (  3.2000 um) MT-safe pitch = 0 (  0.0000 um) patch pitch = 0 (  0.0000 um)
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Start Detail Routing..
+[05/04 01:22:52     78s] #start 1st optimization iteration ...
+[05/04 01:22:52     78s] #   number of violations = 0
+[05/04 01:22:52     78s] #cpu time = 00:00:00, elapsed time = 00:00:00, memory = 671.85 (MB), peak = 702.77 (MB)
+[05/04 01:22:52     78s] #Complete Detail Routing.
+[05/04 01:22:52     78s] #Total wire length = 0 um.
+[05/04 01:22:52     78s] #Total half perimeter of net bounding box = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met1 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met2 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met3 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met4 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met5 = 0 um.
+[05/04 01:22:52     78s] #Total number of vias = 0
+[05/04 01:22:52     78s] #Up-Via Summary (total 0):
+[05/04 01:22:52     78s] #           
+[05/04 01:22:52     78s] #-----------------------
+[05/04 01:22:52     78s] #-----------------------
+[05/04 01:22:52     78s] #                     0 
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Total number of DRC violations = 0
+[05/04 01:22:52     78s] #Cpu time = 00:00:00
+[05/04 01:22:52     78s] #Elapsed time = 00:00:00
+[05/04 01:22:52     78s] #Increased memory = 0.65 (MB)
+[05/04 01:22:52     78s] #Total memory = 670.79 (MB)
+[05/04 01:22:52     78s] #Peak memory = 702.77 (MB)
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #start routing for process antenna violation fix ...
+[05/04 01:22:52     78s] ### max drc and si pitch = 3200 (  3.2000 um) MT-safe pitch = 0 (  0.0000 um) patch pitch = 0 (  0.0000 um)
+[05/04 01:22:52     78s] #cpu time = 00:00:00, elapsed time = 00:00:00, memory = 671.82 (MB), peak = 702.77 (MB)
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Total wire length = 0 um.
+[05/04 01:22:52     78s] #Total half perimeter of net bounding box = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met1 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met2 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met3 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met4 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met5 = 0 um.
+[05/04 01:22:52     78s] #Total number of vias = 0
+[05/04 01:22:52     78s] #Up-Via Summary (total 0):
+[05/04 01:22:52     78s] #           
+[05/04 01:22:52     78s] #-----------------------
+[05/04 01:22:52     78s] #-----------------------
+[05/04 01:22:52     78s] #                     0 
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Total number of DRC violations = 0
+[05/04 01:22:52     78s] #Total number of net violated process antenna rule = 0
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Total wire length = 0 um.
+[05/04 01:22:52     78s] #Total half perimeter of net bounding box = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met1 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met2 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met3 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met4 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met5 = 0 um.
+[05/04 01:22:52     78s] #Total number of vias = 0
+[05/04 01:22:52     78s] #Up-Via Summary (total 0):
+[05/04 01:22:52     78s] #           
+[05/04 01:22:52     78s] #-----------------------
+[05/04 01:22:52     78s] #-----------------------
+[05/04 01:22:52     78s] #                     0 
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #Total number of DRC violations = 0
+[05/04 01:22:52     78s] #Total number of net violated process antenna rule = 0
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #WARNING (NRDR-32) All the nets are fixed, skipped, or trivial nets. Post Route wire spreading cannot be run.
+[05/04 01:22:52     78s] #Total wire length = 0 um.
+[05/04 01:22:52     78s] #Total half perimeter of net bounding box = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met1 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met2 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met3 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met4 = 0 um.
+[05/04 01:22:52     78s] #Total wire length on LAYER met5 = 0 um.
+[05/04 01:22:52     78s] #Total number of vias = 0
+[05/04 01:22:52     78s] #Up-Via Summary (total 0):
+[05/04 01:22:52     78s] #           
+[05/04 01:22:52     78s] #-----------------------
+[05/04 01:22:52     78s] #-----------------------
+[05/04 01:22:52     78s] #                     0 
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #detailRoute Statistics:
+[05/04 01:22:52     78s] #Cpu time = 00:00:00
+[05/04 01:22:52     78s] #Elapsed time = 00:00:00
+[05/04 01:22:52     78s] #Increased memory = 0.70 (MB)
+[05/04 01:22:52     78s] #Total memory = 670.84 (MB)
+[05/04 01:22:52     78s] #Peak memory = 702.77 (MB)
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #globalDetailRoute statistics:
+[05/04 01:22:52     78s] #Cpu time = 00:00:00
+[05/04 01:22:52     78s] #Elapsed time = 00:00:00
+[05/04 01:22:52     78s] #Increased memory = 26.13 (MB)
+[05/04 01:22:52     78s] #Total memory = 681.75 (MB)
+[05/04 01:22:52     78s] #Peak memory = 702.77 (MB)
+[05/04 01:22:52     78s] #Number of warnings = 9
+[05/04 01:22:52     78s] #Total number of warnings = 10
+[05/04 01:22:52     78s] #Number of fails = 0
+[05/04 01:22:52     78s] #Total number of fails = 0
+[05/04 01:22:52     78s] #Complete globalDetailRoute on Mon May  4 01:22:52 2026
+[05/04 01:22:52     78s] #
+[05/04 01:22:52     78s] #routeDesign: cpu time = 00:00:00, elapsed time = 00:00:00, memory = 681.89 (MB), peak = 702.77 (MB)
+[05/04 01:22:52     78s] 
+[05/04 01:22:52     78s] *** Summary of all messages that are not suppressed in this session:
+[05/04 01:22:52     78s] Severity  ID               Count  Summary                                  
+[05/04 01:22:52     78s] WARNING   IMPCK-8086           1  The command %s is obsolete and will be r...
+[05/04 01:22:52     78s] *** Message Summary: 1 warning(s), 0 error(s)
+[05/04 01:22:52     78s] 
+[05/04 01:22:52     78s] ### 
+[05/04 01:22:52     78s] ###   Scalability Statistics
+[05/04 01:22:52     78s] ### 
+[05/04 01:22:52     78s] ### --------------------------------+----------------+----------------+----------------+
+[05/04 01:22:52     78s] ###   routeDesign                   |        cpu time|    elapsed time|     scalability|
+[05/04 01:22:52     78s] ### --------------------------------+----------------+----------------+----------------+
+[05/04 01:22:52     78s] ###   Pre Callback                  |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   Post Callback                 |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   Timing Data Generation        |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   DB Import                     |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   DB Export                     |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   Special Wire Merging          |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   Data Preparation              |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   Global Routing                |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   Detail Routing                |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   Antenna Fixing                |        00:00:00|        00:00:00|             1.0|
+[05/04 01:22:52     78s] ###   Entire Command                |        00:00:00|        00:00:00|             0.4|
+[05/04 01:22:52     78s] ### --------------------------------+----------------+----------------+----------------+
+[05/04 01:22:52     78s] ### 
+[05/04 01:22:57     79s] <CMD> pan -4.714 -3.915
+[05/04 01:23:05     80s] <CMD> gui_select -rect {-0.030 -0.045 3.008 4.756}
+[05/04 01:23:07     80s] <CMD> zoomBox -0.166 0.009 4.121 4.295
+[05/04 01:23:09     80s] <CMD> gui_select -rect {-0.252 0.047 2.999 2.467}
+[05/04 01:23:10     81s] <CMD> gui_select -rect {-0.310 0.008 0.354 0.271}
+[05/04 01:23:11     81s] <CMD> gui_select -rect {-0.603 0.183 0.451 -0.227}
+[05/04 01:23:14     81s] <CMD> gui_select -rect {-0.378 -0.012 0.334 0.789}
+[05/04 01:23:15     81s] <CMD> gui_select -rect {-0.564 0.242 0.188 -0.314}
+[05/04 01:23:22     82s] <CMD> setPlaceMode -fp false
+[05/04 01:23:22     82s] <CMD> place_design
+[05/04 01:23:22     82s] *** Starting placeDesign default flow ***
+[05/04 01:23:22     82s] Deleted 0 physical inst  (cell - / prefix -).
+[05/04 01:23:22     82s] *** Starting "NanoPlace(TM) placement v#1 (mem=792.7M)" ...
+[05/04 01:23:22     82s] No user-set net weight.
+[05/04 01:23:22     82s] no activity file in design. spp won't run.
+[05/04 01:23:22     82s] Options: clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+[05/04 01:23:22     82s] Scan chains were not defined.
+[05/04 01:23:22     82s] #std cell=1 (0 fixed + 1 movable) #block=0 (0 floating + 0 preplaced)
+[05/04 01:23:22     82s] #ioInst=0 #net=2 #term=4 #term/net=2.00, #fixedIo=0, #floatIo=0, #fixedPin=0, #floatPin=2
+[05/04 01:23:22     82s] stdCell: 1 single + 0 double + 0 multi
+[05/04 01:23:22     82s] Total standard cell length = 0.0014 (mm), area = 0.0000 (mm^2)
+[05/04 01:23:22     82s] OPERPROF: Starting SiteArrayInit at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting spIGRtCostMap_init at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished spIGRtCostMap_init at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayMainInit_V17 at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayFPInit_V17 at level 3, MEM:792.7M
+[05/04 01:23:22     82s] Core basic site is CoreSite
+[05/04 01:23:22     82s] OPERPROF:       Starting Placement-Init-Site-Array-V17 at level 4, MEM:792.7M
+[05/04 01:23:22     82s] SiteArray: one-level site array dimensions = 2 x 5
+[05/04 01:23:22     82s] SiteArray: use 40 bytes
+[05/04 01:23:22     82s] SiteArray: current memory after site array memory allocatiion 792.7M
+[05/04 01:23:22     82s] SiteArray: FP blocked sites are writable
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArray/Init-VDDOnBottom at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArray/Init-VDDOnBottom at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting InitTechSitePattern at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished InitTechSitePattern at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArr/FP-Init-2 at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArr/FP-Init-2 at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArr/FP-Blockage at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArr/FP-Blockage at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished Placement-Init-Site-Array-V17 at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting Placement-Build-Cache-Physical-Only-Inst-Cache at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished Placement-Build-Cache-Physical-Only-Inst-Cache at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting Placement-Build-Follow-Pin at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting RoutingBlockageAnalysis at level 5, MEM:792.7M
+[05/04 01:23:22     82s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[05/04 01:23:22     82s] Mark StBox On SiteArr starts
+[05/04 01:23:22     82s] Mark StBox On SiteArr ends
+[05/04 01:23:22     82s] OPERPROF:         Finished RoutingBlockageAnalysis at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished Placement-Build-Follow-Pin at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting SiteArary/SetupFPBlocked at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished SiteArary/SetupFPBlocked at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayFPInit_V17 at level 3, CPU:0.010, REAL:0.002, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayInitPartitionBorders at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayInitPartitionBorders at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting InitBlockedSiteAsBlockedInst at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished InitBlockedSiteAsBlockedInst at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayMarkPreplaceInsts at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayMarkPreplaceInsts at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteCapAdjustOnNarrowBlockage at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting PlacementInitFenceForDensity at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArrayInitFenceEdgeBit at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArrayInitFenceEdgeBit at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArrayInitObstEdgeBit at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArrayInitObstEdgeBit at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished PlacementInitFenceForDensity at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting PlacementCleanupFence at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished PlacementCleanupFence at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteCapAdjustOnNarrowBlockage at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayMainInit_V17 at level 2, CPU:0.010, REAL:0.003, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished SiteArrayInit at level 1, CPU:0.010, REAL:0.003, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting pre-place ADS at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting PlacementInitFenceForDensity at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayInitFenceEdgeBit at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayInitFenceEdgeBit at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayInitObstEdgeBit at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayInitObstEdgeBit at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished PlacementInitFenceForDensity at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting PlacementCleanupFence at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished PlacementCleanupFence at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting pre-place ADS Build Supply Map at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting ADS RRMInitG at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished ADS RRMInitG at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting ADS RRMCPTSL at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting ADS RRMBLKB at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished ADS RRMBLKB at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting ADS RRMCPTTR at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished ADS RRMCPTTR at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished ADS RRMCPTSL at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished pre-place ADS Build Supply Map at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting PlacementInitFenceForDensity at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayInitFenceEdgeBit at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayInitFenceEdgeBit at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayInitObstEdgeBit at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayInitObstEdgeBit at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished PlacementInitFenceForDensity at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting PlacementCleanupFence at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished PlacementCleanupFence at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] ADSU 0.600 -> 0.600
+[05/04 01:23:22     82s] OPERPROF: Finished pre-place ADS at level 1, CPU:0.000, REAL:0.001, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] Average module density = 0.600.
+[05/04 01:23:22     82s] Density for the design = 0.600.
+[05/04 01:23:22     82s]        = stdcell_area 3 sites (6 um^2) / alloc_area 5 sites (10 um^2).
+[05/04 01:23:22     82s] Pin Density = 0.4000.
+[05/04 01:23:22     82s]             = total # of pins 4 / total area 10.
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] Initial padding reaches pin density 0.667 for top
+[05/04 01:23:22     82s] Min area ratio padding skipped minAreaTgt 1.050, addOnArea -1.250
+[05/04 01:23:22     82s] InitPadU 0.600 -> 1.200 for top
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementInitFence at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementInitFence at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting spSectionHeadInit at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished spSectionHeadInit at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] === lastAutoLevel = 3 
+[05/04 01:23:22     82s] 0 delay mode for cte enabled initNetWt.
+[05/04 01:23:22     82s] no activity file in design. spp won't run.
+[05/04 01:23:22     82s] [spp] 0
+[05/04 01:23:22     82s] [adp] 0:1:0:1
+[05/04 01:23:22     82s] 0 delay mode for cte disabled initNetWt.
+[05/04 01:23:22     82s] **WARN: (IMPSP-9531):	Turning off clkGateAware when timingDriven is off
+[05/04 01:23:22     82s] Iteration  1: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+[05/04 01:23:22     82s] Iteration  2: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+[05/04 01:23:22     82s] Iteration  3: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+[05/04 01:23:22     82s] Iteration  4: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+[05/04 01:23:22     82s] Iteration  5: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+[05/04 01:23:22     82s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+[05/04 01:23:22     82s] Iteration  6: Total net bbox = 4.508e+01 (2.21e+01 2.30e+01)
+[05/04 01:23:22     82s]               Est.  stn bbox = 4.508e+01 (2.21e+01 2.30e+01)
+[05/04 01:23:22     82s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+[05/04 01:23:22     82s] *** cost = 4.508e+01 (2.21e+01 2.30e+01) (cpu for global=0:00:00.0) real=0:00:00.0***
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting spFreeFakeNetlist at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished spFreeFakeNetlist at level 1, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] Solver runtime cpu: 0:00:00.0 real: 0:00:00.0
+[05/04 01:23:22     82s] Core Placement runtime cpu: 0:00:00.0 real: 0:00:00.0
+[05/04 01:23:22     82s] **WARN: (IMPSP-9025):	No scan chain specified/traced.
+[05/04 01:23:22     82s] Type 'man IMPSP-9025' for more detail.
+[05/04 01:23:22     82s] OPERPROF: Starting RefinePlaceInit at level 1, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting DPlace-Init at level 2, MEM:792.7M
+[05/04 01:23:22     82s] #spOpts: mergeVia=F 
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayInit at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting spIGRtCostMap_init at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished spIGRtCostMap_init at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting SiteArrayMainInit_V17 at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArrayFPInit_V17 at level 5, MEM:792.7M
+[05/04 01:23:22     82s] Core basic site is CoreSite
+[05/04 01:23:22     82s] OPERPROF:           Starting Placement-Init-Site-Array-V17 at level 6, MEM:792.7M
+[05/04 01:23:22     82s] SiteArray: one-level site array dimensions = 2 x 5
+[05/04 01:23:22     82s] SiteArray: use 40 bytes
+[05/04 01:23:22     82s] SiteArray: current memory after site array memory allocatiion 792.7M
+[05/04 01:23:22     82s] SiteArray: FP blocked sites are writable
+[05/04 01:23:22     82s] OPERPROF:             Starting SiteArray/Init-VDDOnBottom at level 7, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:             Finished SiteArray/Init-VDDOnBottom at level 7, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:             Starting InitTechSitePattern at level 7, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:             Finished InitTechSitePattern at level 7, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:             Starting SiteArr/FP-Init-2 at level 7, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:             Finished SiteArr/FP-Init-2 at level 7, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:             Starting SiteArr/FP-Blockage at level 7, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:             Finished SiteArr/FP-Blockage at level 7, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:           Finished Placement-Init-Site-Array-V17 at level 6, CPU:0.000, REAL:0.001, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:           Starting Placement-Build-Cache-Physical-Only-Inst-Cache at level 6, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:           Finished Placement-Build-Cache-Physical-Only-Inst-Cache at level 6, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:           Starting Placement-Build-Follow-Pin at level 6, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:             Starting RoutingBlockageAnalysis at level 7, MEM:792.7M
+[05/04 01:23:22     82s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[05/04 01:23:22     82s] Mark StBox On SiteArr starts
+[05/04 01:23:22     82s] Mark StBox On SiteArr ends
+[05/04 01:23:22     82s] OPERPROF:             Finished RoutingBlockageAnalysis at level 7, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:           Finished Placement-Build-Follow-Pin at level 6, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:           Starting SiteArary/SetupFPBlocked at level 6, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:           Finished SiteArary/SetupFPBlocked at level 6, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArrayFPInit_V17 at level 5, CPU:0.000, REAL:0.002, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArrayInitPartitionBorders at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArrayInitPartitionBorders at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting InitBlockedSiteAsBlockedInst at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished InitBlockedSiteAsBlockedInst at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArrayMarkPreplaceInsts at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArrayMarkPreplaceInsts at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting CMU at level 5, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished CMU at level 5, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished SiteArrayMainInit_V17 at level 4, CPU:0.000, REAL:0.002, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayInit at level 3, CPU:0.000, REAL:0.003, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting PlacementInitSBTree at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished PlacementInitSBTree at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting PlacementInitFenceForDPlace at level 3, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting SiteArrayInitFenceEdgeBit at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished SiteArrayInitFenceEdgeBit at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting SiteArrayInitObstEdgeBit at level 4, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished SiteArrayInitObstEdgeBit at level 4, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished PlacementInitFenceForDPlace at level 3, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] [CPU] DPlace-Init (cpu=0:00:00.0, real=0:00:00.0, mem=792.7MB).
+[05/04 01:23:22     82s] OPERPROF:   Finished DPlace-Init at level 2, CPU:0.000, REAL:0.004, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Finished RefinePlaceInit at level 1, CPU:0.000, REAL:0.004, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF: Starting RefinePlace at level 1, MEM:792.7M
+[05/04 01:23:22     82s] *** Starting refinePlace (0:01:22 mem=792.7M) ***
+[05/04 01:23:22     82s] Total net bbox length = 4.508e+01 (2.208e+01 2.300e+01) (ext = 4.508e+01)
+[05/04 01:23:22     82s] Move report: placeLevelShifters moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[05/04 01:23:22     82s] OPERPROF:   Starting CellHaloInit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished CellHaloInit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting CellHaloInit at level 2, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished CellHaloInit at level 2, CPU:0.000, REAL:0.000, MEM:792.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting RefinePlace2 at level 2, MEM:792.7M
+[05/04 01:23:22     82s] Starting refinePlace ...
+[05/04 01:23:22     82s]   Spread Effort: high, standalone mode, useDDP on.
+[05/04 01:23:22     82s] [CPU] RefinePlace/preRPlace (cpu=0:00:00.0, real=0:00:00.0, mem=793.7MB) @(0:01:22 - 0:01:22).
+[05/04 01:23:22     82s] Move report: preRPlace moves 1 insts, mean move: 0.23 um, max move: 0.23 um
+[05/04 01:23:22     82s] 	Max move on inst (g2): (10.35, 10.12) --> (10.58, 10.12)
+[05/04 01:23:22     82s] 	Length: 3 sites, height: 1 rows, site name: CoreSite, cell type: CLKINVX2
+[05/04 01:23:22     82s] wireLenOptFixPriorityInst 0 inst fixed
+[05/04 01:23:22     82s] Placement tweakage begins.
+[05/04 01:23:22     82s] wire length = 0.000e+00
+[05/04 01:23:22     82s] wire length = 0.000e+00
+[05/04 01:23:22     82s] Placement tweakage ends.
+[05/04 01:23:22     82s] Move report: tweak moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[05/04 01:23:22     82s] 
+[05/04 01:23:22     82s] Running Spiral with 1 thread in Normal Mode  fetchWidth=8 
+[05/04 01:23:22     82s] Move report: legalization moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[05/04 01:23:22     82s] [CPU] RefinePlace/Legalization (cpu=0:00:00.0, real=0:00:00.0, mem=793.7MB) @(0:01:22 - 0:01:22).
+[05/04 01:23:22     82s] Move report: Detail placement moves 1 insts, mean move: 0.23 um, max move: 0.23 um
+[05/04 01:23:22     82s] 	Max move on inst (g2): (10.35, 10.12) --> (10.58, 10.12)
+[05/04 01:23:22     82s] 	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 793.7MB
+[05/04 01:23:22     82s] Statistics of distance of Instance movement in refine placement:
+[05/04 01:23:22     82s]   maximum (X+Y) =         0.23 um
+[05/04 01:23:22     82s]   inst (g2) with max move: (10.35, 10.12) -> (10.58, 10.12)
+[05/04 01:23:22     82s]   mean    (X+Y) =         0.23 um
+[05/04 01:23:22     82s] Summary Report:
+[05/04 01:23:22     82s] Instances move: 1 (out of 1 movable)
+[05/04 01:23:22     82s] Instances flipped: 0
+[05/04 01:23:22     82s] Mean displacement: 0.23 um
+[05/04 01:23:22     82s] Max displacement: 0.23 um (Instance: g2) (10.35, 10.12) -> (10.58, 10.12)
+[05/04 01:23:22     82s] 	Length: 3 sites, height: 1 rows, site name: CoreSite, cell type: CLKINVX2
+[05/04 01:23:22     82s] Total instances moved : 1
+[05/04 01:23:22     82s] OPERPROF:   Finished RefinePlace2 at level 2, CPU:0.000, REAL:0.002, MEM:793.7M
+[05/04 01:23:22     82s] Total net bbox length = 4.830e+01 (2.254e+01 2.576e+01) (ext = 4.830e+01)
+[05/04 01:23:22     82s] Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 793.7MB
+[05/04 01:23:22     82s] [CPU] RefinePlace/total (cpu=0:00:00.0, real=0:00:00.0, mem=793.7MB) @(0:01:22 - 0:01:22).
+[05/04 01:23:22     82s] *** Finished refinePlace (0:01:22 mem=793.7M) ***
+[05/04 01:23:22     82s] OPERPROF: Finished RefinePlace at level 1, CPU:0.000, REAL:0.003, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Starting spFreeFakeNetlist at level 1, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Finished spFreeFakeNetlist at level 1, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] *** End of Placement (cpu=0:00:00.0, real=0:00:00.0, mem=793.7M) ***
+[05/04 01:23:22     82s] #spOpts: mergeVia=F 
+[05/04 01:23:22     82s] OPERPROF: Starting SiteArrayInit at level 1, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting spIGRtCostMap_init at level 2, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished spIGRtCostMap_init at level 2, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayMainInit_V17 at level 2, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayFPInit_V17 at level 3, MEM:793.7M
+[05/04 01:23:22     82s] Core basic site is CoreSite
+[05/04 01:23:22     82s] OPERPROF:       Starting Placement-Init-Site-Array-V17 at level 4, MEM:793.7M
+[05/04 01:23:22     82s] SiteArray: one-level site array dimensions = 2 x 5
+[05/04 01:23:22     82s] SiteArray: use 40 bytes
+[05/04 01:23:22     82s] SiteArray: current memory after site array memory allocatiion 793.7M
+[05/04 01:23:22     82s] SiteArray: FP blocked sites are writable
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArray/Init-VDDOnBottom at level 5, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArray/Init-VDDOnBottom at level 5, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting InitTechSitePattern at level 5, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished InitTechSitePattern at level 5, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArr/FP-Init-2 at level 5, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArr/FP-Init-2 at level 5, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting SiteArr/FP-Blockage at level 5, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:         Finished SiteArr/FP-Blockage at level 5, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished Placement-Init-Site-Array-V17 at level 4, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting Placement-Build-Cache-Physical-Only-Inst-Cache at level 4, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished Placement-Build-Cache-Physical-Only-Inst-Cache at level 4, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting Placement-Build-Follow-Pin at level 4, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:         Starting RoutingBlockageAnalysis at level 5, MEM:793.7M
+[05/04 01:23:22     82s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[05/04 01:23:22     82s] Mark StBox On SiteArr starts
+[05/04 01:23:22     82s] Mark StBox On SiteArr ends
+[05/04 01:23:22     82s] OPERPROF:         Finished RoutingBlockageAnalysis at level 5, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished Placement-Build-Follow-Pin at level 4, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:       Starting SiteArary/SetupFPBlocked at level 4, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:       Finished SiteArary/SetupFPBlocked at level 4, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayFPInit_V17 at level 3, CPU:0.000, REAL:0.002, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayInitPartitionBorders at level 3, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayInitPartitionBorders at level 3, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting InitBlockedSiteAsBlockedInst at level 3, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished InitBlockedSiteAsBlockedInst at level 3, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:     Starting SiteArrayMarkPreplaceInsts at level 3, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:     Finished SiteArrayMarkPreplaceInsts at level 3, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayMainInit_V17 at level 2, CPU:0.000, REAL:0.002, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Finished SiteArrayInit at level 1, CPU:0.000, REAL:0.002, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementInitFenceForDensity at level 1, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitFenceEdgeBit at level 2, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitFenceEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:   Starting SiteArrayInitObstEdgeBit at level 2, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF:   Finished SiteArrayInitObstEdgeBit at level 2, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementInitFenceForDensity at level 1, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Starting Cal-LLG-Density-Map at level 1, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Finished Cal-LLG-Density-Map at level 1, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] default core: bins with density > 0.750 =  0.00 % ( 0 / 1 )
+[05/04 01:23:22     82s] Density distribution unevenness ratio = 0.000%
+[05/04 01:23:22     82s] OPERPROF: Starting PlacementCleanupFence at level 1, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Finished PlacementCleanupFence at level 1, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Starting spFreeFakeNetlist at level 1, MEM:793.7M
+[05/04 01:23:22     82s] OPERPROF: Finished spFreeFakeNetlist at level 1, CPU:0.000, REAL:0.000, MEM:793.7M
+[05/04 01:23:22     82s] 
+[05/04 01:23:22     82s] Starting congestion repair ...
+[05/04 01:23:22     82s] User Input Parameters:
+[05/04 01:23:22     82s] - Congestion Driven    : On
+[05/04 01:23:22     82s] - Timing Driven        : Off
+[05/04 01:23:22     82s] - Area-Violation Based : On
+[05/04 01:23:22     82s] - Start Rollback Level : -5
+[05/04 01:23:22     82s] - Legalized            : On
+[05/04 01:23:22     82s] - Window Based         : Off
+[05/04 01:23:22     82s] 
+[05/04 01:23:22     82s] Starting Early Global Route congestion estimation: mem = 793.7M
+[05/04 01:23:22     82s] (I)       Reading DB...
+[05/04 01:23:22     82s] (I)       Read data from FE... (mem=793.7M)
+[05/04 01:23:22     82s] (I)       Read nodes and places... (mem=793.7M)
+[05/04 01:23:22     82s] (I)       Done Read nodes and places (cpu=0.000s, mem=793.7M)
+[05/04 01:23:22     82s] (I)       Read nets... (mem=793.7M)
+[05/04 01:23:22     82s] (I)       Done Read nets (cpu=0.000s, mem=793.7M)
+[05/04 01:23:22     82s] (I)       Done Read data from FE (cpu=0.000s, mem=793.7M)
+[05/04 01:23:22     82s] (I)       before initializing RouteDB syMemory usage = 793.7 MB
+[05/04 01:23:22     82s] (I)       congestionReportName   : 
+[05/04 01:23:22     82s] (I)       layerRangeFor2DCongestion : 
+[05/04 01:23:22     82s] (I)       buildTerm2TermWires    : 1
+[05/04 01:23:22     82s] (I)       doTrackAssignment      : 1
+[05/04 01:23:22     82s] (I)       dumpBookshelfFiles     : 0
+[05/04 01:23:22     82s] (I)       numThreads             : 1
+[05/04 01:23:22     82s] (I)       bufferingAwareRouting  : false
+[05/04 01:23:22     82s] [NR-eGR] honorMsvRouteConstraint: false
+[05/04 01:23:22     82s] (I)       honorPin               : false
+[05/04 01:23:22     82s] (I)       honorPinGuide          : true
+[05/04 01:23:22     82s] (I)       honorPartition         : false
+[05/04 01:23:22     82s] (I)       honorPartitionAllowFeedthru: false
+[05/04 01:23:22     82s] (I)       allowPartitionCrossover: false
+[05/04 01:23:22     82s] (I)       honorSingleEntry       : true
+[05/04 01:23:22     82s] (I)       honorSingleEntryStrong : true
+[05/04 01:23:22     82s] (I)       handleViaSpacingRule   : false
+[05/04 01:23:22     82s] (I)       handleEolSpacingRule   : false
+[05/04 01:23:22     82s] (I)       PDConstraint           : none
+[05/04 01:23:22     82s] (I)       expBetterNDRHandling   : false
+[05/04 01:23:22     82s] [NR-eGR] honorClockSpecNDR      : 0
+[05/04 01:23:22     82s] (I)       routingEffortLevel     : 3
+[05/04 01:23:22     82s] (I)       effortLevel            : standard
+[05/04 01:23:22     82s] [NR-eGR] minRouteLayer          : 2
+[05/04 01:23:22     82s] [NR-eGR] maxRouteLayer          : 127
+[05/04 01:23:22     82s] (I)       relaxedTopLayerCeiling : 127
+[05/04 01:23:22     82s] (I)       relaxedBottomLayerFloor: 2
+[05/04 01:23:22     82s] (I)       numRowsPerGCell        : 1
+[05/04 01:23:22     82s] (I)       speedUpLargeDesign     : 0
+[05/04 01:23:22     82s] (I)       multiThreadingTA       : 1
+[05/04 01:23:22     82s] (I)       optimizationMode       : false
+[05/04 01:23:22     82s] (I)       routeSecondPG          : false
+[05/04 01:23:22     82s] (I)       scenicRatioForLayerRelax: 0.00
+[05/04 01:23:22     82s] (I)       detourLimitForLayerRelax: 0.00
+[05/04 01:23:22     82s] (I)       punchThroughDistance   : 500.00
+[05/04 01:23:22     82s] (I)       scenicBound            : 1.15
+[05/04 01:23:22     82s] (I)       maxScenicToAvoidBlk    : 100.00
+[05/04 01:23:22     82s] (I)       source-to-sink ratio   : 0.00
+[05/04 01:23:22     82s] (I)       targetCongestionRatioH : 1.00
+[05/04 01:23:22     82s] (I)       targetCongestionRatioV : 1.00
+[05/04 01:23:22     82s] (I)       layerCongestionRatio   : 0.70
+[05/04 01:23:22     82s] (I)       m1CongestionRatio      : 0.10
+[05/04 01:23:22     82s] (I)       m2m3CongestionRatio    : 0.70
+[05/04 01:23:22     82s] (I)       localRouteEffort       : 1.00
+[05/04 01:23:22     82s] (I)       numSitesBlockedByOneVia: 8.00
+[05/04 01:23:22     82s] (I)       supplyScaleFactorH     : 1.00
+[05/04 01:23:22     82s] (I)       supplyScaleFactorV     : 1.00
+[05/04 01:23:22     82s] (I)       highlight3DOverflowFactor: 0.00
+[05/04 01:23:22     82s] (I)       routeVias              : 
+[05/04 01:23:22     82s] (I)       readTROption           : true
+[05/04 01:23:22     82s] (I)       extraSpacingFactor     : 1.00
+[05/04 01:23:22     82s] [NR-eGR] numTracksPerClockWire  : 0
+[05/04 01:23:22     82s] (I)       routeSelectedNetsOnly  : false
+[05/04 01:23:22     82s] (I)       clkNetUseMaxDemand     : false
+[05/04 01:23:22     82s] (I)       extraDemandForClocks   : 0
+[05/04 01:23:22     82s] (I)       steinerRemoveLayers    : false
+[05/04 01:23:22     82s] (I)       demoteLayerScenicScale : 1.00
+[05/04 01:23:22     82s] (I)       nonpreferLayerCostScale : 100.00
+[05/04 01:23:22     82s] (I)       similarTopologyRoutingFast : false
+[05/04 01:23:22     82s] (I)       spanningTreeRefinement : false
+[05/04 01:23:22     82s] (I)       spanningTreeRefinementAlpha : -1.00
+[05/04 01:23:22     82s] (I)       starting read tracks
+[05/04 01:23:22     82s] (I)       build grid graph
+[05/04 01:23:22     82s] (I)       build grid graph start
+[05/04 01:23:22     82s] [NR-eGR] met1 has no routable track
+[05/04 01:23:22     82s] [NR-eGR] met2 has single uniform track structure
+[05/04 01:23:22     82s] [NR-eGR] met3 has single uniform track structure
+[05/04 01:23:22     82s] [NR-eGR] met4 has single uniform track structure
+[05/04 01:23:22     82s] [NR-eGR] met5 has single uniform track structure
+[05/04 01:23:22     82s] (I)       build grid graph end
+[05/04 01:23:22     82s] (I)       merge level 0
+[05/04 01:23:22     82s] (I)       numViaLayers=5
+[05/04 01:23:22     82s] (I)       Reading via M1M2_PR_R for layer: 0 
+[05/04 01:23:22     82s] (I)       Reading via M2M3_PR_R for layer: 1 
+[05/04 01:23:22     82s] (I)       Reading via M3M4_PR for layer: 2 
+[05/04 01:23:22     82s] (I)       Reading via M4M5_PR for layer: 3 
+[05/04 01:23:22     82s] (I)       end build via table
+[05/04 01:23:22     82s] [NR-eGR] Read 0 PG shapes in 0.000 seconds
+[05/04 01:23:22     82s] 
+[05/04 01:23:22     82s] [NR-eGR] numRoutingBlks=0 numInstBlks=0 numPGBlocks=0 numBumpBlks=0 numBoundaryFakeBlks=0
+[05/04 01:23:22     82s] (I)       **WARNING: No rule is found. Cannot read pre-routed nets.
+[05/04 01:23:22     82s] (I)       **WARNING: No rule is found. Cannot read pre-routed nets.
+[05/04 01:23:22     82s] (I)       readDataFromPlaceDB
+[05/04 01:23:22     82s] (I)       Read net information..
+[05/04 01:23:22     82s] [NR-eGR] Read numTotalNets=0  numIgnoredNets=0
+[05/04 01:23:22     82s] (I)       Read testcase time = 0.000 seconds
+[05/04 01:23:22     82s] 
+[05/04 01:23:22     82s] (I)       read default dcut vias
+[05/04 01:23:22     82s] (I)       Reading via M1M2_PR for layer: 0 
+[05/04 01:23:22     82s] (I)       Reading via M2M3_PR for layer: 1 
+[05/04 01:23:22     82s] (I)       Reading via M3M4_PR for layer: 2 
+[05/04 01:23:22     82s] (I)       Reading via M4M5_PR for layer: 3 
+[05/04 01:23:22     82s] (I)       early_global_route_priority property id does not exist.
+[05/04 01:23:22     82s] (I)       build grid graph start
+[05/04 01:23:22     82s] (I)       build grid graph end
+[05/04 01:23:22     82s] (I)       Model blockage into capacity
+[05/04 01:23:22     82s] (I)       Read numBlocks=%  numPreroutedWires=%  numCapScreens=%
+[05/04 01:23:22     82s] (I)       Modeling time = 0.000 seconds
+[05/04 01:23:22     82s] 
+[05/04 01:23:22     82s] (I)       Number of ignored nets = 0
+[05/04 01:23:22     82s] (I)       Number of fixed nets = 0.  Ignored: Yes
+[05/04 01:23:22     82s] (I)       Number of clock nets = 0.  Ignored: No
+[05/04 01:23:22     82s] (I)       Number of analog nets = 0.  Ignored: Yes
+[05/04 01:23:22     82s] (I)       Number of special nets = 0.  Ignored: Yes
+[05/04 01:23:22     82s] (I)       Number of mixed signal nets = 0.  Ignored: Yes
+[05/04 01:23:22     82s] (I)       Number of skip routing nets = 0.  Ignored: Yes
+[05/04 01:23:22     82s] (I)       Number of nets with ignore route flag = 0.  Ignored: No
+[05/04 01:23:22     82s] (I)       Number of nets with one or no pins = 0.  Ignored: Yes
+[05/04 01:23:22     82s] (I)       Number of two pin nets which has pins at the same location = 0.  Ignored: Yes
+[05/04 01:23:22     82s] (I)       Before initializing earlyGlobalRoute syMemory usage = 793.7 MB
+[05/04 01:23:22     82s] (I)       Ndr track 0 does not exist
+[05/04 01:23:22     82s] (I)       Layer1  viaCost=200.00
+[05/04 01:23:22     82s] (I)       Layer2  viaCost=300.00
+[05/04 01:23:22     82s] (I)       Layer3  viaCost=300.00
+[05/04 01:23:22     82s] (I)       Layer4  viaCost=200.00
+[05/04 01:23:22     82s] (I)       ---------------------Grid Graph Info--------------------
+[05/04 01:23:22     82s] (I)       Routing area        : (1840, 1840) - (22540, 24380)
+[05/04 01:23:22     82s] (I)       Core area           : (10120, 10120) - (12420, 14260)
+[05/04 01:23:22     82s] (I)       Site width          :   460  (dbu)
+[05/04 01:23:22     82s] (I)       Row height          :  4140  (dbu)
+[05/04 01:23:22     82s] (I)       GCell width         :  4140  (dbu)
+[05/04 01:23:22     82s] (I)       GCell height        :  4140  (dbu)
+[05/04 01:23:22     82s] (I)       Grid                :     5     6     5
+[05/04 01:23:22     82s] (I)       Layer numbers       :     1     2     3     4     5
+[05/04 01:23:22     82s] (I)       Vertical capacity   :     0  4140     0  4140     0
+[05/04 01:23:22     82s] (I)       Horizontal capacity :     0     0  4140     0  4140
+[05/04 01:23:22     82s] (I)       Default wire width  :   140   140   300   300  1600
+[05/04 01:23:22     82s] (I)       Default wire space  :   140   140   300   300  1600
+[05/04 01:23:22     82s] (I)       Default wire pitch  :   280   280   600   600  3200
+[05/04 01:23:22     82s] (I)       Default pitch size  :   280   460   610   615  3660
+[05/04 01:23:22     82s] (I)       First track coord   :     0   460   360   895  2800
+[05/04 01:23:22     82s] (I)       Num tracks per GCell: 14.79  9.00  6.79  6.73  1.13
+[05/04 01:23:22     82s] (I)       Total num of tracks :     0    48    40    35     6
+[05/04 01:23:22     82s] (I)       Num of masks        :     1     1     1     1     1
+[05/04 01:23:22     82s] (I)       Num of trim masks   :     0     0     0     0     0
+[05/04 01:23:22     82s] (I)       --------------------------------------------------------
+[05/04 01:23:22     82s] 
+[05/04 01:23:22     82s] [NR-eGR] ============ Routing rule table ============
+[05/04 01:23:22     82s] [NR-eGR] Rule id: 0  Nets: 0 
+[05/04 01:23:22     82s] (I)       id=0  isDef=1  ndrTrackId=0  ndrViaId=-1  extraSpace=0  numShields=0  maxHorDemand=1  maxVerDemand=1
+[05/04 01:23:22     82s] (I)       Pitch:  L1=280  L2=460  L3=610  L4=615  L5=3660
+[05/04 01:23:22     82s] (I)       NumUsedTracks:  L1=1  L2=1  L3=1  L4=1  L5=1
+[05/04 01:23:22     82s] (I)       NumFullyUsedTracks:  L1=1  L2=1  L3=1  L4=1  L5=1
+[05/04 01:23:22     82s] [NR-eGR] ========================================
+[05/04 01:23:22     82s] [NR-eGR] 
+[05/04 01:23:22     82s] (I)       blocked tracks on layer1 : = 0 / 0 (0.00%)
+[05/04 01:23:22     82s] (I)       blocked tracks on layer2 : = 0 / 0 (0.00%)
+[05/04 01:23:22     82s] (I)       blocked tracks on layer3 : = 0 / 0 (0.00%)
+[05/04 01:23:22     82s] (I)       blocked tracks on layer4 : = 0 / 0 (0.00%)
+[05/04 01:23:22     82s] (I)       blocked tracks on layer5 : = 0 / 0 (0.00%)
+[05/04 01:23:22     82s] (I)       After initializing earlyGlobalRoute syMemory usage = 793.7 MB
+[05/04 01:23:22     82s] (I)       Loading and dumping file time : 0.01 seconds
+[05/04 01:23:22     82s] [NR-eGR] No Net to Route
+[05/04 01:23:22     82s] (I)       total 2D Cap : 728 = (230 H, 498 V)
+[05/04 01:23:22     82s] [NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
+[05/04 01:23:22     82s] [NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
+[05/04 01:23:22     82s] Early Global Route congestion estimation runtime: 0.01 seconds, mem = 793.7M
+[05/04 01:23:22     82s] [hotspot] +------------+---------------+---------------+
+[05/04 01:23:22     82s] [hotspot] |            |   max hotspot | total hotspot |
+[05/04 01:23:22     82s] [hotspot] +------------+---------------+---------------+
+[05/04 01:23:22     82s] [hotspot] | normalized |          0.00 |          0.00 |
+[05/04 01:23:22     82s] [hotspot] +------------+---------------+---------------+
+[05/04 01:23:22     82s] Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+[05/04 01:23:22     82s] [hotspot] max/total 0.00/0.00, big hotspot (>10) total 0.00
+[05/04 01:23:22     82s] 
+[05/04 01:23:22     82s] === incrementalPlace Internal Loop 1 ===
+[05/04 01:23:22     82s] Skipped repairing congestion.
+[05/04 01:23:22     82s] Starting Early Global Route wiring: mem = 793.7M
+[05/04 01:23:22     82s] [NR-eGR] No Net to Route
+[05/04 01:23:22     82s] [NR-eGR] --------------------------------------------------------------------------
+[05/04 01:23:22     82s] [NR-eGR]   met1  (1F) length: 0.000000e+00um, number of vias: 0
+[05/04 01:23:22     82s] [NR-eGR]   met2  (2V) length: 0.000000e+00um, number of vias: 0
+[05/04 01:23:22     82s] [NR-eGR]   met3  (3H) length: 0.000000e+00um, number of vias: 0
+[05/04 01:23:22     82s] [NR-eGR]   met4  (4V) length: 0.000000e+00um, number of vias: 0
+[05/04 01:23:22     82s] [NR-eGR]   met5  (5H) length: 0.000000e+00um, number of vias: 0
+[05/04 01:23:22     82s] [NR-eGR] Total length: 0.000000e+00um, number of vias: 0
+[05/04 01:23:22     82s] [NR-eGR] --------------------------------------------------------------------------
+[05/04 01:23:22     82s] [NR-eGR] Total eGR-routed clock nets wire length: 0.000000e+00um 
+[05/04 01:23:22     82s] [NR-eGR] --------------------------------------------------------------------------
+[05/04 01:23:22     82s] Early Global Route wiring runtime: 0.00 seconds, mem = 793.7M
+[05/04 01:23:22     82s] End of congRepair (cpu=0:00:00.0, real=0:00:00.0)
+[05/04 01:23:22     82s] *** Finishing placeDesign default flow ***
+[05/04 01:23:22     82s] **placeDesign ... cpu = 0: 0: 0, real = 0: 0: 0, mem = 793.7M **
+[05/04 01:23:23     82s] 
+[05/04 01:23:23     82s] *** Summary of all messages that are not suppressed in this session:
+[05/04 01:23:23     82s] Severity  ID               Count  Summary                                  
+[05/04 01:23:23     82s] WARNING   IMPSP-9531           1  Turning off clkGateAware when timingDriv...
+[05/04 01:23:23     82s] WARNING   IMPSP-9025           1  No scan chain specified/traced.          
+[05/04 01:23:23     82s] *** Message Summary: 2 warning(s), 0 error(s)
+[05/04 01:23:23     82s] 
+[05/04 01:23:25     82s] <CMD> gui_select -rect {-0.417 0.027 0.188 0.750}
+[05/04 01:23:26     82s] <CMD> deselectAll
+[05/04 01:23:26     82s] <CMD> selectObject IO_Pin A
+[05/04 01:23:27     82s] <CMD> deselectAll
+[05/04 01:23:27     82s] <CMD> selectObject IO_Pin A
+[05/04 01:23:29     83s] <CMD> zoomBox -0.447 0.008 0.168 0.232
+[05/04 01:23:30     83s] <CMD> deselectAll
+[05/04 01:23:30     83s] <CMD> selectObject IO_Pin A
+[05/04 01:23:38     84s] <CMD> pan 4.801 5.221
+[05/04 01:23:38     84s] <CMD> pan 6.173 5.041
+[05/04 01:23:40     84s] <CMD> pan 2.579 1.880
+[05/04 01:23:42     84s] <CMD> pan -0.430 -0.119
+[05/04 01:23:43     85s] <CMD> pan -0.139 1.152
+[05/04 01:23:44     85s] <CMD> deselectAll
+[05/04 01:23:44     85s] <CMD> selectInst g2
+[05/04 01:23:51     86s] <CMD> pan 0.205 1.331
+[05/04 01:23:56     86s] <CMD> pan -4.391 -2.339
+[05/04 01:23:57     86s] <CMD> pan -1.339 -0.852
+[05/04 01:23:57     87s] <CMD> pan -1.908 -2.176
+[05/04 01:23:58     87s] <CMD> pan -1.939 -2.027
+[05/04 01:23:59     87s] <CMD> pan -0.904 -0.773
+[05/04 01:24:53     92s] <CMD> deselectAll
+[05/04 01:24:59     93s] <CMD> selectObject IO_Pin A
+[05/04 01:25:03     93s] <CMD> deselectAll
+[05/04 01:25:03     93s] <CMD> selectObject IO_Pin A
+[05/04 01:25:05     93s] <CMD> deselectAll
+[05/04 01:25:14     94s] <CMD> selectObject IO_Pin A
+[05/04 01:25:15     94s] <CMD> deselectAll
+[05/04 01:25:15     94s] <CMD> selectObject IO_Pin A
+[05/04 01:25:15     94s] <CMD> deselectAll
+[05/04 01:25:35     96s] <CMD> pan 11.790 11.894
+[05/04 01:25:36     97s] <CMD> pan 1.383 2.687
+[05/04 01:25:39     97s] <CMD> selectObject Pin g2/Y
+[05/04 01:25:40     97s] <CMD> deselectAll
+[05/04 01:25:40     97s] <CMD> selectObject Pin g2/A
+[05/04 01:25:47     98s] <CMD> deselectAll
+[05/04 01:25:47     98s] <CMD> selectInst g2
+[05/04 01:26:05     99s] <CMD> pan -2.632 -0.402
+[05/04 01:26:06    100s] <CMD> pan -1.370 0.376
+[05/04 01:26:07    100s] <CMD> pan -2.208 -0.619
+[05/04 01:26:09    100s] <CMD> pan -6.320 1.526
+[05/04 01:26:12    100s] <CMD> deselectAll
+[05/04 01:26:12    100s] <CMD> selectObject IO_Pin A
+[05/04 01:26:23    101s] <CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+[05/04 01:26:25    102s] <CMD> deselectAll
+[05/04 01:26:26    102s] <CMD> selectObject IO_Pin B
+[05/04 01:26:40    103s] <CMD> gui_select -rect {-0.184 -0.009 0.022 -0.166}
+[05/04 01:26:41    103s] <CMD> deselectAll
+[05/04 01:26:41    103s] <CMD> selectObject IO_Pin B
+[05/04 01:26:42    103s] <CMD> deselectAll
+[05/04 01:26:42    103s] <CMD> selectObject IO_Pin B
+[05/04 01:26:46    104s] <CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+[05/04 01:26:48    104s] <CMD> gui_select -rect {-0.090 0.491 -0.029 0.200}
+[05/04 01:26:55    105s] <CMD> deselectAll
+[05/04 01:26:55    105s] <CMD> selectObject IO_Pin A
+[05/04 01:27:12    106s] <CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+[05/04 01:27:14    106s] <CMD> deselectAll
+[05/04 01:27:14    106s] <CMD> selectObject IO_Pin B
+[05/04 01:27:15    107s] <CMD> deselectAll
+[05/04 01:27:18    107s] <CMD> pan 7.448 11.200
+[05/04 01:27:20    107s] <CMD> pan 8.778 9.550
+[05/04 01:27:21    107s] **ERROR: (IMPSYT-6000):	No Object Selected.
+[05/04 01:27:25    108s] **ERROR: (IMPSYT-6000):	No Object Selected.
+[05/04 01:27:37    110s] <CMD> getIoFlowFlag
+[05/04 01:28:15    113s] <CMD> setIoFlowFlag 0
+[05/04 01:28:15    113s] <CMD> floorPlan -site CoreSite -s 2.3 4.14 2.12 2.12 2.12 2.12
+[05/04 01:28:15    113s] **WARN: (IMPFP-4026):	Adjusting core to 'Left' to 2.300000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[05/04 01:28:15    113s] **WARN: (IMPFP-4026):	Adjusting core to 'Bottom' to 2.300000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[05/04 01:28:15    113s] **WARN: (IMPFP-4026):	Adjusting core to 'Right' to 2.300000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[05/04 01:28:15    113s] **WARN: (IMPFP-4026):	Adjusting core to 'Top' to 2.300000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[05/04 01:28:15    113s] Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+[05/04 01:28:15    113s] Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+[05/04 01:28:15    113s] Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+[05/04 01:28:15    113s] <CMD> uiSetTool select
+[05/04 01:28:15    113s] <CMD> getIoFlowFlag
+[05/04 01:28:15    113s] <CMD> fit
+[05/04 01:28:32    115s] <CMD> getIoFlowFlag
+[05/04 01:28:56    117s] <CMD> setIoFlowFlag 0
+[05/04 01:28:56    117s] <CMD> floorPlan -site CoreSite -s 2.3 4.14 1.3 1.3 1.3 1.3
+[05/04 01:28:56    117s] **WARN: (IMPFP-4026):	Adjusting core to 'Left' to 1.380000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[05/04 01:28:56    117s] **WARN: (IMPFP-4026):	Adjusting core to 'Bottom' to 1.380000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[05/04 01:28:56    117s] **WARN: (IMPFP-4026):	Adjusting core to 'Right' to 1.380000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[05/04 01:28:56    117s] **WARN: (IMPFP-4026):	Adjusting core to 'Top' to 1.380000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[05/04 01:28:56    117s] Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+[05/04 01:28:56    117s] Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+[05/04 01:28:56    117s] Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+[05/04 01:28:56    117s] <CMD> uiSetTool select
+[05/04 01:28:56    117s] <CMD> getIoFlowFlag
+[05/04 01:28:56    117s] <CMD> fit
+[05/04 01:29:00    117s] <CMD> selectObject IO_Pin A
+[05/04 01:29:03    118s] <CMD> pan 9.688 20.329
+[05/04 01:29:05    118s] <CMD> gui_select -rect {11.847 11.902 10.929 10.861}
+[05/04 01:29:12    119s] <CMD> gui_select -rect {9.643 15.759 15.826 6.147}
+[05/04 01:29:14    119s] <CMD> gui_select -rect {11.235 12.361 7.072 9.637}
+[05/04 01:29:15    119s] <CMD> gui_select -rect {7.439 16.555 14.571 5.657}
+[05/04 01:29:20    120s] <CMD> gui_select -rect {11.449 12.086 10.592 11.780}
+[05/04 01:29:31    121s] <CMD> gui_select -rect {11.480 11.504 10.469 11.229}
+[05/04 01:29:33    121s] <CMD> zoomBox 11.480 11.749 8.112 10.310
+[05/04 01:29:46    123s] <CMD> pan -3.707 5.187
+[05/04 01:30:24    127s] <CMD> gui_select -rect {10.904 14.176 1.212 12.085}
+[05/04 01:30:25    127s] <CMD> gui_select -rect {10.248 14.401 1.028 12.557}
+[05/04 01:30:38    128s] <CMD> deselectAll
+[05/04 01:30:38    128s] <CMD> selectInst g2
+[05/04 01:30:40    128s] <CMD> gui_select -rect {9.162 15.098 14.408 8.131}
+[05/04 01:31:00    130s] <CMD> gui_select -rect {8.700 16.970 16.394 5.704}
+[05/04 01:31:01    130s] <CMD> deselectAll
+[05/04 01:31:01    130s] <CMD> selectWire 10.1200 14.0600 12.4200 14.4600 1 VSS
+[05/04 01:31:02    130s] <CMD> deleteSelectedFromFPlan
+[05/04 01:31:03    130s] <CMD> selectWire 10.1200 9.9200 12.4200 10.3200 1 VDD
+[05/04 01:31:03    130s] <CMD> deleteSelectedFromFPlan
+[05/04 01:31:08    131s] <CMD> pan 1.399 4.351
+[05/04 01:31:20    132s] <CMD> undo
+[05/04 01:31:21    132s] <CMD> undo
+[05/04 01:31:21    132s] <CMD> undo
+[05/04 01:31:21    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:21    132s] <CMD> undo
+[05/04 01:31:21    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:21    132s] <CMD> undo
+[05/04 01:31:21    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:22    132s] <CMD> undo
+[05/04 01:31:22    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:22    132s] <CMD> undo
+[05/04 01:31:22    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:22    132s] <CMD> undo
+[05/04 01:31:22    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:22    132s] <CMD> undo
+[05/04 01:31:22    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:23    132s] <CMD> undo
+[05/04 01:31:23    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:23    132s] <CMD> undo
+[05/04 01:31:23    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:23    132s] <CMD> undo
+[05/04 01:31:23    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:23    132s] <CMD> undo
+[05/04 01:31:23    132s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:24    133s] <CMD> undo
+[05/04 01:31:24    133s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:24    133s] <CMD> undo
+[05/04 01:31:24    133s] **ERROR: (IMPSYT-6852):	No more action to undo.
+[05/04 01:31:26    133s] <CMD> gui_select -rect {8.027 15.903 18.793 6.524}
+[05/04 01:31:27    133s] <CMD> deleteSelectedFromFPlan
+[05/04 01:31:29    133s] <CMD> fit
+[05/04 01:31:35    134s] <CMD> pan 2.041 3.789
+[05/04 01:32:06    137s] <CMD> init_design
+[05/04 01:32:06    137s] **WARN: (IMPSYT-7329):	Cannot load design with init_design, after design is already in memory.  This command is skipped.
+[05/04 01:32:06    137s] 
+[05/04 01:32:06    137s] *** Summary of all messages that are not suppressed in this session:
+[05/04 01:32:06    137s] Severity  ID               Count  Summary                                  
+[05/04 01:32:06    137s] WARNING   IMPSYT-7329          1  Cannot load design with init_design, aft...
+[05/04 01:32:06    137s] *** Message Summary: 1 warning(s), 0 error(s)
+[05/04 01:32:06    137s] 
+[05/04 01:32:09    137s] <CMD> setEditMode -via_auto_snap 0
+[05/04 01:32:13    138s] <CMD> editTrim
+[05/04 01:32:14    138s] <CMD> editMerge
+[05/04 01:32:14    138s] <CMD> editSplit
+[05/04 01:32:15    138s] <CMD> editDuplicate
+[05/04 01:32:15    138s] <CMD> editChangeLayer
+[05/04 01:32:19    138s] <CMD> uiSetTool ruler
+[05/04 01:32:29    140s] <CMD> zoomBox 1.641 6.152 11.535 0.172
+[05/04 01:32:38    141s] <CMD> setLayerPreference node_overlay -isVisible 1
+[05/04 01:32:38    141s] <CMD> fit
+[05/04 01:32:41    141s] <CMD> setLayerPreference node_overlay -isVisible 0
+[05/04 01:32:42    142s] <CMD> setLayerPreference node_track -isVisible 1
+[05/04 01:32:45    142s] <CMD> setLayerPreference node_track -isVisible 0
+[05/04 01:32:45    142s] <CMD> setLayerPreference node_track -isVisible 1
+[05/04 01:32:46    142s] <CMD> setLayerPreference node_track -isVisible 0
+[05/04 01:32:48    142s] <CMD> setLayerPreference node_cell -isVisible 1
+[05/04 01:32:48    142s] <CMD> setLayerPreference node_cell -isVisible 0
+[05/04 01:32:49    142s] <CMD> setLayerPreference node_cell -isVisible 1
+[05/04 01:32:59    143s] <CMD> zoomBox 7.189 6.353 9.082 1.466
+[05/04 01:33:20    146s] <CMD> redraw
+[05/04 01:33:20    146s] <CMD> redraw
+[05/04 01:33:20    146s] <CMD> redraw
+[05/04 01:33:21    146s] <CMD> redraw
+[05/04 01:33:31    148s] <CMD> zoomBox 0.858 5.979 4.611 1.019
+[05/04 01:33:45    150s] 
+--------------------------------------------------------------------------------
+Exiting Innovus on Mon May  4 01:33:45 2026
+  Total CPU time:     0:02:30
+  Total real time:    0:21:52
+  Peak memory (main): 713.43MB
+
+[05/04 01:33:45    150s] 
+[05/04 01:33:45    150s] *** Memory Usage v#1 (Current mem = 818.004M, initial mem = 251.484M) ***
+[05/04 01:33:45    150s] 
+[05/04 01:33:45    150s] *** Summary of all messages that are not suppressed in this session:
+[05/04 01:33:45    150s] Severity  ID               Count  Summary                                  
+[05/04 01:33:45    150s] WARNING   IMPLF-58            10  MACRO '%s' has been found in the databas...
+[05/04 01:33:45    150s] WARNING   IMPLF-61             1  %d duplicated MACRO definitions have bee...
+[05/04 01:33:45    150s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[05/04 01:33:45    150s] WARNING   IMPFP-3961           2  The techSite '%s' has no related standar...
+[05/04 01:33:45    150s] WARNING   IMPFP-4026           8  Adjusting core to '%s' to %f due to trac...
+[05/04 01:33:45    150s] ERROR     IMPPTN-963           1  Either specified pin name for the select...
+[05/04 01:33:45    150s] WARNING   IMPSYT-7329          1  Cannot load design with init_design, aft...
+[05/04 01:33:45    150s] WARNING   IMPSYT-7328          1  The design has been initialized in physi...
+[05/04 01:33:45    150s] ERROR     IMPSYT-6852         13  No more action to undo.                  
+[05/04 01:33:45    150s] ERROR     IMPSYT-16250         2  Choose the pin list first.               
+[05/04 01:33:45    150s] ERROR     IMPSYT-6000          4  No Object Selected.                      
+[05/04 01:33:45    150s] WARNING   IMPCK-8086           1  The command %s is obsolete and will be r...
+[05/04 01:33:45    150s] WARNING   IMPSR-468            4  Cannot find any standard cell pin connec...
+[05/04 01:33:45    150s] WARNING   IMPSR-1253           2  Cannot find any standard cell pin connec...
+[05/04 01:33:45    150s] WARNING   IMPSR-1254           2  Cannot find any block pin of net %s. Che...
+[05/04 01:33:45    150s] WARNING   IMPSR-1256           2  Cannot find any CORE class pad pin of ne...
+[05/04 01:33:45    150s] WARNING   IMPSP-9513           1  Timing constraint file does not exist    
+[05/04 01:33:45    150s] WARNING   IMPSP-9514           1  Non-TimingDriven placement will be perfo...
+[05/04 01:33:45    150s] WARNING   IMPSP-9531           2  Turning off clkGateAware when timingDriv...
+[05/04 01:33:45    150s] WARNING   IMPSP-9025           2  No scan chain specified/traced.          
+[05/04 01:33:45    150s] WARNING   IMPSP-362            1  Site '%s' has %s std.Cell height, so ign...
+[05/04 01:33:45    150s] WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+[05/04 01:33:45    150s] WARNING   TCLCMD-513           2  The software could not find a matching o...
+[05/04 01:33:45    150s] ERROR     TCLCMD-917           2  Cannot find '%s' that match '%s'         
+[05/04 01:33:45    150s] ERROR     TCLCMD-1129          2  Design must be in memory before running ...
+[05/04 01:33:45    150s] WARNING   TCLCMD-1461          4  Skipped unsupported command: %s          
+[05/04 01:33:45    150s] *** Message Summary: 49 warning(s), 24 error(s)
+[05/04 01:33:45    150s] 
+[05/04 01:33:45    150s] --- Ending "Innovus" (totcpu=0:02:30, real=0:21:51, mem=818.0M) ---

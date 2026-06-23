@@ -1,0 +1,27 @@
+
+
+***********************************************************
+* CDL produced by pvsBuildNetlist on Jun 20 00:31:05 2026 *
+***********************************************************
+
+
+*pvsViewList = auCdl schematic
+*pvsStopList = ("auCdl")
+*pvsSimName  = auCdl
+
+
+
+*.EXPAND_ON_M_FACTOR
+*.MEGA
+
+
+
+.subckt res_pex R_BOT R_TOP
+*PVSCELL netlisted from NS_SAR_Test res_pex schematic
+  RR1 R_TOP R_BOT res_xhigh_po_5p73 $SUB=R_BOT r=710.67 w=5.73u l=2u
+.ends res_pex
+
+
+***********************************************************
+*             Completed at Jun 20 00:31:05 2026           *
+***********************************************************

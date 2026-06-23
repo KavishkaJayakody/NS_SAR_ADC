@@ -1,0 +1,13 @@
+comparator_preamp 1000
+CDRW.m1.global.min:L263154
+1 1 1 Jun 16 23:26:11 2026
+DENSITY m1_layers -lt 0.330000 -inside_of layer fill_extent_not_SEALID -rdb m1_global_low.rdb CDRW.m1.global.min:L263154
+p 1 4
+DV 0.218008
+DA 758.16
+DA m1_layers 165.285
+-580 -360
+34055 -360
+34055 21530
+-580 21530
+

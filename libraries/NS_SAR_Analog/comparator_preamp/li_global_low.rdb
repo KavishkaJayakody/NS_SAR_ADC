@@ -1,0 +1,13 @@
+comparator_preamp 1000
+CDRW.li.global.min:L263152
+1 1 1 Jun 16 23:26:11 2026
+DENSITY li_layers -lt 0.330000 -inside_of layer fill_extent_not_SEALID -rdb li_global_low.rdb CDRW.li.global.min:L263152
+p 1 4
+DV 0.0916536
+DA 758.16
+DA li_layers 69.4881
+-580 -360
+34055 -360
+34055 21530
+-580 21530
+

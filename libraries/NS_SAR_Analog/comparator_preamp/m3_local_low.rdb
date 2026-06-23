@@ -1,0 +1,13 @@
+comparator_preamp 1000
+CDR.m3.local.min:L263169
+1 1 1 Jun 16 23:26:11 2026
+DENSITY met3_oxide -lt 0.800000 -window 700.000000 700.000000 -step 70.000000 70.000000 -inside_of layer fill_area -rdb m3_local_low.rdb CDR.m3.local.min:L263169
+p 1 4
+DV 0.022768
+DA 758.16
+DA met3_oxide 17.2618
+-580 -360
+34055 -360
+34055 21530
+-580 21530
+

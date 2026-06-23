@@ -1,0 +1,877 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2018 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v18.10-p002_1, built Tue May 29 19:19:55 PDT 2018
+Options:	
+Date:		Mon May  4 01:11:54 2026
+Host:		aed (x86_64 w/Linux 3.10.0-1160.108.1.el7.x86_64) (4cores*8cpus*Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz 8192KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		invs	Innovus Implementation System	18.1	Denied
+		invsb	Innovus Implementation System Basic	18.1	checkout succeeded
+		4 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getVersion
+<CMD> win
+<CMD> set init_gnd_net VSS
+<CMD> set init_lef_file {../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T.tlef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef}
+<CMD> set init_verilog inverter_synth.v
+<CMD> set init_mmmc_file inverter.sdc
+<CMD> set init_top_cell test_inverter
+<CMD> set init_pwr_net VDD
+<CMD> set_units -capacitance 1000.0fF
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units
+<CMD> set_units -time 1000.0ps
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units
+<CMD> current_design test_inverter
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'test_inverter'
+**ERROR: (TCLCMD-917):	Cannot find 'designs' that match 'test_inverter'
+<CMD> create_clock -name "clk" -period 10000.0 -waveform {0.0 5000.0} 
+**ERROR: (TCLCMD-1129):	Design must be in memory before running 'create_clock'.
+<CMD> init_design
+#% Begin Load MMMC data ... (date=05/04 01:13:56, mem=488.2M)
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'test_inverter'
+**ERROR: (TCLCMD-917):	Cannot find 'designs' that match 'test_inverter'
+**ERROR: (TCLCMD-1129):	Design must be in memory before running 'create_clock'.
+<CMD> set init_gnd_net VSS
+<CMD> set init_lef_file {../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T.tlef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef}
+<CMD> set init_verilog inverter_synth.v
+<CMD> set init_top_cell test_inverter
+<CMD> set init_pwr_net VDD
+<CMD> init_design
+
+Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T.tlef ...
+
+Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef ...
+Set DBUPerIGU to M2 pitch 460.
+
+Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef ...
+**WARN: (IMPLF-58):	MACRO 'FILL1' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-58):	MACRO 'FILL2' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-58):	MACRO 'FILL4' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-58):	MACRO 'FILL8' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-58):	MACRO 'FILL16' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-58):	MACRO 'FILL32' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-58):	MACRO 'FILL64' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-58):	MACRO 'TIEHI' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-58):	MACRO 'TIELO' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-58):	MACRO 'ANTENNA' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-58' for more detail.
+**WARN: (IMPLF-61):	10 duplicated MACRO definitions have been found in the LEF file(s). Their content except DENSITY and PIN ANTENNA* data have been ignored.
+Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+Type 'man IMPLF-61' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+viaInitial starts at Mon May  4 01:15:39 2026
+viaInitial ends at Mon May  4 01:15:39 2026
+*** End library_loading (cpu=0.00min, real=0.00min, mem=0.0M, fe_cpu=0.63min, fe_real=3.75min, fe_mem=600.5M) ***
+% Begin Load netlist data ... (date=05/04 01:15:39, mem=493.6M)
+*** Begin netlist parsing (mem=600.5M) ***
+Created 0 new cells from 0 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist 'inverter_synth.v'
+
+*** Memory Usage v#1 (Current mem = 602.527M, initial mem = 251.484M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=602.5M) ***
+% End Load netlist data ... (date=05/04 01:15:39, total cpu=0:00:00.0, real=0:00:00.0, peak res=496.4M, current mem=496.4M)
+Set top cell to test_inverter.
+Hooked 0 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell test_inverter ...
+*** Netlist is unique.
+** info: there are 118 modules.
+** info: there are 1 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 627.949M, initial mem = 251.484M) ***
+**WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (IMPSYT-7328):	The design has been initialized in physical-only mode because the init_mmmc_file global variable was not defined. Timing analysis will not be possible within this session. You can only use commands that do not depend on timing data. If you need to use timing, you need to restart with an init_mmmc_file to define the timing setup, or you can save this design and use restoreDesign -mmmc_file <viewDef.tcl> to add the timing setup information.
+Extraction setup Started 
+<CMD> getIoFlowFlag
+<CMD> setIoFlowFlag 0
+<CMD> floorPlan -site CoreSite -r 2.09620253165 0.698734 10.0 10.0 10.0 10.0
+Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+<CMD> uiSetTool select
+<CMD> getIoFlowFlag
+<CMD> fit
+<CMD> gui_select -rect {10.201 13.559 11.176 12.696}
+<CMD> gui_select -rect {10.313 13.934 12.076 10.708}
+<CMD> setPlaceMode -fp false
+<CMD> place_design
+**WARN: (IMPSP-9513):	Timing constraint file does not exist
+**WARN: (IMPSP-9514):	Non-TimingDriven placement will be performed.
+*** Starting placeDesign default flow ***
+Deleted 0 physical inst  (cell - / prefix -).
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Extracting macro/IO cell pins and blockage ...... 
+Pin and blockage extraction finished
+*** Starting "NanoPlace(TM) placement v#1 (mem=745.3M)" ...
+No user-set net weight.
+Options: clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+Scan chains were not defined.
+#std cell=1 (0 fixed + 1 movable) #block=0 (0 floating + 0 preplaced)
+#ioInst=0 #net=2 #term=4 #term/net=2.00, #fixedIo=0, #floatIo=0, #fixedPin=0, #floatPin=2
+stdCell: 1 single + 0 double + 0 multi
+Total standard cell length = 0.0014 (mm), area = 0.0000 (mm^2)
+**WARN: (IMPSP-362):	Site 'CoreSite' has one std.Cell height, so ignoring its X-symmetry.
+Type 'man IMPSP-362' for more detail.
+Estimated cell power/ground rail width = 0.517 um
+Average module density = 0.600.
+Density for the design = 0.600.
+       = stdcell_area 3 sites (6 um^2) / alloc_area 5 sites (10 um^2).
+Pin Density = 0.4000.
+            = total # of pins 4 / total area 10.
+=== lastAutoLevel = 3 
+**WARN: (IMPSP-9531):	Turning off clkGateAware when timingDriven is off
+Iteration  1: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 743.3M
+Iteration  2: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 744.3M
+Iteration  3: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 744.3M
+Iteration  4: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 744.3M
+Iteration  5: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 744.3M
+Iteration  6: Total net bbox = 4.508e+01 (2.21e+01 2.30e+01)
+              Est.  stn bbox = 4.508e+01 (2.21e+01 2.30e+01)
+              cpu = 0:00:00.0 real = 0:00:01.0 mem = 744.3M
+*** cost = 4.508e+01 (2.21e+01 2.30e+01) (cpu for global=0:00:00.0) real=0:00:01.0***
+net ignore based on current view = 0
+Solver runtime cpu: 0:00:00.0 real: 0:00:00.0
+Core Placement runtime cpu: 0:00:00.0 real: 0:00:01.0
+**WARN: (IMPSP-9025):	No scan chain specified/traced.
+Type 'man IMPSP-9025' for more detail.
+*** Starting refinePlace (0:00:51.1 mem=744.3M) ***
+Total net bbox length = 4.508e+01 (2.208e+01 2.300e+01) (ext = 4.508e+01)
+Move report: Detail placement moves 1 insts, mean move: 0.23 um, max move: 0.23 um
+	Max move on inst (g2): (10.35, 10.12) --> (10.58, 10.12)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 746.3MB
+Summary Report:
+Instances move: 1 (out of 1 movable)
+Instances flipped: 0
+Mean displacement: 0.23 um
+Max displacement: 0.23 um (Instance: g2) (10.35, 10.12) -> (10.58, 10.12)
+	Length: 3 sites, height: 1 rows, site name: CoreSite, cell type: CLKINVX2
+Total net bbox length = 4.830e+01 (2.254e+01 2.576e+01) (ext = 4.830e+01)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 746.3MB
+*** Finished refinePlace (0:00:51.1 mem=746.3M) ***
+*** End of Placement (cpu=0:00:00.0, real=0:00:01.0, mem=746.3M) ***
+default core: bins with density > 0.750 =  0.00 % ( 0 / 1 )
+Density distribution unevenness ratio = 0.000%
+
+Starting congestion repair ...
+[NR-eGR] honorMsvRouteConstraint: false
+[NR-eGR] honorClockSpecNDR      : 0
+[NR-eGR] minRouteLayer          : 2
+[NR-eGR] maxRouteLayer          : 127
+[NR-eGR] numTracksPerClockWire  : 0
+[NR-eGR] met1 has no routable track
+[NR-eGR] met2 has single uniform track structure
+[NR-eGR] met3 has single uniform track structure
+[NR-eGR] met4 has single uniform track structure
+[NR-eGR] met5 has single uniform track structure
+[NR-eGR] Read 0 PG shapes in 0.000 seconds
+
+[NR-eGR] numRoutingBlks=0 numInstBlks=0 numPGBlocks=0 numBumpBlks=0 numBoundaryFakeBlks=0
+[NR-eGR] Read numTotalNets=0  numIgnoredNets=0
+[NR-eGR] ============ Routing rule table ============
+[NR-eGR] Rule id: 0  Nets: 0 
+[NR-eGR] ========================================
+[NR-eGR] 
+[NR-eGR] No Net to Route
+[NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
+[NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
+Early Global Route congestion estimation runtime: 0.00 seconds, mem = 747.3M
+Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+
+=== incrementalPlace Internal Loop 1 ===
+Skipped repairing congestion.
+[NR-eGR] No Net to Route
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR]   met1  (1F) length: 0.000000e+00um, number of vias: 0
+[NR-eGR]   met2  (2V) length: 0.000000e+00um, number of vias: 0
+[NR-eGR]   met3  (3H) length: 0.000000e+00um, number of vias: 0
+[NR-eGR]   met4  (4V) length: 0.000000e+00um, number of vias: 0
+[NR-eGR]   met5  (5H) length: 0.000000e+00um, number of vias: 0
+[NR-eGR] Total length: 0.000000e+00um, number of vias: 0
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR] Total eGR-routed clock nets wire length: 0.000000e+00um 
+[NR-eGR] --------------------------------------------------------------------------
+Early Global Route wiring runtime: 0.00 seconds, mem = 755.3M
+End of congRepair (cpu=0:00:00.0, real=0:00:00.0)
+*** Finishing placeDesign default flow ***
+**placeDesign ... cpu = 0: 0: 0, real = 0: 0: 1, mem = 755.3M **
+<CMD> gui_select -rect {-0.189 -0.169 0.411 1.444}
+<CMD> gui_select -rect {-0.264 -0.019 2.324 3.957}
+<CMD> gui_select -rect {-1.014 0.694 1.837 -1.219}
+<CMD> pan -1.403 -2.957
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD> gui_select -rect {-0.352 -0.001 -0.110 0.395}
+<CMD> gui_select -rect {-0.280 -0.001 0.264 0.284}
+<CMD> deselectAll
+<CMD> selectObject Pin g2/Y
+<CMD> gui_select -rect {11.492 13.342 11.509 13.579}
+<CMD> gui_select -rect {11.517 13.356 11.384 13.559}
+<CMD> pan -0.086 1.687
+<CMD> pan -0.114 0.334
+<CMD> pan -0.368 -0.110
+<CMD> pan -0.867 0.081
+<CMD> deselectAll
+<CMD> fit
+<CMD> setLayerPreference block -isVisible 0
+<CMD> setLayerPreference block -isVisible 1
+<CMD> setLayerPreference block -isVisible 0
+<CMD> setLayerPreference block -isVisible 1
+<CMD> setLayerPreference allM0 -isVisible 0
+<CMD> setLayerPreference allM0 -isVisible 1
+<CMD> setLayerPreference node_gird -isVisible 1
+<CMD> setLayerPreference node_gird -isVisible 0
+<CMD> setLayerPreference node_bump -isVisible 0
+<CMD> setLayerPreference node_bump -isVisible 1
+<CMD> setLayerPreference node_misc -isVisible 1
+<CMD> setLayerPreference node_misc -isVisible 0
+<CMD> setLayerPreference node_misc -isVisible 1
+<CMD> setLayerPreference node_misc -isVisible 0
+<CMD> setLayerPreference node_misc -isVisible 1
+<CMD> setLayerPreference node_misc -isVisible 0
+<CMD> setLayerPreference node_misc -isVisible 1
+<CMD> setSrouteMode -viaConnectToShape { noshape }
+<CMD> sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { met1(1) met5(5) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { met1(1) met5(5) } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { met1(1) met5(5) }
+*** Begin SPECIAL ROUTE on Mon May  4 01:20:10 2026 ***
+SPECIAL ROUTE ran on directory: /home/user22/NS_SAR_ADC/libraries/NS_SAR_Digital/inverter
+SPECIAL ROUTE ran on machine: aed (Linux 3.10.0-1160.108.1.el7.x86_64 x86_64 3.40Ghz)
+
+Begin option processing ...
+srouteConnectPowerBump set to false
+routeSpecial set to true
+srouteBlockPin set to "useLef"
+srouteBottomLayerLimit set to 1
+srouteBottomTargetLayerLimit set to 1
+srouteConnectConverterPin set to false
+srouteCrossoverViaBottomLayer set to 1
+srouteCrossoverViaTopLayer set to 5
+srouteFloatingStripeTarget set to "blockring padring ring stripe ringpin blockpin followpin"
+srouteFollowCorePinEnd set to 3
+srouteJogControl set to "preferWithChanges differentLayer"
+srouteNoViaOnWireShape set to "padring ring stripe blockring blockpin coverpin blockwire corewire followpin iowire"
+sroutePadPinAllPorts set to true
+sroutePreserveExistingRoutes set to true
+srouteRoutePowerBarPortOnBothDir set to true
+srouteStopBlockPin set to "nearestTarget"
+srouteTopLayerLimit set to 5
+srouteTopTargetLayerLimit set to 5
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 1598.00 megs.
+
+Reading DB technology information...
+Finished reading DB technology information.
+Reading floorplan and netlist information...
+Finished reading floorplan and netlist information.
+Read in 11 layers, 5 routing layers, 1 overlap layer
+Read in 117 macros, 2 used
+Read in 1 components
+  1 core components: 0 unplaced, 1 placed, 0 fixed
+Read in 2 logical pins
+Read in 2 nets
+Read in 2 special nets
+Begin power routing ...
+**WARN: (IMPSR-1253):	Cannot find any standard cell pin connected to net VDD.
+Run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as 'USE POWER' or 'USE GROUND'.
+**WARN: (IMPSR-1254):	Cannot find any block pin of net VDD. Check netlist, or change option to include the pin.
+**WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net VDD. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net VDD. Check net list, or change port class in the technology file, or change option to include pin in given range.
+**WARN: (IMPSR-1253):	Cannot find any standard cell pin connected to net VSS.
+Run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as 'USE POWER' or 'USE GROUND'.
+**WARN: (IMPSR-1254):	Cannot find any block pin of net VSS. Check netlist, or change option to include the pin.
+**WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net VSS. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net VSS. Check net list, or change port class in the technology file, or change option to include pin in given range.
+**WARN: (IMPSR-468):	Cannot find any standard cell pin connected to net VDD.
+Use setSrouteMode -corePinReferenceMacro <standard cell> to specify a reference macro for followpin connection, or run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as "USE POWER" or "USE GROUND".
+**WARN: (IMPSR-468):	Cannot find any standard cell pin connected to net VDD.
+Use setSrouteMode -corePinReferenceMacro <standard cell> to specify a reference macro for followpin connection, or run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as "USE POWER" or "USE GROUND".
+CPU time for FollowPin 0 seconds
+**WARN: (IMPSR-468):	Cannot find any standard cell pin connected to net VSS.
+Use setSrouteMode -corePinReferenceMacro <standard cell> to specify a reference macro for followpin connection, or run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as "USE POWER" or "USE GROUND".
+**WARN: (IMPSR-468):	Cannot find any standard cell pin connected to net VSS.
+Use setSrouteMode -corePinReferenceMacro <standard cell> to specify a reference macro for followpin connection, or run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as "USE POWER" or "USE GROUND".
+CPU time for FollowPin 0 seconds
+  Number of IO ports routed: 0
+  Number of Block ports routed: 0
+  Number of Stripe ports routed: 0
+  Number of Core ports routed: 0  open: 4
+  Number of Pad ports routed: 0
+  Number of Power Bump ports routed: 0
+  Number of Followpin connections: 2
+End power routing: cpu: 0:00:00, real: 0:00:00, peak: 1608.00 megs.
+
+
+
+ Begin updating DB with routing results ...
+ Updating DB with 0 via definition ...
+sroute created 2 wires.
+ViaGen created 0 via, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|  met1  |        2       |       NA       |
++--------+----------------+----------------+
+<CMD> pan 1.120 1.653
+<CMD> fit
+**ERROR: (IMPSYT-16250):	Choose the pin list first.
+<CMD> getPinAssignMode -pinEditInBatch -quiet
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -fixOverlap 1 -layer 1 -pin {}
+**ERROR: (IMPPTN-963):	Either specified pin name for the selected partition does not exist or has status 'cover'. Specify the pin or the list of pins correctly and run the command again.
+<CMD> setPinAssignMode -pinEditInBatch false
+<CMD> set ptngSprNoRefreshPins 1
+<CMD> setPtnPinStatus -cell test_inverter -pin A -status unplaced -silent
+<CMD> set ptngSprNoRefreshPins 0
+<CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+<CMD> set ptngSprNoRefreshPins 1
+<CMD> setPtnPinStatus -cell test_inverter -pin B -status unplaced -silent
+<CMD> set ptngSprNoRefreshPins 0
+<CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+<CMD> set ptngSprNoRefreshPins 1
+<CMD> setPtnPinStatus -cell test_inverter -pin B -status unplaced -silent
+<CMD> set ptngSprNoRefreshPins 0
+<CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+<CMD> selectObject Pin g2/Y
+<CMD> gui_select -rect {11.512 13.342 11.015 13.485}
+<CMD> gui_select -rect {11.478 13.334 11.111 13.450}
+<CMD> setNanoRouteMode -quiet -timingEngine {}
+<CMD> setNanoRouteMode -quiet -routeTopRoutingLayer default
+<CMD> setNanoRouteMode -quiet -routeBottomRoutingLayer default
+<CMD> setNanoRouteMode -quiet -drouteEndIteration default
+**WARN: (IMPTCM-77):	Option "-routeEcoOnlyInLayers" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+<CMD> setNanoRouteMode -quiet -routeWithTimingDriven false
+<CMD> setNanoRouteMode -quiet -routeWithSiDriven false
+Running Native NanoRoute ...
+<CMD> routeDesign -globalDetail
+#routeDesign: cpu time = 00:00:00, elapsed time = 00:00:00, memory = 655.45 (MB), peak = 655.45 (MB)
+#WARNING (NRIG-96) Selected single pass global detail route "-globalDetail". Clock eco and post optimizations will not be run. See "man NRIG-96" for more details.
+#**INFO: setDesignMode -flowEffort standard
+#**INFO: multi-cut via swapping will not be performed after routing.
+#**INFO: All auto set options tuned by routeDesign will be restored to their original settings on command completion.
+Begin checking placement ... (start mem=768.6M, init mem=768.6M)
+*info: Placed = 1             
+*info: Unplaced = 0           
+Placement Density:60.00%(6/10)
+Placement Density (including fixed std cells):60.00%(6/10)
+Finished checkPlace (total: cpu=0:00:00.0, real=0:00:00.0; vio checks: cpu=0:00:00.0, real=0:00:00.0; mem=768.6M)
+**WARN: (IMPCK-8086):	The command changeUseClockNetStatus is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+
+changeUseClockNetStatus Option :  -noFixedNetWires 
+*** Changed status on (0) nets in Clock.
+*** End changeUseClockNetStatus (cpu=0:00:00.0, real=0:00:01.0, mem=768.6M) ***
+#ROUTE-DESIGN-CMD: N5-process: 0 [db_process_node=]
+
+globalDetailRoute
+
+#setNanoRouteMode -routeConcurrentMinimizeViaCountEffort "high"
+#setNanoRouteMode -routeReserveSpaceForMultiCut true
+#setNanoRouteMode -routeWithSiDriven false
+#setNanoRouteMode -routeWithTimingDriven false
+#Start globalDetailRoute on Mon May  4 01:22:52 2026
+#
+#WARNING (NRIG-39) NanoRoute cannot route to pin PIN/A of net A because it might be a logical pin and does not have physical shapes. To fix the problem, check the pin connection in the netlist and ensure the pin shapes exist in the floorplan.
+#WARNING (NRIG-39) NanoRoute cannot route to pin PIN/B of net B because it might be a logical pin and does not have physical shapes. To fix the problem, check the pin connection in the netlist and ensure the pin shapes exist in the floorplan.
+#WARNING (NRDB-2005) SPECIAL_NET VDD has special wires but no definitions for instance pins or top level pins. This will cause routability problems later.
+#WARNING (NRDB-2005) SPECIAL_NET VSS has special wires but no definitions for instance pins or top level pins. This will cause routability problems later.
+#WARNING (NRDB-976) The TRACK STEP 0.6100 for preferred direction tracks is smaller than the PITCH 0.6900 for LAYER met3. This will cause routability problems for NanoRoute.
+#WARNING (NRDB-976) The TRACK STEP 0.6150 for preferred direction tracks is smaller than the PITCH 0.6900 for LAYER met4. This will cause routability problems for NanoRoute.
+#NanoRoute Version 18.10-p002_1 NR180522-1057/18_10-UB
+#Start routing data preparation on Mon May  4 01:22:52 2026
+#
+#WARNING (NRDB-2040) Rule LEF_DEFAULT doesn't specify any vias that satisfy all of the area rules for layer met3 
+# met1         H   Track-Pitch = 0.4600    Line-2-Via Pitch = 0.3400
+# met2         V   Track-Pitch = 0.4600    Line-2-Via Pitch = 0.3400
+# met3         H   Track-Pitch = 0.6100    Line-2-Via Pitch = 0.6100
+# met4         V   Track-Pitch = 0.6150    Line-2-Via Pitch = 0.6150
+# met5         H   Track-Pitch = 3.6600    Line-2-Via Pitch = 3.2000
+#Regenerating Ggrids automatically.
+#Auto generating G-grids with size=15 tracks, using layer met3's pitch = 0.6150.
+#Using automatically generated G-grids.
+#Done routing data preparation.
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 669.96 (MB), peak = 702.77 (MB)
+#Merging special wires...
+#
+#Finished routing data preparation on Mon May  4 01:22:52 2026
+#
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 6.82 (MB)
+#Total memory = 670.04 (MB)
+#Peak memory = 702.77 (MB)
+#
+#
+#Start global routing on Mon May  4 01:22:52 2026
+#
+#WARNING (NRGR-22) Design is already detail routed.
+#Routing data preparation, pin analysis, global routing and track assignment statistics:
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 7.10 (MB)
+#Total memory = 670.12 (MB)
+#Peak memory = 702.77 (MB)
+#
+#Start Detail Routing..
+#start 1st optimization iteration ...
+#   number of violations = 0
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 671.85 (MB), peak = 702.77 (MB)
+#Complete Detail Routing.
+#Total wire length = 0 um.
+#Total half perimeter of net bounding box = 0 um.
+#Total wire length on LAYER met1 = 0 um.
+#Total wire length on LAYER met2 = 0 um.
+#Total wire length on LAYER met3 = 0 um.
+#Total wire length on LAYER met4 = 0 um.
+#Total wire length on LAYER met5 = 0 um.
+#Total number of vias = 0
+#Up-Via Summary (total 0):
+#           
+#-----------------------
+#-----------------------
+#                     0 
+#
+#Total number of DRC violations = 0
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 0.65 (MB)
+#Total memory = 670.79 (MB)
+#Peak memory = 702.77 (MB)
+#
+#start routing for process antenna violation fix ...
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 671.82 (MB), peak = 702.77 (MB)
+#
+#Total wire length = 0 um.
+#Total half perimeter of net bounding box = 0 um.
+#Total wire length on LAYER met1 = 0 um.
+#Total wire length on LAYER met2 = 0 um.
+#Total wire length on LAYER met3 = 0 um.
+#Total wire length on LAYER met4 = 0 um.
+#Total wire length on LAYER met5 = 0 um.
+#Total number of vias = 0
+#Up-Via Summary (total 0):
+#           
+#-----------------------
+#-----------------------
+#                     0 
+#
+#Total number of DRC violations = 0
+#Total number of net violated process antenna rule = 0
+#
+#
+#Total wire length = 0 um.
+#Total half perimeter of net bounding box = 0 um.
+#Total wire length on LAYER met1 = 0 um.
+#Total wire length on LAYER met2 = 0 um.
+#Total wire length on LAYER met3 = 0 um.
+#Total wire length on LAYER met4 = 0 um.
+#Total wire length on LAYER met5 = 0 um.
+#Total number of vias = 0
+#Up-Via Summary (total 0):
+#           
+#-----------------------
+#-----------------------
+#                     0 
+#
+#Total number of DRC violations = 0
+#Total number of net violated process antenna rule = 0
+#
+#WARNING (NRDR-32) All the nets are fixed, skipped, or trivial nets. Post Route wire spreading cannot be run.
+#Total wire length = 0 um.
+#Total half perimeter of net bounding box = 0 um.
+#Total wire length on LAYER met1 = 0 um.
+#Total wire length on LAYER met2 = 0 um.
+#Total wire length on LAYER met3 = 0 um.
+#Total wire length on LAYER met4 = 0 um.
+#Total wire length on LAYER met5 = 0 um.
+#Total number of vias = 0
+#Up-Via Summary (total 0):
+#           
+#-----------------------
+#-----------------------
+#                     0 
+#
+#detailRoute Statistics:
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 0.70 (MB)
+#Total memory = 670.84 (MB)
+#Peak memory = 702.77 (MB)
+#
+#globalDetailRoute statistics:
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 26.13 (MB)
+#Total memory = 681.75 (MB)
+#Peak memory = 702.77 (MB)
+#Number of warnings = 9
+#Total number of warnings = 10
+#Number of fails = 0
+#Total number of fails = 0
+#Complete globalDetailRoute on Mon May  4 01:22:52 2026
+#
+#routeDesign: cpu time = 00:00:00, elapsed time = 00:00:00, memory = 681.89 (MB), peak = 702.77 (MB)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPCK-8086           1  The command %s is obsolete and will be r...
+*** Message Summary: 1 warning(s), 0 error(s)
+
+<CMD> pan -4.714 -3.915
+<CMD> gui_select -rect {-0.030 -0.045 3.008 4.756}
+<CMD> zoomBox -0.166 0.009 4.121 4.295
+<CMD> gui_select -rect {-0.252 0.047 2.999 2.467}
+<CMD> gui_select -rect {-0.310 0.008 0.354 0.271}
+<CMD> gui_select -rect {-0.603 0.183 0.451 -0.227}
+<CMD> gui_select -rect {-0.378 -0.012 0.334 0.789}
+<CMD> gui_select -rect {-0.564 0.242 0.188 -0.314}
+<CMD> setPlaceMode -fp false
+<CMD> place_design
+*** Starting placeDesign default flow ***
+Deleted 0 physical inst  (cell - / prefix -).
+*** Starting "NanoPlace(TM) placement v#1 (mem=792.7M)" ...
+No user-set net weight.
+Options: clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+Scan chains were not defined.
+#std cell=1 (0 fixed + 1 movable) #block=0 (0 floating + 0 preplaced)
+#ioInst=0 #net=2 #term=4 #term/net=2.00, #fixedIo=0, #floatIo=0, #fixedPin=0, #floatPin=2
+stdCell: 1 single + 0 double + 0 multi
+Total standard cell length = 0.0014 (mm), area = 0.0000 (mm^2)
+Average module density = 0.600.
+Density for the design = 0.600.
+       = stdcell_area 3 sites (6 um^2) / alloc_area 5 sites (10 um^2).
+Pin Density = 0.4000.
+            = total # of pins 4 / total area 10.
+=== lastAutoLevel = 3 
+**WARN: (IMPSP-9531):	Turning off clkGateAware when timingDriven is off
+Iteration  1: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+Iteration  2: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+Iteration  3: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+Iteration  4: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+Iteration  5: Total net bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              Est.  stn bbox = 0.000e+00 (0.00e+00 0.00e+00)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+Iteration  6: Total net bbox = 4.508e+01 (2.21e+01 2.30e+01)
+              Est.  stn bbox = 4.508e+01 (2.21e+01 2.30e+01)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 792.7M
+*** cost = 4.508e+01 (2.21e+01 2.30e+01) (cpu for global=0:00:00.0) real=0:00:00.0***
+Solver runtime cpu: 0:00:00.0 real: 0:00:00.0
+Core Placement runtime cpu: 0:00:00.0 real: 0:00:00.0
+**WARN: (IMPSP-9025):	No scan chain specified/traced.
+Type 'man IMPSP-9025' for more detail.
+*** Starting refinePlace (0:01:22 mem=792.7M) ***
+Total net bbox length = 4.508e+01 (2.208e+01 2.300e+01) (ext = 4.508e+01)
+Move report: Detail placement moves 1 insts, mean move: 0.23 um, max move: 0.23 um
+	Max move on inst (g2): (10.35, 10.12) --> (10.58, 10.12)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 793.7MB
+Summary Report:
+Instances move: 1 (out of 1 movable)
+Instances flipped: 0
+Mean displacement: 0.23 um
+Max displacement: 0.23 um (Instance: g2) (10.35, 10.12) -> (10.58, 10.12)
+	Length: 3 sites, height: 1 rows, site name: CoreSite, cell type: CLKINVX2
+Total net bbox length = 4.830e+01 (2.254e+01 2.576e+01) (ext = 4.830e+01)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 793.7MB
+*** Finished refinePlace (0:01:22 mem=793.7M) ***
+*** End of Placement (cpu=0:00:00.0, real=0:00:00.0, mem=793.7M) ***
+default core: bins with density > 0.750 =  0.00 % ( 0 / 1 )
+Density distribution unevenness ratio = 0.000%
+
+Starting congestion repair ...
+[NR-eGR] honorMsvRouteConstraint: false
+[NR-eGR] honorClockSpecNDR      : 0
+[NR-eGR] minRouteLayer          : 2
+[NR-eGR] maxRouteLayer          : 127
+[NR-eGR] numTracksPerClockWire  : 0
+[NR-eGR] met1 has no routable track
+[NR-eGR] met2 has single uniform track structure
+[NR-eGR] met3 has single uniform track structure
+[NR-eGR] met4 has single uniform track structure
+[NR-eGR] met5 has single uniform track structure
+[NR-eGR] Read 0 PG shapes in 0.000 seconds
+
+[NR-eGR] numRoutingBlks=0 numInstBlks=0 numPGBlocks=0 numBumpBlks=0 numBoundaryFakeBlks=0
+[NR-eGR] Read numTotalNets=0  numIgnoredNets=0
+[NR-eGR] ============ Routing rule table ============
+[NR-eGR] Rule id: 0  Nets: 0 
+[NR-eGR] ========================================
+[NR-eGR] 
+[NR-eGR] No Net to Route
+[NR-eGR] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
+[NR-eGR] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
+Early Global Route congestion estimation runtime: 0.01 seconds, mem = 793.7M
+Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+
+=== incrementalPlace Internal Loop 1 ===
+Skipped repairing congestion.
+[NR-eGR] No Net to Route
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR]   met1  (1F) length: 0.000000e+00um, number of vias: 0
+[NR-eGR]   met2  (2V) length: 0.000000e+00um, number of vias: 0
+[NR-eGR]   met3  (3H) length: 0.000000e+00um, number of vias: 0
+[NR-eGR]   met4  (4V) length: 0.000000e+00um, number of vias: 0
+[NR-eGR]   met5  (5H) length: 0.000000e+00um, number of vias: 0
+[NR-eGR] Total length: 0.000000e+00um, number of vias: 0
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR] Total eGR-routed clock nets wire length: 0.000000e+00um 
+[NR-eGR] --------------------------------------------------------------------------
+Early Global Route wiring runtime: 0.00 seconds, mem = 793.7M
+End of congRepair (cpu=0:00:00.0, real=0:00:00.0)
+*** Finishing placeDesign default flow ***
+**placeDesign ... cpu = 0: 0: 0, real = 0: 0: 0, mem = 793.7M **
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPSP-9531           1  Turning off clkGateAware when timingDriv...
+WARNING   IMPSP-9025           1  No scan chain specified/traced.          
+*** Message Summary: 2 warning(s), 0 error(s)
+
+<CMD> gui_select -rect {-0.417 0.027 0.188 0.750}
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD> zoomBox -0.447 0.008 0.168 0.232
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD> pan 4.801 5.221
+<CMD> pan 6.173 5.041
+<CMD> pan 2.579 1.880
+<CMD> pan -0.430 -0.119
+<CMD> pan -0.139 1.152
+<CMD> deselectAll
+<CMD> selectInst g2
+<CMD> pan 0.205 1.331
+<CMD> pan -4.391 -2.339
+<CMD> pan -1.339 -0.852
+<CMD> pan -1.908 -2.176
+<CMD> pan -1.939 -2.027
+<CMD> pan -0.904 -0.773
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD> deselectAll
+<CMD> pan 11.790 11.894
+<CMD> pan 1.383 2.687
+<CMD> selectObject Pin g2/Y
+<CMD> deselectAll
+<CMD> selectObject Pin g2/A
+<CMD> deselectAll
+<CMD> selectInst g2
+<CMD> pan -2.632 -0.402
+<CMD> pan -1.370 0.376
+<CMD> pan -2.208 -0.619
+<CMD> pan -6.320 1.526
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+<CMD> deselectAll
+<CMD> selectObject IO_Pin B
+<CMD> gui_select -rect {-0.184 -0.009 0.022 -0.166}
+<CMD> deselectAll
+<CMD> selectObject IO_Pin B
+<CMD> deselectAll
+<CMD> selectObject IO_Pin B
+<CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+<CMD> gui_select -rect {-0.090 0.491 -0.029 0.200}
+<CMD> deselectAll
+<CMD> selectObject IO_Pin A
+<CMD_INTERNAL> ptnSprRefreshPinsAndBlockages
+<CMD> deselectAll
+<CMD> selectObject IO_Pin B
+<CMD> deselectAll
+<CMD> pan 7.448 11.200
+<CMD> pan 8.778 9.550
+**ERROR: (IMPSYT-6000):	No Object Selected.
+**ERROR: (IMPSYT-6000):	No Object Selected.
+<CMD> getIoFlowFlag
+<CMD> setIoFlowFlag 0
+<CMD> floorPlan -site CoreSite -s 2.3 4.14 2.12 2.12 2.12 2.12
+**WARN: (IMPFP-4026):	Adjusting core to 'Left' to 2.300000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Bottom' to 2.300000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Right' to 2.300000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Top' to 2.300000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+<CMD> uiSetTool select
+<CMD> getIoFlowFlag
+<CMD> fit
+<CMD> getIoFlowFlag
+<CMD> setIoFlowFlag 0
+<CMD> floorPlan -site CoreSite -s 2.3 4.14 1.3 1.3 1.3 1.3
+**WARN: (IMPFP-4026):	Adjusting core to 'Left' to 1.380000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Bottom' to 1.380000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Right' to 1.380000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Top' to 1.380000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+<CMD> uiSetTool select
+<CMD> getIoFlowFlag
+<CMD> fit
+<CMD> selectObject IO_Pin A
+<CMD> pan 9.688 20.329
+<CMD> gui_select -rect {11.847 11.902 10.929 10.861}
+<CMD> gui_select -rect {9.643 15.759 15.826 6.147}
+<CMD> gui_select -rect {11.235 12.361 7.072 9.637}
+<CMD> gui_select -rect {7.439 16.555 14.571 5.657}
+<CMD> gui_select -rect {11.449 12.086 10.592 11.780}
+<CMD> gui_select -rect {11.480 11.504 10.469 11.229}
+<CMD> zoomBox 11.480 11.749 8.112 10.310
+<CMD> pan -3.707 5.187
+<CMD> gui_select -rect {10.904 14.176 1.212 12.085}
+<CMD> gui_select -rect {10.248 14.401 1.028 12.557}
+<CMD> deselectAll
+<CMD> selectInst g2
+<CMD> gui_select -rect {9.162 15.098 14.408 8.131}
+<CMD> gui_select -rect {8.700 16.970 16.394 5.704}
+<CMD> deselectAll
+<CMD> selectWire 10.1200 14.0600 12.4200 14.4600 1 VSS
+<CMD> deleteSelectedFromFPlan
+<CMD> selectWire 10.1200 9.9200 12.4200 10.3200 1 VDD
+<CMD> deleteSelectedFromFPlan
+<CMD> pan 1.399 4.351
+<CMD> undo
+<CMD> undo
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> undo
+**ERROR: (IMPSYT-6852):	No more action to undo.
+<CMD> gui_select -rect {8.027 15.903 18.793 6.524}
+<CMD> deleteSelectedFromFPlan
+<CMD> fit
+<CMD> pan 2.041 3.789
+<CMD> init_design
+**WARN: (IMPSYT-7329):	Cannot load design with init_design, after design is already in memory.  This command is skipped.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPSYT-7329          1  Cannot load design with init_design, aft...
+*** Message Summary: 1 warning(s), 0 error(s)
+
+<CMD> setEditMode -via_auto_snap 0
+<CMD> editTrim
+<CMD> editMerge
+<CMD> editSplit
+<CMD> editDuplicate
+<CMD> editChangeLayer
+<CMD> uiSetTool ruler
+<CMD> zoomBox 1.641 6.152 11.535 0.172
+<CMD> setLayerPreference node_overlay -isVisible 1
+<CMD> fit
+<CMD> setLayerPreference node_overlay -isVisible 0
+<CMD> setLayerPreference node_track -isVisible 1
+<CMD> setLayerPreference node_track -isVisible 0
+<CMD> setLayerPreference node_track -isVisible 1
+<CMD> setLayerPreference node_track -isVisible 0
+<CMD> setLayerPreference node_cell -isVisible 1
+<CMD> setLayerPreference node_cell -isVisible 0
+<CMD> setLayerPreference node_cell -isVisible 1
+<CMD> zoomBox 7.189 6.353 9.082 1.466
+<CMD> redraw
+<CMD> redraw
+<CMD> redraw
+<CMD> redraw
+<CMD> zoomBox 0.858 5.979 4.611 1.019
+
+--------------------------------------------------------------------------------
+Exiting Innovus on Mon May  4 01:33:45 2026
+  Total CPU time:     0:02:30
+  Total real time:    0:21:52
+  Peak memory (main): 713.43MB
+
+
+*** Memory Usage v#1 (Current mem = 818.004M, initial mem = 251.484M) ***
+*** Message Summary: 49 warning(s), 24 error(s)
+
+--- Ending "Innovus" (totcpu=0:02:30, real=0:21:51, mem=818.0M) ---

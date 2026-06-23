@@ -1,0 +1,79 @@
+"Cadence Directory" internal none /home/user22/.cadence/
+"Current Directory" internal none /home/user22
+"GUI Flow" internal none virtuoso6
+"GUI Preset" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/.preset.autosave
+"Job Signature" internal none IPVS_1781895660_26296
+"PVS Job Mode" internal none lvs
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvsgui
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1781895665
+"CDL Out Stop List" internal text auCdl
+"CDL Out View List" internal text auCdl schematic
+"Control File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/pvslvsctl
+"DFII version" internal none 6.1.7.0
+"Do not check rules files before run" internal none ENABLED
+"Extracted Spice File" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/res_pex.spi
+"Input Layout" input none OA: NS_SAR_Test res_pex layout
+"Input Schematic" input none OA: NS_SAR_Test res_pex schematic
+"Intermediate GDSII File" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/res_pex.gds
+"Intermediate GDSII File creation Errors" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/PIPO1.LOG
+"Intermediate OASIS File creation Errors" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/PIPO1.LOG
+"Layout Cell Name" internal none res_pex
+"Layout ConvertPin" internal text geometryAndText
+"Layout GDSII" input none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/res_pex.gds
+"Layout HierDepth" internal none 32
+"Layout Library Name" internal none NS_SAR_Test
+"Layout MaxVertices" internal none 2048
+"Layout NoConvertHalfWidthPath" input none nil
+"Layout ReplaceBusBitChar" input none nil
+"Layout Scale" internal none 0.001
+"Layout TechLib" internal none NS_SAR_Test
+"Layout Top Cell" internal none res_pex
+"Layout View Name" internal none layout
+"Output Layout Cellmap I" internal text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/lay_cellMap.txt
+"PIPO Log I" log text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/PIPO1.LOG
+"PIPO Output I" internal text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/PIPO1.OUT
+"PIPO Setup File I" internal text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/pipo1.setup
+"PVS Job Log" log text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/pvsuilvs.log
+"PVS Job Mode" internal none lvs
+"Rule File" input text /home/user22/sky130_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex
+"Schematic Cell Name" internal none res_pex
+"Schematic Library Name" internal none NS_SAR_Test
+"Schematic Netlist" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/res_pex.cdl
+"Schematic Top Cell" internal none res_pex
+"Schematic View Name" internal none schematic
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvsvirt
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1781895665
+"Comparison Report" output cls /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/res_pex.rep.cls
+"ERC Result" internal none EMPTY
+"ERC Summary" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/res_pex.sum
+"Extracted Spice File" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/res_pex.spi
+"Extraction Report" output erc /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/res_pex.rep
+"Extraction Result" internal none CLEAN
+"LVS Report Options" internal none -none
+"Layout GDSII" input none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/res_pex.gds
+"Layout Top Cell" internal none res_pex
+"PVS Job Mode" internal none lvs
+"Report MaxResults" internal none 1000
+"Rule File" input text /home/user22/sky130_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/
+"Schematic Top Cell" internal none res_pex
+"UI Data" internal none ENABLED
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvs
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1781895666
+"Comparison Result" internal none MISMATCH
+"LVS Run Name" internal none res_pex.rep
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/
+"Schematic Netlist" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/res_pex/netlist
+"UI Data" internal none ENABLED
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvsnvn
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1781895666

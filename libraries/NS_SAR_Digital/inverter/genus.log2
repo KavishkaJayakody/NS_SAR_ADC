@@ -1,0 +1,123 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2018 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 18.10-p003_1, built Thu Jun 07 23:53:27 +0530 2018
+Options: 
+Date:    Mon May 04 01:04:57 2026
+Host:    aed (x86_64 w/Linux 3.10.0-1160.108.1.el7.x86_64) (4cores*8cpus*1physical cpu*Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz 8192KB) (32689660KB)
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+
+Loading tool scripts...
+
+Finished loading tool scripts (5 seconds elapsed).
+
+WARNING: This version of the tool is 2887 days old.
+@genus:root: 1> source run_synth.tcl
+Sourcing './run_synth.tcl' (Mon May 04 01:05:20 +0530 2026)...
+#@ Begin verbose source run_synth.tcl
+@file(run_synth.tcl) 2: set_db library /home/user22/sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lib/sky130_tt_1.8_25_nldm.lib
+
+Threads Configured:3
+
+  Message Summary for Library sky130_tt_1.8_25_nldm.lib:
+  ******************************************************
+  Could not find an attribute in the library. [LBR-436]: 127
+  ******************************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.800000, 25.000000) in library 'sky130_tt_1.8_25_nldm.lib'.
+        : The nominal operating condition represents either the nominal PVT values if specified in the library source, or the default PVT values (1.0, 1.0, 1.0).
+Warning : Unusable clock gating integrated cell. [LBR-101]
+        : Clock gating integrated cell name: 'ICGX1'
+        : To use the cell in clock gating, Set cell attribute 'dont_use' false in the library.
+  Setting attribute of root '/': 'library' = /home/user22/sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lib/sky130_tt_1.8_25_nldm.lib
+@file(run_synth.tcl) 5: read_hdl test_inverter.v
+@file(run_synth.tcl) 6: elaborate
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'test_inverter' from file 'test_inverter.v'.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'test_inverter'.
+Checking for analog nets...
+Check completed for analog nets.
+Checking for source RTL...
+Check completed for source RTL.
+UM:  flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:             5             23                                      elaborate
+@file(run_synth.tcl) 10: create_clock -name clk -period 10000 
+@file(run_synth.tcl) 13: set_input_delay 1000 [get_ports A] -clock clk
+@file(run_synth.tcl) 14: set_output_delay 1000 [get_ports Y] -clock clk
+Warning : Could not find requested search value. [SDC-208] [get_ports]
+        : The 'get_ports' command  cannot find any ports named 'Y'
+        : Use the 'vcd' and 'vls' commands to browse the virtual directories to find the object because the specified name and/or location does not exist.
+Error   : A required object parameter could not be found. [TUI-61] [parse_options]
+        : An object of type 'port|pin|hpin|port_bus' named '' could not be found.
+        : Check to make sure that the object exists and is of the correct type.  The 'what_is' command can be used to determine the type of an object.
+
+Usage: set_output_delay [-clock <clock>] [-clock_rise] [-clock_fall] [-level_sensitive] [-network_latency_included]
+           [-source_latency_included] [-max] [-min] [-rise] [-fall] [-reference_pin <pin|port>+] [-add_delay] [-name <string>]
+           [-group_path <string>] <float> <port|pin|hpin|port_bus>+
+
+    [-clock <clock>]:
+        the clock waveform 
+    [-clock_rise]:
+        rise clock edge 
+    [-clock_fall]:
+        fall clock edge 
+    [-level_sensitive]:
+        clocked obj is a latch 
+    [-network_latency_included]:
+        value includes clock latency 
+    [-source_latency_included]:
+        value includes clock latency 
+    [-max]:
+        maximum delays 
+    [-min]:
+        minimum delays 
+    [-rise]:
+        rise delays 
+    [-fall]:
+        fall delays 
+    [-reference_pin <pin|port>+]:
+        reference pin for this external delay 
+    [-add_delay]:
+        do not remove existing delays 
+    [-name <string>]:
+        a name for the external delay object 
+    [-group_path <string>]:
+        the group name where paths ending at the specified ports or pins are to be added 
+    <float>:
+        delay value 
+    <port|pin|hpin|port_bus>+:
+        ports to receive the external delay 
+#@ End verbose source run_synth.tcl
+@genus:root: 2> source run_synth.tcl
+Sourcing './run_synth.tcl' (Mon May 04 01:06:18 +0530 2026)...
+#@ Begin verbose source run_synth.tcl
+@file(run_synth.tcl) 2: set_db library /home/user22/sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lib/sky130_tt_1.8_25_nldm.lib
+Freeing libraries in memory (/home/user22/sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lib/sky130_tt_1.8_25_nldm.lib)
+
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.800000, 25.000000) in library 'sky130_tt_1.8_25_nldm.lib'.
+Warning : Unusable clock gating integrated cell. [LBR-101]
+        : Clock gating integrated cell name: 'ICGX1'
+  Setting attribute of root '/': 'library' = /home/user22/sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lib/sky130_tt_1.8_25_nldm.lib
+@file(run_synth.tcl) 5: read_hdl test_inverter.v
+@file(run_synth.tcl) 6: elaborate
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'test_inverter' from file 'test_inverter.v'.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'test_inverter'.
+Checking for analog nets...
+Check completed for analog nets.
+Checking for source RTL...
+Check completed for source RTL.
+@file(run_synth.tcl) 10: create_clock -name clk -period 10000 
+Error   : Multiple designs are available. Specify the design you want to use. [TUI-17] [create_clock]
+        : There is no unique design here.
+        : Specify a design by using the cd command to change to that design's directory or specify the design as an argument for the command.
+#@ End verbose source run_synth.tcl
+Failed on find_unique_design

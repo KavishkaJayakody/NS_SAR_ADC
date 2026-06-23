@@ -179,7 +179,12 @@
         <h2>1. Introduction</h2>
         <p>The comparator is the most critical decision-making component within a Successive Approximation Register (SAR) ADC core. Its primary function is to accurately evaluate the differential voltage across the capacitor array (CDAC) top plates to determine which node holds the higher potential. Crucially, this evaluation must be performed while strictly conserving the sampled charge on the top plates. Therefore, designing a highly accurate and robust comparator is essential to the overall precision and performance of the ADC.</p>
         <p>To meet these requirements, we have opted for a multi-stage comparator architecture consisting of a preamplifier, a StrongARM latch (dynamic latch), and an SR (Set-Reset) latch. Each stage is carefully tailored to address specific design challenges, which are detailed in the subsequent sections.</p>
-        <div class="image-placeholder">[Image Placeholder: Block Diagram of the Comparator and its Stages]</div>
+        <div class="note">
+            <div style="text-align: center; margin-bottom: 8px;">
+                <img src="resources/comparator_blocks.png" alt="Comparator Block diagram" style="max-width: 50%; max-height: 250px; border: 1px solid #8A8F98;">
+            </div>
+            <strong>Description:</strong> Block diagram of the comparator architecture.
+        </div>
 
         <h3>1.1 SPICE Model Extraction for Sky130 Devices</h3>
         <p>We will use the following <code>sky130_fd_pr</code> PDK extracted values related to the <code>nfet_01v8</code>/<code>pfet_01v8</code> standard VT (nvt) and low VT (lvt) cells for the schematic modelling. For device sizing, we will consider the mismatch of Vth only, although matching can be carried out based on other aspects.</p>
@@ -219,17 +224,17 @@
         <h2>2. StrongARM Latch</h2>
         <p>The core decision element is implemented using a StrongARM latch, chosen for its proven effectiveness, fast regeneration speed, and ability to provide a full rail-to-rail digital output. The topology primarily consists of two cross-coupled inverters driven by an input differential pair, along with clocked reset switches to initialize the latch before each comparison phase.</p>
         <p>While a dynamic latch can be optimized for speed, low offset, and low power consumption, dynamic latches inherently suffer from input-referred offset, including signal-dependent dynamic offsets that can occur even in offset-optimized layouts. Sizing the input differential pair demands the utmost care, as it directly controls the critical trade-offs between speed, offset variance, and power consumption.</p>
-        <div class="image-placeholder">[Image Placeholder: Schematic of the StrongARM Latch]</div>
+        <div class="note">
+            <div style="text-align: center; margin-bottom: 8px;">
+                <img src="resources/strongarm_schematic.png" alt="StongARM latch Schematic" style="max-width: 100%; max-height: 250px; border: 1px solid #8A8F98;">
+            </div>
+            <strong>Description:</strong> Schematic of the StrongARM latch topology.
+        </div>
 
         <h3>2.1 Design of the StrongARM Latch</h3>
         <p>We are interested in the following design parameters:</p>
         <ul>
-            <li>Input offset</li>
-            <li>Speed</li>
-            <li>Power consumption</li>
-            <li>Metastability</li>
-            <li>Kickback noise</li>
-            <li>Input referred electronic noise</li>
+            <li>Input offset,Speed,Power consumption,Metastability,Kickback noise,Input referred electronic noise</li>
         </ul>
 
         <h4>2.1.1 Design Spec Definitions</h4>
@@ -245,8 +250,7 @@
         <p><strong>Differential Pair (M1, M2)</strong></p>
         <p>We use the Pelgrom model for mismatch:</p>
         <div class="math-block">\[ \sigma(\Delta V_{TH}) = \frac{A_{VTH}}{\sqrt{W \cdot L}} \]</div>
-        <p>If we assume minimum dimension: \( W = 0.42 \text{ }\mu\text{m}, L = 0.15 \text{ }\mu\text{m} \).</p>
-        <div class="math-block">\[ \Delta V_{TH} = \frac{3.356}{\sqrt{0.42 \times 0.15}} \approx 13.37 \text{ mV} \]</div>
+
 
                                 <!-- END OF CURRENT PAGE -->
         <div class="footer">
@@ -267,6 +271,8 @@
         </header>
         
         <!-- Continue your content for the next page here... -->
+        <p>If we assume minimum dimension: \( W = 0.42 \text{ }\mu\text{m}, L = 0.15 \text{ }\mu\text{m} \).</p>
+        <div class="math-block">\[ \Delta V_{TH} = \frac{3.356}{\sqrt{0.42 \times 0.15}} \approx 13.37 \text{ mV} \]</div>
         <p><em>(Not desirable)</em></p>
         <p>We will go for \( W = 2 \text{ }\mu\text{m}, L = 0.15 \text{ }\mu\text{m} \):</p>
         <div class="math-block">\[ \Delta V_{TH} = \frac{3.356}{\sqrt{2 \times 0.15}} \approx 6.127 \text{ mV} \]</div>
@@ -304,8 +310,6 @@
         </ul>
         <p>Further optimizations on the settling time will not be carried out since the design requirements are already met.</p>
 
-        <h4>2.1.5 Power Consumption Analysis</h4>
-        <p>The design shows peak dynamic current consumption of \(300\) uA. But at the extreme current making conditions the static current is less than 6mA and typical conditions static current is at pA range. No power optimizations needed unless parasites come into effect.</p>
                     <!-- END OF CURRENT PAGE -->
         <div class="footer">
             &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 2 of 5
@@ -325,6 +329,8 @@
         </header>
         
         <!-- Continue your content for the next page here... -->
+        <h4>2.1.5 Power Consumption Analysis</h4>
+        <p>The design shows peak dynamic current consumption of \(300\) uA. But at the extreme current making conditions the static current is less than 6mA and typical conditions static current is at pA range. No power optimizations needed unless parasites come into effect.</p>
         <h2>3. Preamplifier Stage</h2>
         <p>To mitigate the inherent offset of the StrongARM latch, a preamplifier stage is introduced to feed the latch. The preamplifier serves several vital functions:</p>
         <ol>
@@ -335,8 +341,12 @@
         <p>For the preamplifier, raw gain is the primary design target; precise linearity and settling time are not critical in this context. However, while the preamplifier minimizes the latch's offset, it introduces its own static offset into the system. To eliminate this, an auto-zeroing technique will be employed. Implementing auto-zeroing effectively cancels the preamplifier's offset, which in turn allows us to significantly relax the sizing constraints that would otherwise be required to minimize mismatch.</p>
        <h3>3.1 Design of the Preamplifier</h3>
         <p> The preamplifier is basically a differential amplifier with PMOS current source loads with a circuit configuration for output common mode regulation. The implemented schematic is as follows:</p>
-        <div class="image-placeholder">[Image Placeholder: Schematic of the implemented preamplifier]</div>
-        <p>Upon initial simulation/calculations, the standard <code>pfet_01v8</code> devices were not suitable for the PMOS loads since the threshold values of the devices and hence the headroom for output voltage swings were not desirable. So <code>pfet_01v8_lvt</code> devices were used. Further, to improve the headroom, the tail current sources were chosen to be <code>nfet_01v8_lvt</code> devices.</p>
+        <div class="note">
+            <div style="text-align: center; margin-bottom: 8px;">
+                <img src="resources/preamp_schematic.png" alt="Preamplifier Schematic" style="max-width: 100%; max-height: 250px; border: 1px solid #8A8F98;">
+            </div>
+            <strong>Description:</strong> Schematic of the preamplifier topology.
+        </div>        <p>Upon initial simulation/calculations, the standard <code>pfet_01v8</code> devices were not suitable for the PMOS loads since the threshold values of the devices and hence the headroom for output voltage swings were not desirable. So <code>pfet_01v8_lvt</code> devices were used. Further, to improve the headroom, the tail current sources were chosen to be <code>nfet_01v8_lvt</code> devices.</p>
         <p>The primary design goals for the preamplifier was to implement a differential amplifier with 10&ndash;20 gain, consume less than 20 mA, and input common mode voltage at 0.9 V. Linearity and settling time were not of interest. Since the preamp will be driving another set of MOS transistors, the slew rate concern was relaxed due to low output capacitance. However, hypothetical approximations showed that the chosen tail currents can drive the capacitance with ease.</p>
                     <!-- END OF CURRENT PAGE -->
         <div class="footer">
@@ -454,7 +464,13 @@
     
         <h2>4. SR Latch (Output Stage)</h2>
         <p>The output of the StrongARM latch drives a subsequent SR latch. This final stage is necessary to capture the dynamic decisions from the StrongARM latch and hold them as a consistent, stable logic level for the SAR digital logic. Additionally, it buffers the StrongARM latch, shielding its sensitive internal nodes from external capacitive loading that could otherwise degrade its speed or symmetry.</p>
-
+        <div class="note">
+            <div style="text-align: center; margin-bottom: 8px;">
+                <img src="resources/rs_schematic.png" alt="SR Latch Schematic" style="max-width: 100%; max-height: 250px; border: 1px solid #8A8F98;">
+            </div>
+            <strong>Description:</strong> Schematic of the SR latch topology.
+        </div>
+        <p>Since the SR latch is not in the critical path of the comparator decision, it can be designed with relaxed performance requirements. The primary design focus for this stage is to ensure robust logic level restoration and sufficient drive strength to interface with the SAR digital logic, while consuming minimal power. Therefore, we will use minimum sized devices for the SR latch, as the speed and offset requirements are significantly relaxed compared to the StrongARM latch.</p>
         <div class="footer">
             &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | 8-Bit NS-SAR ADC Datasheet Rev 1.0 | Page 5 of 5
         </div>

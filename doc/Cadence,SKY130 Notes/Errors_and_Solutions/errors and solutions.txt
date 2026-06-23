@@ -1,0 +1,49 @@
+Errors encountered during schematics, layout and post layout simulation
+
+###
+cap_mim_m3__base lvs error at extraction phase "Malformed Device"
+
+Netgen / LVS Port Naming ConventionsThe Issue: "Malformed Device: can't match any device statement" 
+(Extraction Error)During layout extraction, the tool threw a "Malformed Device" error and generated 0 extracted layout 
+instances, causing LVS comparison to fail completely.Root CauseThe SKY130 LVS device extraction script contains rigid 
+primitive cell definitions. To recognize a layout block as a valid cap_mim_m3__base subcircuit, the tool looks for 
+literal text label strings matching its internal terminal definitions. If the schematic uses generic labels 
+(like C_TOP / C_BOT) or if the nets are unnamed, the extractor fails to map them to the device parameters and rejects 
+the structure as a "malformed" shape.Verified SolutionRename the layout pins/labels to match the exact primitive layer
+ names expected by the PDK deck: top_plate on the $M_4$ boundary and bottom_plate on the $M_3$ boundary.
+ Ensure these text labels are promoted to actual external cell ports/pins (using port make in Magic or placing 
+ them on the explicit pin/text layer purposes in Cadence) so they are exported to the top-level netlist.
+
+ ###
+ Quantus QRC PEX Configuration
+
+ The Issue: Error (LBRCXM-754) — Missing CDL Out Map Directory
+When running parasitic extraction, Quantus terminated abnormally with an error stating that output_db -cdl_out_map_directory must be specified.
+
+Root Cause
+Toggling output formats in the Quantus GUI (e.g., switching from Calibre/SPICE views back to an Extracted View) implicitly 
+triggers an advanced property transfer flag (extview.trp). This instructs the tool to map schematic parameters back onto
+ the layout database, which mandates a PDK component map directory path.
+
+Verified Solutions
+Path Fix: If property transfer is required, navigate to the Setup tab and explicitly populate the CDL Out Run Dir field 
+with the path to your active LVS run folder containing the generated mapping files (e.g., where your si.env or netlist 
+mapping resides).
+
+###
+Spectre Post-Layout Simulation Run-Time Errors
+
+The Issue: Error (SFE-23) — Undefined Model or Subcircuit (metal4/metal3)
+Spectre prematurely terminated during circuit read-in, stating that extracted parasitic instances (e.g., Rb1, Rc1) 
+were referencing undefined models named metal4 or metal3.
+
+Root Cause
+By default, Quantus tags extracted interconnect parasitics with macro subcircuit names matching the physical layer names.
+ Spectre cannot resolve these strings because they do not exist in the basic device model library (sky130.lib.spice).
+
+Verified Solution
+In the Quantus GUI under the Netlisting tab, change the Parasitic Resistor Models dropdown configuration from 
+Include Model to "Perform Device Reduction" or change the component mapping to "Ideal / No Model".
+
+This strips out the macro names and forces the engine to output generic, primitive SPICE elements (res / r) that 
+Spectre naturally compiles without needing dedicated interconnect modeling files.

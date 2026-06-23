@@ -1,0 +1,34 @@
+##############################################################################################################
+#####  
+#####                                         PVS LVS COMPARISON
+#####  
+#####  Version                       :   16.10-p006
+#####  NVN Run Start                 :   Tue Jun 23 18:46:13 2026
+#####  ERC Summary File              :   cap_pex.sum
+#####  Extraction Report File        :   cap_pex.rep
+#####  Comparison Report File        :   cap_pex.rep.cls
+#####  Top Cell                      :   cap_pex  <vs>  cap_pex
+#####  
+#####  Run Result                    :   MATCH
+#####  
+#####  Run Summary                   :   [INFO]  ERC Results: Empty
+#####                                :   [INFO]  Extraction Clean
+#####  
+#####  Layout Design                 :   NS_SAR_Test cap_pex layout
+#####  Schematic File                :   /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/cap_pex/LVS/cap_pex.cdl (cdl)
+#####  Rules File                    :   .technology.rul
+#####  Pin Swap File                 :   cap_pex.rep.cps
+#####  
+#####  Extraction CPU Time           :   0h 0m 0s - (0s)
+#####  Extraction Exec Time          :   0h 0m 0s - (0s)
+#####  Extraction Peak Memory Usage  :   17.00MB
+#####  NVN CPU Time                  :   0h 0m 0s - (0s)                 
+#####  NVN Exec Time                 :   0h 0m 1s - (1s)                 
+#####  NVN Peak Memory Usage         :   219.48MB
+#####  LVS Total CPU Time            :   0h 0m 0s - (0s)                 
+#####  LVS Total Exec Time           :   0h 0m 1s - (1s)                 
+#####  LVS Total Peak Memory Usage   :   219.48MB
+#####  
+##############################################################################################################
+
+

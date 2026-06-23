@@ -1,0 +1,145 @@
+[05/03 23:18:54      0s] 
+[05/03 23:18:54      0s] Cadence Innovus(TM) Implementation System.
+[05/03 23:18:54      0s] Copyright 2018 Cadence Design Systems, Inc. All rights reserved worldwide.
+[05/03 23:18:54      0s] 
+[05/03 23:18:54      0s] Version:	v18.10-p002_1, built Tue May 29 19:19:55 PDT 2018
+[05/03 23:18:54      0s] Options:	
+[05/03 23:18:54      0s] Date:		Sun May  3 23:18:54 2026
+[05/03 23:18:54      0s] Host:		aed (x86_64 w/Linux 3.10.0-1160.108.1.el7.x86_64) (4cores*8cpus*Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz 8192KB)
+[05/03 23:18:54      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[05/03 23:18:54      0s] 
+[05/03 23:18:54      0s] License:
+[05/03 23:18:55      0s] 		invs	Innovus Implementation System	18.1	Denied
+[05/03 23:18:55      0s] 		invsb	Innovus Implementation System Basic	18.1	checkout succeeded
+[05/03 23:18:55      0s] 		4 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[05/03 23:19:12      9s] @(#)CDS: Innovus v18.10-p002_1 (64bit) 05/29/2018 19:19 (Linux 2.6.18-194.el5)
+[05/03 23:19:12      9s] @(#)CDS: NanoRoute 18.10-p002_1 NR180522-1057/18_10-UB (database version 2.30, 418.7.1) {superthreading v1.46}
+[05/03 23:19:12      9s] @(#)CDS: AAE 18.10-p004 (64bit) 05/29/2018 (Linux 2.6.18-194.el5)
+[05/03 23:19:12      9s] @(#)CDS: CTE 18.10-p003_1 () May 15 2018 10:23:07 ( )
+[05/03 23:19:12      9s] @(#)CDS: SYNTECH 18.10-a012_1 () Apr 19 2018 01:27:21 ( )
+[05/03 23:19:12      9s] @(#)CDS: CPE v18.10-p005
+[05/03 23:19:12      9s] @(#)CDS: IQRC/TQRC 18.1.1-s118 (64bit) Fri Mar 23 17:23:45 PDT 2018 (Linux 2.6.18-194.el5)
+[05/03 23:19:12      9s] @(#)CDS: OA 22.50-p083 Tue Jan  2 17:02:41 2018
+[05/03 23:19:12      9s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[05/03 23:19:12      9s] @(#)CDS: RCDB 11.13
+[05/03 23:19:12      9s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_31192_aed_user22_N1ujgR.
+
+[05/03 23:19:12      9s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[05/03 23:19:13     10s] 
+[05/03 23:19:13     10s] **INFO:  MMMC transition support version v31-84 
+[05/03 23:19:13     10s] 
+[05/03 23:19:13     10s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[05/03 23:19:13     10s] <CMD> suppressMessage ENCEXT-2799
+[05/03 23:19:13     10s] <CMD> getVersion
+[05/03 23:19:14     10s] <CMD> win
+[05/03 23:23:35     43s] <CMD> set init_gnd_net VSS
+[05/03 23:23:35     43s] <CMD> set init_lef_file {../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef}
+[05/03 23:23:35     43s] <CMD> set init_verilog inverter_synth.v
+[05/03 23:23:35     43s] <CMD> set init_top_cell test_inverter
+[05/03 23:23:35     43s] <CMD> set init_pwr_net VDD
+[05/03 23:23:35     43s] <CMD> init_design
+[05/03 23:23:35     43s] 
+[05/03 23:23:35     43s] Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef ...
+[05/03 23:23:35     43s] **ERROR: (IMPLF-53):	The layer 'met1' referenced in pin 'VSS' in macro 'FILL1' is not found in the database. A layer must be defined in the LEF technology LAYER section before it can be referenced from a macro. Review the LEF files specified in the init_lef_file variable to see if the layer does not exist or is specified after the one that defines the macro.
+Type 'man IMPLF-53' for more detail.
+[05/03 23:23:35     43s] **ERROR: (IMPLF-3):	Error found when processing LEF file '../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef'. The subsequent file content is ignored. Refer to error messages above for details. Fix the errors, and restart 'Innovus' again.
+Type 'man IMPLF-3' for more detail.
+[05/03 23:23:35     43s] **ERROR: (IMPLF-26):	No technology information is defined in the first LEF file.
+Please rearrange the LEF file order and make sure the technology LEF file is the
+first one, exit and restart Innovus.
+**ERROR: (IMPLF-26):	No technology information is defined in the first LEF file.
+Please rearrange the LEF file order and make sure the technology LEF file is the
+first one, exit and restart Innovus.
+[05/03 23:24:49     68s] **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+**ERROR: **ERROR: (IMPSYT-16013):	Loading LEF file(s) failed, and has aborted. Refer to error messages above for details. Please exit the tools and fix the errors first, then re-load design again.
+[05/03 23:25:26     84s] 
+[05/03 23:28:35    140s] <CMD> set init_gnd_net VSS
+[05/03 23:28:35    140s] <CMD> set init_lef_file {../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T.tlef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef}
+[05/03 23:28:35    140s] <CMD> set init_verilog inverter_synth.v
+[05/03 23:28:35    140s] <CMD> set init_top_cell test_inverter
+[05/03 23:28:35    140s] <CMD> set init_pwr_net VDD
+[05/03 23:28:35    140s] <CMD> init_design
+[05/03 23:28:35    140s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[05/03 23:28:35    140s] 
+[05/03 23:28:35    140s] Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T.tlef ...
+[05/03 23:28:35    140s] 
+[05/03 23:28:35    140s] Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef ...
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'FILL1' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-209):	Cell 'FILL1' has been found in db, no extra pin 'VDD' can be added for existing macro.
+[05/03 23:28:35    140s] 
+[05/03 23:28:35    140s] Loading LEF file ../../../../sky130_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef ...
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'FILL1' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-209):	Cell 'FILL1' has been found in db, no extra pin 'VDD' can be added for existing macro.
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'FILL2' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'FILL4' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'FILL8' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'FILL16' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'FILL32' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'FILL64' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'TIEHI' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'TIELO' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-58):	MACRO 'ANTENNA' has been found in the database. Its content except DENSITY and PIN ANTENNA* data will be ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-58' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-61):	11 duplicated MACRO definitions have been found in the LEF file(s). Their content except DENSITY and PIN ANTENNA* data have been ignored.
+[05/03 23:28:35    140s] Review the LEF files specified in the init_lef_file variable and remove redundant definitions.
+[05/03 23:28:35    140s] Type 'man IMPLF-61' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[05/03 23:28:35    140s] Type 'man IMPLF-200' for more detail.
+[05/03 23:28:35    140s] 
+[05/03 23:28:35    140s] viaInitial starts at Sun May  3 23:28:35 2026
+viaInitial ends at Sun May  3 23:28:35 2026
+*** End library_loading (cpu=0.00min, real=0.00min, mem=0.0M, fe_cpu=2.34min, fe_real=9.68min, fe_mem=604.6M) ***
+[05/03 23:28:35    140s] #% Begin Load netlist data ... (date=05/03 23:28:35, mem=509.4M)
+[05/03 23:28:35    140s] *** Begin netlist parsing (mem=604.6M) ***
+[05/03 23:28:35    140s] Created 0 new cells from 0 timing libraries.
+[05/03 23:28:35    140s] Reading netlist ...
+[05/03 23:28:35    140s] Backslashed names will retain backslash and a trailing blank character.
+[05/03 23:28:35    140s] Reading verilog netlist 'inverter_synth.v'
+[05/03 23:28:35    140s] 
+[05/03 23:28:35    140s] *** Memory Usage v#1 (Current mem = 606.566M, initial mem = 251.484M) ***
+[05/03 23:28:35    140s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=606.6M) ***
+[05/03 23:28:35    140s] #% End Load netlist data ... (date=05/03 23:28:35, total cpu=0:00:00.0, real=0:00:00.0, peak res=512.0M, current mem=512.0M)
+[05/03 23:28:35    140s] Set top cell to test_inverter.
+[05/03 23:28:35    140s] Hooked 0 DB cells to tlib cells.
+[05/03 23:28:35    140s] Starting recursive module instantiation check.
+[05/03 23:28:35    140s] No recursion found.
+[05/03 23:28:35    140s] Building hierarchical netlist for Cell test_inverter ...
+[05/03 23:28:35    140s] *** Netlist is unique.
+[05/03 23:28:35    140s] Set DBUPerIGU to techSite CoreSite width 460.
+[05/03 23:28:35    140s] **WARN: (IMPTRN-1103):	Cell (0) FILL1's height is less than placement-grid.
+[05/03 23:28:35    140s] Setting Std. cell height to 4140 DBU (smallest netlist inst).
+[05/03 23:28:35    140s] ** info: there are 118 modules.
+[05/03 23:28:35    140s] ** info: there are 1 stdCell insts.
+[05/03 23:28:35    140s] 
+[05/03 23:28:35    140s] *** Memory Usage v#1 (Current mem = 631.988M, initial mem = 251.484M) ***
+[05/03 23:28:35    140s] **WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+[05/03 23:28:35    140s] Type 'man IMPFP-3961' for more detail.
+[05/03 23:28:35    140s] **WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+[05/03 23:28:35    140s] Type 'man IMPFP-3961' for more detail.
+[05/03 23:28:35    140s] Set Default Net Delay as 1000 ps.
+[05/03 23:28:35    140s] Set Default Net Load as 0.5 pF. 
+[05/03 23:28:35    140s] Set Default Input Pin Transition as 0.1 ps.
+[05/03 23:28:36    140s] **WARN: (IMPSYT-7328):	The design has been initialized in physical-only mode because the init_mmmc_file global variable was not defined. Timing analysis will not be possible within this session. You can only use commands that do not depend on timing data. If you need to use timing, you need to restart with an init_mmmc_file to define the timing setup, or you can save this design and use restoreDesign -mmmc_file <viewDef.tcl> to add the timing setup information.
+[05/03 23:28:36    140s] Extraction setup called explicitly through PreRoutePatternsIfNeeded call.
+[05/03 23:28:36    140s] Extraction setup Started 

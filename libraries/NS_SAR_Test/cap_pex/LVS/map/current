@@ -1,0 +1,9 @@
+(
+  ( nil 
+    repList  " auCdl schematic"
+    stopList " auCdl"
+  )
+  ( model
+    ("NS_SAR_Test/cap_pex/schematic" "cap_pex")
+  )
+)

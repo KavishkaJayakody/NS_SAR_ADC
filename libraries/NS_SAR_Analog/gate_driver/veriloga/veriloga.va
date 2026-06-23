@@ -30,6 +30,11 @@ module gate_driver (SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SE
 
         // Convert analog inputs to a 2-bit integer for the case statement
         select = (V(SAMPLE) > v_thresh ? 2 : 0) + (V(VREF) > v_thresh ? 1 : 0);
+//SAMPLE | VREF | VIN | VREFP | VREFN |
+//  0       0      01     01       10		Connected to VREF_N
+//  0       1      01     10       01		Connected to VREF_P
+//  1       0      01     01       01		Isolated
+//  1       1      10     01       01		Connected to VIN
 
         case (select)
             2'b00: begin // SAMPLE=0, VREF=0 -> VREF_N flips
@@ -38,10 +43,10 @@ module gate_driver (SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SE
             2'b01: begin // SAMPLE=0, VREF=1 -> VREF_P flips
                 out1=lo; out2=hi; out3=hi; out4=lo; out5=lo; out6=hi;
             end
-            2'b10: begin // SAMPLE=1, VREF=0 -> VIN flips
+            2'b10: begin // SAMPLE=1, VREF=0 ->  All 01
                 out1=lo; out2=hi; out3=lo; out4=hi; out5=lo; out6=hi;
             end
-            2'b11: begin // SAMPLE=1, VREF=1 -> All 01 (Based on your scribble)
+            2'b11: begin // SAMPLE=1, VREF=1 ->  VIN flips
                 out1=hi; out2=lo; out3=lo; out4=hi; out5=lo; out6=hi;
             end
             default: begin

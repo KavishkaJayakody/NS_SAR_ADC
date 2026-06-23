@@ -1,0 +1,11 @@
+# SVDB: Port Table (ports)
+# SVDB: Layout Primary comparator_preamp
+OUT_N 6 OUT_N 22125 12955 met2
+VSS 9 VSS -280 -145 met1
+IBIAS 12 IBIAS 32990 315 met2
+VN 4 VN -172 7405 met2
+EN_N 7 EN_N 33242 3680 met2
+VDD 10 VDD -142 21260 met1
+EN 11 EN 33235 4180 met2
+OUT_P 5 OUT_P 22157 12145 met2
+VP 2 VP -167 6595 met2

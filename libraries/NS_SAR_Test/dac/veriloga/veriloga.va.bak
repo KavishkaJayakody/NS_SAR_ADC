@@ -1,0 +1,52 @@
+// ============================================================================
+// 10-bit Digital-to-Analog Converter (Behavioral)
+// Converts a 10-bit digital bus to a differential analog output voltage
+//
+// BUS MAPPING:
+//   din[9:0] = {d9(MSB), d8, d7, d6, d5, d4, d3, d2, d1, d0(LSB)}
+//
+// Transfer function:
+//   dac_out = vrefn + (code / 1023) * (vrefp - vrefn)
+// ============================================================================
+`include "constants.vams"
+`include "disciplines.vams"
+
+module dac_10bit(din, dac_out);
+
+    input  [9:0] din;              // 10-bit digital input bus
+    output dac_out;                // Analog output voltage
+
+    electrical [9:0] din;
+    electrical dac_out;
+
+    parameter real vrefp  = 1023;       // Positive reference voltage
+    parameter real vrefn  = 0.0;       // Negative reference voltage
+    parameter real vth    = 0.45;      // Logic threshold for input bits
+    parameter real trise  = 50e-12;    // Output transition time
+
+    integer code;
+    real vout;
+
+    analog begin
+
+        // Decode 10-bit bus to integer code
+        code = 0;
+        if (V(din[9]) > vth) code = code + 512;
+        if (V(din[8]) > vth) code = code + 256;
+        if (V(din[7]) > vth) code = code + 128;
+        if (V(din[6]) > vth) code = code + 64;
+        if (V(din[5]) > vth) code = code + 32;
+        if (V(din[4]) > vth) code = code + 16;
+        if (V(din[3]) > vth) code = code + 8;
+        if (V(din[2]) > vth) code = code + 4;
+        if (V(din[1]) > vth) code = code + 2;
+        if (V(din[0]) > vth) code = code + 1;
+
+        // Convert code to analog voltage
+        vout = vrefn + (1.0 * code / 1023.0) * (vrefp - vrefn);
+
+        V(dac_out) <+ transition(vout, 0, trise, trise);
+
+    end
+
+endmodule

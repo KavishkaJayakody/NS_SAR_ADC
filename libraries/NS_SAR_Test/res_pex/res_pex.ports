@@ -1,0 +1,4 @@
+# SVDB: Port Table (ports)
+# SVDB: Layout Primary res_pex
+R_BOT 1 R_BOT 1000 870 met1
+R_TOP 2 R_TOP 1040 4120 met1

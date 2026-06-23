@@ -1,0 +1,13 @@
+res_pex 1000
+CDR.m2.local.min:L263167
+1 1 1 Jun 20 00:26:51 2026
+DENSITY met2_oxide -lt 0.800000 -window 700.000000 700.000000 -step 70.000000 70.000000 -inside_of layer fill_area -rdb m2_local_low.rdb CDR.m2.local.min:L263167
+p 1 4
+DV 0
+DA 35.52
+DA met2_oxide 0
+-5 -5
+7675 -5
+7675 4620
+-5 4620
+
