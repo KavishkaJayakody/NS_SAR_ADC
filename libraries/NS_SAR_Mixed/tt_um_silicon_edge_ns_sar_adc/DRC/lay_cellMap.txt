@@ -1,0 +1,1 @@
+NS_SAR_Mixed tt_um_silicon_edge_ns_sar_adc layout tt_um_silicon_edge_ns_sar_adc
