@@ -1,0 +1,33 @@
+Gds_Map 1000
+Layers:
+0 0 28 Jul 14 01:11:58 2026
+pwell_all 81 0
+pSourceDrain 68 0
+met3 90 0
+nfet_01v8_rec 95 0
+gate 99 0
+nwell 94 0
+licon1 67 0
+psd 4 0
+ntap 65 0
+met4 88 0
+via 72 0
+isolated_tap 71 0
+capacitor 56 0
+li1 93 0
+poly_licon1 73 0
+nsd 2 0
+pfet 58 0
+nSourceDrain 70 0
+top_plate 54 0
+pfet_01v8_rec 100 0
+mcon 69 0
+met1 92 0
+via2 74 0
+nfet 57 0
+poly 97 0
+bottom_plate 53 0
+met2 91 0
+ptap 66 0
+END OF RESPONSE
+0 0 0 Jul 14 01:11:58 2026

@@ -1,0 +1,18 @@
+# Placement Hierarchy File (lph)
+# 
+# 
+# 
+% pfet_01v8$$11 5
+M0 MP 4
+% nfet_01v8$$10 4
+M0 MN 4
+% unit_capacitor 12
+X24 nfet_01v8$$10 4
+X25 nfet_01v8$$10 4
+X26 nfet_01v8$$10 4
+X27 nfet_01v8$$10 4
+X28 pfet_01v8$$11 5
+X29 pfet_01v8$$11 5
+X30 pfet_01v8$$11 5
+X31 pfet_01v8$$11 5
+C0 C 2

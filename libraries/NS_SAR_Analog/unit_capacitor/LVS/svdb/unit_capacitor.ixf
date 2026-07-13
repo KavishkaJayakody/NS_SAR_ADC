@@ -1,0 +1,16 @@
+# XXXX: Instance Cross Reference (ixf) (File format 1)
+# XXXX: Layout Primary unit_capacitor
+# XXXX: End of header.
+% C 2 C 2
+% MN 4 MN 4
+% MP 4 MP 4
+% unit_capacitor 12 unit_capacitor 12
+0 C0 0 CC0  
+0 X26/M0 0 MNM0  
+0 X25/M0 0 MNM1  
+0 X24/M0 0 MNM2  
+0 X27/M0 0 MNM3  
+0 X29/M0 0 MPM0  
+0 X30/M0 0 MPM1  
+0 X28/M0 0 MPM2  
+0 X31/M0 0 MPM3  

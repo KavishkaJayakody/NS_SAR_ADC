@@ -1,0 +1,34 @@
+##############################################################################################################
+#####  
+#####                                         PVS LVS COMPARISON
+#####  
+#####  Version                       :   16.10-p006
+#####  NVN Run Start                 :   Tue Jul 14 01:11:59 2026
+#####  ERC Summary File              :   unit_capacitor.sum
+#####  Extraction Report File        :   unit_capacitor.rep
+#####  Comparison Report File        :   unit_capacitor.rep.cls
+#####  Top Cell                      :   unit_capacitor  <vs>  unit_capacitor
+#####  
+#####  Run Result                    :   MATCH
+#####  
+#####  Run Summary                   :   [INFO]  ERC Results: Empty
+#####                                :   [INFO]  Extraction Clean
+#####  
+#####  Layout Design                 :   NS_SAR_Analog unit_capacitor layout
+#####  Schematic File                :   /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.cdl (cdl)
+#####  Rules File                    :   .technology.rul
+#####  Pin Swap File                 :   unit_capacitor.rep.cps
+#####  
+#####  Extraction CPU Time           :   0h 0m 0s - (0s)
+#####  Extraction Exec Time          :   0h 0m 0s - (0s)
+#####  Extraction Peak Memory Usage  :   21.00MB
+#####  NVN CPU Time                  :   0h 0m 0s - (0s)                 
+#####  NVN Exec Time                 :   0h 0m 1s - (1s)                 
+#####  NVN Peak Memory Usage         :   225.55MB
+#####  LVS Total CPU Time            :   0h 0m 0s - (0s)                 
+#####  LVS Total Exec Time           :   0h 0m 1s - (1s)                 
+#####  LVS Total Peak Memory Usage   :   225.55MB
+#####  
+##############################################################################################################
+
+

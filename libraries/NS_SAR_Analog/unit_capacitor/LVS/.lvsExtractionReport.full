@@ -1,0 +1,37 @@
+			*****************************************************
+			**                                                 **
+			**                L V S  R E P O R T               **
+			**                                                 **
+			*****************************************************
+
+
+Report File Name         : unit_capacitor.rep
+ERC Summary File         : unit_capacitor.sum
+LVS Comparison Report    : unit_capacitor.rep.cls
+Layout Name              : /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.gds ("unit_capacitor")
+User Name                : user22
+Creation Time            : Tue Jul 14 01:11:58 2026
+Current directory        : /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS
+PVS Version              : 16.10-p006 Thu Jul 27 18:05:02 PDT 2017
+
+
+			*****************************************************
+			**                                                 **
+			**            D E V E X T  R E P O R T             **
+			**                                                 **
+			*****************************************************
+
+
+
+Clean cell list (added by extraction report parser )
+ for cell "L1M1_C$$3"
+ for cell "L1M1_C$$4"
+ for cell "M1M2_C$$2"
+ for cell "M1M2_C$$7"
+ for cell "M2M3_C$$8"
+ for cell "nfet_01v8$$10"
+ for cell "nwellTap$$5"
+ for cell "pfet_01v8$$11"
+ for cell "polyConn$$1"
+ for cell "subTap$$6"
+ for cell "unit_capacitor"

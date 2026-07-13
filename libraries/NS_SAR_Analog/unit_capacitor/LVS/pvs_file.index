@@ -1,0 +1,86 @@
+"Cadence Directory" internal none /home/user22/.cadence/
+"Current Directory" internal none /home/user22
+"GUI Flow" internal none virtuoso6
+"GUI Preset" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/.preset.autosave
+"Job Signature" internal none IPVS_1783971717_25625
+"PVS Job Mode" internal none lvs
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS
+"Technology Mapping File" internal none /home/user22/pvtech.lib
+"Technology Name" internal none "sky130_pv"
+"Technology Rule File" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/.technology.rul
+"Technology RuleSet" internal none "lvs_qrc"
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvsgui
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1783971717
+"CDL Out Stop List" internal text auCdl
+"CDL Out View List" internal text auCdl schematic
+"Control File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/pvslvsctl
+"DFII version" internal none 6.1.7.0
+"Do not check rules files before run" internal none ENABLED
+"Extracted Spice File" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.spi
+"Input Layout" input none OA: NS_SAR_Analog unit_capacitor layout
+"Input Schematic" input none OA: NS_SAR_Analog unit_capacitor schematic
+"Intermediate GDSII File" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.gds
+"Intermediate GDSII File creation Errors" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/PIPO1.LOG
+"Intermediate OASIS File creation Errors" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/PIPO1.LOG
+"Layout Cell Name" internal none unit_capacitor
+"Layout ConvertPin" internal text geometryAndText
+"Layout GDSII" input none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.gds
+"Layout HierDepth" internal none 32
+"Layout Library Name" internal none NS_SAR_Analog
+"Layout MaxVertices" internal none 2048
+"Layout NoConvertHalfWidthPath" input none nil
+"Layout ReplaceBusBitChar" input none nil
+"Layout Scale" internal none 0.001
+"Layout TechLib" internal none NS_SAR_Analog
+"Layout Top Cell" internal none unit_capacitor
+"Layout View Name" internal none layout
+"Output Layout Cellmap I" internal text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/lay_cellMap.txt
+"PIPO Log I" log text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/PIPO1.LOG
+"PIPO Output I" internal text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/PIPO1.OUT
+"PIPO Setup File I" internal text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/pipo1.setup
+"PVS Job Log" log text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/pvsuilvs.log
+"PVS Job Mode" internal none lvs
+"Quantus QRC Data" internal none ENABLED
+"Rule File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/.technology.rul
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS
+"Schematic Cell Name" internal none unit_capacitor
+"Schematic Library Name" internal none NS_SAR_Analog
+"Schematic Netlist" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.cdl
+"Schematic Top Cell" internal none unit_capacitor
+"Schematic View Name" internal none schematic
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvsvirt
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1783971718
+"Comparison Report" output cls /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.rep.cls
+"ERC Result" internal none EMPTY
+"ERC Summary" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.sum
+"Extracted Spice File" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.spi
+"Extraction Report" output erc /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.rep
+"Extraction Result" internal none CLEAN
+"LVS Report Options" internal none -none
+"Layout GDSII" input none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.gds
+"Layout Top Cell" internal none unit_capacitor
+"Mask SVDB Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/svdb
+"PVS Job Mode" internal none lvs
+"QRC Top Cell" internal none unit_capacitor
+"Report MaxResults" internal none 1000
+"Rule File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/.technology.rul
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/
+"Schematic Top Cell" internal none unit_capacitor
+"UI Data" internal none ENABLED
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvs
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1783971718
+"Comparison Result" internal none MATCH
+"LVS Run Name" internal none unit_capacitor.rep
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/
+"Schematic Netlist" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.cdl
+"UI Data" internal none ENABLED
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvsnvn
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1783971719

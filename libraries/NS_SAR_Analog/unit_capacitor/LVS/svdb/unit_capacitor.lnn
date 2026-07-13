@@ -1,0 +1,25 @@
+# SVDB: Layout Netlist Names (lnn)
+# SVDB: Layout Primary unit_capacitor
+% polyConn$$1 1
+% M1M2_C$$2 1
+% L1M1_C$$3 1
+% L1M1_C$$4 1
+% nwellTap$$5 2
+% subTap$$6 1
+% M1M2_C$$7 1
+% M2M3_C$$8 1
+% nfet_01v8$$10 4
+% pfet_01v8$$11 5
+% unit_capacitor 12
+1 SEL_VREF_P_N
+2 SEL_VREF_P
+3 SEL_VIN_N
+4 SEL_VIN
+5 SEL_VREF_N_N
+6 SEL_VREF_N
+7 VIN
+8 VDD
+9 VSS
+11 VREF_P
+12 VREF_N
+13 top_plate
