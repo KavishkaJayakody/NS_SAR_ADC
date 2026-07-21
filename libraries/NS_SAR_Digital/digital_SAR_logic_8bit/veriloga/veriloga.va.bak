@@ -4,9 +4,9 @@
 `include "disciplines.vams"
 
 // Logic Levels
-`define LOGIC_VIN 1.8
-`define LOGIC_VREF_P 1.8
-`define LOGIC_VREF_N 0.0
+`define LOGIC_VIN 	1.8
+`define LOGIC_VREF_P 0.0
+`define LOGIC_VREF_N 1.8
 `define LOGIC_SAMPLE 1.8
 `define LOGIC_HOLD   0.0
 `define HIGH         1.8
@@ -42,7 +42,7 @@ module digital_SAR_logic_8bit(CLK, COMP, C_COMP, B0, B1, B2, B3, B4, B5, B6, B7,
     parameter STEP_6  = 2; parameter STEP_5 = 3; parameter STEP_4 = 4;
     parameter STEP_3  = 5; parameter STEP_2 = 6; parameter STEP_1 = 7;
     parameter STEP_0  = 8;
-    parameter NS1    = 9;
+    parameter NS1     = 9;
 	parameter NS2	 =10;
 	parameter DONE	 =11;
 
@@ -77,17 +77,16 @@ module digital_SAR_logic_8bit(CLK, COMP, C_COMP, B0, B1, B2, B3, B4, B5, B6, B7,
                 regp3=`LOGIC_VIN; regp2=`LOGIC_VIN; regp1=`LOGIC_VIN; regp0=`LOGIC_VIN;
                 regn7=`LOGIC_VIN; regn6=`LOGIC_VIN; regn5=`LOGIC_VIN; regn4=`LOGIC_VIN;
                 regn3=`LOGIC_VIN; regn2=`LOGIC_VIN; regn1=`LOGIC_VIN; regn0=`LOGIC_VIN;
-				eoc = `LOW ;
+				eoc =`LOW ;
                 state = TRIAL_7;
             end
             else if (state == TRIAL_7) begin
-                regps = `LOGIC_HOLD; regns = `LOGIC_HOLD;
-                regp7 = `LOGIC_VREF_P; regnc = `LOGIC_VREF_P; regpc = `LOGIC_VREF_N;
-                regp6=`LOGIC_VREF_N;  regp5=`LOGIC_VREF_N;  regp4=`LOGIC_VREF_N;  regp3=`LOGIC_VREF_N;
-                regp2=`LOGIC_VREF_N;  regp1=`LOGIC_VREF_N;  regp0=`LOGIC_VREF_N;
-                regn7=`LOGIC_VREF_N;  regn6=`LOGIC_VREF_P; regn5=`LOGIC_VREF_P; regn4=`LOGIC_VREF_P;
-                regn3=`LOGIC_VREF_P; regn2=`LOGIC_VREF_P; regn1=`LOGIC_VREF_P; regn0=`LOGIC_VREF_P;
-				eoc = `LOW;
+                regps=`LOGIC_HOLD	 ;  regns=`LOGIC_HOLD;
+                regp7=`LOGIC_VREF_P;  regp6=`LOGIC_VREF_N;  regp5=`LOGIC_VREF_N;  regp4=`LOGIC_VREF_N;  regp3=`LOGIC_VREF_N;
+                regp2=`LOGIC_VREF_N;  regp1=`LOGIC_VREF_N;  regp0=`LOGIC_VREF_N;  regpc=`LOGIC_VREF_N;
+                regn7=`LOGIC_VREF_N;  regn6=`LOGIC_VREF_P;  regn5=`LOGIC_VREF_P;  regn4=`LOGIC_VREF_P;  regn3=`LOGIC_VREF_P; 
+                regn2=`LOGIC_VREF_P;  regn1=`LOGIC_VREF_P;  regn0=`LOGIC_VREF_P;  regnc = `LOGIC_VREF_P;
+			    eoc =`LOW;
                 state = STEP_6;
             end
             else if (state == STEP_6) begin
@@ -97,37 +96,37 @@ module digital_SAR_logic_8bit(CLK, COMP, C_COMP, B0, B1, B2, B3, B4, B5, B6, B7,
             end
             else if (state == STEP_5) begin
                 if (V(COMP) > Vth) begin dat6=`HIGH; regp6=`LOGIC_VREF_P; regn6=`LOGIC_VREF_N; end
-                else               begin dat6=`LOW;  regp6=`LOGIC_VREF_N;  regn6=`LOGIC_VREF_P; end
+                else               begin dat6= `LOW; regp6=`LOGIC_VREF_N; regn6=`LOGIC_VREF_P; end
                 regp5=`LOGIC_VREF_P; regn5=`LOGIC_VREF_N; state = STEP_4;
             end
             else if (state == STEP_4) begin
                 if (V(COMP) > Vth) begin dat5=`HIGH; regp5=`LOGIC_VREF_P; regn5=`LOGIC_VREF_N; end
-                else               begin dat5=`LOW;  regp5=`LOGIC_VREF_N;  regn5=`LOGIC_VREF_P; end
+                else               begin dat5= `LOW; regp5=`LOGIC_VREF_N; regn5=`LOGIC_VREF_P; end
                 regp4=`LOGIC_VREF_P; regn4=`LOGIC_VREF_N; state = STEP_3;
             end
             else if (state == STEP_3) begin
                 if (V(COMP) > Vth) begin dat4=`HIGH; regp4=`LOGIC_VREF_P; regn4=`LOGIC_VREF_N; end
-                else               begin dat4=`LOW;  regp4=`LOGIC_VREF_N;  regn4=`LOGIC_VREF_P; end
+                else               begin dat4= `LOW; regp4=`LOGIC_VREF_N; regn4=`LOGIC_VREF_P; end
                 regp3=`LOGIC_VREF_P; regn3=`LOGIC_VREF_N; state = STEP_2;
             end
             else if (state == STEP_2) begin
                 if (V(COMP) > Vth) begin dat3=`HIGH; regp3=`LOGIC_VREF_P; regn3=`LOGIC_VREF_N; end
-                else               begin dat3=`LOW;  regp3=`LOGIC_VREF_N;  regn3=`LOGIC_VREF_P; end
+                else               begin dat3= `LOW; regp3=`LOGIC_VREF_N; regn3=`LOGIC_VREF_P; end
                 regp2=`LOGIC_VREF_P; regn2=`LOGIC_VREF_N; state = STEP_1;
             end
             else if (state == STEP_1) begin
                 if (V(COMP) > Vth) begin dat2=`HIGH; regp2=`LOGIC_VREF_P; regn2=`LOGIC_VREF_N; end
-                else               begin dat2=`LOW;  regp2=`LOGIC_VREF_N;  regn2=`LOGIC_VREF_P; end
+                else               begin dat2= `LOW; regp2=`LOGIC_VREF_N; regn2=`LOGIC_VREF_P; end
                 regp1=`LOGIC_VREF_P; regn1=`LOGIC_VREF_N; state = STEP_0;
             end
             else if (state == STEP_0) begin
                 if (V(COMP) > Vth) begin dat1=`HIGH; regp1=`LOGIC_VREF_P; regn1=`LOGIC_VREF_N; end
-                else               begin dat1=`LOW;  regp1=`LOGIC_VREF_N;  regn1=`LOGIC_VREF_P; end
+                else               begin dat1= `LOW; regp1=`LOGIC_VREF_N; regn1=`LOGIC_VREF_P; end
                 regp0=`LOGIC_VREF_P; regn0=`LOGIC_VREF_N; state = NS1;
             end
             else if (state == NS1) begin
                 if (V(COMP) > Vth) begin dat0=`HIGH; regp0=`LOGIC_VREF_P; regn0=`LOGIC_VREF_N; end
-                else               begin dat0=`LOW;  regp0=`LOGIC_VREF_N;  regn0=`LOGIC_VREF_P; end
+                else               begin dat0= `LOW; regp0=`LOGIC_VREF_N; regn0=`LOGIC_VREF_P; end
                 state = NS2;
 			end
             else if (state == NS2) begin

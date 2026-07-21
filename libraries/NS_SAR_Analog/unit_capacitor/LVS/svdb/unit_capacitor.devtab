@@ -1,8 +1,8 @@
 Device_Table 1000
-0 0 1 Tue Jul 14 01:11:58 2026
+0 0 1 Wed Jul 15 21:54:36 2026
 41
 Device Entry 0
-0 0 11 Tue Jul 14 01:11:58 2026
+0 0 11 Wed Jul 15 21:54:36 2026
 met1_res
 RESISTOR
 R
@@ -15,7 +15,7 @@ N met1 1
 0
 0
 Device Entry 1
-0 0 11 Tue Jul 14 01:11:58 2026
+0 0 11 Wed Jul 15 21:54:36 2026
 met2_res
 RESISTOR
 R
@@ -28,7 +28,7 @@ N met2 1
 0
 0
 Device Entry 2
-0 0 11 Tue Jul 14 01:11:58 2026
+0 0 11 Wed Jul 15 21:54:36 2026
 met3_res
 RESISTOR
 R
@@ -41,7 +41,7 @@ N met3 1
 0
 0
 Device Entry 3
-0 0 11 Tue Jul 14 01:11:58 2026
+0 0 11 Wed Jul 15 21:54:36 2026
 met4_res
 RESISTOR
 R
@@ -54,7 +54,7 @@ N met4 1
 0
 0
 Device Entry 4
-0 0 11 Tue Jul 14 01:11:58 2026
+0 0 11 Wed Jul 15 21:54:36 2026
 met5_res
 RESISTOR
 R
@@ -67,7 +67,7 @@ N met5 1
 0
 0
 Device Entry 5
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 diode_pd2nw_05v5_rec
 DIODE
 D
@@ -84,7 +84,7 @@ p
 a
 m
 Device Entry 6
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 diode_pd2nw_05v5_hvt_rec
 DIODE
 D
@@ -101,7 +101,7 @@ p
 a
 m
 Device Entry 7
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 diode_pd2nw_05v5_lvt_rec
 DIODE
 D
@@ -118,7 +118,7 @@ p
 a
 m
 Device Entry 8
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 diode_pd2nw_11v0_rec
 DIODE
 D
@@ -135,7 +135,7 @@ p
 a
 m
 Device Entry 9
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 diode_pw2nd_05v5_rec
 DIODE
 D
@@ -152,7 +152,7 @@ p
 a
 m
 Device Entry 10
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 diode_pw2nd_05v5_lvt_rec
 DIODE
 D
@@ -169,7 +169,7 @@ p
 a
 m
 Device Entry 11
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 diode_pw2nd_05v5_nvt_rec
 DIODE
 D
@@ -186,7 +186,7 @@ p
 a
 m
 Device Entry 12
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 diode_pw2nd_11v0_rec
 DIODE
 D
@@ -203,7 +203,7 @@ p
 a
 m
 Device Entry 13
-0 0 11 Tue Jul 14 01:11:58 2026
+0 0 11 Wed Jul 15 21:54:36 2026
 diff_res
 RESISTOR
 R
@@ -216,7 +216,7 @@ N np_term 1
 0
 0
 Device Entry 14
-0 0 11 Tue Jul 14 01:11:58 2026
+0 0 11 Wed Jul 15 21:54:36 2026
 diff_res
 RESISTOR
 R
@@ -229,7 +229,7 @@ N pp_term 1
 0
 0
 Device Entry 15
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 nfet_01v8_rec
 MOS
 MN
@@ -246,7 +246,7 @@ B pwell_all 0
 W
 L
 Device Entry 16
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 pfet_01v8_rec
 MOS
 MP
@@ -263,7 +263,7 @@ B nwell 0
 W
 L
 Device Entry 17
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 lvtpfet_01v8_rec
 MOS
 MP
@@ -280,7 +280,7 @@ B nwell 0
 W
 L
 Device Entry 18
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 lvtnfet_01v8_rec
 MOS
 MN
@@ -297,7 +297,7 @@ B pwell_all 0
 W
 L
 Device Entry 19
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 hvtpfet_01v8_rec
 MOS
 MP
@@ -314,7 +314,7 @@ B nwell 0
 W
 L
 Device Entry 20
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 HV_ngate_3v3
 MOS
 MN
@@ -331,7 +331,7 @@ B pwell_all 0
 W
 L
 Device Entry 21
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 HV_ngate_5v0
 MOS
 MN
@@ -348,7 +348,7 @@ B pwell_all 0
 W
 L
 Device Entry 22
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 HV_ngate_5v10v
 MOS
 MN
@@ -365,7 +365,7 @@ B pwell_all 0
 W
 L
 Device Entry 23
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 HV_pgate_5v10v
 MOS
 MP
@@ -382,7 +382,7 @@ B nwell 0
 W
 L
 Device Entry 24
-0 0 19 Tue Jul 14 01:11:58 2026
+0 0 19 Wed Jul 15 21:54:36 2026
 nfet_v20_rec
 MOS
 MN
@@ -403,7 +403,7 @@ totalW
 m
 nf
 Device Entry 25
-0 0 19 Tue Jul 14 01:11:58 2026
+0 0 19 Wed Jul 15 21:54:36 2026
 nfet_v20_zvt_rec
 MOS
 MN
@@ -424,7 +424,7 @@ totalW
 m
 nf
 Device Entry 26
-0 0 20 Tue Jul 14 01:11:58 2026
+0 0 20 Wed Jul 15 21:54:36 2026
 pfet_v20_rec
 MOS
 MP
@@ -446,7 +446,7 @@ totalW
 m
 nf
 Device Entry 27
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 npn_rec
 BIPOLAR
 Q
@@ -463,7 +463,7 @@ BN pwell_all 0
 EA
 M
 Device Entry 28
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 hvnpn_rec
 BIPOLAR
 Q
@@ -480,7 +480,7 @@ BN pwell_all 0
 EA
 M
 Device Entry 29
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 pnp_rec
 BIPOLAR
 Q
@@ -497,7 +497,7 @@ BN pwell_all 0
 EA
 M
 Device Entry 30
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_high_po_0p35_rec
 RESISTOR
 R
@@ -513,7 +513,7 @@ B pwell_all 0
 w
 l
 Device Entry 31
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_high_po_0p69_rec
 RESISTOR
 R
@@ -529,7 +529,7 @@ B pwell_all 0
 w
 l
 Device Entry 32
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_high_po_1p41_rec
 RESISTOR
 R
@@ -545,7 +545,7 @@ B pwell_all 0
 w
 l
 Device Entry 33
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_high_po_2p85_rec
 RESISTOR
 R
@@ -561,7 +561,7 @@ B pwell_all 0
 w
 l
 Device Entry 34
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_high_po_5p73_rec
 RESISTOR
 R
@@ -577,7 +577,7 @@ B pwell_all 0
 w
 l
 Device Entry 35
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_xhigh_po_0p35_rec
 RESISTOR
 R
@@ -593,7 +593,7 @@ B pwell_all 0
 w
 l
 Device Entry 36
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_xhigh_po_0p69_rec
 RESISTOR
 R
@@ -609,7 +609,7 @@ B pwell_all 0
 w
 l
 Device Entry 37
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_xhigh_po_1p41_rec
 RESISTOR
 R
@@ -625,7 +625,7 @@ B pwell_all 0
 w
 l
 Device Entry 38
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_xhigh_po_2p85_rec
 RESISTOR
 R
@@ -641,7 +641,7 @@ B pwell_all 0
 w
 l
 Device Entry 39
-0 0 14 Tue Jul 14 01:11:58 2026
+0 0 14 Wed Jul 15 21:54:36 2026
 res_xhigh_po_5p73_rec
 RESISTOR
 R
@@ -657,7 +657,7 @@ B pwell_all 0
 w
 l
 Device Entry 40
-0 0 15 Tue Jul 14 01:11:58 2026
+0 0 15 Wed Jul 15 21:54:36 2026
 capacitor
 CAPACITOR
 C

@@ -3,14 +3,14 @@
 `include "constants.vams"
 `include "disciplines.vams"
 
-module analog_comparator(INP, INN, OUT, VDD, VSS, CLK, IBIAS);
+module analog_comparator(INP, INN, OUT, VDD, VSS, IBIAS , PA_EN, PA_EN_N , SA_EN);
 
     // Port Directions
-    input INP, INN, VDD, VSS, CLK, IBIAS;
+    input INP, INN, VDD, VSS, IBIAS, PA_EN, PA_EN_N, SA_EN;
     output OUT;
 
     // Discipline Declarations (Must match port names exactly)
-    electrical INP, INN, OUT, VDD, VSS, CLK;
+    electrical INP, INN, OUT, VDD, VSS, IBIAS, PA_EN, PA_EN_N, SA_EN;
 
     // Parameters
     parameter real VOS = 0.0;         // Input offset voltage

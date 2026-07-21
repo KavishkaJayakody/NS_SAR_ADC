@@ -10,7 +10,7 @@ ERC Summary File         : unit_capacitor.sum
 LVS Comparison Report    : unit_capacitor.rep.cls
 Layout Name              : /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.gds ("unit_capacitor")
 User Name                : user22
-Creation Time            : Tue Jul 14 01:11:58 2026
+Creation Time            : Wed Jul 15 21:54:36 2026
 Current directory        : /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS
 PVS Version              : 16.10-p006 Thu Jul 27 18:05:02 PDT 2017
 
@@ -21,4 +21,11 @@ PVS Version              : 16.10-p006 Thu Jul 27 18:05:02 PDT 2017
 			**                                                 **
 			*****************************************************
 
+
+
+Warnings and errors of connectivity for cell "unit_capacitor"
+-------------------------------------------------------------
+
+[INFO] Virtually connected nets have been made but not reported.
+       Use "virtual_connect -report yes" to report this information.
 

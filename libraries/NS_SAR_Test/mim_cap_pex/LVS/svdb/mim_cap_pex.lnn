@@ -1,0 +1,6 @@
+# SVDB: Layout Netlist Names (lnn)
+# SVDB: Layout Primary mim_cap_pex
+% mim_cap_pex 3
+1 gnd
+2 bottom_plate
+3 top_plate

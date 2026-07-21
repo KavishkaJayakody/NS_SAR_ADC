@@ -9,8 +9,8 @@ logFile	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/cap_pex/DRC/PIPO1.LOG"
 maxVertices	2048
 pinAttNum	0
 runDir	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/cap_pex/DRC"
-strmFile	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/cap_pex/DRC/cap_pex.gds"
+strmFile	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/cap_pex/DRC/mim_cap_pex.gds"
 strmVersion	5
 techLib	"NS_SAR_Test"
-topCell	"cap_pex"
+topCell	"mim_cap_pex"
 view	"layout"

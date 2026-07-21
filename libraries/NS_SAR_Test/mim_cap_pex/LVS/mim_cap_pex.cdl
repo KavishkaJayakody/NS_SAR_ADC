@@ -1,0 +1,27 @@
+
+
+***********************************************************
+* CDL produced by pvsBuildNetlist on Jul  8 18:59:48 2026 *
+***********************************************************
+
+
+*pvsViewList = auCdl schematic
+*pvsStopList = ("auCdl")
+*pvsSimName  = auCdl
+
+
+
+*.EXPAND_ON_M_FACTOR
+*.MEGA
+
+
+
+.subckt mim_cap_pex bottom_plate gnd top_plate
+*PVSCELL netlisted from NS_SAR_Test mim_cap_pex schematic
+  CC0 top_plate bottom_plate cap_mim_m3__base l=30u w=30u m=1
+.ends mim_cap_pex
+
+
+***********************************************************
+*             Completed at Jul  8 18:59:48 2026           *
+***********************************************************

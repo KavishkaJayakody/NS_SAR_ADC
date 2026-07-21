@@ -1,7 +1,7 @@
 
 
 ***********************************************************
-* CDL produced by pvsBuildNetlist on Jul 14 01:11:57 2026 *
+* CDL produced by pvsBuildNetlist on Jul 15 21:54:35 2026 *
 ***********************************************************
 
 
@@ -19,7 +19,7 @@
 .subckt unit_capacitor SEL_VIN SEL_VIN_N SEL_VREF_N SEL_VREF_N_N SEL_VREF_P
 +  SEL_VREF_P_N VDD VIN VREF_N VREF_P VSS top_plate
 *PVSCELL netlisted from NS_SAR_Analog unit_capacitor schematic
-  CC0 top_plate bottom_plate cap_mim_m3__base l=4.5u w=4.5u m=1
+  CC0 top_plate bottom_plate cap_mim_m3__base l=4u w=4u m=1
   MNM0 VIN SEL_VIN bottom_plate VSS nfet_01v8 M=1 L=150n W=1.5u
   MNM1 bottom_plate SEL_VIN_N bottom_plate VSS nfet_01v8 M=1 L=150n W=1.5u
   MNM2 bottom_plate SEL_VREF_P VREF_P VSS nfet_01v8 M=1 L=150n W=1.5u
@@ -32,5 +32,5 @@
 
 
 ***********************************************************
-*             Completed at Jul 14 01:11:57 2026           *
+*             Completed at Jul 15 21:54:35 2026           *
 ***********************************************************

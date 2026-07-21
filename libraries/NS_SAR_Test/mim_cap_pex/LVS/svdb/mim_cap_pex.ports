@@ -1,0 +1,5 @@
+# SVDB: Port Table (ports)
+# SVDB: Layout Primary mim_cap_pex
+top_plate 3 top_plate 2390 2410 met4
+gnd 1 gnd 5950 -465 met1
+bottom_plate 2 bottom_plate 2420 2305 met3

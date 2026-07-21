@@ -46,7 +46,7 @@ module unit_capacitor_charge_inj (C_TOP, SEL_VREF_P,SEL_VREF_P_N , SEL_VREF_N, S
         I(net7) <+ c_inj_p * ddt(V(VDD) - V(SEL_VREF_N));
 
         // Injection from SEL_VIN (Sampling switch)
-        I(net7) <+ c_inj_n * ddt(V(SEL_VIN));
-        I(net7) <+ c_inj_p * ddt(V(VDD) - V(SEL_VIN));
+        I(net7) <+ 0*c_inj_n * ddt(V(SEL_VIN));
+        I(net7) <+ 0*c_inj_p * ddt(V(VDD) - V(SEL_VIN));
     end
 endmodule

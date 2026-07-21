@@ -1,0 +1,16 @@
+case	"preserve"
+convertDot	"node"
+convertPin	"geometryAndText"
+hierDepth	32
+labelCase	"preserve"
+labelDepth	32
+library	"NS_SAR_Test"
+logFile	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/LVS/PIPO1.LOG"
+maxVertices	2048
+pinAttNum	0
+runDir	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/LVS"
+strmFile	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/LVS/mim_cap_pex.gds"
+strmVersion	5
+techLib	"NS_SAR_Test"
+topCell	"mim_cap_pex"
+view	"layout"

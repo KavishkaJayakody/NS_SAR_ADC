@@ -1,17 +1,16 @@
 `include "constants.vams"
 `include "disciplines.vams"
 
-module gate_driver (SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SEL_VREF_N_N, SAMPLE, VREF, VDD, VSS);
+module gate_driver (SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SEL_VREF_N_N, SAMPLE, VREF);
 
     // Node Definitions
     output SEL_VIN, SEL_VIN_N;
     output SEL_VREF_P, SEL_VREF_P_N;
     output SEL_VREF_N, SEL_VREF_N_N;
     input SAMPLE, VREF;
-    input VDD, VSS;
 
     electrical SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SEL_VREF_N_N;
-    electrical SAMPLE, VREF, VDD, VSS;
+    electrical SAMPLE, VREF;
 
     // Parameters
     parameter real v_thresh = 0.9; 
@@ -20,13 +19,13 @@ module gate_driver (SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SE
 	parameter real td = 1n;
 
     // Internal variables
-    real out1, out2, out3, out4, out5, out6;
+    real out1, out2, out3, out4, out5, out6; //vin, vin_n, vref_p, vref_p_n, vref_n, vref_n_n
     real hi, lo;
     integer select;
 
     analog begin
-        hi = V(VDD);
-        lo = V(VSS);
+        hi = 1.8;
+        lo = 0;
 
         // Convert analog inputs to a 2-bit integer for the case statement
         select = (V(SAMPLE) > v_thresh ? 2 : 0) + (V(VREF) > v_thresh ? 1 : 0);
@@ -55,8 +54,8 @@ module gate_driver (SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SE
         endcase
 
         // Drive outputs
-        V(SEL_VIN)      <+ transition(out1, td, tr, tf);
-        V(SEL_VIN_N)    <+ transition(out2, td, tr, tf);
+        V(SEL_VIN)      <+ transition(out1, 0, tr, tf);
+        V(SEL_VIN_N)    <+ transition(out2, 0, tr, tf);
         V(SEL_VREF_P)   <+ transition(out3, 0, tr, tf);
         V(SEL_VREF_P_N) <+ transition(out4, 0, tr, tf);
         V(SEL_VREF_N)   <+ transition(out5, 0, tr, tf);

@@ -1,0 +1,10 @@
+# XXXX: Net Cross Reference (nxf) (File format 1)
+# XXXX: Layout Primary mim_cap_pex
+# XXXX: End of header.
+% C 2 C 2 
+0 PLUS 0 PLUS
+0 MINUS 0 MINUS
+% mim_cap_pex 3 mim_cap_pex 3 
+0 bottom_plate 0 bottom_plate
+0 gnd 0 gnd
+0 top_plate 0 top_plate

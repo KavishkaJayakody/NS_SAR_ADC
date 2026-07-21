@@ -2,7 +2,7 @@
 * CDL Netlist:                                          *
 *                                                       *
 * Cell Name  : unit_capacitor                           *
-* Netlisted  : Tue Jul 14 01:11:58 2026                 *
+* Netlisted  : Wed Jul 15 21:54:36 2026                 *
 * PVS Version: 16.10-p006 Thu Jul 27 18:05:02 PDT 2017 *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
 *.LDD
@@ -91,72 +91,94 @@
 .ends subTap$$6
 
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
-* Sub cell: M1M2_C$$7                                   *
+* Sub cell: M2M3_C$$7                                   *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
-.subckt M1M2_C$$7 1
+.subckt M2M3_C$$7 1
 ** N=1 EP=1 FDC=0
-.ends M1M2_C$$7
+.ends M2M3_C$$7
 
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
-* Sub cell: M2M3_C$$8                                   *
+* Sub cell: M1M2_C$$8                                   *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
-.subckt M2M3_C$$8 1
+.subckt M1M2_C$$8 1
 ** N=1 EP=1 FDC=0
-.ends M2M3_C$$8
+.ends M1M2_C$$8
 
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
-* Sub cell: nfet_01v8$$10                               *
+* Sub cell: cap_mim_m3__base$$9                         *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
-.subckt nfet_01v8$$10 1 2 3 4
-** N=12 EP=4 FDC=1
-M0 3 1 2 4 nfet_01v8 L=1.5e-07 W=1.5e-06 $X=0 $Y=0 $dt=15
-.ends nfet_01v8$$10
+.subckt cap_mim_m3__base$$9
+** N=2 EP=0 FDC=1
+C0 2 1 L=4e-06 W=4e-06 $[cap_mim_m3__base] $X=0 $Y=0 $dt=40
+.ends cap_mim_m3__base$$9
 
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
-* Sub cell: pfet_01v8$$11                               *
+* Sub cell: pfet_01v8$$10                               *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
-.subckt pfet_01v8$$11 1 2 3 4 5
+.subckt pfet_01v8$$10 1 2 3 4 5
+** N=9 EP=5 FDC=1
+M0 3 1 2 5 pfet_01v8 L=1.5e-07 W=1.5e-06 $X=0 $Y=0 $dt=16
+.ends pfet_01v8$$10
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$11                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$11 1 2 3 4
+** N=8 EP=4 FDC=1
+M0 2 1 3 4 nfet_01v8 L=1.5e-07 W=1.5e-06 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$11
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: pfet_01v8$$12                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt pfet_01v8$$12 1 2 3 4 5
 ** N=13 EP=5 FDC=1
 M0 3 1 2 5 pfet_01v8 L=1.5e-07 W=1.5e-06 $X=0 $Y=0 $dt=16
-.ends pfet_01v8$$11
+.ends pfet_01v8$$12
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$13                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$13 1 2 3 4
+** N=12 EP=4 FDC=1
+M0 3 1 2 4 nfet_01v8 L=1.5e-07 W=1.5e-06 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$13
 
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
 * Sub cell: unit_capacitor                              *
 * +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
 .subckt unit_capacitor SEL_VIN SEL_VIN_N SEL_VREF_N SEL_VREF_N_N SEL_VREF_P SEL_VREF_P_N VDD VIN VREF_N VREF_P
 + VSS top_plate
-** N=13 EP=12 FDC=9
-X0 SEL_VREF_P_N polyConn$$1 $T=1380 925 0 90 $X=1195 $Y=740
-X1 SEL_VREF_P polyConn$$1 $T=1380 6215 0 90 $X=1195 $Y=6030
-X2 SEL_VIN_N polyConn$$1 $T=2240 555 0 90 $X=2055 $Y=370
-X3 SEL_VIN polyConn$$1 $T=4160 5845 0 90 $X=3975 $Y=5660
-X4 SEL_VREF_N_N polyConn$$1 $T=5020 200 0 90 $X=4835 $Y=15
-X5 SEL_VREF_N polyConn$$1 $T=5020 5475 0 90 $X=4835 $Y=5290
-X6 SEL_VREF_P_N M1M2_C$$2 $T=1380 925 0 90 $X=1220 $Y=795
-X7 SEL_VREF_P M1M2_C$$2 $T=1380 6215 0 90 $X=1220 $Y=6085
-X8 SEL_VIN_N M1M2_C$$2 $T=2240 555 0 90 $X=2080 $Y=425
-X9 SEL_VIN M1M2_C$$2 $T=4160 5845 0 90 $X=4000 $Y=5715
-X10 SEL_VREF_N_N M1M2_C$$2 $T=5020 200 0 90 $X=4860 $Y=70
-X11 SEL_VREF_N M1M2_C$$2 $T=5020 5475 0 90 $X=4860 $Y=5345
-X12 VIN L1M1_C$$3 $T=555 185 0 0 $X=440 $Y=40
-X13 VIN L1M1_C$$3 $T=5845 6215 0 0 $X=5730 $Y=6070
-X14 VIN L1M1_C$$4 $T=1310 185 0 0 $X=1165 $Y=70
-X15 VIN L1M1_C$$4 $T=5090 6215 0 0 $X=4945 $Y=6100
-X16 VDD VSS nwellTap$$5 $T=185 2075 0 0 $X=-80 $Y=1150
-X17 VSS subTap$$6 $T=6215 4315 0 0 $X=6005 $Y=3445
-X18 10 M1M2_C$$7 $T=1355 3200 0 0 $X=1225 $Y=2880
-X19 10 M1M2_C$$7 $T=2265 3200 0 0 $X=2135 $Y=2880
-X20 10 M1M2_C$$7 $T=4135 3200 0 0 $X=4005 $Y=2880
-X21 10 M1M2_C$$7 $T=5045 3200 0 0 $X=4915 $Y=2880
-X22 10 M2M3_C$$8 $T=710 3200 0 0 $X=545 $Y=2815
-X23 10 M2M3_C$$8 $T=5690 3200 0 0 $X=5525 $Y=2815
-X24 SEL_VREF_P VREF_P 10 VSS nfet_01v8$$10 $T=1065 3575 0 0 $X=660 $Y=3425
-X25 SEL_VIN_N 10 10 VSS nfet_01v8$$10 $T=2405 3575 0 0 $X=2000 $Y=3425
-X26 SEL_VIN 10 VIN VSS nfet_01v8$$10 $T=3995 3575 1 180 $X=3440 $Y=3425
-X27 SEL_VREF_N VREF_N 10 VSS nfet_01v8$$10 $T=5335 3575 1 180 $X=4780 $Y=3425
-X28 SEL_VREF_P_N 10 VREF_P VSS VDD pfet_01v8$$11 $T=1215 1325 1 180 $X=620 $Y=1145
-X29 SEL_VIN_N VIN 10 VSS VDD pfet_01v8$$11 $T=2555 1325 1 180 $X=1960 $Y=1145
-X30 SEL_VIN 10 10 VSS VDD pfet_01v8$$11 $T=3845 1325 0 0 $X=3400 $Y=1145
-X31 SEL_VREF_N_N 10 VREF_N VSS VDD pfet_01v8$$11 $T=5185 1325 0 0 $X=4740 $Y=1145
-C0 top_plate 10 L=4.5e-06 W=4.5e-06 $[cap_mim_m3__base] $X=950 $Y=950 $dt=40
+** N=14 EP=12 FDC=9
+X0 SEL_VREF_P_N polyConn$$1 $T=2155 -315 0 90 $X=1970 $Y=-500
+X1 SEL_VIN_N polyConn$$1 $T=2990 55 0 90 $X=2805 $Y=-130
+X2 SEL_VREF_P polyConn$$1 $T=2990 7070 0 90 $X=2805 $Y=6885
+X3 SEL_VREF_N_N polyConn$$1 $T=5150 -670 0 90 $X=4965 $Y=-855
+X4 SEL_VIN polyConn$$1 $T=5150 6345 0 90 $X=4965 $Y=6160
+X5 SEL_VREF_N polyConn$$1 $T=5985 6715 0 90 $X=5800 $Y=6530
+X6 SEL_VREF_P_N M1M2_C$$2 $T=2155 -315 0 90 $X=1995 $Y=-445
+X7 SEL_VIN_N M1M2_C$$2 $T=2990 55 0 90 $X=2830 $Y=-75
+X8 SEL_VREF_P M1M2_C$$2 $T=2990 7070 0 90 $X=2830 $Y=6940
+X9 SEL_VREF_N_N M1M2_C$$2 $T=5150 -670 0 90 $X=4990 $Y=-800
+X10 SEL_VIN M1M2_C$$2 $T=5150 6345 0 90 $X=4990 $Y=6215
+X11 SEL_VREF_N M1M2_C$$2 $T=5985 6715 0 90 $X=5825 $Y=6585
+X12 VIN L1M1_C$$3 $T=555 -685 0 0 $X=440 $Y=-830
+X13 VIN L1M1_C$$3 $T=7585 7085 0 0 $X=7470 $Y=6940
+X14 VIN L1M1_C$$4 $T=1310 -685 0 0 $X=1165 $Y=-800
+X15 VIN L1M1_C$$4 $T=6830 7085 0 0 $X=6685 $Y=6970
+X16 VDD VSS nwellTap$$5 $T=200 1025 0 0 $X=-65 $Y=100
+X17 VSS subTap$$6 $T=7940 5365 0 0 $X=7730 $Y=4495
+X18 10 M2M3_C$$7 $T=4075 635 0 0 $X=3510 $Y=450
+X19 11 M2M3_C$$7 $T=4075 5765 0 0 $X=3510 $Y=5580
+X20 10 M1M2_C$$8 $T=4075 635 0 0 $X=3535 $Y=450
+X21 11 M1M2_C$$8 $T=4075 5765 0 0 $X=3535 $Y=5580
+X22 cap_mim_m3__base$$9 $T=10500 1200 0 0 $X=10100 $Y=800
+X23 SEL_VIN_N VIN 11 VSS VDD pfet_01v8$$10 $T=1645 275 1 180 $X=1260 $Y=95
+X24 SEL_VIN 10 10 VSS VDD pfet_01v8$$10 $T=6495 275 0 0 $X=6050 $Y=95
+X25 SEL_VIN_N 11 11 VSS nfet_01v8$$11 $T=1495 4625 0 0 $X=1430 $Y=4475
+X26 SEL_VIN VIN 10 VSS nfet_01v8$$11 $T=6645 4625 1 180 $X=6090 $Y=4475
+X27 SEL_VREF_P_N 11 VREF_P VSS VDD pfet_01v8$$12 $T=1215 275 1 180 $X=620 $Y=95
+X28 SEL_VREF_N_N 10 VREF_N VSS VDD pfet_01v8$$12 $T=6925 275 0 0 $X=6520 $Y=95
+X29 SEL_VREF_P VREF_P 11 VSS nfet_01v8$$13 $T=1065 4625 0 0 $X=660 $Y=4475
+X30 SEL_VREF_N VREF_N 10 VSS nfet_01v8$$13 $T=7075 4625 1 180 $X=6670 $Y=4475
 .ends unit_capacitor

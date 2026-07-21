@@ -8,7 +8,7 @@ module unit_capacitor_charge_inj (C_TOP, SEL_VREF_P,SEL_VREF_P_N , SEL_VREF_N, S
     electrical C_TOP, SEL_VREF_P, SEL_VREF_N, SEL_VIN, VREF_P, VIN, VREF_N, VDD, VSS, net7;
 
     // Parameters
-    parameter real c_val = 43.4522f;
+    parameter real c_val = 34.62f;
     parameter real r_on_vref = 1000;
 	parameter real r_on_sel = 1000;
     parameter real r_off = 1G;

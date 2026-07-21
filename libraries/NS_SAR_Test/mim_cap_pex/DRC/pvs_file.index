@@ -1,0 +1,59 @@
+"Cadence Directory" internal none /home/user22/.cadence/
+"Current Directory" internal none /home/user22
+"GUI Flow" internal none virtuoso6
+"GUI Preset" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/.preset.autosave
+"Job Signature" internal none IPVS_1783335145_26609
+"PVS Job Mode" internal none drc
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvsgui
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1783335148
+"Control File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/pvsdrcctl
+"DFII version" internal none 6.1.7.0
+"Do not check rules files before run" internal none ENABLED
+"Input Layout" input none OA: NS_SAR_Test mim_cap_pex layout
+"Intermediate GDSII File" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/mim_cap_pex.gds
+"Intermediate GDSII File creation Errors" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/PIPO1.LOG
+"Intermediate OASIS File creation Errors" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/PIPO1.LOG
+"Job Signature" internal none IPVS_1783335145_26609
+"Layout Cell Name" internal none mim_cap_pex
+"Layout ConvertPin" internal text geometryAndText
+"Layout GDSII" input none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/mim_cap_pex.gds
+"Layout HierDepth" internal none 32
+"Layout Library Name" internal none NS_SAR_Test
+"Layout MaxVertices" internal none 2048
+"Layout NoConvertHalfWidthPath" input none nil
+"Layout ReplaceBusBitChar" input none nil
+"Layout Scale" internal none 0.001
+"Layout TechLib" internal none NS_SAR_Test
+"Layout Top Cell" internal none mim_cap_pex
+"Layout View Name" internal none layout
+"Output Layout Cellmap I" internal text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/lay_cellMap.txt
+"PIPO Log I" log text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/PIPO1.LOG
+"PIPO Output I" internal text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/PIPO1.OUT
+"PIPO Setup File I" internal text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/pipo1.setup
+"PVS Job Log" log text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/pvsuidrc.log
+"PVS Job Mode" internal none drc
+"Rule File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/.config.rul
+"Rule File" input text /home/user22/sky130_pdk/sky130_release_0.1.0/Sky130_DRC/sky130_rev_0.0_2.12.drc.pvl
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC
+"TTE mode" internal none ENABLED
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvsvirt
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1783335149
+"ASCII DRC Report Database" output rdb /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/mim_cap_pex.drc_errors.ascii
+"DRC Summary" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/mim_cap_pex.sum
+"Layout GDSII" input none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/mim_cap_pex.gds
+"PVS Job Mode" internal none drc
+"Report MaxResults" internal none 1000
+"Rule File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/.config.rul
+"Rule File" input text /home/user22/sky130_pdk/sky130_release_0.1.0/Sky130_DRC/sky130_rev_0.0_2.12.drc.pvl
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/DRC/
+"TTE mode" internal none ENABLED
+"UI Data" internal none ENABLED
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvs
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1783335149

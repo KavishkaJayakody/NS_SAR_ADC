@@ -1,7 +1,7 @@
 text_depth -primary;
 virtual_connect -colon no;
 virtual_connect -semicolon_as_colon yes;
-virtual_connect -noname;
+virtual_connect -name "?";
 virtual_connect -report no;
 virtual_connect -depth -primary;
 lvs_ignore_ports no;

@@ -3,21 +3,54 @@
 `include "constants.vams"
 `include "disciplines.vams"
 
-module comparator(OUT, CLK, IBIAS, VDD, VN, VP, VSS);
-output OUT;
-electrical OUT;
-input CLK;
-electrical CLK;
-input IBIAS;
-electrical IBIAS;
-input VDD;
-electrical VDD;
-input VN;
-electrical VN;
-input VP;
-electrical VP;
-input VSS;
-electrical VSS;
+module analog_comparator(INP, INN, OUT, VDD, VSS, CLK, IBIAS , PA_EN, PA_EN_N , SA_EN);
 
+    // Port Directions
+    input INP, INN, VDD, VSS, CLK, IBIAS, PA_EN, PA_EN_N, SA_EN;
+    output OUT;
 
+    // Discipline Declarations (Must match port names exactly)
+    electrical INP, INN, OUT, VDD, VSS, CLK, IBIAS, PA_EN, PA_EN_N, SA_EN;
+
+    // Parameters
+    parameter real VOS = 0.0;         // Input offset voltage
+    parameter real GAIN = 1e6;        // Large gain
+    parameter real TDELAY = 10p;
+    parameter real TRISE  = 100p;
+    parameter real TFALL  = 100p;
+
+    real vdiff;
+    real vout_expect;
+    real vout_target;
+
+    analog begin
+
+        // 1. Calculate differential input with offset
+        vdiff = V(INP) - V(INN) + VOS;
+    
+        // 2. Calculate ideal gain output
+        //vout_expect = GAIN * vdiff;
+
+        // 3. Clip the output to the supply rails (Saturation logic)
+        // Using the V() accessor to pull the actual supply voltages from pins
+        //if (vout_expect > V(VDD)) begin
+        //    vout_target = V(VDD);
+        //end else if (vout_expect < V(VSS)) begin
+        //    vout_target = V(VSS);
+        //end else begin
+        //    vout_target = vout_expect;
+        //end
+
+		
+		// For ease of numerical calculations
+        if (vdiff > 0) begin
+            vout_target = V(VDD);
+        end else begin
+            vout_target = V(VSS);
+        end
+        // 4. Apply transition for time-domain realism
+        V(OUT) <+ transition(vout_target, TDELAY, TRISE, TFALL);
+
+    end
 endmodule
+

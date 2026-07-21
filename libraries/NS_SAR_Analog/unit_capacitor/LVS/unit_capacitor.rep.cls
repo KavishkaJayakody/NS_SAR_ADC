@@ -3,15 +3,22 @@
 #####                                         PVS LVS COMPARISON
 #####  
 #####  Version                       :   16.10-p006
-#####  NVN Run Start                 :   Tue Jul 14 01:11:59 2026
+#####  NVN Run Start                 :   Wed Jul 15 21:54:36 2026
 #####  ERC Summary File              :   unit_capacitor.sum
 #####  Extraction Report File        :   unit_capacitor.rep
 #####  Comparison Report File        :   unit_capacitor.rep.cls
 #####  Top Cell                      :   unit_capacitor  <vs>  unit_capacitor
 #####  
-#####  Run Result                    :   MATCH
+#####                                :      @     @
+#####                                :       @   @ 
+#####                                :        @ @  
+#####  Run Result                    :     MISMATCH
+#####                                :        @ @  
+#####                                :       @   @ 
+#####                                :      @     @
 #####  
-#####  Run Summary                   :   [INFO]  ERC Results: Empty
+#####  Run Summary                   :   [ERROR] Connectivity Mismatches
+#####                                :   [INFO]  ERC Results: Empty
 #####                                :   [INFO]  Extraction Clean
 #####  
 #####  Layout Design                 :   NS_SAR_Analog unit_capacitor layout
@@ -40,10 +47,10 @@
 
 Cell Statistic Descriptions                  | Count
 ---------------------------------------------+----------
-Cells matched                                |         1
+Cells matched                                |         0
 Cells expanded                               |         0
 Cells not run                                |         0
-Cells which mismatch                         |         0
+Cells which mismatch                         |         1
 ---------------------------------------------+----------
 Total                                        |         1
 
@@ -61,10 +68,10 @@ Cells that have been blackboxed              |         0
 #
 ##############################################################################################################
 
-                   |     Initial Pins     |     Compare Pins     |            | 
-Cell               |   lay    :    sch    |   lay    :    sch    | Status     | Detail
--------------------+----------+-----------+----------+-----------+------------+-----------
-unit_capacitor     |       12 :        12 |       12 :        12 | match      | 
+                   |     Initial Pins     |     Compare Pins     |              | 
+Cell               |   lay    :    sch    |   lay    :    sch    | Status       | Detail
+-------------------+----------+-----------+----------+-----------+--------------+-----------
+unit_capacitor     |       12 :        12 |       12 :        12 | mismatch     | 
 
 
 ##############################################################################################################
@@ -220,6 +227,7 @@ LVS Rules Given in the Rules File
     lvs_short_equivalent_nodes              yes
     virtual_connect                         no  -colon
     virtual_connect                         yes -semicolon_as_colon
+    virtual_connect                         -name  ?
     virtual_connect                         no  -report
     virtual_connect                         -depth primary
                                              
@@ -360,35 +368,36 @@ Effective LVS Rule Values
 #
 ##############################################################################################################
 
-                              +------------------------------------------------+
-                              |                                                |
-                              |        ------->>>   MATCH   <<<-------         |
-                              |                                                |
-                              |      unit_capacitor  <vs>  unit_capacitor      |
-                              |                                                |
-                              |                                                |
-                              +------------------------------------------------+
+                              ##################################################
+                              #                                                #
+                              #       ------->>> $ MISMATCH $ <<<-------       #
+                              #                                                #
+                              #      unit_capacitor  <vs>  unit_capacitor      #
+                              #                                                #
+                              #            CONNECTIVITY MISMATCHES             #
+                              #                                                #
+                              ##################################################
 
 +===[unit_capacitor]==========================================================================================
 |                                                 STATISTICS                                                  
 +=============================================================================================================
 
 
-                         |     Original      |     Reduced      
-Cell                     |   lay   :   sch   |   lay   :  sch
--------------------------+---------+---------+---------+--------
-MP [4 pins]              |         :         |         :        
- MP(PFET_01V8)           |       4 :       4 |       4 :       4
-MN [4 pins]              |         :         |         :        
- MN(NFET_01V8)           |       4 :       4 |       4 :       4
-C [2 pins]               |         :         |         :        
- C(CAP_MIM_M3__BASE)     |       1 :       1 |       1 :       1
--------------------------+---------+---------+---------+--------
-Total                    |       9 :       9 |       9 :       9
-=========================+=========+=========+=========+========
-Pins                     |         :         |      12 :      12
-Nets                     |         :         |       1 :       1
-=========================+=========+=========+=========+========
+                         |     Original      |      Reduced      |     Unmatched     
+Cell                     |   lay   :   sch   |   lay   :   sch   |   lay   :   sch
+-------------------------+---------+---------+---------+---------+---------+---------
+MP [4 pins]              |         :         |         :         |         :         
+ MP(PFET_01V8)           |       4 :       4 |       4 :       4 |       0 :        0
+MN [4 pins]              |         :         |         :         |         :         
+ MN(NFET_01V8)           |       4 :       4 |       4 :       4 |       0 :        0
+C [2 pins]               |         :         |         :         |         :         
+ C(CAP_MIM_M3__BASE)     |       1 :       1 |       1 :       1 |       0 :        0
+-------------------------+---------+---------+---------+---------+---------+---------
+Total                    |       9 :       9 |       9 :       9 |       0 :        0
+=========================+=========+=========+=========+=========+=========+=========
+Pins                     |         :         |      12 :      12 |       0 :        0
+Nets                     |         :         |      *4 :       1 |      *3 :        0
+=========================+=========+=========+=========+=========+=========+=========
 
 +===[unit_capacitor]==========================================================================================
 |                                           INITIAL CORRESPONDENCES                                           
@@ -397,6 +406,25 @@ Nets                     |         :         |       1 :       1
 Type  | Name
 ------+-------------------------------------------------------------------------------------------------------
 Pin   | SEL_VIN SEL_VIN_N SEL_VREF_N SEL_VREF_N_N SEL_VREF_P SEL_VREF_P_N top_plate VDD VIN VREF_N VREF_P VSS
+
+
++===[unit_capacitor]==========================================================================================
+|                                              SHORTS AND OPENS                                               
++=============================================================================================================
+                                                           
+                                                           
+Layout Pin: top_plate     | Schematic Pin: top_plate
+==========================+=========================(sao 1)
+Layout Net: X22/2         |              OPEN
+==========================+================================
+                                                           
+                                                           
+Layout Net: X22/1         | Schematic Net: bottom_plate
+==========================+=========================(sao 2)
+Layout Net: 11            |              OPEN
+==========================+================================
+Layout Net: 10            |              OPEN
+==========================+================================
 
 
 ##############################################################################################################

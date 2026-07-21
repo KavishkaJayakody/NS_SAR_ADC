@@ -2,7 +2,7 @@
 "Current Directory" internal none /home/user22
 "GUI Flow" internal none virtuoso6
 "GUI Preset" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/.preset.autosave
-"Job Signature" internal none IPVS_1783971717_25625
+"Job Signature" internal none IPVS_1784132675_25625
 "PVS Job Mode" internal none lvs
 "Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS
 "Technology Mapping File" internal none /home/user22/pvtech.lib
@@ -12,7 +12,7 @@
 "PVS Version" internal none 16.10-p006
 "Binary Name" internal none pvsgui
 "PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
-"PVS Job Time" internal none 1783971717
+"PVS Job Time" internal none 1784132675
 "CDL Out Stop List" internal text auCdl
 "CDL Out View List" internal text auCdl schematic
 "Control File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/pvslvsctl
@@ -53,7 +53,7 @@
 "PVS Version" internal none 16.10-p006
 "Binary Name" internal none pvsvirt
 "PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
-"PVS Job Time" internal none 1783971718
+"PVS Job Time" internal none 1784132676
 "Comparison Report" output cls /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.rep.cls
 "ERC Result" internal none EMPTY
 "ERC Summary" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.sum
@@ -74,8 +74,8 @@
 "PVS Version" internal none 16.10-p006
 "Binary Name" internal none pvs
 "PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
-"PVS Job Time" internal none 1783971718
-"Comparison Result" internal none MATCH
+"PVS Job Time" internal none 1784132676
+"Comparison Result" internal none MISMATCH
 "LVS Run Name" internal none unit_capacitor.rep
 "Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/
 "Schematic Netlist" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/unit_capacitor/LVS/unit_capacitor.cdl
@@ -83,4 +83,4 @@
 "PVS Version" internal none 16.10-p006
 "Binary Name" internal none pvsnvn
 "PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
-"PVS Job Time" internal none 1783971719
+"PVS Job Time" internal none 1784132676

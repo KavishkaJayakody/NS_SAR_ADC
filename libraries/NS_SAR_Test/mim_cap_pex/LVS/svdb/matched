@@ -1,0 +1,35 @@
+##############################################################################################################
+#####  
+#####                                         PVS LVS COMPARISON
+#####  
+#####  Version                       :   16.10-p006
+#####  NVN Run Start                 :   Wed Jul  8 18:59:49 2026
+#####  ERC Summary File              :   mim_cap_pex.sum
+#####  Extraction Report File        :   mim_cap_pex.rep
+#####  Comparison Report File        :   mim_cap_pex.rep.cls
+#####  Top Cell                      :   mim_cap_pex  <vs>  mim_cap_pex
+#####  
+#####  Run Result                    :   MATCH
+#####  
+#####  Run Summary                   :   [INFO]  ERC Results: Empty
+#####                                :   [INFO]  Extraction Clean
+#####                                :   [INFO]  Unconnected Corresponding Top Cell Pin(s) Exists
+#####  
+#####  Layout Design                 :   NS_SAR_Test mim_cap_pex layout
+#####  Schematic File                :   /home/user22/NS_SAR_ADC/libraries/NS_SAR_Test/mim_cap_pex/LVS/mim_cap_pex.cdl (cdl)
+#####  Rules File                    :   .technology.rul
+#####  Pin Swap File                 :   mim_cap_pex.rep.cps
+#####  
+#####  Extraction CPU Time           :   0h 0m 0s - (0s)
+#####  Extraction Exec Time          :   0h 0m 0s - (0s)
+#####  Extraction Peak Memory Usage  :   19.00MB
+#####  NVN CPU Time                  :   0h 0m 0s - (0s)                 
+#####  NVN Exec Time                 :   0h 0m 1s - (1s)                 
+#####  NVN Peak Memory Usage         :   217.51MB
+#####  LVS Total CPU Time            :   0h 0m 0s - (0s)                 
+#####  LVS Total Exec Time           :   0h 0m 1s - (1s)                 
+#####  LVS Total Peak Memory Usage   :   217.51MB
+#####  
+##############################################################################################################
+
+
