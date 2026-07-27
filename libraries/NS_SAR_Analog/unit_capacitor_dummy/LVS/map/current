@@ -1,0 +1,9 @@
+(
+  ( nil 
+    repList  " auCdl schematic"
+    stopList " auCdl"
+  )
+  ( model
+    ("NS_SAR_Analog/unit_capacitor/schematic" "unit_capacitor")
+  )
+)

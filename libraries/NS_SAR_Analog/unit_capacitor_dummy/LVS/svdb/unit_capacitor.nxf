@@ -1,0 +1,33 @@
+# XXXX: Net Cross Reference (nxf) (File format 1)
+# XXXX: Layout Primary unit_capacitor
+# XXXX: End of header.
+% C 2 C 2 
+0 PLUS 0 PLUS
+0 MINUS 0 MINUS
+% MN 4 MN 4 
+0 D 0 D
+0 G 0 G
+0 S 0 S
+0 B 0 B
+% MP 4 MP 4 
+0 D 0 D
+0 G 0 G
+0 S 0 S
+0 B 0 B
+% unit_capacitor 12 unit_capacitor 12 
+0 X22/1 0 bottom_plate
+0 11 0 bottom_plate
+0 10 0 bottom_plate
+0 SEL_VIN 0 SEL_VIN
+0 SEL_VIN_N 0 SEL_VIN_N
+0 SEL_VREF_N 0 SEL_VREF_N
+0 SEL_VREF_N_N 0 SEL_VREF_N_N
+0 SEL_VREF_P 0 SEL_VREF_P
+0 SEL_VREF_P_N 0 SEL_VREF_P_N
+0 VDD 0 VDD
+0 VIN 0 VIN
+0 VREF_N 0 VREF_N
+0 VREF_P 0 VREF_P
+0 VSS 0 VSS
+0 top_plate 0 top_plate
+0 X22/2 0 top_plate

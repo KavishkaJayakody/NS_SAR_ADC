@@ -1,0 +1,52 @@
+`include "disciplines.vams"
+`include "constants.vams"
+
+module unit_capacitor_charge_inj (C_TOP, SEL_VREF_P,SEL_VREF_P_N , SEL_VREF_N, SEL_VREF_N_N , SEL_VIN, SEL_VIN_N , VREF_P, VIN, VREF_N, VDD, VSS);
+
+    input SEL_VREF_P, SEL_VREF_N, SEL_VIN, VREF_P, VIN, VREF_N, VDD, VSS;
+    inout C_TOP;
+    electrical C_TOP, SEL_VREF_P, SEL_VREF_N, SEL_VIN, VREF_P, VIN, VREF_N, VDD, VSS, net7;
+
+    // Parameters
+    parameter real c_val = 43.4522f;
+    parameter real r_on_vref = 1000;
+	parameter real r_on_sel = 1000;
+    parameter real r_off = 1G;
+    parameter real v_thresh = 0.9;
+    
+    // Charge Injection Parameters (Simplified)
+    // C_ov represents the overlap capacitance + half of channel capacitance
+    parameter real c_inj_n = 0.5f; // fF
+    parameter real c_inj_p = 0.65f; // fF (Usually slightly higher for PMOS)
+
+    real res_p, res_n, res_in;
+
+    analog begin
+        // 1. Main Capacitor
+        I(C_TOP, net7) <+ c_val * ddt(V(C_TOP, net7));
+
+        // 2. Resistive Paths
+        res_p  = (V(SEL_VREF_P) > v_thresh) ? r_on_vref : r_off;
+        res_n  = (V(SEL_VREF_N) > v_thresh) ? r_on_vref : r_off;
+        res_in = (V(SEL_VIN)    > v_thresh) ? r_on_sel : r_off;
+        I(net7, VREF_P) <+ V(net7, VREF_P) / res_p;
+        I(net7, VREF_N) <+ V(net7, VREF_N) / res_n;
+        I(net7, VIN)    <+ V(net7, VIN)    / res_in;
+
+        // 3. Charge Injection Modeling
+        // When SEL goes from 1.8V to 0V, ddt is negative, dumping negative charge.
+        // We model this as a displacement current: i = C * dV/dt
+        
+        // Injection from SEL_VREF_P (NMOS + PMOS complementary)
+        I(net7) <+ c_inj_n * ddt(V(SEL_VREF_P));   // NMOS part    0 to ignore for analysis
+        I(net7) <+ c_inj_p * ddt(V(VDD) - V(SEL_VREF_P)); // Approximate PMOS (SEL_N)    0 to ignore for analysis
+
+        // Injection from SEL_VREF_N (NMOS + PMOS complementary)
+        I(net7) <+ c_inj_n * ddt(V(SEL_VREF_P));   // NMOS part    0 to ignore for analysis
+        I(net7) <+ c_inj_p * ddt(V(VDD) - V(SEL_VREF_N));
+
+        // Injection from SEL_VIN (Sampling switch)
+        I(net7) <+ 0*c_inj_n * ddt(V(SEL_VIN));
+        I(net7) <+ 0*c_inj_p * ddt(V(VDD) - V(SEL_VIN));
+    end
+endmodule

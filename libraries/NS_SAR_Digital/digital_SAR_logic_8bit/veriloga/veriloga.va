@@ -12,14 +12,14 @@
 `define HIGH         1.8
 `define LOW          0.0
 
-module digital_SAR_logic_8bit(CLK, COMP, C_COMP, B0, B1, B2, B3, B4, B5, B6, B7, CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7_1, CP7_2, CNC, CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7_1, CN7_2, SP, SN, EOC);
+module digital_SAR_logic_8bit(CLK, COMP, C_COMP, B0, B1, B2, B3, B4, B5, B6, B7, CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CNC, CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7, SP, SN, EOC);
     input CLK, COMP;
     output B0, B1, B2, B3, B4, B5, B6, B7;
-    output CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7_1, CP7_2;
-    output CNC, CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7_1, CN7_2;
+    output CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7;
+    output CNC, CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7;
     output C_COMP, SP, SN, EOC;
 
-    electrical CLK, COMP, C_COMP, EOC, B0, B1, B2, B3, B4, B5, B6, B7, CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7_1, CP7_2, CNC, CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7_1, CN7_2, SP, SN;
+    electrical CLK, COMP, C_COMP, EOC, B0, B1, B2, B3, B4, B5, B6, B7, CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CNC, CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7, SP, SN;
 
     // Registers
     real regp0, regp1, regp2, regp3, regp4, regp5, regp6, regp7;
@@ -145,11 +145,11 @@ module digital_SAR_logic_8bit(CLK, COMP, C_COMP, B0, B1, B2, B3, B4, B5, B6, B7,
         V(B4) <+ transition(out4, td, tr); V(B3) <+ transition(out3, td, tr); V(B2) <+ transition(out2, td, tr); 
         V(B1) <+ transition(out1, td, tr); V(B0) <+ transition(out0, td, tr);
 
-        V(CP7_2) <+ transition(regp7, td, tr);V(CP7_1) <+ transition(regp7, td, tr); V(CP6) <+ transition(regp6, td, tr); 
+        V(CP7) <+ transition(regp7, td, tr);V(CP7) <+ transition(regp7, td, tr); V(CP6) <+ transition(regp6, td, tr); 
 		V(CP5) <+ transition(regp5, td, tr);V(CP4) <+ transition(regp4, td, tr); V(CP3) <+ transition(regp3, td, tr);
 		V(CP2) <+ transition(regp2, td, tr); V(CP1) <+ transition(regp1, td, tr); V(CP0) <+ transition(regp0, td, tr);
 
-        V(CN7_2) <+ transition(regn7, td, tr);V(CN7_1) <+ transition(regn7, td, tr); V(CN6) <+ transition(regn6, td, tr); 
+        V(CN7) <+ transition(regn7, td, tr);V(CN7) <+ transition(regn7, td, tr); V(CN6) <+ transition(regn6, td, tr); 
 		V(CN5) <+ transition(regn5, td, tr); V(CN4) <+ transition(regn4, td, tr); V(CN3) <+ transition(regn3, td, tr); 
 		V(CN2) <+ transition(regn2, td, tr); V(CN1) <+ transition(regn1, td, tr); V(CN0) <+ transition(regn0, td, tr);
 

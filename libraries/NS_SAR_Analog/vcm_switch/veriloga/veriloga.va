@@ -11,7 +11,7 @@ module vcm_switch(A, B, SAMPLE, SAMPLE_N, VDD, VSS);
     parameter real ron = 1000;
     parameter real roff = 1000M;
     parameter real vth = 0.5;
-    parameter real i_limit = 0.1m; // 0.1mA Limit
+    parameter real i_limit = 10m; // 0.1mA Limit
 
     real g_inst;
     real i_ideal;

@@ -16,8 +16,8 @@ module unit_capacitor_charge_inj (C_TOP, SEL_VREF_P,SEL_VREF_P_N , SEL_VREF_N, S
     
     // Charge Injection Parameters (Simplified)
     // C_ov represents the overlap capacitance + half of channel capacitance
-    parameter real c_inj_n = 0.5f; // fF
-    parameter real c_inj_p = 0.65f; // fF (Usually slightly higher for PMOS)
+    parameter real c_inj_n = 0 ;//0.5f; // fF
+    parameter real c_inj_p = 0 ;//0.65f; // fF (Usually slightly higher for PMOS)
 
     real res_p, res_n, res_in;
 

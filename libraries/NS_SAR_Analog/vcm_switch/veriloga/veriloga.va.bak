@@ -3,12 +3,12 @@
 
 module vcm_switch(A, B, SAMPLE, SAMPLE_N, VDD, VSS);
     inout A, B;
-    input SW, SW_N;
+    input SAMPLE, SAMPLE_N;
     input VDD, VSS;
 
-    electrical A, B, SW, SW_N, VDD, VSS;
+    electrical A, B, SAMPLE, SAMPLE_N, VDD, VSS;
 
-    parameter real ron = 10;
+    parameter real ron = 1000;
     parameter real roff = 1000M;
     parameter real vth = 0.5;
     parameter real i_limit = 0.1m; // 0.1mA Limit
@@ -18,7 +18,7 @@ module vcm_switch(A, B, SAMPLE, SAMPLE_N, VDD, VSS);
 
     analog begin
         // 1. Determine Conductance
-        if (V(SW, VSS) > vth) begin
+        if (V(SAMPLE, VSS) > vth) begin
             g_inst = 1.0 / ron;
         end else begin
             g_inst = 1.0 / roff;

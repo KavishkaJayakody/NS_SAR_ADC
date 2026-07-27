@@ -1,0 +1,36 @@
+
+
+***********************************************************
+* CDL produced by pvsBuildNetlist on Jul 15 21:54:35 2026 *
+***********************************************************
+
+
+*pvsViewList = auCdl schematic
+*pvsStopList = ("auCdl")
+*pvsSimName  = auCdl
+
+
+
+*.EXPAND_ON_M_FACTOR
+*.MEGA
+
+
+
+.subckt unit_capacitor SEL_VIN SEL_VIN_N SEL_VREF_N SEL_VREF_N_N SEL_VREF_P
++  SEL_VREF_P_N VDD VIN VREF_N VREF_P VSS top_plate
+*PVSCELL netlisted from NS_SAR_Analog unit_capacitor schematic
+  CC0 top_plate bottom_plate cap_mim_m3__base l=4u w=4u m=1
+  MNM0 VIN SEL_VIN bottom_plate VSS nfet_01v8 M=1 L=150n W=1.5u
+  MNM1 bottom_plate SEL_VIN_N bottom_plate VSS nfet_01v8 M=1 L=150n W=1.5u
+  MNM2 bottom_plate SEL_VREF_P VREF_P VSS nfet_01v8 M=1 L=150n W=1.5u
+  MNM3 bottom_plate SEL_VREF_N VREF_N VSS nfet_01v8 M=1 L=150n W=1.5u
+  MPM0 bottom_plate SEL_VIN_N VIN VDD pfet_01v8 M=1 L=150n W=1.5u
+  MPM1 bottom_plate SEL_VIN bottom_plate VDD pfet_01v8 M=1 L=150n W=1.5u
+  MPM2 VREF_P SEL_VREF_P_N bottom_plate VDD pfet_01v8 M=1 L=150n W=1.5u
+  MPM3 VREF_N SEL_VREF_N_N bottom_plate VDD pfet_01v8 M=1 L=150n W=1.5u
+.ends unit_capacitor
+
+
+***********************************************************
+*             Completed at Jul 15 21:54:35 2026           *
+***********************************************************
