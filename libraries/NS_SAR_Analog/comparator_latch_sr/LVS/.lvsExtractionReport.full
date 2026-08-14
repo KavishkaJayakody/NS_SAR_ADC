@@ -1,0 +1,53 @@
+			*****************************************************
+			**                                                 **
+			**                L V S  R E P O R T               **
+			**                                                 **
+			*****************************************************
+
+
+Report File Name         : comparator_preamp.rep
+ERC Summary File         : comparator_preamp.sum
+LVS Comparison Report    : comparator_preamp.rep.cls
+Layout Name              : /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_sr/LVS/comparator_preamp.gds ("comparator_preamp")
+User Name                : user22
+Creation Time            : Mon Aug 10 01:56:40 2026
+Current directory        : /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_sr/LVS
+PVS Version              : 16.10-p006 Thu Jul 27 18:05:02 PDT 2017
+
+
+			*****************************************************
+			**                                                 **
+			**            D E V E X T  R E P O R T             **
+			**                                                 **
+			*****************************************************
+
+
+
+Clean cell list (added by extraction report parser )
+ for cell "M1M2_C$$1"
+ for cell "M1M2_C$$11"
+ for cell "M1M2_C$$2"
+ for cell "M1M2_C$$3"
+ for cell "M1M2_C$$4"
+ for cell "M1M2_C$$5"
+ for cell "M1M2_C$$9"
+ for cell "comparator_preamp"
+ for cell "nfet_01v8$$13"
+ for cell "nfet_01v8$$14"
+ for cell "nfet_01v8$$15"
+ for cell "nfet_01v8$$18"
+ for cell "nfet_01v8$$19"
+ for cell "nfet_01v8$$20"
+ for cell "nfet_01v8$$23"
+ for cell "nfet_01v8$$24"
+ for cell "nfet_01v8$$25"
+ for cell "nfet_01v8$$27"
+ for cell "pfet_01v8$$17"
+ for cell "pfet_01v8_lvt$$12"
+ for cell "pfet_01v8_lvt$$16"
+ for cell "pfet_01v8_lvt$$21"
+ for cell "pfet_01v8_lvt$$22"
+ for cell "pfet_01v8_lvt$$26"
+ for cell "polyConn$$6"
+ for cell "polyConn$$7"
+ for cell "polyConn$$8"

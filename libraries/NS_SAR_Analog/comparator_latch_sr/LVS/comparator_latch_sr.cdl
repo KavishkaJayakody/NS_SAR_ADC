@@ -1,0 +1,41 @@
+
+
+***********************************************************
+* CDL produced by pvsBuildNetlist on Aug 10 06:41:40 2026 *
+***********************************************************
+
+
+*pvsViewList = auCdl schematic
+*pvsStopList = ("auCdl")
+*pvsSimName  = auCdl
+
+
+
+*.EXPAND_ON_M_FACTOR
+*.MEGA
+
+
+
+.subckt INVX1_UPD A VDD VSS Y
+*PVSCELL netlisted from NS_SAR_Digital INVX1_UPD schematic
+  Mmn0 Y A VSS VSS nfet_01v8 M=1 L=150n W=760n
+  Mmp0 Y A VDD VDD pfet_01v8 M=1 L=150n W=1.13u
+.ends INVX1_UPD
+
+
+.subckt comparator_latch_sr IN1 IN2 OUT1 OUT2 VDD VSS
+*PVSCELL netlisted from NS_SAR_Analog comparator_latch_sr schematic
+  XI0 INVX1_UPD $PINS A=A_OUT1 VDD=VDD VSS=VSS Y=OUT1
+  XI1 INVX1_UPD $PINS A=A_OUT2 VDD=VDD VSS=VSS Y=OUT2
+  XI2 INVX1_UPD $PINS A=IN1 VDD=VDD VSS=VSS Y=IN1_N
+  XI3 INVX1_UPD $PINS A=IN2 VDD=VDD VSS=VSS Y=IN2_N
+  MNM0 A_OUT1 IN1_N VSS VSS nfet_01v8 M=1 L=150n W=760n
+  MNM4 A_OUT2 IN2_N VSS VSS nfet_01v8 M=1 L=150n W=760n
+  MPM0 A_OUT2 A_OUT1 VDD VDD pfet_01v8 M=1 L=150n W=1.13u
+  MPM2 A_OUT1 A_OUT2 VDD VDD pfet_01v8 M=1 L=150n W=1.13u
+.ends comparator_latch_sr
+
+
+***********************************************************
+*             Completed at Aug 10 06:41:40 2026           *
+***********************************************************

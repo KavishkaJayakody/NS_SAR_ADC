@@ -1,0 +1,13 @@
+comparator_latch_armstrong 1000
+CDRW.m4.global.min:L263160
+1 1 1 Jul 19 17:40:41 2026
+DENSITY m4_layers -lt 0.330000 -inside_of layer fill_extent_not_SEALID -rdb m4_global_low.rdb CDRW.m4.global.min:L263160
+p 1 4
+DV 0
+DA 379.185
+DA m4_layers 0
+-11760 -14865
+13740 -14865
+13740 5
+-11760 5
+

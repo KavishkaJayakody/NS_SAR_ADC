@@ -1,0 +1,48 @@
+
+
+***********************************************************
+* CDL produced by pvsBuildNetlist on Aug 10 01:56:39 2026 *
+***********************************************************
+
+
+*pvsViewList = auCdl schematic
+*pvsStopList = ("auCdl")
+*pvsSimName  = auCdl
+
+
+
+*.EXPAND_ON_M_FACTOR
+*.MEGA
+
+
+
+.subckt comparator_preamp EN EN_N IBIAS OUT_N OUT_P VDD VN VP VSS
+*PVSCELL netlisted from NS_SAR_Analog comparator_preamp schematic
+  MNM0 net011 N_BIAS VSS VSS nfet_01v8 M=14 L=1u W=1u
+  MNM1 OUT_P VP net011 VSS nfet_01v8 M=2 L=1u W=1.5u
+  MNM10 VSS VSS VSS VSS nfet_01v8 M=4 L=500n W=1u
+  MNM18 VSS VSS VSS VSS nfet_01v8 M=4 L=500n W=1.5u
+  MNM2 OUT_N VN net011 VSS nfet_01v8 M=2 L=1u W=1.5u
+  MNM23 VSS VSS VSS VSS nfet_01v8 M=4 L=500n W=750n
+  MNM24 VSS VSS VSS VSS nfet_01v8 M=4 L=1u W=750n
+  MNM25 N_BIAS EN_N VSS VSS nfet_01v8 M=1 L=1u W=1u
+  MNM3 N_BIAS N_BIAS VSS VSS nfet_01v8 M=4 L=1u W=1u
+  MNM4 P_BIAS N_BIAS VSS VSS nfet_01v8 M=4 L=1u W=1u
+  MNM5 IBIAS EN N_BIAS VSS nfet_01v8 M=3 L=1u W=1u
+  MNM6 OUT_P EN_N OUT_N VSS nfet_01v8 M=1 L=150n W=420n
+  MPM3 OUT_N EN OUT_P VDD pfet_01v8 M=1 L=150n W=550n
+  MPM0 P_BIAS P_BIAS VDD VDD pfet_01v8_lvt M=4 L=1u W=1.5u
+  MPM1 OUT_N P_BIAS VDD VDD pfet_01v8_lvt M=6 L=1u W=1.5u
+  MPM12 VDD VDD VDD VDD pfet_01v8_lvt M=4 L=500n W=1.5u
+  MPM13 VDD VDD VDD VDD pfet_01v8_lvt M=4 L=500n W=1.5u
+  MPM14 VDD VDD VDD VDD pfet_01v8_lvt M=4 L=1u W=750n
+  MPM15 VDD VDD VDD VDD pfet_01v8_lvt M=4 L=500n W=750n
+  MPM2 OUT_P P_BIAS VDD VDD pfet_01v8_lvt M=6 L=1u W=1.5u
+  MPM_C1 net011 OUT_P VDD VDD pfet_01v8_lvt M=2 L=1u W=1.5u
+  MPM_C2 net011 OUT_N VDD VDD pfet_01v8_lvt M=2 L=1u W=1.5u
+.ends comparator_preamp
+
+
+***********************************************************
+*             Completed at Aug 10 01:56:40 2026           *
+***********************************************************

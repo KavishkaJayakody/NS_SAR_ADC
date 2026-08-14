@@ -1,0 +1,441 @@
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* CDL Netlist:                                          *
+*                                                       *
+* Cell Name  : comparator_preamp                        *
+* Netlisted  : Mon Aug 10 01:56:40 2026                 *
+* PVS Version: 16.10-p006 Thu Jul 27 18:05:02 PDT 2017 *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+*.LDD
+*.DEVTMPLT 0 R(res_generic_m1) met1_res met1(P) met1(N)
+*.DEVTMPLT 1 R(res_generic_m2) met2_res met2(P) met2(N)
+*.DEVTMPLT 2 R(res_generic_m3) met3_res met3(P) met3(N)
+*.DEVTMPLT 3 R(res_generic_m4) met4_res met4(P) met4(N)
+*.DEVTMPLT 4 R(res_generic_m5) met5_res met5(P) met5(N)
+*.DEVTMPLT 5 D(diode_pd2nw_05v5) diode_pd2nw_05v5_rec psd(PLUS) nwell(MINUS)
+*.DEVTMPLT 6 D(diode_pd2nw_05v5_hvt) diode_pd2nw_05v5_hvt_rec psd(PLUS) nwell(MINUS)
+*.DEVTMPLT 7 D(diode_pd2nw_05v5_lvt) diode_pd2nw_05v5_lvt_rec psd(PLUS) nwell(MINUS)
+*.DEVTMPLT 8 D(diode_pd2nw_11v0) diode_pd2nw_11v0_rec psd(PLUS) nwell(MINUS)
+*.DEVTMPLT 9 D(diode_pw2nd_05v5) diode_pw2nd_05v5_rec pwell_all(PLUS) nsd(MINUS)
+*.DEVTMPLT 10 D(diode_pw2nd_05v5_lvt) diode_pw2nd_05v5_lvt_rec pwell_all(PLUS) nsd(MINUS)
+*.DEVTMPLT 11 D(diode_pw2nd_05v5_nvt) diode_pw2nd_05v5_nvt_rec pwell_all(PLUS) nsd(MINUS)
+*.DEVTMPLT 12 D(diode_pw2nd_11v0) diode_pw2nd_11v0_rec pwell_all(PLUS) nsd(MINUS)
+*.DEVTMPLT 0 R(RES_GENERIC_ND) diff_res np_term(P) np_term(N)
+*.DEVTMPLT 1 R(RES_GENERIC_PD) diff_res pp_term(P) pp_term(N)
+*.DEVTMPLT 15 MN(nfet_01v8) nfet_01v8_rec nSourceDrain(D) nfet(G) nSourceDrain(S) pwell_all(B)
+*.DEVTMPLT 16 MP(pfet_01v8) pfet_01v8_rec pSourceDrain(D) pfet(G) pSourceDrain(S) nwell(B)
+*.DEVTMPLT 17 MP(pfet_01v8_lvt) lvtpfet_01v8_rec pSourceDrain(D) lvtpfet(G) pSourceDrain(S) nwell(B)
+*.DEVTMPLT 18 MN(nfet_01v8_lvt) lvtnfet_01v8_rec nSourceDrain(D) lvtnfet(G) nSourceDrain(S) pwell_all(B)
+*.DEVTMPLT 19 MP(pfet_01v8_hvt) hvtpfet_01v8_rec pSourceDrain(D) hvtpfet(G) pSourceDrain(S) nwell(B)
+*.DEVTMPLT 20 MN(nfet_03v3_nvt) HV_ngate_3v3 HV_source_drain(D) HV_FET_gate(G) HV_source_drain(S) pwell_all(B)
+*.DEVTMPLT 21 MN(nfet_05v0_nvt) HV_ngate_5v0 HV_source_drain(D) HV_FET_gate(G) HV_source_drain(S) pwell_all(B)
+*.DEVTMPLT 22 MN(nfet_g5v0d10v5) HV_ngate_5v10v HV_source_drain(D) HV_FET_gate(G) HV_source_drain(S) pwell_all(B)
+*.DEVTMPLT 23 MP(pfet_g5v0d10v5) HV_pgate_5v10v HV_source_drain(D) HV_FET_gate(G) HV_source_drain(S) nwell(B)
+*.DEVTMPLT 24 MN(nfet_20v0) nfet_v20_rec nfet_v20_drain(D) nfet_v20_gate(G) nfet_v20_source(S) pwell_all(B)
+*.DEVTMPLT 25 MN(nfet_20v0_zvt) nfet_v20_zvt_rec nfet_v20_drain(D) nfet_v20_gate(G) nfet_v20_source(S) pwell_all(B)
+*.DEVTMPLT 26 MP(pfet_20v0) pfet_v20_rec pfet_v20_drain(D) pfet_v20_gate(G) pfet_v20_source(S) nwell(B)
+*.DEVTMPLT 27 Q(npn_05v5) npn_rec npnC(C) npnB(B) npnE(E) pwell_all(BN)
+*.DEVTMPLT 28 Q(npn_11v0) hvnpn_rec npnC(C) npnB(B) hvnpnE(E) pwell_all(BN)
+*.DEVTMPLT 29 Q(pnp_05v5) pnp_rec pnpC(C) pnpB(B) pnpE(E) pwell_all(BN)
+*.DEVTMPLT 30 R(res_high_po_0p35) res_high_po_0p35_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 31 R(res_high_po_0p69) res_high_po_0p69_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 32 R(res_high_po_1p41) res_high_po_1p41_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 33 R(res_high_po_2p85) res_high_po_2p85_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 34 R(res_high_po_5p73) res_high_po_5p73_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 35 R(res_xhigh_po_0p35) res_xhigh_po_0p35_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 36 R(res_xhigh_po_0p69) res_xhigh_po_0p69_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 37 R(res_xhigh_po_1p41) res_xhigh_po_1p41_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 38 R(res_xhigh_po_2p85) res_xhigh_po_2p85_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 39 R(res_xhigh_po_5p73) res_xhigh_po_5p73_rec prec_resistor_term(PLUS) prec_resistor_term(MINUS) pwell_all(B)
+*.DEVTMPLT 40 C(cap_mim_m3__base) capacitor top_plate(PLUS) bottom_plate(MINUS)
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: M1M2_C$$1                                   *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt M1M2_C$$1 1
+** N=1 EP=1 FDC=0
+.ends M1M2_C$$1
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: M1M2_C$$2                                   *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt M1M2_C$$2 1
+** N=1 EP=1 FDC=0
+.ends M1M2_C$$2
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: M1M2_C$$3                                   *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt M1M2_C$$3 1
+** N=1 EP=1 FDC=0
+.ends M1M2_C$$3
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: M1M2_C$$4                                   *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt M1M2_C$$4 1
+** N=1 EP=1 FDC=0
+.ends M1M2_C$$4
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: M1M2_C$$5                                   *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt M1M2_C$$5 1
+** N=1 EP=1 FDC=0
+.ends M1M2_C$$5
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: polyConn$$6                                 *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt polyConn$$6 1
+** N=2 EP=1 FDC=0
+.ends polyConn$$6
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: polyConn$$7                                 *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt polyConn$$7 1
+** N=2 EP=1 FDC=0
+.ends polyConn$$7
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: polyConn$$8                                 *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt polyConn$$8 1 2
+** N=4 EP=2 FDC=0
+.ends polyConn$$8
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: M1M2_C$$9                                   *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt M1M2_C$$9 1
+** N=1 EP=1 FDC=0
+.ends M1M2_C$$9
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: M1M2_C$$11                                  *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt M1M2_C$$11 1
+** N=1 EP=1 FDC=0
+.ends M1M2_C$$11
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: pfet_01v8_lvt$$12                           *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt pfet_01v8_lvt$$12 1 2 3 4
+** N=14 EP=4 FDC=1
+M0 3 1 2 2 pfet_01v8_lvt L=1e-06 W=1.5e-06 $X=0 $Y=0 $dt=17
+.ends pfet_01v8_lvt$$12
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$13                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$13 1 2 3 4
+** N=10 EP=4 FDC=1
+M0 3 1 2 4 nfet_01v8 L=1e-06 W=1e-06 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$13
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$14                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$14 1 2 3 4
+** N=6 EP=4 FDC=1
+M0 3 1 2 4 nfet_01v8 L=1.5e-07 W=4.2e-07 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$14
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$15                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$15 1
+** N=9 EP=1 FDC=1
+M0 1 1 1 1 nfet_01v8 L=5e-07 W=1.5e-06 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$15
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: pfet_01v8_lvt$$16                           *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt pfet_01v8_lvt$$16 1 2
+** N=10 EP=2 FDC=1
+M0 1 1 1 1 pfet_01v8_lvt L=5e-07 W=1.5e-06 $X=0 $Y=0 $dt=17
+.ends pfet_01v8_lvt$$16
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: pfet_01v8$$17                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt pfet_01v8$$17 1 2 3 4 5
+** N=7 EP=5 FDC=1
+M0 3 1 2 5 pfet_01v8 L=1.5e-07 W=5.5e-07 $X=0 $Y=0 $dt=16
+.ends pfet_01v8$$17
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$18                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$18 1 2 3 4
+** N=12 EP=4 FDC=1
+M0 3 1 2 4 nfet_01v8 L=1e-06 W=1.5e-06 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$18
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$19                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$19 1 2 3 4
+** N=14 EP=4 FDC=1
+M0 3 1 2 4 nfet_01v8 L=1e-06 W=1.5e-06 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$19
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$20                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$20 1
+** N=5 EP=1 FDC=1
+M0 1 1 1 1 nfet_01v8 L=1e-06 W=7.5e-07 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$20
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: pfet_01v8_lvt$$21                           *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt pfet_01v8_lvt$$21 1 2 3 4
+** N=12 EP=4 FDC=1
+M0 3 1 2 2 pfet_01v8_lvt L=1e-06 W=1.5e-06 $X=0 $Y=0 $dt=17
+.ends pfet_01v8_lvt$$21
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: pfet_01v8_lvt$$22                           *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt pfet_01v8_lvt$$22 1 2
+** N=6 EP=2 FDC=1
+M0 1 1 1 1 pfet_01v8_lvt L=5e-07 W=7.5e-07 $X=0 $Y=0 $dt=17
+.ends pfet_01v8_lvt$$22
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$23                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$23 1
+** N=5 EP=1 FDC=1
+M0 1 1 1 1 nfet_01v8 L=5e-07 W=7.5e-07 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$23
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$24                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$24 1 2 3 4
+** N=8 EP=4 FDC=1
+M0 3 1 2 4 nfet_01v8 L=1e-06 W=1e-06 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$24
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$25                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$25 1 2 3
+** N=7 EP=3 FDC=1
+M0 3 1 2 2 nfet_01v8 L=1e-06 W=1e-06 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$25
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: pfet_01v8_lvt$$26                           *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt pfet_01v8_lvt$$26 1 2
+** N=6 EP=2 FDC=1
+M0 1 1 1 1 pfet_01v8_lvt L=1e-06 W=7.5e-07 $X=0 $Y=0 $dt=17
+.ends pfet_01v8_lvt$$26
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: nfet_01v8$$27                               *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt nfet_01v8$$27 1
+** N=5 EP=1 FDC=1
+M0 1 1 1 1 nfet_01v8 L=5e-07 W=1e-06 $X=0 $Y=0 $dt=15
+.ends nfet_01v8$$27
+
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+* Sub cell: comparator_preamp                           *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++ *
+.subckt comparator_preamp EN EN_N IBIAS OUT_N OUT_P VDD VN VP VSS
+** N=576 EP=9 FDC=84
+X0 OUT_P M1M2_C$$1 $T=3335 12145 0 0 $X=3045 $Y=11985
+X1 2 M1M2_C$$1 $T=3335 18060 0 0 $X=3045 $Y=17900
+X2 OUT_N M1M2_C$$1 $T=5605 12955 0 0 $X=5315 $Y=12795
+X3 2 M1M2_C$$1 $T=5605 18060 0 0 $X=5315 $Y=17900
+X4 2 M1M2_C$$1 $T=7875 18060 0 0 $X=7585 $Y=17900
+X5 2 M1M2_C$$1 $T=10145 18060 0 0 $X=9855 $Y=17900
+X6 2 M1M2_C$$1 $T=11280 18060 0 0 $X=10990 $Y=17900
+X7 2 M1M2_C$$1 $T=12415 18060 0 0 $X=12125 $Y=17900
+X8 2 M1M2_C$$1 $T=14685 18060 0 0 $X=14395 $Y=17900
+X9 2 M1M2_C$$1 $T=16955 18060 0 0 $X=16665 $Y=17900
+X10 2 M1M2_C$$1 $T=19225 18060 0 0 $X=18935 $Y=17900
+X11 4 M1M2_C$$1 $T=21495 7770 0 0 $X=21205 $Y=7610
+X12 2 M1M2_C$$1 $T=22785 13765 0 270 $X=22625 $Y=13475
+X13 OUT_N M1M2_C$$1 $T=23215 12950 0 270 $X=23055 $Y=12660
+X14 4 M1M2_C$$1 $T=23685 7770 0 0 $X=23395 $Y=7610
+X15 OUT_P M1M2_C$$1 $T=23645 12140 0 90 $X=23485 $Y=11850
+X16 4 M1M2_C$$1 $T=25875 7770 0 0 $X=25585 $Y=7610
+X17 4 M1M2_C$$1 $T=28065 7770 0 0 $X=27775 $Y=7610
+X18 4 M1M2_C$$1 $T=30255 7770 0 0 $X=29965 $Y=7610
+X19 4 M1M2_C$$1 $T=32445 7770 0 0 $X=32155 $Y=7610
+X20 4 M1M2_C$$1 $T=34635 7770 0 0 $X=34345 $Y=7610
+X21 4 M1M2_C$$1 $T=36825 7770 0 0 $X=36535 $Y=7610
+X22 4 M1M2_C$$1 $T=39025 7770 0 0 $X=38735 $Y=7610
+X23 4 M1M2_C$$1 $T=41205 7770 0 0 $X=40915 $Y=7610
+X24 4 M1M2_C$$1 $T=43395 7770 0 0 $X=43105 $Y=7610
+X25 EN_N M1M2_C$$1 $T=49465 9415 0 0 $X=49175 $Y=9255
+X26 OUT_N M1M2_C$$2 $T=11875 9775 1 0 $X=11715 $Y=9615
+X27 OUT_P M1M2_C$$2 $T=15345 12145 1 0 $X=15185 $Y=11985
+X28 OUT_P M1M2_C$$3 $T=3975 15830 0 0 $X=3815 $Y=15670
+X29 OUT_N M1M2_C$$3 $T=3975 20290 0 0 $X=3815 $Y=20130
+X30 OUT_N M1M2_C$$3 $T=6245 15370 0 0 $X=6085 $Y=15210
+X31 OUT_P M1M2_C$$3 $T=6245 20750 0 0 $X=6085 $Y=20590
+X32 OUT_P M1M2_C$$3 $T=8515 15830 0 0 $X=8355 $Y=15670
+X33 OUT_N M1M2_C$$3 $T=8515 20290 0 0 $X=8355 $Y=20130
+X34 OUT_N M1M2_C$$3 $T=14045 15370 0 0 $X=13885 $Y=15210
+X35 OUT_P M1M2_C$$3 $T=14045 20750 0 0 $X=13885 $Y=20590
+X36 OUT_N M1M2_C$$3 $T=15800 12955 1 90 $X=15640 $Y=12795
+X37 OUT_P M1M2_C$$3 $T=16315 15830 0 0 $X=16155 $Y=15670
+X38 OUT_N M1M2_C$$3 $T=16315 20290 0 0 $X=16155 $Y=20130
+X39 OUT_N M1M2_C$$3 $T=18585 15370 0 0 $X=18425 $Y=15210
+X40 OUT_P M1M2_C$$3 $T=18585 20750 0 0 $X=18425 $Y=20590
+X41 6 M1M2_C$$4 $T=4470 6595 0 0 $X=4340 $Y=6275
+X42 VP M1M2_C$$4 $T=12515 6125 0 90 $X=12195 $Y=5995
+X43 6 M1M2_C$$4 $T=13610 6595 0 0 $X=13480 $Y=6275
+X44 VN M1M2_C$$4 $T=14705 6125 0 90 $X=14385 $Y=5995
+X45 6 M1M2_C$$4 $T=18100 6785 0 0 $X=17970 $Y=6465
+X46 6 M1M2_C$$4 $T=18100 9265 0 0 $X=17970 $Y=8945
+X47 2 M1M2_C$$4 $T=18100 10100 0 0 $X=17970 $Y=9780
+X48 2 M1M2_C$$4 $T=18100 13765 0 0 $X=17970 $Y=13445
+X49 OUT_P M1M2_C$$5 $T=11420 12145 1 0 $X=11290 $Y=11985
+X50 OUT_N M1M2_C$$5 $T=15800 9775 1 0 $X=15670 $Y=9615
+X51 OUT_N M1M2_C$$5 $T=19400 12955 0 0 $X=19270 $Y=12795
+X52 OUT_P M1M2_C$$5 $T=19830 12145 0 0 $X=19700 $Y=11985
+X53 4 M1M2_C$$5 $T=27425 7770 0 0 $X=27295 $Y=7610
+X54 4 M1M2_C$$5 $T=37465 7765 0 0 $X=37335 $Y=7605
+X55 VDD polyConn$$6 $T=1315 9775 0 0 $X=1130 $Y=9590
+X56 VDD polyConn$$6 $T=1315 18060 0 0 $X=1130 $Y=17875
+X57 VDD polyConn$$6 $T=7625 9775 0 0 $X=7440 $Y=9590
+X58 VSS polyConn$$6 $T=10575 9775 1 0 $X=10390 $Y=9590
+X59 VSS polyConn$$6 $T=16645 9775 1 0 $X=16460 $Y=9590
+X60 VSS polyConn$$6 $T=19555 7775 0 0 $X=19370 $Y=7590
+X61 EN_N polyConn$$6 $T=19615 11495 0 0 $X=19430 $Y=11310
+X62 EN polyConn$$6 $T=20290 13345 0 0 $X=20105 $Y=13160
+X63 VDD polyConn$$6 $T=21250 18060 0 0 $X=21065 $Y=17875
+X64 VSS polyConn$$6 $T=45335 7775 0 0 $X=45150 $Y=7590
+X65 2 polyConn$$7 $T=3335 18060 0 0 $X=3045 $Y=17875
+X66 2 polyConn$$7 $T=5605 18060 0 0 $X=5315 $Y=17875
+X67 2 polyConn$$7 $T=7875 18060 0 0 $X=7585 $Y=17875
+X68 2 polyConn$$7 $T=10145 18060 0 0 $X=9855 $Y=17875
+X69 2 polyConn$$7 $T=12415 18060 0 0 $X=12125 $Y=17875
+X70 2 polyConn$$7 $T=14685 18060 0 0 $X=14395 $Y=17875
+X71 2 polyConn$$7 $T=16955 18060 0 0 $X=16665 $Y=17875
+X72 2 polyConn$$7 $T=19225 18060 0 0 $X=18935 $Y=17875
+X73 4 polyConn$$7 $T=21495 7770 0 0 $X=21205 $Y=7585
+X74 4 polyConn$$7 $T=23685 7770 0 0 $X=23395 $Y=7585
+X75 4 polyConn$$7 $T=25875 7770 0 0 $X=25585 $Y=7585
+X76 4 polyConn$$7 $T=28065 7770 0 0 $X=27775 $Y=7585
+X77 4 polyConn$$7 $T=30255 7770 0 0 $X=29965 $Y=7585
+X78 4 polyConn$$7 $T=32445 7770 0 0 $X=32155 $Y=7585
+X79 4 polyConn$$7 $T=34635 7770 0 0 $X=34345 $Y=7585
+X80 4 polyConn$$7 $T=36825 7770 0 0 $X=36535 $Y=7585
+X81 4 polyConn$$7 $T=39025 7770 0 0 $X=38735 $Y=7585
+X82 4 polyConn$$7 $T=41205 7770 0 0 $X=40915 $Y=7585
+X83 4 polyConn$$7 $T=43395 7770 0 0 $X=43105 $Y=7585
+X84 EN_N VSS polyConn$$8 $T=49465 9415 0 0 $X=49100 $Y=9230
+X85 6 M1M2_C$$9 $T=22135 9450 0 0 $X=21815 $Y=9290
+X86 2 M1M2_C$$9 $T=22785 18060 0 90 $X=22625 $Y=17740
+X87 2 M1M2_C$$9 $T=23045 9915 0 0 $X=22725 $Y=9755
+X88 OUT_N M1M2_C$$9 $T=23215 15180 0 90 $X=23055 $Y=14860
+X89 OUT_N M1M2_C$$9 $T=23215 20100 0 90 $X=23055 $Y=19780
+X90 OUT_P M1M2_C$$9 $T=23645 15990 0 90 $X=23485 $Y=15670
+X91 OUT_P M1M2_C$$9 $T=23650 20910 0 90 $X=23490 $Y=20590
+X92 6 M1M2_C$$9 $T=26515 9450 0 0 $X=26195 $Y=9290
+X93 6 M1M2_C$$9 $T=30895 9450 0 0 $X=30575 $Y=9290
+X94 6 M1M2_C$$9 $T=33995 9450 0 0 $X=33675 $Y=9290
+X95 6 M1M2_C$$9 $T=38375 9450 0 0 $X=38055 $Y=9290
+X96 2 M1M2_C$$9 $T=41845 9915 0 0 $X=41525 $Y=9755
+X97 6 M1M2_C$$9 $T=42755 9450 0 0 $X=42435 $Y=9290
+X98 IBIAS M1M2_C$$9 $T=46635 6050 0 0 $X=46315 $Y=5890
+X99 EN M1M2_C$$9 $T=47275 9915 0 0 $X=46955 $Y=9755
+X100 IBIAS M1M2_C$$9 $T=50105 6050 0 0 $X=49785 $Y=5890
+X101 EN_N M1M2_C$$11 $T=51735 9415 0 0 $X=51575 $Y=9270
+X102 EN M1M2_C$$11 $T=52230 9915 0 0 $X=52070 $Y=9770
+X103 OUT_P VDD 6 VSS pfet_01v8_lvt$$12 $T=2835 10210 0 0 $X=2390 $Y=10030
+X104 OUT_N VDD 6 VSS pfet_01v8_lvt$$12 $T=6105 10210 1 180 $X=4660 $Y=10030
+X105 EN 4 IBIAS VSS nfet_01v8$$13 $T=47775 8095 1 180 $X=46370 $Y=7945
+X106 EN_N OUT_N OUT_P VSS nfet_01v8$$14 $T=19540 11870 0 0 $X=19135 $Y=11720
+X107 VSS nfet_01v8$$15 $T=10325 9340 1 0 $X=9920 $Y=7690
+X108 VSS nfet_01v8$$15 $T=10325 11710 1 0 $X=9920 $Y=10060
+X109 VSS nfet_01v8$$15 $T=16395 9340 1 0 $X=15990 $Y=7690
+X110 VSS nfet_01v8$$15 $T=16395 11710 1 0 $X=15990 $Y=10060
+X111 VDD VSS pfet_01v8_lvt$$16 $T=1065 7840 0 0 $X=620 $Y=7660
+X112 VDD VSS pfet_01v8_lvt$$16 $T=1065 10210 0 0 $X=620 $Y=10030
+X113 VDD VSS pfet_01v8_lvt$$16 $T=1065 16190 0 0 $X=620 $Y=16010
+X114 VDD VSS pfet_01v8_lvt$$16 $T=1065 18430 0 0 $X=620 $Y=18250
+X115 VDD VSS pfet_01v8_lvt$$16 $T=7375 7840 0 0 $X=6930 $Y=7660
+X116 VDD VSS pfet_01v8_lvt$$16 $T=7375 10210 0 0 $X=6930 $Y=10030
+X117 VDD VSS pfet_01v8_lvt$$16 $T=20995 16190 0 0 $X=20550 $Y=16010
+X118 VDD VSS pfet_01v8_lvt$$16 $T=20995 18430 0 0 $X=20550 $Y=18250
+X119 EN OUT_P OUT_N VSS VDD pfet_01v8$$17 $T=19690 12810 1 180 $X=19095 $Y=12630
+X120 VN 6 OUT_N VSS nfet_01v8$$18 $T=13015 11710 0 180 $X=11610 $Y=10060
+X121 VP 6 OUT_P VSS nfet_01v8$$18 $T=14205 11710 1 0 $X=13800 $Y=10060
+X122 VP 6 OUT_P VSS nfet_01v8$$19 $T=13015 9340 0 180 $X=11610 $Y=7330
+X123 VN 6 OUT_N VSS nfet_01v8$$19 $T=14205 9340 1 0 $X=13800 $Y=7330
+X124 VSS nfet_01v8$$20 $T=12015 6970 1 0 $X=11610 $Y=6070
+X125 VSS nfet_01v8$$20 $T=12015 13330 1 0 $X=11610 $Y=12430
+X126 VSS nfet_01v8$$20 $T=14205 6970 1 0 $X=13800 $Y=6070
+X127 VSS nfet_01v8$$20 $T=14205 13330 1 0 $X=13800 $Y=12430
+X128 OUT_N VDD 6 VSS pfet_01v8_lvt$$21 $T=2835 7840 0 0 $X=2390 $Y=7660
+X129 2 VDD OUT_P VSS pfet_01v8_lvt$$21 $T=2835 16190 0 0 $X=2390 $Y=16010
+X130 2 VDD OUT_N VSS pfet_01v8_lvt$$21 $T=2835 18430 0 0 $X=2390 $Y=18250
+X131 OUT_P VDD 6 VSS pfet_01v8_lvt$$21 $T=6105 7840 1 180 $X=4660 $Y=7660
+X132 2 VDD OUT_N VSS pfet_01v8_lvt$$21 $T=5105 16190 0 0 $X=4660 $Y=16010
+X133 2 VDD OUT_P VSS pfet_01v8_lvt$$21 $T=5105 18430 0 0 $X=4660 $Y=18250
+X134 2 VDD OUT_P VSS pfet_01v8_lvt$$21 $T=7375 16190 0 0 $X=6930 $Y=16010
+X135 2 VDD OUT_N VSS pfet_01v8_lvt$$21 $T=7375 18430 0 0 $X=6930 $Y=18250
+X136 2 VDD 2 VSS pfet_01v8_lvt$$21 $T=9645 16190 0 0 $X=9200 $Y=16010
+X137 2 VDD 2 VSS pfet_01v8_lvt$$21 $T=9645 18430 0 0 $X=9200 $Y=18250
+X138 2 VDD 2 VSS pfet_01v8_lvt$$21 $T=12915 16190 1 180 $X=11470 $Y=16010
+X139 2 VDD 2 VSS pfet_01v8_lvt$$21 $T=12915 18430 1 180 $X=11470 $Y=18250
+X140 2 VDD OUT_N VSS pfet_01v8_lvt$$21 $T=15185 16190 1 180 $X=13740 $Y=16010
+X141 2 VDD OUT_P VSS pfet_01v8_lvt$$21 $T=15185 18430 1 180 $X=13740 $Y=18250
+X142 2 VDD OUT_P VSS pfet_01v8_lvt$$21 $T=17455 16190 1 180 $X=16010 $Y=16010
+X143 2 VDD OUT_N VSS pfet_01v8_lvt$$21 $T=17455 18430 1 180 $X=16010 $Y=18250
+X144 2 VDD OUT_N VSS pfet_01v8_lvt$$21 $T=19725 16190 1 180 $X=18280 $Y=16010
+X145 2 VDD OUT_P VSS pfet_01v8_lvt$$21 $T=19725 18430 1 180 $X=18280 $Y=18250
+X146 VDD VSS pfet_01v8_lvt$$22 $T=1065 6220 0 0 $X=620 $Y=6040
+X147 VDD VSS pfet_01v8_lvt$$22 $T=1065 12580 0 0 $X=620 $Y=12400
+X148 VDD VSS pfet_01v8_lvt$$22 $T=7375 6220 0 0 $X=6930 $Y=6040
+X149 VDD VSS pfet_01v8_lvt$$22 $T=7375 12580 0 0 $X=6930 $Y=12400
+X150 VSS nfet_01v8$$23 $T=10325 6970 1 0 $X=9920 $Y=6070
+X151 VSS nfet_01v8$$23 $T=10325 13330 1 0 $X=9920 $Y=12430
+X152 VSS nfet_01v8$$23 $T=16395 6970 1 0 $X=15990 $Y=6070
+X153 VSS nfet_01v8$$23 $T=16395 13330 1 0 $X=15990 $Y=12430
+X154 4 VSS 6 VSS nfet_01v8$$24 $T=20995 6450 0 0 $X=20590 $Y=6300
+X155 4 VSS 6 VSS nfet_01v8$$24 $T=20995 8095 0 0 $X=20590 $Y=7945
+X156 4 VSS 2 VSS nfet_01v8$$24 $T=24185 6450 1 180 $X=22780 $Y=6300
+X157 4 VSS 2 VSS nfet_01v8$$24 $T=24185 8090 1 180 $X=22780 $Y=7940
+X158 4 VSS 6 VSS nfet_01v8$$24 $T=25375 6450 0 0 $X=24970 $Y=6300
+X159 4 VSS 6 VSS nfet_01v8$$24 $T=25375 8090 0 0 $X=24970 $Y=7940
+X160 4 VSS 4 VSS nfet_01v8$$24 $T=28565 6450 1 180 $X=27160 $Y=6300
+X161 4 VSS 4 VSS nfet_01v8$$24 $T=28565 8090 1 180 $X=27160 $Y=7940
+X162 4 VSS 6 VSS nfet_01v8$$24 $T=29755 6450 0 0 $X=29350 $Y=6300
+X163 4 VSS 6 VSS nfet_01v8$$24 $T=29755 8090 0 0 $X=29350 $Y=7940
+X164 4 VSS 6 VSS nfet_01v8$$24 $T=32945 6450 1 180 $X=31540 $Y=6300
+X165 4 VSS 6 VSS nfet_01v8$$24 $T=31945 8090 0 0 $X=31540 $Y=7940
+X166 4 VSS 6 VSS nfet_01v8$$24 $T=35135 6450 1 180 $X=33730 $Y=6300
+X167 4 VSS 6 VSS nfet_01v8$$24 $T=35135 8090 1 180 $X=33730 $Y=7940
+X168 4 VSS 4 VSS nfet_01v8$$24 $T=36325 6450 0 0 $X=35920 $Y=6300
+X169 4 VSS 4 VSS nfet_01v8$$24 $T=36325 8090 0 0 $X=35920 $Y=7940
+X170 4 VSS 6 VSS nfet_01v8$$24 $T=39515 6450 1 180 $X=38110 $Y=6300
+X171 4 VSS 6 VSS nfet_01v8$$24 $T=39515 8090 1 180 $X=38110 $Y=7940
+X172 4 VSS 6 VSS nfet_01v8$$24 $T=43895 6450 1 180 $X=42490 $Y=6300
+X173 4 VSS 6 VSS nfet_01v8$$24 $T=43895 8090 1 180 $X=42490 $Y=7940
+X174 EN 4 IBIAS VSS nfet_01v8$$24 $T=47775 6450 1 180 $X=46370 $Y=6300
+X175 EN 4 IBIAS VSS nfet_01v8$$24 $T=48965 6450 0 0 $X=48560 $Y=6300
+X176 EN_N VSS 4 VSS nfet_01v8$$24 $T=49965 8095 1 180 $X=48560 $Y=7945
+X177 4 VSS 2 nfet_01v8$$25 $T=40705 6450 0 0 $X=40300 $Y=6300
+X178 4 VSS 2 nfet_01v8$$25 $T=40705 8090 0 0 $X=40300 $Y=7940
+X179 VDD VSS pfet_01v8_lvt$$26 $T=2835 6220 0 0 $X=2390 $Y=6040
+X180 VDD VSS pfet_01v8_lvt$$26 $T=2835 12580 0 0 $X=2390 $Y=12400
+X181 VDD VSS pfet_01v8_lvt$$26 $T=5105 6220 0 0 $X=4660 $Y=6040
+X182 VDD VSS pfet_01v8_lvt$$26 $T=5105 12580 0 0 $X=4660 $Y=12400
+X183 VSS nfet_01v8$$27 $T=19305 6450 0 0 $X=18900 $Y=6300
+X184 VSS nfet_01v8$$27 $T=19305 8095 0 0 $X=18900 $Y=7945
+X185 VSS nfet_01v8$$27 $T=45085 6450 0 0 $X=44680 $Y=6300
+X186 VSS nfet_01v8$$27 $T=45085 8095 0 0 $X=44680 $Y=7945
+.ends comparator_preamp

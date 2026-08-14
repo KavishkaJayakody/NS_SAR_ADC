@@ -1,6 +1,6 @@
 case	"preserve"
 convertDot	"node"
-convertPin	"geometryAndText"
+convertPin	"geometry"
 hierDepth	32
 labelCase	"preserve"
 labelDepth	32

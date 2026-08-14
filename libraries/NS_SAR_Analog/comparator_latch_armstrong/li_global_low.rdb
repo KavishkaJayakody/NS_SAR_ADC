@@ -1,0 +1,13 @@
+comparator_latch_armstrong 1000
+CDRW.li.global.min:L263152
+1 1 1 Jul 19 17:40:41 2026
+DENSITY li_layers -lt 0.330000 -inside_of layer fill_extent_not_SEALID -rdb li_global_low.rdb CDRW.li.global.min:L263152
+p 1 4
+DV 0.111256
+DA 379.185
+DA li_layers 42.1866
+-11760 -14865
+13740 -14865
+13740 5
+-11760 5
+

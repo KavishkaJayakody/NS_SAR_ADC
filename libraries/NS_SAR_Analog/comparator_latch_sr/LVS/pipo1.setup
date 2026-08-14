@@ -1,0 +1,16 @@
+case	"preserve"
+convertDot	"node"
+convertPin	"geometryAndText"
+hierDepth	32
+labelCase	"preserve"
+labelDepth	32
+library	"NS_SAR_Analog"
+logFile	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_sr/LVS/PIPO1.LOG"
+maxVertices	2048
+pinAttNum	0
+runDir	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_sr/LVS"
+strmFile	"/home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_sr/LVS/comparator_preamp.gds"
+strmVersion	5
+techLib	"NS_SAR_Analog"
+topCell	"comparator_preamp"
+view	"layout"

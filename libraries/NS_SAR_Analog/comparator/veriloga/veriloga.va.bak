@@ -1,56 +1,65 @@
-// VerilogA for NS_SAR_Analog, comparator, veriloga
-
 `include "constants.vams"
 `include "disciplines.vams"
 
-module analog_comparator(INP, INN, OUT, VDD, VSS, CLK, IBIAS , PA_EN, PA_EN_N , SA_EN);
+module analog_comparator(
+    INP,
+    INN,
+    OUT,
+    VDD,
+    VSS,
+    IBIAS,
+    PA_EN,
+    PA_EN_N,
+    SA_EN
+);
 
-    // Port Directions
-    input INP, INN, VDD, VSS, CLK, IBIAS, PA_EN, PA_EN_N, SA_EN;
-    output OUT;
+input  INP, INN;
+input  VDD, VSS;
+input  IBIAS;
+input  PA_EN, PA_EN_N;
+input  SA_EN;
 
-    // Discipline Declarations (Must match port names exactly)
-    electrical INP, INN, OUT, VDD, VSS, CLK, IBIAS, PA_EN, PA_EN_N, SA_EN;
+output OUT;
 
-    // Parameters
-    parameter real VOS = 0.0;         // Input offset voltage
-    parameter real GAIN = 1e6;        // Large gain
-    parameter real TDELAY = 10p;
-    parameter real TRISE  = 100p;
-    parameter real TFALL  = 100p;
+electrical INP, INN;
+electrical OUT;
+electrical VDD, VSS;
+electrical IBIAS;
+electrical PA_EN, PA_EN_N;
+electrical SA_EN;
 
-    real vdiff;
-    real vout_expect;
-    real vout_target;
+// Parameters
+parameter real VOS     = 0.0;
+parameter real VTH_CLK = 0.5;
+parameter real TDELAY  = 20p;
+parameter real TRISE   = 50p;
+parameter real TFALL   = 50p;
 
-    analog begin
+real vout_target;
+real vclk;
 
-        // 1. Calculate differential input with offset
-        vdiff = V(INP) - V(INN) + VOS;
-    
-        // 2. Calculate ideal gain output
-        //vout_expect = GAIN * vdiff;
+analog begin
 
-        // 3. Clip the output to the supply rails (Saturation logic)
-        // Using the V() accessor to pull the actual supply voltages from pins
-        //if (vout_expect > V(VDD)) begin
-        //    vout_target = V(VDD);
-        //end else if (vout_expect < V(VSS)) begin
-        //    vout_target = V(VSS);
-        //end else begin
-        //    vout_target = vout_expect;
-        //end
+    // Initialise
+    @(initial_step)
+        vout_target = V(VSS);
 
-		
-		// For ease of numerical calculations
-        if (vdiff > 0) begin
+    // Clock threshold
+    vclk = 0.9;
+
+    // Trigger only on the rising edge of SA_EN
+    @(cross(V(SA_EN)-vclk,+1)) begin
+
+        if ((V(INP)-V(INN)+VOS) >= 0)
             vout_target = V(VDD);
-        end else begin
+        else
             vout_target = V(VSS);
-        end
-        // 4. Apply transition for time-domain realism
-        V(OUT) <+ transition(vout_target, TDELAY, TRISE, TFALL);
 
     end
-endmodule
 
+    // Drive output
+    V(OUT) <+ transition(vout_target,TDELAY,TRISE,TFALL);
+
+end
+
+endmodule

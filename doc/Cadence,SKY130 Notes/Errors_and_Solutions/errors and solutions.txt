@@ -14,6 +14,8 @@ the structure as a "malformed" shape.Verified SolutionRename the layout pins/lab
  Ensure these text labels are promoted to actual external cell ports/pins (using port make in Magic or placing 
  them on the explicit pin/text layer purposes in Cadence) so they are exported to the top-level netlist.
 
+***The above mentioned solution started to fail when there are more devices other than the capacitor placed aoutside the 
+capacitor area. The same error appeared. To mitigate this Use the FLAT extraction option in the LVS Run Submission window
  ###
  Quantus QRC PEX Configuration
 
@@ -47,3 +49,63 @@ Include Model to "Perform Device Reduction" or change the component mapping to "
 
 This strips out the macro names and forces the engine to output generic, primitive SPICE elements (res / r) that 
 Spectre naturally compiles without needing dedicated interconnect modeling files.
+
+###
+Spectre parrallal capacitor LVS error
+
+The issue: Tried to do LVS with a schematic and layout with capacitors connected across same nets. The schematic and the layout
+successfully merged the parallal devices. But the LVS tool was not able to compare the merged instances. It was telling
+
+|                                       MISMATCHED INSTANCE PARAMETERS                                        
++=============================================================================================================
+
+
+                 Merged Instance Detail                  
+=========+=====================+=========================
+         |                     | 
+Side     | Master Instance     | Instances
+---------+---------------------+-----------------(midl 1)
+Lay      | <C126>              | C126
+         |                     +-------------------------
+         |                     | C127
+         |                     +-------------------------
+         |                     | C128
+         |                     +-------------------------
+         |                     | C129
+         |                     +-------------------------
+         |                     | C130
+         |                     +-------------------------
+         |                     | C131
+         |                     +-------------------------
+         |                     | C132
+---------+---------------------+-----------------(mids 1)
+Sch      | <XI2<0>/CC0>        | XI2<0>/CC0
+         |                     +-------------------------
+         |                     | XI2<1>/CC0
+         |                     +-------------------------
+         |                     | XI2<2>/CC0
+         |                     +-------------------------
+         |                     | XI2<3>/CC0
+         |                     +-------------------------
+         |                     | XI2<4>/CC0
+         |                     +-------------------------
+         |                     | XI2<5>/CC0
+         |                     +-------------------------
+         |                     | XI2<6>/CC0
+
+
+Layout Instance                               | Schematic Instance                  |     Parameter Error     
+----------------------------------------------+-------------------------------------+------------------(mip 1)
+<C126> @(17.025,2.140) C(CAP_MIM_M3__BASE)    | <XI2<0>/CC0> C(CAP_MIM_M3__BASE)    |                         
+w: <missing>                                  | w: <missing>                        | missing                 
+l: <missing>                                  | l: <missing>                        | missing                 
+ 
+/// The LVS tool didn't see the w and l of the merged devices on both schematic and layout veiws.
+
+Root Cause: The lvs rule file Sky130_cadence_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl didn't have any method to calculate 
+the effective l and w of merged (mim) cap devices.(It had defined merging behavior some other devices)
+
+Verified Solution: Disable the merging of parrallal capacitor instances.
+
+Add "lvs_reduce_device C (cap_mim_m3__base) -parallel no" command to the LVS pvl rule deck.
+

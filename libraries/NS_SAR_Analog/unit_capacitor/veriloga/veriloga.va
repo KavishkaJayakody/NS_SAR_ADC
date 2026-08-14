@@ -1,52 +1,84 @@
-`include "disciplines.vams"
+// VerilogA for NS_SAR_Analog, unit_capacitor, veriloga
+
 `include "constants.vams"
+`include "disciplines.vams"
 
-module unit_capacitor_charge_inj (C_TOP, SEL_VREF_P,SEL_VREF_P_N , SEL_VREF_N, SEL_VREF_N_N , SEL_VIN, SEL_VIN_N , VREF_P, VIN, VREF_N, VDD, VSS);
+module unit_capacitor(TOP_PLATE, SEL_VIN, SEL_VIN_N, SEL_VREF_N, SEL_VREF_N_N, SEL_VREF_P, SEL_VREF_P_N, VDD, VIN, VREF_N, VREF_P, VSS);
+inout TOP_PLATE;
+electrical TOP_PLATE;
+input SEL_VIN;
+electrical SEL_VIN;
+input SEL_VIN_N;
+electrical SEL_VIN_N;
+input SEL_VREF_N;
+electrical SEL_VREF_N;
+input SEL_VREF_N_N;
+electrical SEL_VREF_N_N;
+input SEL_VREF_P;
+electrical SEL_VREF_P;
+input SEL_VREF_P_N;
+electrical SEL_VREF_P_N;
+input VDD;
+electrical VDD;
+input VIN;
+electrical VIN;
+input VREF_N;
+electrical VREF_N;
+input VREF_P;
+electrical VREF_P;
+input VSS;
+electrical VSS;
 
-    input SEL_VREF_P, SEL_VREF_N, SEL_VIN, VREF_P, VIN, VREF_N, VDD, VSS;
-    inout C_TOP;
-    electrical C_TOP, SEL_VREF_P, SEL_VREF_N, SEL_VIN, VREF_P, VIN, VREF_N, VDD, VSS, net7;
+parameter real r_on_vref = 1000 ;
+parameter real r_on_sel  = 1000 ;
+parameter real c_inj_p   = 0 ;
+parameter real c_inj_n   = 0 ;
+parameter real v_thresh  = 0.9 ;
+parameter real r_off     = 1e+09 ;
+parameter real c_val     = 3.462e-14 ;
 
-    // Parameters
-    parameter real c_val = 34.62f;
-    parameter real r_on_vref = 1000;
-	parameter real r_on_sel = 1000;
-    parameter real r_off = 1G;
-    parameter real v_thresh = 0.9;
-    
-    // Charge Injection Parameters (Simplified)
-    // C_ov represents the overlap capacitance + half of channel capacitance
-    parameter real c_inj_n = 0 ;//0.5f; // fF
-    parameter real c_inj_p = 0 ;//0.65f; // fF (Usually slightly higher for PMOS)
+// Internal bottom plate node
+electrical BOT_PLATE;
 
-    real res_p, res_n, res_in;
+// Switch resistance variables
+real r_sw_vin, r_sw_vrefn, r_sw_vrefp;
 
-    analog begin
-        // 1. Main Capacitor
-        I(C_TOP, net7) <+ c_val * ddt(V(C_TOP, net7));
+analog begin
+    // Determine Switch States using differential non-overlapping control pairs
+    // Switch for VIN sampling: active when (SEL_VIN - SEL_VIN_N) > threshold
+    if (V(SEL_VIN, SEL_VIN_N) > v_thresh)
+        r_sw_vin = r_on_sel;
+    else
+        r_sw_vin = r_off;
 
-        // 2. Resistive Paths
-        res_p  = (V(SEL_VREF_P) > v_thresh) ? r_on_vref : r_off;
-        res_n  = (V(SEL_VREF_N) > v_thresh) ? r_on_vref : r_off;
-        res_in = (V(SEL_VIN)    > v_thresh) ? r_on_sel : r_off;
-        I(net7, VREF_P) <+ V(net7, VREF_P) / res_p;
-        I(net7, VREF_N) <+ V(net7, VREF_N) / res_n;
-        I(net7, VIN)    <+ V(net7, VIN)    / res_in;
+    // Switch for VREF_N connection: active when (SEL_VREF_N - SEL_VREF_N_N) > threshold
+    if (V(SEL_VREF_N, SEL_VREF_N_N) > v_thresh)
+        r_sw_vrefn = r_on_vref;
+    else
+        r_sw_vrefn = r_off;
 
-        // 3. Charge Injection Modeling
-        // When SEL goes from 1.8V to 0V, ddt is negative, dumping negative charge.
-        // We model this as a displacement current: i = C * dV/dt
-        
-        // Injection from SEL_VREF_P (NMOS + PMOS complementary)
-        I(net7) <+ c_inj_n * ddt(V(SEL_VREF_P));   // NMOS part    0 to ignore for analysis
-        I(net7) <+ c_inj_p * ddt(V(VDD) - V(SEL_VREF_P)); // Approximate PMOS (SEL_N)    0 to ignore for analysis
+    // Switch for VREF_P connection: active when (SEL_VREF_P - SEL_VREF_P_N) > threshold
+    if (V(SEL_VREF_P, SEL_VREF_P_N) > v_thresh)
+        r_sw_vrefp = r_on_vref;
+    else
+        r_sw_vrefp = r_off;
 
-        // Injection from SEL_VREF_N (NMOS + PMOS complementary)
-        I(net7) <+ c_inj_n * ddt(V(SEL_VREF_P));   // NMOS part    0 to ignore for analysis
-        I(net7) <+ c_inj_p * ddt(V(VDD) - V(SEL_VREF_N));
+    // 1. Core Unit Capacitor Behavior (Top Plate to Internal Bottom Plate)
+    I(TOP_PLATE, BOT_PLATE) <+ c_val * ddt(V(TOP_PLATE, BOT_PLATE));
 
-        // Injection from SEL_VIN (Sampling switch)
-        I(net7) <+ 0*c_inj_n * ddt(V(SEL_VIN));
-        I(net7) <+ 0*c_inj_p * ddt(V(VDD) - V(SEL_VIN));
+    // 2. Variable Resistance Switches connecting Input/References to Bottom Plate
+    I(BOT_PLATE, VIN)    <+ V(BOT_PLATE, VIN)    / r_sw_vin;
+    I(BOT_PLATE, VREF_N) <+ V(BOT_PLATE, VREF_N) / r_sw_vrefn;
+    I(BOT_PLATE, VREF_P) <+ V(BOT_PLATE, VREF_P) / r_sw_vrefp;
+
+    // 3. Optional Parasitic Parasitic/Charge Injection Capacitances (if non-zero)
+    if (c_inj_p > 0) begin
+        I(TOP_PLATE, VDD) <+ c_inj_p * ddt(V(TOP_PLATE, VDD));
     end
+    if (c_inj_n > 0) begin
+        I(TOP_PLATE, VSS) <+ c_inj_n * ddt(V(TOP_PLATE, VSS));
+    end
+
+end
+
 endmodule

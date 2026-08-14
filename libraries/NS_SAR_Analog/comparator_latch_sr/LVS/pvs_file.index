@@ -1,0 +1,15 @@
+"Cadence Directory" internal none /home/user22/.cadence/
+"Current Directory" internal none /home/user22
+"GUI Flow" internal none virtuoso6
+"GUI Preset" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_sr/LVS/.preset.autosave
+"Job Signature" internal none IPVS_1786324298_5991
+"PVS Job Mode" internal none lvs
+"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_sr/LVS
+"Technology Mapping File" internal none /home/user22/pvtech.lib
+"Technology Name" internal none "sky130_pv"
+"Technology Rule File" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_sr/LVS/.technology.rul
+"Technology RuleSet" internal none "default"
+"PVS Version" internal none 16.10-p006
+"Binary Name" internal none pvsgui
+"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
+"PVS Job Time" internal none 1786324300

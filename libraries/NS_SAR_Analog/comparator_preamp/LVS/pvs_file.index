@@ -2,26 +2,27 @@
 "Current Directory" internal none /home/user22
 "GUI Flow" internal none virtuoso6
 "GUI Preset" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/.preset.autosave
-"Job Signature" internal none IPVS_1781641569_15833
-"PVS Job Mode" internal none lvs
+"Job Signature" internal none IPVS_1786307158_5991
+"PVS Job Mode" internal none drc
 "Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS
+"Technology Mapping File" internal none /home/user22/pvtech.lib
+"Technology Name" internal none "sky130_pv"
+"Technology Rule File" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/.technology.rul
+"Technology RuleSet" internal none "default"
 "PVS Version" internal none 16.10-p006
 "Binary Name" internal none pvsgui
 "PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
-"PVS Job Time" internal none 1781641569
-"CDL Out Stop List" internal text auCdl
-"CDL Out View List" internal text auCdl schematic
-"Control File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/pvslvsctl
+"PVS Job Time" internal none 1786307158
+"Control File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/pvsdrcctl
 "DFII version" internal none 6.1.7.0
 "Do not check rules files before run" internal none ENABLED
-"Extracted Spice File" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.spi
 "Input Layout" input none OA: NS_SAR_Analog comparator_preamp layout
-"Input Schematic" input none OA: NS_SAR_Analog comparator_preamp schematic
 "Intermediate GDSII File" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.gds
 "Intermediate GDSII File creation Errors" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/PIPO1.LOG
 "Intermediate OASIS File creation Errors" output none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/PIPO1.LOG
+"Job Signature" internal none IPVS_1786307158_5991
 "Layout Cell Name" internal none comparator_preamp
-"Layout ConvertPin" internal text geometryAndText
+"Layout ConvertPin" internal text geometry
 "Layout GDSII" input none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.gds
 "Layout HierDepth" internal none 32
 "Layout Library Name" internal none NS_SAR_Analog
@@ -36,44 +37,27 @@
 "PIPO Log I" log text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/PIPO1.LOG
 "PIPO Output I" internal text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/PIPO1.OUT
 "PIPO Setup File I" internal text  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/pipo1.setup
-"PVS Job Log" log text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/pvsuilvs.log
-"PVS Job Mode" internal none lvs
-"Rule File" input text /home/user22/sky130_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl
+"PVS Job Log" log text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/pvsuidrc.log
+"PVS Job Mode" internal none drc
+"Rule File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/.config.rul
+"Rule File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/.technology.rul
 "Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS
-"Schematic Cell Name" internal none comparator_preamp
-"Schematic Library Name" internal none NS_SAR_Analog
-"Schematic Netlist" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.cdl
-"Schematic Top Cell" internal none comparator_preamp
-"Schematic View Name" internal none schematic
+"TTE mode" internal none ENABLED
 "PVS Version" internal none 16.10-p006
 "Binary Name" internal none pvsvirt
 "PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
-"PVS Job Time" internal none 1781641569
-"Comparison Report" output cls /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.rep.cls
-"ERC Result" internal none EMPTY
-"ERC Summary" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.sum
-"Extracted Spice File" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.spi
-"Extraction Report" output erc /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.rep
-"Extraction Result" internal none CLEAN
-"LVS Report Options" internal none -none
+"PVS Job Time" internal none 1786307159
+"ASCII DRC Report Database" output rdb /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.drc_errors.ascii
+"DRC Summary" output text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.sum
 "Layout GDSII" input none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.gds
-"Layout Top Cell" internal none comparator_preamp
-"PVS Job Mode" internal none lvs
+"PVS Job Mode" internal none drc
 "Report MaxResults" internal none 1000
-"Rule File" input text /home/user22/sky130_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl
+"Rule File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/.config.rul
+"Rule File" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/.technology.rul
 "Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/
-"Schematic Top Cell" internal none comparator_preamp
+"TTE mode" internal none ENABLED
 "UI Data" internal none ENABLED
 "PVS Version" internal none 16.10-p006
 "Binary Name" internal none pvs
 "PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
-"PVS Job Time" internal none 1781641569
-"Comparison Result" internal none MATCH
-"LVS Run Name" internal none comparator_preamp.rep
-"Run Directory" internal none /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/
-"Schematic Netlist" input text /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_preamp/LVS/comparator_preamp.cdl
-"UI Data" internal none ENABLED
-"PVS Version" internal none 16.10-p006
-"Binary Name" internal none pvsnvn
-"PVS Build Date" internal none "Thu Jul 27 18:05:02 PDT 2017"
-"PVS Job Time" internal none 1781641570
+"PVS Job Time" internal none 1786307159

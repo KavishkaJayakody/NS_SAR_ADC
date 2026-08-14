@@ -3,7 +3,7 @@
 
 # PVS Version 16.10-p006
 
-[ virtuoso6.BatchTriggers.RunLVS ]
+[ virtuoso6.BatchTriggers.RunDRC ]
 BatchPostTrigger ""
 BatchPreTrigger  ""
 EnableTriggers   "FALSE"
