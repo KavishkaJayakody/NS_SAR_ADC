@@ -1,4 +1,4 @@
-//Revision 85
+//Revision 102
 //NOTE
 // Default config view template for AMS netlister(s) in ADE.
 // Note:
@@ -15,11 +15,13 @@ stoplist spectre;
 
 
 cell NS_SAR_Analog.input_select_switch binding :veriloga;
-cell NS_SAR_Analog.unit_capacitor binding :veriloga;
+cell NS_SAR_Analog.unit_capacitor binding :schematic;
 cell NS_SAR_Analog.vcm_switch binding :schematic;
 cell NS_SAR_Analog.comparator binding :veriloga;
-cell NS_SAR_Analog.gate_driver binding :veriloga;
+cell NS_SAR_Analog.gate_driver binding :functional;
 cell NS_SAR_Analog.unit_capacitor_dummy binding :schematic;
+
+inst (NS_SAR_Mixed.SAR_8bit:schematic).I2 binding :veriloga;
 
 
 endconfig

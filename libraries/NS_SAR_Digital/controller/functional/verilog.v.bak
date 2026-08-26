@@ -1,0 +1,334 @@
+// Verilog HDL for "NS_SAR_Digital", "controller", "functional"
+
+`timescale 1ns/1ps
+
+
+module controller (
+    // Clock and Control Inputs
+    input  wire        CLK1,
+    input  wire        CLK2,
+    input  wire        CLK3,
+    input  wire        EN,
+    input  wire        RSTN,
+    input  wire        COMP_IN,
+    input  wire        NS_EN,
+
+
+    // Analog/Preamplifier & Comparator Controls
+    output wire        SA_EN,
+    output wire        CLK_EN,
+    output wire        VCM_CON,
+    output wire        VCM_CON_N,
+    output wire        PA_EN,
+    output wire        PA_EN_N,
+    output wire        SAMPLE_P,
+    output wire        SAMPLE_N,
+    output wire        NS_INT,
+    output wire        NS_INT_N,
+    output wire        NS_TRN,
+    output wire        NS_TRN_N,
+
+    // Positive CDAC Reference Controls
+    output wire [1:0]  VREF_SEL_1_P,
+    output wire        VREF_SEL_2_P,
+    output wire [6:0]  VREF_SEL_4_P,
+    output wire [27:0] VREF_SEL_8_P,
+
+    // Negative CDAC Reference Controls
+    output wire [1:0]  VREF_SEL_1_N,
+    output wire        VREF_SEL_2_N,
+    output wire [6:0]  VREF_SEL_4_N,
+    output wire [27:0] VREF_SEL_8_N,
+
+    // Digital Outputs & Flags
+    output wire [7:0]  B,
+    output wire        EOC
+);
+
+    // =========================================================================
+    // FSM State Parameters
+    // =========================================================================
+    localparam SAMPLE  = 4'd0;
+    localparam TRIAL_7 = 4'd1;
+    localparam STEP_6  = 4'd2;
+    localparam STEP_5  = 4'd3;
+    localparam STEP_4  = 4'd4;
+    localparam STEP_3  = 4'd5;
+    localparam STEP_2  = 4'd6;
+    localparam STEP_1  = 4'd7;
+    localparam STEP_0  = 4'd8;
+    localparam NS1     = 4'd9;
+    localparam NS2     = 4'd10;
+    localparam DONE    = 4'd11;
+
+    // =========================================================================
+    // Internal Registers & State Variables
+    // =========================================================================
+    reg [3:0] state;
+    reg [3:0] next_state;
+
+    reg [7:0] dat;
+    reg [7:0] b_reg;
+    reg       eoc_reg;
+
+    reg       vcm_reg;
+    reg       sp_reg;
+    reg       sn_reg;
+
+    reg [7:0] cp_reg;
+    reg       cpc_reg;
+    reg [7:0] cn_reg;
+    reg       cnc_reg;
+
+    // =========================================================================
+    // Clock Gating & Output Routing
+    // =========================================================================
+    wire is_sar_trial = (state >= TRIAL_7) && (state <= STEP_0);
+
+    assign PA_EN      = EN && is_sar_trial && (CLK2 && !CLK1);
+    assign PA_EN_N    = ~PA_EN;
+    assign SA_EN      = EN && is_sar_trial && (CLK2 && !CLK1 && CLK3);
+    assign CLK_EN     = EN;
+
+    assign VCM_CON    = vcm_reg && (CLK1 ||(!CLK2 && !CLK3));
+    assign VCM_CON_N  = ~VCM_CON;
+
+    assign SAMPLE_P   = sp_reg;
+    assign SAMPLE_N   = sn_reg;
+
+    assign B          = b_reg;
+    assign EOC        = eoc_reg;
+
+    // =========================================================================
+    // Next-State Combinational Decoder
+    // =========================================================================
+    always @(*) begin
+        case (state)
+            SAMPLE:  next_state = TRIAL_7;
+            TRIAL_7: next_state = STEP_6;
+            STEP_6:  next_state = STEP_5;
+            STEP_5:  next_state = STEP_4;
+            STEP_4:  next_state = STEP_3;
+            STEP_3:  next_state = STEP_2;
+            STEP_2:  next_state = STEP_1;
+            STEP_1:  next_state = STEP_0;
+            STEP_0:  next_state = NS1;
+            NS1:     next_state = NS2;
+            NS2:     next_state = DONE;
+            DONE:    next_state = SAMPLE;
+            default: next_state = SAMPLE;
+        endcase
+    end
+
+    // =========================================================================
+    // Synchronous Sequential Datapath (Triggered on posedge CLK1)
+    // =========================================================================
+    always @(posedge CLK1 or negedge RSTN) begin
+        if (!RSTN) begin
+            state    <= SAMPLE;
+            dat      <= 8'b0000_0000;
+            b_reg    <= 8'b0000_0000;
+            eoc_reg  <= 1'b0;
+            vcm_reg  <= 1'b1;
+            sp_reg   <= 1'b1;
+            sn_reg   <= 1'b1;
+            cp_reg   <= 8'b1111_1111;
+            cpc_reg  <= 1'b1;
+            cn_reg   <= 8'b1111_1111;
+            cnc_reg  <= 1'b1;
+        end else if (EN) begin
+            state <= next_state;
+
+            case (state)
+                SAMPLE: begin
+                    // Prepare DAC for Bit 7 trial on next clock
+                    vcm_reg <= 1'b0;
+                    sp_reg  <= 1'b0;
+                    sn_reg  <= 1'b0;
+                    cp_reg  <= 8'b0111_1111;
+                    cn_reg  <= 8'b1000_0000;
+                    cpc_reg <= 1'b1;
+                    cnc_reg <= 1'b0;
+                    eoc_reg <= 1'b0;
+                end
+
+                TRIAL_7: begin
+                    if (COMP_IN) begin
+                        dat[7]    <= 1'b1;
+                        cp_reg[7] <= 1'b0;
+                        cn_reg[7] <= 1'b1;
+                    end else begin
+                        dat[7]    <= 1'b0;
+                        cp_reg[7] <= 1'b1;
+                        cn_reg[7] <= 1'b0;
+                    end
+                    cp_reg[6] <= 1'b0;
+                    cn_reg[6] <= 1'b1;
+                end
+
+                STEP_6: begin
+                    if (COMP_IN) begin
+                        dat[6]    <= 1'b1;
+                        cp_reg[6] <= 1'b0;
+                        cn_reg[6] <= 1'b1;
+                    end else begin
+                        dat[6]    <= 1'b0;
+                        cp_reg[6] <= 1'b1;
+                        cn_reg[6] <= 1'b0;
+                    end
+                    cp_reg[5] <= 1'b0;
+                    cn_reg[5] <= 1'b1;
+                end
+
+                STEP_5: begin
+                    if (COMP_IN) begin
+                        dat[5]    <= 1'b1;
+                        cp_reg[5] <= 1'b0;
+                        cn_reg[5] <= 1'b1;
+                    end else begin
+                        dat[5]    <= 1'b0;
+                        cp_reg[5] <= 1'b1;
+                        cn_reg[5] <= 1'b0;
+                    end
+                    cp_reg[4] <= 1'b0;
+                    cn_reg[4] <= 1'b1;
+                end
+
+                STEP_4: begin
+                    if (COMP_IN) begin
+                        dat[4]    <= 1'b1;
+                        cp_reg[4] <= 1'b0;
+                        cn_reg[4] <= 1'b1;
+                    end else begin
+                        dat[4]    <= 1'b0;
+                        cp_reg[4] <= 1'b1;
+                        cn_reg[4] <= 1'b0;
+                    end
+                    cp_reg[3] <= 1'b0;
+                    cn_reg[3] <= 1'b1;
+                end
+
+                STEP_3: begin
+                    if (COMP_IN) begin
+                        dat[3]    <= 1'b1;
+                        cp_reg[3] <= 1'b0;
+                        cn_reg[3] <= 1'b1;
+                    end else begin
+                        dat[3]    <= 1'b0;
+                        cp_reg[3] <= 1'b1;
+                        cn_reg[3] <= 1'b0;
+                    end
+                    cp_reg[2] <= 1'b0;
+                    cn_reg[2] <= 1'b1;
+                end
+
+                STEP_2: begin
+                    if (COMP_IN) begin
+                        dat[2]    <= 1'b1;
+                        cp_reg[2] <= 1'b0;
+                        cn_reg[2] <= 1'b1;
+                    end else begin
+                        dat[2]    <= 1'b0;
+                        cp_reg[2] <= 1'b1;
+                        cn_reg[2] <= 1'b0;
+                    end
+                    cp_reg[1] <= 1'b0;
+                    cn_reg[1] <= 1'b1;
+                end
+
+                STEP_1: begin
+                    if (COMP_IN) begin
+                        dat[1]    <= 1'b1;
+                        cp_reg[1] <= 1'b0;
+                        cn_reg[1] <= 1'b1;
+                    end else begin
+                        dat[1]    <= 1'b0;
+                        cp_reg[1] <= 1'b1;
+                        cn_reg[1] <= 1'b0;
+                    end
+                    cp_reg[0] <= 1'b0;
+                    cn_reg[0] <= 1'b1;
+                end
+
+                STEP_0: begin
+                    if (COMP_IN) begin
+                        dat[0]    <= 1'b1;
+                        cp_reg[0] <= 1'b0;
+                        cn_reg[0] <= 1'b1;
+                    end else begin
+                        dat[0]    <= 1'b0;
+                        cp_reg[0] <= 1'b1;
+                        cn_reg[0] <= 1'b0;
+                    end
+
+                end
+
+                NS1: begin
+                    // Noise shaping residue integration
+                end
+
+                NS2: begin
+                    b_reg   <= dat;
+                    eoc_reg <= 1'b1;
+                end
+
+                DONE: begin
+                    vcm_reg <= 1'b1;
+                    sp_reg  <= 1'b1;
+                    sn_reg  <= 1'b1;
+                    cp_reg  <= 8'b1111_1111;
+                    cn_reg  <= 8'b1111_1111;
+                    cpc_reg <= 1'b1;
+                    cnc_reg <= 1'b1;
+                    eoc_reg <= 1'b0;
+                end
+
+                default: begin
+                    state <= SAMPLE;
+                end
+            endcase
+        end
+    end
+
+    // =========================================================================
+    // Positive CDAC Array Mapping (C0=CPC, C1..C8 = cp_reg[0..7])
+    // =========================================================================
+    // VREF_SEL_1_P<1:0> = C0, C1
+    assign VREF_SEL_1_P = {cpc_reg, cp_reg[0]};
+
+    // VREF_SEL_2_P = C2
+    assign VREF_SEL_2_P = cp_reg[1];
+
+    // VREF_SEL_4_P<6:0> = C5, C4, C3, C5, C5, C4, C5
+    assign VREF_SEL_4_P = {cp_reg[4], cp_reg[3], cp_reg[2], cp_reg[4], cp_reg[4], cp_reg[3], cp_reg[4]};
+
+    // VREF_SEL_8_P<27:0> = <*4>C8, <*2>C7, <*2>C6, <*4>C8, <*2>C7, <*2>C6, <*4>C8, <*2>C7, <*2>C6, <*4>C8
+    assign VREF_SEL_8_P = {
+        {4{cp_reg[7]}}, {2{cp_reg[6]}}, {2{cp_reg[5]}},
+        {2{cp_reg[6]}}, {4{cp_reg[7]}}, {4{cp_reg[7]}},
+        {2{cp_reg[6]}}, {2{cp_reg[5]}}, {2{cp_reg[6]}},
+        {4{cp_reg[7]}}
+    };
+
+    // =========================================================================
+    // Negative CDAC Array Mapping (C0=CNC, C1..C8 = cn_reg[0..7])
+    // =========================================================================
+    // VREF_SEL_1_N<1:0> = C0, C1
+    assign VREF_SEL_1_N = {cnc_reg, cn_reg[0]};
+
+    // VREF_SEL_2_N = C2
+    assign VREF_SEL_2_N = cn_reg[1];
+
+    // VREF_SEL_4_N<6:0> = C5, C4, C3, C5, C5, C4, C5
+    assign VREF_SEL_4_N = {cn_reg[4], cn_reg[3], cn_reg[2], cn_reg[4], cn_reg[4], cn_reg[3], cn_reg[4]};
+
+
+    assign VREF_SEL_8_N = {
+        {4{cn_reg[7]}}, {2{cn_reg[6]}}, {2{cn_reg[5]}},
+        {2{cn_reg[6]}}, {4{cn_reg[7]}}, {4{cn_reg[7]}},
+        {2{cn_reg[6]}}, {2{cn_reg[5]}}, {2{cn_reg[6]}},
+        {4{cn_reg[7]}}
+    };
+
+endmodule
+ 

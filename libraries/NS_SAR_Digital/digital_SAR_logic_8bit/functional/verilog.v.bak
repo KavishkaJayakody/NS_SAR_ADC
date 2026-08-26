@@ -1,0 +1,308 @@
+//Verilog HDL for "NS_SAR_Digital", "digital_SAR_logic_8bit" "functional"
+
+module digital_SAR_logic_8bit ( 
+    CLK1, CLK2, CLK3, COMP, C_COMP, B0, B1, B2,
+    B3, B4, B5, B6, B7, CPC, CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CNC, CN0, CN1,
+    CN2, CN3, CN4, CN5, CN6, CN7, SP, SN, VCM_CON, VCM_CON_N, PA_EN, PA_EN_N, EOC
+);
+
+  input CLK2;
+  input CLK1;
+  output B4;
+  output CP4;
+  output CP6;
+  input CLK3;
+  output B1;
+  output CN4;
+  output CN5;
+  output CN3;
+  output CN7;
+  output PA_EN_N;
+  output CN6;
+  output CP5;
+  output CP7;
+  output PA_EN;
+  output CPC;
+  output VCM_CON_N;
+  output B3;
+  output B0;
+  output B5;
+  output EOC;
+  output CNC;
+  output B6;
+  output CN1;
+  output CP2;
+  output B2;
+  output CP0;
+  output CN2;
+  output SN;
+  output CP3;
+  input COMP;
+  output CN0;
+  output CP1;
+  output SP;
+  output VCM_CON;
+  output C_COMP;
+  output B7;
+
+  // Parameters
+  parameter Vth     = 0.9 ;
+  parameter td      = 1e-09 ;
+  parameter tr      = 1e-09 ;
+  parameter SAMPLE  = 0 ;
+  parameter TRIAL_7 = 1 ;
+  parameter STEP_6  = 2 ;
+  parameter STEP_5  = 3 ;
+  parameter STEP_4  = 4 ;
+  parameter STEP_3  = 5 ;
+  parameter STEP_2  = 6 ;
+  parameter STEP_1  = 7 ;
+  parameter STEP_0  = 8 ;
+  parameter NS1     = 9 ;
+  parameter NS2     = 10 ;
+  parameter DONE    = 11 ;
+
+  // Internal Registers & State Variables
+  reg [3:0] state = SAMPLE;
+  reg [3:0] next_state;
+
+  reg [7:0] dat = 8'b0000_0000;
+  reg [7:0] b_reg = 8'b0000_0000;
+  reg       eoc_reg = 1'b0;
+
+  reg       vcm_reg = 1'b1;
+  reg       sp_reg = 1'b1;
+  reg       sn_reg = 1'b1;
+
+  reg [7:0] cp_reg = 8'b1111_1111;
+  reg       cpc_reg = 1'b1;
+  reg [7:0] cn_reg = 8'b1111_1111;
+  reg       cnc_reg = 1'b1;
+
+  // =========================================================================
+  // 1. Continuous Multi-Phase Combinational Clock Gating
+  // =========================================================================
+  wire is_sar_trial = (state >= TRIAL_7) && (state <= STEP_0);
+
+  assign PA_EN     = is_sar_trial && (CLK2 && !CLK1);
+  assign PA_EN_N   = ~PA_EN;
+  assign C_COMP    = is_sar_trial && (CLK2 && !CLK1 && CLK3);
+  assign VCM_CON_N = ~VCM_CON;
+
+  // Output Port Continuous Assignments
+  assign B0 = b_reg[0];
+  assign B1 = b_reg[1];
+  assign B2 = b_reg[2];
+  assign B3 = b_reg[3];
+  assign B4 = b_reg[4];
+  assign B5 = b_reg[5];
+  assign B6 = b_reg[6];
+  assign B7 = b_reg[7];
+
+  assign CP0 = cp_reg[0];
+  assign CP1 = cp_reg[1];
+  assign CP2 = cp_reg[2];
+  assign CP3 = cp_reg[3];
+  assign CP4 = cp_reg[4];
+  assign CP5 = cp_reg[5];
+  assign CP6 = cp_reg[6];
+  assign CP7 = cp_reg[7];
+  assign CPC = cpc_reg;
+
+  assign CN0 = cn_reg[0];
+  assign CN1 = cn_reg[1];
+  assign CN2 = cn_reg[2];
+  assign CN3 = cn_reg[3];
+  assign CN4 = cn_reg[4];
+  assign CN5 = cn_reg[5];
+  assign CN6 = cn_reg[6];
+  assign CN7 = cn_reg[7];
+  assign CNC = cnc_reg;
+
+  assign SP      = sp_reg;
+  assign SN      = sn_reg;
+  assign VCM_CON = vcm_reg;
+  assign EOC     = eoc_reg;
+
+  // =========================================================================
+  // 2. Next-State Combinational Decoder
+  // =========================================================================
+  always @(*) begin
+    case (state)
+      SAMPLE:  next_state = TRIAL_7;
+      TRIAL_7: next_state = STEP_6;
+      STEP_6:  next_state = STEP_5;
+      STEP_5:  next_state = STEP_4;
+      STEP_4:  next_state = STEP_3;
+      STEP_3:  next_state = STEP_2;
+      STEP_2:  next_state = STEP_1;
+      STEP_1:  next_state = STEP_0;
+      STEP_0:  next_state = NS1;
+      NS1:     next_state = NS2;
+      NS2:     next_state = DONE;
+      DONE:    next_state = SAMPLE;
+      default: next_state = SAMPLE;
+    endcase
+  end
+
+  // =========================================================================
+  // 3. Synchronous Sequential Datapath (Triggered on posedge CLK1)
+  // =========================================================================
+  always @(posedge CLK1) begin
+    state <= next_state;
+
+    case (state)
+      SAMPLE: begin
+        // Next state will be TRIAL_7 -> prepare DAC for Bit 7 trial
+        vcm_reg <= 1'b0;
+        sp_reg  <= 1'b0;
+        sn_reg  <= 1'b0;
+        cp_reg  <= 8'b0111_1111;
+        cn_reg  <= 8'b1000_0000;
+        cpc_reg <= 1'b1;
+        cnc_reg <= 1'b0;
+        eoc_reg <= 1'b0;
+      end
+
+      TRIAL_7: begin
+        // Resolve Bit 7 decision and setup Bit 6 trial
+        if (!COMP) begin
+          dat[7]    <= 1'b1;
+          cp_reg[7] <= 1'b0;
+          cn_reg[7] <= 1'b1;
+        end else begin
+          dat[7]    <= 1'b0;
+          cp_reg[7] <= 1'b1;
+          cn_reg[7] <= 1'b0;
+        end
+        cp_reg[6] <= 1'b0;
+        cn_reg[6] <= 1'b1;
+      end
+
+      STEP_6: begin
+        if (!COMP) begin
+          dat[6]    <= 1'b1;
+          cp_reg[6] <= 1'b0;
+          cn_reg[6] <= 1'b1;
+        end else begin
+          dat[6]    <= 1'b0;
+          cp_reg[6] <= 1'b1;
+          cn_reg[6] <= 1'b0;
+        end
+        cp_reg[5] <= 1'b0;
+        cn_reg[5] <= 1'b1;
+      end
+
+      STEP_5: begin
+        if (!COMP) begin
+          dat[5]    <= 1'b1;
+          cp_reg[5] <= 1'b0;
+          cn_reg[5] <= 1'b1;
+        end else begin
+          dat[5]    <= 1'b0;
+          cp_reg[5] <= 1'b1;
+          cn_reg[5] <= 1'b0;
+        end
+        cp_reg[4] <= 1'b0;
+        cn_reg[4] <= 1'b1;
+      end
+
+      STEP_4: begin
+        if (!COMP) begin
+          dat[4]    <= 1'b1;
+          cp_reg[4] <= 1'b0;
+          cn_reg[4] <= 1'b1;
+        end else begin
+          dat[4]    <= 1'b0;
+          cp_reg[4] <= 1'b1;
+          cn_reg[4] <= 1'b0;
+        end
+        cp_reg[3] <= 1'b0;
+        cn_reg[3] <= 1'b1;
+      end
+
+      STEP_3: begin
+        if (!COMP) begin
+          dat[3]    <= 1'b1;
+          cp_reg[3] <= 1'b0;
+          cn_reg[3] <= 1'b1;
+        end else begin
+          dat[3]    <= 1'b0;
+          cp_reg[3] <= 1'b1;
+          cn_reg[3] <= 1'b0;
+        end
+        cp_reg[2] <= 1'b0;
+        cn_reg[2] <= 1'b1;
+      end
+
+      STEP_2: begin
+        if (!COMP) begin
+          dat[2]    <= 1'b1;
+          cp_reg[2] <= 1'b0;
+          cn_reg[2] <= 1'b1;
+        end else begin
+          dat[2]    <= 1'b0;
+          cp_reg[2] <= 1'b1;
+          cn_reg[2] <= 1'b0;
+        end
+        cp_reg[1] <= 1'b0;
+        cn_reg[1] <= 1'b1;
+      end
+
+      STEP_1: begin
+        if (!COMP) begin
+          dat[1]    <= 1'b1;
+          cp_reg[1] <= 1'b0;
+          cn_reg[1] <= 1'b1;
+        end else begin
+          dat[1]    <= 1'b0;
+          cp_reg[1] <= 1'b1;
+          cn_reg[1] <= 1'b0;
+        end
+        cp_reg[0] <= 1'b0;
+        cn_reg[0] <= 1'b1;
+      end
+
+      STEP_0: begin
+        if (!COMP) begin
+          dat[0]    <= 1'b1;
+          cp_reg[0] <= 1'b0;
+          cn_reg[0] <= 1'b1;
+        end else begin
+          dat[0]    <= 1'b0;
+          cp_reg[0] <= 1'b1;
+          cn_reg[0] <= 1'b0;
+        end
+        cpc_reg <= 1'b0;
+        cnc_reg <= 1'b1;
+      end
+
+      NS1: begin
+        // Noise shaping residue integration
+      end
+
+      NS2: begin
+        // Latch output data and assert EOC on entry to DONE
+        b_reg   <= dat;
+        eoc_reg <= 1'b1;
+      end
+
+      DONE: begin
+        // Reset DAC and switches back to SAMPLE configuration
+        vcm_reg <= 1'b1;
+        sp_reg  <= 1'b1;
+        sn_reg  <= 1'b1;
+        cp_reg  <= 8'b1111_1111;
+        cn_reg  <= 8'b1111_1111;
+        cpc_reg <= 1'b1;
+        cnc_reg <= 1'b1;
+        eoc_reg <= 1'b0;
+      end
+
+      default: begin
+        state <= SAMPLE;
+      end
+    endcase
+  end
+
+endmodule

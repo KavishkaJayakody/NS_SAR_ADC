@@ -1,0 +1,21 @@
+//Revision 13
+//NOTE
+// Default config view template for AMS netlister(s) in ADE.
+// Note:
+//      Please remember to replace Top Cell Library, Cell, and View
+//      fields with the actual names used by your design.
+//END_NOTE
+
+config SAR_8bit_core_tb;
+design NS_SAR_Mixed.SAR_8bit_core_tb:schematic;
+liblist myLib;
+
+viewlist spectre, spice, pspice, verilog, verilogams, behavioral, functional, systemVerilog, schematic, veriloga, vhdl, vhdlams, wreal;
+stoplist spectre;
+
+
+cell NS_SAR_Analog.comparator binding :veriloga;
+cell NS_SAR_Analog.gate_driver binding :schematic;
+
+
+endconfig
