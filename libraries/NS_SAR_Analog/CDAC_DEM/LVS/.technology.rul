@@ -1,0 +1,1 @@
+technology "sky130_pv" -ruleSet "default" -techLib "/home/user22/pvtech.lib";

@@ -1,0 +1,34 @@
+##############################################################################################################
+#####  
+#####                                         PVS LVS COMPARISON
+#####  
+#####  Version                       :   16.10-p006
+#####  NVN Run Start                 :   Fri Aug 28 13:56:17 2026
+#####  ERC Summary File              :   CDAC_DEM.sum
+#####  Extraction Report File        :   CDAC_DEM.rep
+#####  Comparison Report File        :   CDAC_DEM.rep.cls
+#####  Top Cell                      :   CDAC_DEM  <vs>  CDAC_DEM
+#####  
+#####  Run Result                    :   MATCH
+#####  
+#####  Run Summary                   :   [INFO]  ERC Results: Empty
+#####                                :   [INFO]  Extraction Clean
+#####  
+#####  Layout Design                 :   NS_SAR_Analog CDAC_DEM layout
+#####  Schematic File                :   /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/CDAC_DEM/LVS/CDAC_DEM.cdl (cdl)
+#####  Rules File                    :   .technology.rul
+#####  Pin Swap File                 :   CDAC_DEM.rep.cps
+#####  
+#####  Extraction CPU Time           :   0h 0m 1s - (1s)
+#####  Extraction Exec Time          :   0h 0m 1s - (1s)
+#####  Extraction Peak Memory Usage  :   31.00MB
+#####  NVN CPU Time                  :   0h 0m 0s - (0s)                 
+#####  NVN Exec Time                 :   0h 0m 0s - (0s)                 
+#####  NVN Peak Memory Usage         :   221.99MB
+#####  LVS Total CPU Time            :   0h 0m 1s - (1s)                 
+#####  LVS Total Exec Time           :   0h 0m 1s - (1s)                 
+#####  LVS Total Peak Memory Usage   :   221.99MB
+#####  
+##############################################################################################################
+
+

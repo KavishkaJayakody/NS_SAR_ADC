@@ -1,0 +1,64 @@
+* Net aliases by cell for run: CDAC_DEM.rep
+* THIS FILE IS GENERATED. DO NOT EDIT.
+* ==== Bound cells ==============
+* ==== Unbound cells ==============
+AND2X1 { 
+  VDD ( VDD! )
+  VSS ( VSS! )
+}
+BUFX4 { 
+  VDD ( VDD! )
+  VSS ( VSS! )
+}
+BUFX8 { 
+  VDD ( VDD! )
+  VSS ( VSS! )
+}
+INVX1 { 
+  VDD ( VDD! )
+  VSS ( VSS! )
+}
+INVX4 { 
+  VDD ( VDD! )
+  VSS ( VSS! )
+}
+INVX8 { 
+  VDD ( VDD! )
+  VSS ( VSS! )
+}
+NOR2X1 { 
+  VDD ( VDD! )
+  VSS ( VSS! )
+}
+gate_driver { 
+  VDD! ( VDD )
+  VSS! ( VSS )
+}
+unit_capacitor_1_in_8_L { 
+  VDD! ( VDD )
+  VSS! ( VSS )
+}
+unit_capacitor_1_in_8_R { 
+  VDD! ( VDD )
+  VSS! ( VSS )
+}
+unit_capacitor_2_in_8_R { 
+  VDD! ( VDD )
+  VSS! ( VSS )
+}
+unit_capacitor_4_in_8_L { 
+  VDD! ( VDD )
+  VSS! ( VSS )
+}
+unit_capacitor_4_in_8_R { 
+  VDD! ( VDD )
+  VSS! ( VSS )
+}
+unit_capacitor_8_in_8_L { 
+  VDD! ( VDD )
+  VSS! ( VSS )
+}
+unit_capacitor_8_in_8_R { 
+  VDD! ( VDD )
+  VSS! ( VSS )
+}

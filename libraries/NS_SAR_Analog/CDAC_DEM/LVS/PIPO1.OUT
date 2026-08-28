@@ -1,0 +1,145 @@
+Virtuoso Framework License (111) was checked out successfully. Total checkout time was 0.01s.
+********************************************************************************
+Product   : Virtuoso(R) XStream Out
+Program   : @(#)$CDS: strmout version 6.1.7-64b 12/01/2016 05:40 (sjfhw306) $
+          : sub-version  IC6.1.7-64b.500.8 
+Started at: 28-Aug-2026  13:56:15
+User Name : user22
+Host Name : aed
+Directory : /home/user22
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+Loading sky130_fd_pr_main/libInit.il ...
+	Loading sky130_fd_pr_main/loadCxt.ile ... done!
+	Loading context 'sky130_fd_pr_main' from library 'sky130_fd_pr_main' ... done!
+	Loading context 'pdkUtils' from library 'sky130_fd_pr_main' ... done!
+	Loading sky130_fd_pr_main/libInitCktPro.il ... done!
+	Loading sky130_fd_pr_main/libInitCustomExit.il ... 	Loading Environment Settings ...
+done!
+Loaded sky130_fd_pr_main/libInit.il successfully!
+WARNING (XSTRM-20): Output Stream file '/home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/CDAC_DEM/LVS/CDAC_DEM.gds' already exists. It will be overwritten.
+INFO (XSTRM-217): Reading the layer map file, /home/user22/Sky130_cadence_pdk/sky130_release_0.1.0/libs/sky130_fd_pr_main/sky130_fd_pr_main.layermap
+INFO (XSTRM-162): You have not used the viaMap option. If the OpenAccess design has native oaVia instances, use the -viaMap option for preserving oaVia instances in a Stream Out - Stream In round trip. Using the -viaMap option improves performance and VM usage of applications using the Streamed-In design.  For details on the viaMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Options :
+library                                 NS_SAR_Analog
+strmFile                                /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/CDAC_DEM/LVS/CDAC_DEM.gds
+topCell                                 CDAC_DEM
+view                                    layout
+runDir                                  /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/CDAC_DEM/LVS
+logFile                                 /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/CDAC_DEM/LVS/PIPO1.LOG
+techLib                                 NS_SAR_Analog
+hierDepth                               32
+maxVertices                             2048
+layerMap                                 /home/user22/Sky130_cadence_pdk/sky130_release_0.1.0/libs/sky130_fd_pr_main/sky130_fd_pr_main.layermap
+userSkillFile                           /home/user22/NS_SAR_ADC/libraries/NS_SAR_Analog/CDAC_DEM/LVS/strmout.il
+labelDepth                              32
+case                                    Preserve
+convertDot                              node
+convertPin                              geometryAndText
+
+INFO (XSTRM-223): 1. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$1.
+INFO (XSTRM-223): 2. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$2.
+INFO (XSTRM-223): 3. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$3.
+INFO (XSTRM-223): 4. Translating cellView sky130_fd_pr_main/M3M4_C/layout as STRUCTURE M3M4_C$$4.
+INFO (XSTRM-223): 5. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$5.
+INFO (XSTRM-223): 6. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$6.
+INFO (XSTRM-223): 7. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$7.
+INFO (XSTRM-223): 8. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$8.
+INFO (XSTRM-223): 9. Translating cellView sky130_fd_pr_main/M3M4_C/layout as STRUCTURE M3M4_C$$9.
+INFO (XSTRM-223): 10. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$10.
+INFO (XSTRM-223): 11. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$11.
+INFO (XSTRM-223): 12. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$12.
+INFO (XSTRM-223): 13. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$13.
+INFO (XSTRM-223): 14. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$14.
+INFO (XSTRM-223): 15. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$15.
+INFO (XSTRM-223): 16. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$16.
+INFO (XSTRM-223): 17. Translating cellView sky130_fd_pr_main/M3M4_C/layout as STRUCTURE M3M4_C$$17.
+INFO (XSTRM-223): 18. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$18.
+INFO (XSTRM-223): 19. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$19.
+INFO (XSTRM-223): 20. Translating cellView sky130_fd_pr_main/M3M4_C/layout as STRUCTURE M3M4_C$$20.
+INFO (XSTRM-223): 21. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$21.
+INFO (XSTRM-223): 22. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$22.
+INFO (XSTRM-223): 23. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$23.
+INFO (XSTRM-223): 24. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$24.
+INFO (XSTRM-223): 25. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$25.
+INFO (XSTRM-223): 26. Translating cellView sky130_fd_pr_main/M3M4_C/layout as STRUCTURE M3M4_C$$26.
+INFO (XSTRM-223): 27. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$27.
+INFO (XSTRM-223): 28. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$28.
+INFO (XSTRM-223): 29. Translating cellView sky130_fd_pr_main/M3M4_C/layout as STRUCTURE M3M4_C$$29.
+INFO (XSTRM-223): 30. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$30.
+INFO (XSTRM-223): 31. Translating cellView sky130_fd_pr_main/M3M4_C/layout as STRUCTURE M3M4_C$$31.
+INFO (XSTRM-223): 32. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$32.
+INFO (XSTRM-223): 33. Translating cellView sky130_fd_pr_main/L1M1_C/layout as STRUCTURE L1M1_C$$33.
+INFO (XSTRM-223): 34. Translating cellView sky130_fd_pr_main/PYL1CON_C/layout as STRUCTURE PYL1CON_C$$34.
+INFO (XSTRM-223): 35. Translating cellView sky130_fd_pr_main/LILICON_C/layout as STRUCTURE LILICON_C$$35.
+INFO (XSTRM-223): 36. Translating cellView sky130_fd_pr_main/L1M1_C/layout as STRUCTURE L1M1_C$$36.
+INFO (XSTRM-223): 37. Translating cellView sky130_fd_pr_main/L1M1_C/layout as STRUCTURE L1M1_C$$37.
+INFO (XSTRM-223): 38. Translating cellView sky130_fd_pr_main/LICONDIFF_C/layout as STRUCTURE LICONDIFF_C$$38.
+INFO (XSTRM-223): 39. Translating cellView sky130_scl_9T/AND2X1/layout as STRUCTURE AND2X1.
+INFO (XSTRM-180): You have not used the objectMap option. The design has instance(s) of at least one of following OpenAccess objects: oaBlockage, oaBoundary, oaRow, and oaMarker. Any information about these objects will not be translated into the generated stream file. Use the objectMap option to translate/preserve these objects using XStream. For details on the objectMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+INFO (XSTRM-223): 40. Translating cellView sky130_fd_pr_main/L1M1_C/layout as STRUCTURE L1M1_C$$39.
+INFO (XSTRM-223): 41. Translating cellView sky130_scl_9T/NOR2X1/layout as STRUCTURE NOR2X1.
+INFO (XSTRM-223): 42. Translating cellView sky130_scl_9T/INVX1/layout as STRUCTURE INVX1.
+INFO (XSTRM-223): 43. Translating cellView sky130_scl_9T/INVX4/layout as STRUCTURE INVX4.
+INFO (XSTRM-223): 44. Translating cellView sky130_scl_9T/BUFX4/layout as STRUCTURE BUFX4.
+INFO (XSTRM-223): 45. Translating cellView sky130_scl_9T/INVX8/layout as STRUCTURE INVX8.
+INFO (XSTRM-223): 46. Translating cellView sky130_scl_9T/BUFX8/layout as STRUCTURE BUFX8.
+INFO (XSTRM-223): 47. Translating cellView sky130_fd_pr_main/cap_mim_m3__base/layout as STRUCTURE cap_mim_m3__base$$40.
+INFO (XSTRM-223): 48. Translating cellView NS_SAR_Analog/gate_driver/layout as STRUCTURE gate_driver.
+INFO (XSTRM-223): 49. Translating cellView sky130_fd_pr_main/polyConn/layout as STRUCTURE polyConn$$41.
+INFO (XSTRM-223): 50. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$42.
+INFO (XSTRM-223): 51. Translating cellView sky130_fd_pr_main/L1M1_C/layout as STRUCTURE L1M1_C$$43.
+INFO (XSTRM-223): 52. Translating cellView sky130_fd_pr_main/nwellTap/layout as STRUCTURE nwellTap$$44.
+INFO (XSTRM-223): 53. Translating cellView sky130_fd_pr_main/subTap/layout as STRUCTURE subTap$$45.
+INFO (XSTRM-223): 54. Translating cellView sky130_fd_pr_main/L1M1_C/layout as STRUCTURE L1M1_C$$46.
+INFO (XSTRM-223): 55. Translating cellView sky130_fd_pr_main/M2M3_C/layout as STRUCTURE M2M3_C$$47.
+INFO (XSTRM-223): 56. Translating cellView sky130_fd_pr_main/pfet_01v8/layout as STRUCTURE pfet_01v8$$48.
+INFO (XSTRM-223): 57. Translating cellView sky130_fd_pr_main/pfet_01v8/layout as STRUCTURE pfet_01v8$$49.
+INFO (XSTRM-223): 58. Translating cellView sky130_fd_pr_main/nfet_01v8/layout as STRUCTURE nfet_01v8$$50.
+INFO (XSTRM-223): 59. Translating cellView sky130_fd_pr_main/nfet_01v8/layout as STRUCTURE nfet_01v8$$51.
+INFO (XSTRM-223): 60. Translating cellView NS_SAR_Analog/unit_capacitor/layout as STRUCTURE unit_capacitor.
+INFO (XSTRM-223): 61. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$52.
+INFO (XSTRM-223): 62. Translating cellView sky130_fd_pr_main/polyConn/layout as STRUCTURE polyConn$$53.
+INFO (XSTRM-223): 63. Translating cellView sky130_fd_pr_main/L1M1_C/layout as STRUCTURE L1M1_C$$54.
+INFO (XSTRM-223): 64. Translating cellView sky130_fd_pr_main/pfet_01v8/layout as STRUCTURE pfet_01v8$$55.
+INFO (XSTRM-223): 65. Translating cellView sky130_fd_pr_main/nfet_01v8/layout as STRUCTURE nfet_01v8$$56.
+INFO (XSTRM-223): 66. Translating cellView NS_SAR_Analog/unit_capacitor_dummy/layout as STRUCTURE unit_capacitor_dummy.
+INFO (XSTRM-223): 67. Translating cellView NS_SAR_Analog/unit_capacitor_1_in_8_L/layout as STRUCTURE unit_capacitor_1_in_8_L.
+INFO (XSTRM-223): 68. Translating cellView NS_SAR_Analog/unit_capacitor_1_in_8_R/layout as STRUCTURE unit_capacitor_1_in_8_R.
+INFO (XSTRM-223): 69. Translating cellView NS_SAR_Analog/unit_capacitor_2_in_8_R/layout as STRUCTURE unit_capacitor_2_in_8_R.
+INFO (XSTRM-223): 70. Translating cellView NS_SAR_Analog/unit_capacitor_4_in_8_L/layout as STRUCTURE unit_capacitor_4_in_8_L.
+INFO (XSTRM-223): 71. Translating cellView NS_SAR_Analog/unit_capacitor_4_in_8_R/layout as STRUCTURE unit_capacitor_4_in_8_R.
+INFO (XSTRM-223): 72. Translating cellView NS_SAR_Analog/unit_capacitor_8_in_8_L/layout as STRUCTURE unit_capacitor_8_in_8_L.
+INFO (XSTRM-223): 73. Translating cellView NS_SAR_Analog/unit_capacitor_8_in_8_R/layout as STRUCTURE unit_capacitor_8_in_8_R.
+INFO (XSTRM-223): 74. Translating cellView NS_SAR_Analog/CDAC_DEM/layout as STRUCTURE CDAC_DEM.
+
+Summary of Objects Translated:
+	Scalar Instances:                       207
+	Array Instances:                        0
+	Polygons:                               36
+	Paths:                                  1
+	Rectangles:                             1624
+	Lines:                                  0
+	Arcs:                                   0
+	Donuts:                                 0
+	Dots:                                   0
+	Ellipses:                               0
+	Boundaries:                             0
+	Area Blockages:                         0
+	Layer Blockages:                        0
+	Area Halos:                             0
+	Markers:                                0
+	Rows:                                   0
+	Standard Vias                           694
+	Custom Vias:                            14
+	CdsGen Vias:                            0
+	Pathsegs:                               1138
+	Text:                                   76
+	TextDisplay:                            707
+	Cells:                                  74
+
+Elapsed Time: 0.1s   User Time: 0.1s   CPU Time: 0.0s   Peak VM: 11992KB
+INFO (XSTRM-234): Translation completed. '0' error(s) and '1' warning(s) found.
