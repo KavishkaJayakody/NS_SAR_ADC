@@ -1,0 +1,54 @@
+;| version 1
+text text_met4 attach met4
+text text_met3 attach met3
+text text_met2 attach met2
+text text_met1 attach met1
+connect li1 prec_0resistor_0term by licon1
+connect met3 bottom_0plate
+connect met4 top_0plate
+connect li1 pSourceDrain by licon1
+connect li1 nSourceDrain by licon1
+connect li1 pp_0term by licon1
+connect li1 np_0term by licon1
+connect li1 ptap by licon1
+connect li1 ntap by licon1
+connect li1 nsd by licon1
+connect li1 psd by licon1
+connect li1 isolated_0tap by licon1
+connect li1 poly by poly_0licon1
+connect poly pfet
+connect poly nfet
+connect gate poly
+connect li1 HV_0poly by licon1
+connect li1 HV_0source_0drain by licon1
+connect met1 li1 by mcon
+connect met2 met1 by via
+connect met3 met2 by via2
+connect met4 met3 by via3
+connect met5 met4 by via4
+connect HV_0tap HV_0nwell
+connect li1 npnC by licon1
+connect li1 npnB by licon1
+connect li1 npnE by licon1
+connect li1 pnpC by licon1
+connect li1 pnpB by licon1
+connect li1 pnpE by licon1
+connect pfet_0v20_0gate poly
+connect pfet_0v20_0source psd
+connect pfet_0v20_0drain psd
+connect nfet_0v20_0gate poly
+connect nfet_0v20_0source nsd
+connect nfet_0v20_0drain nsd
+stamp pwell_0all by ptap
+stamp nwell by ntap
+stamp HV_0FET_0gate by gate
+stamp hvtpfet by pfet
+stamp lvtpfet by pfet
+stamp lvtnfet by nfet
+stamp hvnpnE by npnE
+model = mos[nfet_01v8],nfet_01v8
+element mos[nfet_01v8] nfet_001v8_0rec nfet nSourceDrain pwell_0all
+model = mos[pfet_01v8],pfet_01v8
+element mos[pfet_01v8] pfet_001v8_0rec pfet pSourceDrain nwell
+model = cap[cap_mim_m3__base],cap_mim_m3__base
+element cap[cap_mim_m3__base] capacitor top_0plate bottom_0plate

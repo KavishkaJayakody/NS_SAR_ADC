@@ -1,5 +1,5 @@
 #!/bin/ksh
-# This script was generated Fri Aug 28 13:58:22 2026 by:
+# This script was generated Fri Aug 28 15:51:38 2026 by:
 #
 # Program: /home/aed/cadence/EXT181/tools.lnx86/extraction/bin/64bit//RCXspice
 # Version: 15.2.0

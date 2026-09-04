@@ -4,15 +4,16 @@
 
 module controller (
     // Clock and Control Inputs
+	input  wire		  CLK_IN,
     input  wire        CLK1,
     input  wire        CLK2,
     input  wire        CLK3,
     input  wire        EN,
     input  wire        RSTN,
     input  wire        COMP_IN,
-    input  wire        NS_EN,
 
     // Analog/Preamplifier & Comparator Controls
+	output wire		  CLK_OUT,
     output wire        SA_EN,
     output wire        CLK_EN,
     output wire        VCM_CON,
@@ -21,10 +22,7 @@ module controller (
     output wire        PA_EN_N,
     output wire        SAMPLE_P,
     output wire        SAMPLE_N,
-    output wire        NS_INT,
-    output wire        NS_INT_N,
-    output wire        NS_TRN,
-    output wire        NS_TRN_N,
+
 
     // Positive CDAC Reference Controls
     output wire [1:0]  VREF_SEL_1_P,
@@ -39,8 +37,9 @@ module controller (
     output wire [27:0] VREF_SEL_8_N,
 
     // Digital Outputs & Flags
-    output wire [7:0]  B,
-    output wire        EOC
+	output wire [7:0] uo_out,
+	output wire [7:0] uio_out,
+	output wire [7:0] uio_oe
 );
 
     // =========================================================================
@@ -86,22 +85,31 @@ module controller (
     assign PA_EN      = EN && is_sar_trial && (CLK2 && !CLK1);
     assign PA_EN_N    = ~PA_EN;
     assign SA_EN      = EN && is_sar_trial && (CLK2 && !CLK1 && CLK3);
+
+	assign CLK_OUT   = CLK_IN;
     assign CLK_EN     = EN;
 
-    assign VCM_CON    = vcm_reg && (CLK1 || (!CLK2 && !CLK3));
+    assign VCM_CON    = EN && RSTN && vcm_reg && (CLK1 || (!CLK2 && !CLK3));
     assign VCM_CON_N  = ~VCM_CON;
 
     assign SAMPLE_P   = sp_reg;
     assign SAMPLE_N   = sn_reg;
 
-    // Noise-Shaping Phase Control Drivers (Gated with NS_EN & EN)
-    assign NS_INT     = EN && NS_EN && (state == NS1);
-    assign NS_INT_N   = ~NS_INT;
-    assign NS_TRN     = EN && NS_EN && (state == NS2);
-    assign NS_TRN_N   = ~NS_TRN;
+	// =========================================================================
+	// Tiny Tapeout Digital Output Mapping
+	// =========================================================================
 
-    assign B          = b_reg;
-    assign EOC        = eoc_reg;
+	// 8-bit ADC result
+	assign uo_out = ~b_reg;
+
+	// UIO[0] = End-of-Conversion
+	assign uio_out[0] = eoc_reg;
+	assign uio_oe[0] = eoc_reg;
+	// Unused UIO outputs
+	assign uio_out[7:1] = 7'b0;
+	assign uio_oe[7:1] = 7'b0;
+	// UIO[0] is an output; UIO[7:1] remain inputs
+
 
     // =========================================================================
     // Next-State Combinational Decoder
@@ -131,7 +139,7 @@ module controller (
         if (!RSTN) begin
             state    <= SAMPLE;
             dat      <= 8'b0000_0000;
-            b_reg    <= 8'b0000_0000;
+            b_reg    <= 8'b1111_1111;
             eoc_reg  <= 1'b0;
             vcm_reg  <= 1'b1;
             sp_reg   <= 1'b1;

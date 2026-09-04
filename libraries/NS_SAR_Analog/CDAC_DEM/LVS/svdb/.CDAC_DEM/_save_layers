@@ -1,0 +1,38 @@
+FOX nwell
+metal5 metal5
+diff np_rptap p_rptap np_rpSourceDrain p_rpSourceDrain np_rntap p_rntap np_rnSourceDrain p_rnSourceDrain
+licon1 licon1_li1_psd licon1_li1_nsd licon1_li1_ntap licon1_li1_ptap licon1_li1_nSourceDrain licon1_li1_pSourceDrain
+met4 np_rmet4 p_rmet4
+met3 np_rmet3 p_rmet3
+met2 np_rmet2 p_rmet2
+met1 np_rmet1 p_rmet1
+li1 np_rli1 p_rli1
+poly np_rpoly p_rpoly
+gate np_rgate p_rgate
+nfet np_rnfet p_rnfet
+pfet np_rpfet p_rpfet
+nSourceDrain np_rnSourceDrain p_rnSourceDrain
+ntap np_rntap p_rntap
+pSourceDrain np_rpSourceDrain p_rpSourceDrain
+ptap np_rptap p_rptap
+nwell nwell.df2
+met3_bottom_0plate_ovia met3_bottom_0plate_ovia
+bottom_0plate np_rbottom_0plate p_rbottom_0plate
+met3_met3_bottom_0plate_butt_ovia met3_met3_bottom_0plate_butt_ovia
+met3_bottom_0plate_butt np_rmet3_bottom_0plate_butt p_rmet3_bottom_0plate_butt
+bottom_0plate_met3_bottom_0plate_butt_ovia bottom_0plate_met3_bottom_0plate_butt_ovia
+met4_top_0plate_ovia met4_top_0plate_ovia
+top_0plate np_rtop_0plate p_rtop_0plate
+met4_met4_top_0plate_butt_ovia met4_met4_top_0plate_butt_ovia
+met4_top_0plate_butt np_rmet4_top_0plate_butt p_rmet4_top_0plate_butt
+top_0plate_met4_top_0plate_butt_ovia top_0plate_met4_top_0plate_butt_ovia
+nsd np_rnsd p_rnsd
+psd np_rpsd p_rpsd
+poly_0licon1 np_rpoly_0licon1 p_rpoly_0licon1
+mcon np_rmcon p_rmcon
+via np_rvia p_rvia
+via2 np_rvia2 p_rvia2
+via3 np_rvia3 p_rvia3
+pwell_0all_ptap_ovia pwell_0all_ptap_ovia
+pwell_0all np_rpwell_0all p_rpwell_0all
+nwell_ntap_ovia nwell_ntap_ovia

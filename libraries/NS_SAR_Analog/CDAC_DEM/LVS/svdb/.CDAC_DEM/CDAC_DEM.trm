@@ -1,0 +1,4 @@
+;| version 1
+element mos[nfet_01v8] nfet_001v8_0rec nSourceDrain[D] nfet[G] nSourceDrain[S] pwell_0all[B]
+element mos[pfet_01v8] pfet_001v8_0rec pSourceDrain[D] pfet[G] pSourceDrain[S] nwell[B]
+element cap[cap_mim_m3__base] capacitor top_0plate[PLUS] bottom_0plate[MINUS]

@@ -1,9 +1,0 @@
-// VerilogA for NS_SAR_Analog, analog_comparator, veriloga
-
-`include "constants.vams"
-`include "disciplines.vams"
-
-module analog_comparator;
-
-
-endmodule

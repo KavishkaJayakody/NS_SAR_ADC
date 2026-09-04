@@ -1,0 +1,61 @@
+*
+* Techgen(tm) Tech file Generator.
+* FullVersion        : 21.2.2-p045
+* BuildNumber        : 045 
+* IRBuildNumber      : 045 
+* VersionDate        : Fri Sep 23 10:27:37 PDT 2022
+* Bitness            : 64-bit
+* 
+*
+process sky_typical
+*
+*| temp_reference 25
+*| auto_reorder_off true
+*
+deposition
+*step #  material   p/n                 name        thick    diel.   side     bot     angle
+step  1  substrate                       FOX       0.3262  3.9
+step  1  substrate                      diff       0.004  3.9
+step  2  metal                          poly       0.18  0  
+step  3  dielectric n                    IOX       0   3.9   sidewall(0.006)   0   auto_angle
+step  4  dielectric n                  SPNIT       0.121   7.5   sidewall(0.0431)   0   auto_angle
+step  5  dielectric p                    PSG       0.3089  3.9
+step  6  metal                            li       0.1  0  
+step  7  dielectric n                   LINT       0.075   7.3   sidewall(0.075)   0.075   auto_angle
+step  8  dielectric p                  NILD2       0.265  4.05
+step  9  metal                        metal1       0.36  0  
+step 10  dielectric n                NILD3_C       0   3.5   sidewall(0.03)   0   auto_angle
+step 11  dielectric p                  NILD3       0.27  4.5
+step 12  metal                        metal2       0.36  0  
+step 13  dielectric n                NILD4_C       0   3.5   sidewall(0.03)   0   auto_angle
+step 14  dielectric p                  NILD4       0.42  4.2
+step 15  metal                        metal3       0.845  0  
+step 16  dielectric p                  NILD5       0.39  4.2
+step 17  metal                        metal4       0.845  0  
+step 18  dielectric p                  NILD6       0.505  4
+step 19  metal                        metal5       1.26  0  
+step 20  dielectric n                  TOPOX       0.09   3.9   sidewall(0.07)   0   auto_angle
+step 21  dielectric n                 TOPNIT       0.54   7.5   sidewall(0.4223)   0.3777   auto_angle
+step 22  dielectric p                    PI1       4.6226  2.94
+step 23  dielectric p                    air       40  1
+enddeposition
+
+metal_variations auto_comb
+layer poly w  0.15 
+layer poly s  0.21 
+layer li w  0.14 
+layer li s  0.14 
+layer metal1 w  0.14 
+layer metal1 s  0.14 
+layer metal2 w  0.14 
+layer metal2 s  0.14 
+layer metal3 w  0.3 
+layer metal3 s  0.3 
+layer metal4 w  0.3 
+layer metal4 s  0.3 
+layer metal5 w  0.8 
+layer metal5 s  0.8 
+endmetal_variations
+
+endprocess
+

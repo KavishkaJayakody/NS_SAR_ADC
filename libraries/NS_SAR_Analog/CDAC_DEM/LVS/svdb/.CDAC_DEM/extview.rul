@@ -1,0 +1,47 @@
+device nfet_01v8 M nfet_01v8_rec nfet_01v8 ivpcell sky130_fd_pr_main D G S B 
+device pfet_01v8 M pfet_01v8_rec pfet_01v8 ivpcell sky130_fd_pr_main D G S B 
+device cap_mim_m3__base C capacitor cap_mim_m3__base ivpcell sky130_fd_pr_main PLUS MINUS 
+
+recognition                                 met1_res device drawing
+recognition                                 met2_res device drawing
+recognition                                 met3_res device drawing
+recognition                                 met4_res device drawing
+recognition                                 met5_res device drawing
+recognition                                 diff_res device drawing
+recognition                            nfet_01v8_rec device drawing
+recognition                            pfet_01v8_rec device drawing
+recognition                         lvtpfet_01v8_rec device drawing
+recognition                         lvtnfet_01v8_rec device drawing
+recognition                         hvtpfet_01v8_rec device drawing
+recognition                             HV_ngate_3v3 device drawing
+recognition                             HV_ngate_5v0 device drawing
+recognition                           HV_ngate_5v10v device drawing
+recognition                           HV_pgate_5v10v device drawing
+interconnect li1 li1 drawing
+interconnect met1 met1 drawing
+interconnect met2 met2 drawing
+interconnect met3 met3 drawing
+interconnect met4 met4 drawing
+interconnect met5 met5 drawing
+interconnect mcon mcon drawing
+interconnect via via drawing
+interconnect pwell pwell drawing
+interconnect nwell nwell drawing
+interconnect nSourceDrain tap drawing
+interconnect pSourceDrain tap drawing
+interconnect HV_source_drain tap drawing
+interconnect nfet poly drawing
+interconnect pfet poly drawing
+interconnect lvtpfet poly drawing
+interconnect lvtnfet poly drawing
+interconnect hvtpfet poly drawing
+interconnect HV_FET_gate poly drawing
+interconnect poly poly drawing
+interconnect poly_licon1 npc drawing
+interconnect via mcon drawing
+interconnect via2 via drawing
+interconnect via3 via2 drawing
+interconnect via4 via3 drawing
+interconnect met1 li1 drawing
+COPY 	nsdm drawing ALL
+COPY 	psdm drawing ALL

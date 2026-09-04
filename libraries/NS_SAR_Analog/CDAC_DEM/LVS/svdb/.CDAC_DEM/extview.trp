@@ -1,0 +1,8 @@
+#trp_version_1
+#!force_model_overwrite
+model: nfet_01v8 nfet_01v8
+pmExclude: l=L w=W m="1" simM="1" fingers="1"
+model: pfet_01v8 pfet_01v8
+pmExclude: l=L w=W m="1" simM="1" fingers="1"
+model: cap_mim_m3__base cap_mim_m3__base
+pmExclude: m="1"

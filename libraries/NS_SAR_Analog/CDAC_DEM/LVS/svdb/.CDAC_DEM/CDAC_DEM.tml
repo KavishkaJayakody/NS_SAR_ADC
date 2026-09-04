@@ -1,0 +1,4 @@
+41
+nfet_01v8 15 -2 nfet_001v8_0rec
+pfet_01v8 16 -2 pfet_001v8_0rec
+cap_mim_m3__base 40 -2 capacitor

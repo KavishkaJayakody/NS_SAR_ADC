@@ -1,0 +1,6 @@
+cUiSetViewStatus {SAR_8bit} {layout} {0}
+cUiSetViewStatus {SAR_8bit} {logical} {0}
+cUiSetViewStatus {SAR_8bit} {abstract.pin} {0}
+cUiSetViewStatus {SAR_8bit} {abstract.ext} {0}
+cUiSetViewStatus {SAR_8bit} {abstract} {0}
+cUiSetViewStatus {SAR_8bit} {abstract.ver} {0}

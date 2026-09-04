@@ -1,0 +1,6 @@
+metal4 p_rmet4,np_rmet4
+metal3 p_rmet3,np_rmet3
+metal2 p_rmet2,np_rmet2
+metal1 p_rmet1,np_rmet1
+li p_rli1,np_rli1
+poly p_rpoly,p_rgate,p_rnfet,p_rpfet,np_rpoly,np_rgate,np_rnfet,np_rpfet
