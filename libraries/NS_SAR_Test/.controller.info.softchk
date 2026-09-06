@@ -1,0 +1,7 @@
+cell: "controller"
+selected net: "203"
+rejected nets: "213" "231" 
+contact layer: ""
+lower layer: "pwell_all"
+upper layer:  "ptap"
+command:  "sconnect ptap pwell_all"

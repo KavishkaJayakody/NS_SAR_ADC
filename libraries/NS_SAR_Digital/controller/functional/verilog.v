@@ -4,7 +4,7 @@
 
 module controller (
     // Clock and Control Inputs
-	input  wire		  CLK_IN,
+    input  wire        CLK_IN,
     input  wire        CLK1,
     input  wire        CLK2,
     input  wire        CLK3,
@@ -13,7 +13,7 @@ module controller (
     input  wire        COMP_IN,
 
     // Analog/Preamplifier & Comparator Controls
-	output wire		  CLK_OUT,
+    output wire        CLK_OUT,
     output wire        SA_EN,
     output wire        CLK_EN,
     output wire        VCM_CON,
@@ -22,7 +22,6 @@ module controller (
     output wire        PA_EN_N,
     output wire        SAMPLE_P,
     output wire        SAMPLE_N,
-
 
     // Positive CDAC Reference Controls
     output wire [1:0]  VREF_SEL_1_P,
@@ -37,9 +36,9 @@ module controller (
     output wire [27:0] VREF_SEL_8_N,
 
     // Digital Outputs & Flags
-	output wire [7:0] uo_out,
-	output wire [7:0] uio_out,
-	output wire [7:0] uio_oe
+    output wire [7:0] uo_out,
+    output wire [7:0] uio_out,
+    output wire [7:0] uio_oe
 );
 
     // =========================================================================
@@ -77,6 +76,10 @@ module controller (
     reg [7:0] cn_reg;
     reg       cnc_reg;
 
+    // Registers holding the unused UIO bits so they become real routed nets
+    reg [6:0] uio_out_hi_reg;
+    reg [6:0] uio_oe_hi_reg;
+
     // =========================================================================
     // Clock Gating & Output Routing
     // =========================================================================
@@ -86,7 +89,7 @@ module controller (
     assign PA_EN_N    = ~PA_EN;
     assign SA_EN      = EN && is_sar_trial && (CLK2 && !CLK1 && CLK3);
 
-	assign CLK_OUT   = CLK_IN;
+    assign CLK_OUT    = CLK_IN;
     assign CLK_EN     = EN;
 
     assign VCM_CON    = EN && RSTN && vcm_reg && (CLK1 || (!CLK2 && !CLK3));
@@ -95,21 +98,19 @@ module controller (
     assign SAMPLE_P   = sp_reg;
     assign SAMPLE_N   = sn_reg;
 
-	// =========================================================================
-	// Tiny Tapeout Digital Output Mapping
-	// =========================================================================
+    // =========================================================================
+    // Tiny Tapeout Digital Output Mapping
+    // =========================================================================
 
-	// 8-bit ADC result
-	assign uo_out = ~b_reg;
+    // 8-bit ADC result (inverted)
+    assign uo_out = ~b_reg;
 
-	// UIO[0] = End-of-Conversion
-	assign uio_out[0] = eoc_reg;
-	assign uio_oe[0] = eoc_reg;
-	// Unused UIO outputs
-	assign uio_out[7:1] = 7'b0;
-	assign uio_oe[7:1] = 7'b0;
-	// UIO[0] is an output; UIO[7:1] remain inputs
+    // UIO[0] = End-of-Conversion, output-enabled while EOC asserted
+    assign uio_out[0] = eoc_reg;
 
+    // Unused UIO bits, driven from registers rather than tied off
+    assign uio_out[7:1] = uio_out_hi_reg;
+    assign uio_oe[7:0]  = uio_oe_hi_reg;
 
     // =========================================================================
     // Next-State Combinational Decoder
@@ -130,6 +131,19 @@ module controller (
             DONE:    next_state = SAMPLE;
             default: next_state = SAMPLE;
         endcase
+    end
+
+    // =========================================================================
+    // Unused UIO bit registers -- held at zero, but real sequential nets
+    // =========================================================================
+    always @(posedge CLK1 or negedge RSTN) begin
+        if (!RSTN) begin
+            uio_out_hi_reg <= 7'b0;
+            uio_oe_hi_reg  <= 8'b0000_0001;
+        end else begin
+            uio_out_hi_reg <= 7'b0;
+            uio_oe_hi_reg  <= 8'b0000_0001;
+        end
     end
 
     // =========================================================================
@@ -274,7 +288,7 @@ module controller (
                 end
 
                 NS1: begin
-                    // Residue integration phase (NS_INT active)
+                    // Residue integration phase
                 end
 
                 NS2: begin
