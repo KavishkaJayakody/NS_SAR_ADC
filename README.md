@@ -19,7 +19,7 @@
 
 | Parameter | Specification |
 | :--- | :--- |
-| **Process Technology** | Skywater 130nm (Sky130) |
+| **Process Technology** | Skywater 130nm (Sky130) using Cadence |
 | **Architecture** | 8-bit SAR Core with Noise Shaping (NS) |
 | **Target Performance** | 10-bit ENOB (via Noise Shaping/OSR) |
 | **Target Area** | 1x2 tiles (160x225µm) |
