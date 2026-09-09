@@ -1,0 +1,4700 @@
+********************************************************************************
+pvs 16.10-p006 64 bit (Thu Jul 27 18:05:02 PDT 2017)
+Build Ref No.: 006 Production (07-27-2017) [pvs_1610]
+
+Copyright 2017 Cadence Design Systems, Inc.
+All rights reserved worldwide.
+
+Build O/S:       Linux x86_64 2.6.18-194.el5
+Executed on:     aed (Linux x86_64 3.10.0-1160.108.1.el7.x86_64)
+Process Id:      8130
+Starting Time:   Sun Aug 30 10:08:52 2026 (Sun Aug 30 04:38:52 2026 GMT)
+With parameters: -drc -get_rules /tmp/pvsrng.7376@aed.1 -tc top -gds /dev/null -get_options /tmp/pvsoptpar.7376@aed.1 -gen_tags /tmp/pvsgentags.7376@aed.1 -control /tmp/ipvsRulesCheckControl.7376@aed.1 /home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/controller/.config.rul.7376@aed.1 /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/sky130_rev_0.0_2.12.drc.pvl 
+********************************************************************************
+
+
+########################################################################
+Get host info ...
+########################################################################
+CPU info:
+    model name      :  Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+    cpu MHz         :  3784.948
+    cache size      :  8192 KB
+    physical cores  :  4
+    logical cores   :  8
+    hyper-threading on
+
+Memory info:
+    31920M physical memory installed.
+
+    MemTotal:       32689660 kB
+    MemFree:          282168 kB
+    MemAvailable:   11549572 kB
+    Buffers:              92 kB
+    Cached:         11099748 kB
+    SwapCached:          288 kB
+    Active:         20756836 kB
+    Inactive:        6264064 kB
+    Active(anon):   16544440 kB
+    Inactive(anon):  1342404 kB
+    Active(file):    4212396 kB
+    Inactive(file):  4921660 kB
+    Unevictable:        2340 kB
+    Mlocked:               0 kB
+    SwapTotal:       8191996 kB
+    SwapFree:        8191476 kB
+    Dirty:                44 kB
+    Writeback:             0 kB
+    AnonPages:      15923564 kB
+    Mapped:           995612 kB
+    Shmem:           1965784 kB
+    Slab:            3179904 kB
+    SReclaimable:    2534032 kB
+    SUnreclaim:       645872 kB
+    KernelStack:       63600 kB
+    PageTables:       534928 kB
+    NFS_Unstable:          0 kB
+    Bounce:                0 kB
+    WritebackTmp:          0 kB
+    CommitLimit:    24536824 kB
+    Committed_AS:   45604752 kB
+    VmallocTotal:   34359738367 kB
+    VmallocUsed:      397612 kB
+    VmallocChunk:   34358947836 kB
+    Percpu:             1504 kB
+    HardwareCorrupted:     0 kB
+    AnonHugePages:   6334464 kB
+    CmaTotal:              0 kB
+    CmaFree:               0 kB
+    HugePages_Total:       0
+    HugePages_Free:        0
+    HugePages_Rsvd:        0
+    HugePages_Surp:        0
+    Hugepagesize:       2048 kB
+    DirectMap4k:       96180 kB
+    DirectMap2M:     5056512 kB
+    DirectMap1G:    28311552 kB
+
+
+########################################################################
+Get environment info ...
+########################################################################
+ENV VAR: TCL_LIBRARY = /home/aed/cadence/PVS161/share/lib/tcltk/08.64/tcl8.6
+ENV VAR: TCLX_LIBRARY = /home/aed/cadence/PVS161/share/lib/tclx/08.40
+ENV VAR: TCLLIBPATH = /home/aed/cadence/PVS161/share/lib/itcl/3.4.1 /home/aed/cadence/PVS161/share/lib/tclxml/3.2 /home/aed/cadence/PVS161/share/lib/tcllib/1.18 /home/aed/cadence/PVS161/share/lib/itcl/3.4.1 /home/aed/cadence/PVS161/share/lib/tclxml/3.2 /home/aed/cadence/PVS161/share/lib/tcllib/1.18 
+
+
+########################################################################
+Parsing Control File /tmp/ipvsRulesCheckControl.7376@aed.1 ...
+########################################################################
+RESULTS_DB -drc "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/controller/controller.drc_errors.ascii" -ascii;
+
+########################################################################
+Parsing Rule File /home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/controller/.config.rul.7376@aed.1 ...
+########################################################################
+
+########################################################################
+Parsing Rule File /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/sky130_rev_0.0_2.12.drc.pvl ...
+########################################################################
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/layer_def.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/x.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/dnwell.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/nwell.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/hvtp.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/hvtr.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/lvtn.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/ncm.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/difftap.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/tunm.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/poly.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/rpm.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/varac.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/photo.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/npc.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/n_psd.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/licon.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/li.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/mcon.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/capm.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/vpp.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/m1.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/via1.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/m2.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/via2.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/m3.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/via3.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/nsm.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/m4.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/via4.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/m5.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/pad.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/hvi.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/hvnwell.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/hvdifftap.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/hvpoly.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/hvntm.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/denmos.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/depmos.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/hv.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/vhvi.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/uhvi.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/pwres.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/density.drc.pvl"
+include "/home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/other.drc.pvl"
+LAYOUT_FORMAT gdsii;
+LAYOUT_PATH "./mycell.gds";
+[WARN] Cmd-line override: LAYOUT_PATH "/dev/null";
+LAYOUT_PRIMARY "mycell";
+[WARN] Cmd-line override: LAYOUT_PRIMARY "top";
+REPORT_SUMMARY -drc "mycell.sum" -replace;
+RESULTS_DB -drc "./mycell.drc_errors.ascii" -ascii;
+[WARN]: RESULTS_DB -ascii at line 159 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/sky130_rev_0.0_2.12.drc.pvl is skipped. It is set in control file.
+MAX_RESULTS -drc 1000;
+MAX_VERTEX -drc 4096;
+ABORT_ON_LAYOUT_ERROR no;
+TEXT_DEPTH -primary;
+KEEP_LAYERS
+INPUT_SCALE 1000;
+LAYER_DEF diff_dg 1001;
+LAYER_MAP 65 -datatype 20 1001;
+LAYER_DEF diff_txt 1002;
+LAYER_MAP 65 -texttype 20 1002;
+LAYER_DEF tap_dg 1003;
+LAYER_MAP 65 -datatype 44 1003;
+LAYER_DEF nwell 1004;
+LAYER_MAP 64 -datatype 20 1004;
+LAYER_DEF dnwell 1005;
+LAYER_MAP 64 -datatype 18 1005;
+LAYER_DEF pwbm 1006;
+LAYER_MAP 19 -datatype 44 1006;
+LAYER_DEF pwde 1007;
+LAYER_MAP 124 -datatype 20 1007;
+LAYER_DEF hvtr 1008;
+LAYER_MAP 18 -datatype 20 1008;
+LAYER_DEF hvtp 1009;
+LAYER_MAP 78 -datatype 44 1009;
+LAYER_DEF ldntm 1010;
+LAYER_MAP 11 -datatype 44 1010;
+LAYER_DEF hvi 1011;
+LAYER_MAP 75 -datatype 20 1011;
+LAYER_DEF tunm 1012;
+LAYER_MAP 80 -datatype 20 1012;
+LAYER_DEF lvtn 1013;
+LAYER_MAP 125 -datatype 44 1013;
+LAYER_DEF poly_dg 1014;
+LAYER_MAP 66 -datatype 20 1014;
+LAYER_DEF poly_txt 1015;
+LAYER_MAP 66 -texttype 20 1015;
+LAYER_DEF hvntm 1016;
+LAYER_MAP 125 -datatype 20 1016;
+LAYER_DEF nsdm 1017;
+LAYER_MAP 93 -datatype 44 1017;
+LAYER_DEF psdm 1018;
+LAYER_MAP 94 -datatype 20 1018;
+LAYER_DEF rpm 1019;
+LAYER_MAP 86 -datatype 20 1019;
+LAYER_DEF urpm 1020;
+LAYER_MAP 79 -datatype 20 1020;
+LAYER_DEF npc 1021;
+LAYER_MAP 95 -datatype 20 1021;
+LAYER_DEF licon 1022;
+LAYER_MAP 66 -datatype 44 1022;
+LAYER_DEF li_dg 1023;
+LAYER_MAP 67 -datatype 20 1023;
+LAYER_DEF li1_text 1024;
+LAYER_MAP 67 -texttype 20 1024;
+LAYER_DEF mcon 1025;
+LAYER_MAP 67 -datatype 44 1025;
+LAYER_DEF m1_dg 1026;
+LAYER_MAP 68 -datatype 20 1026;
+LAYER_DEF met1_text 1027;
+LAYER_MAP 68 -texttype 20 1027;
+LAYER_DEF via1 1028;
+LAYER_MAP 68 -datatype 44 1028;
+LAYER_DEF m2_dg 1029;
+LAYER_MAP 69 -datatype 20 1029;
+LAYER_DEF met2_text 1030;
+LAYER_MAP 69 -texttype 20 1030;
+LAYER_DEF via2 1031;
+LAYER_MAP 69 -datatype 44 1031;
+LAYER_DEF m3_dg 1032;
+LAYER_MAP 70 -datatype 20 1032;
+LAYER_DEF met3_text 1033;
+LAYER_MAP 70 -texttype 20 1033;
+LAYER_DEF via3 1034;
+LAYER_MAP 70 -datatype 44 1034;
+LAYER_DEF m4_dg 1035;
+LAYER_MAP 71 -datatype 20 1035;
+LAYER_DEF met4_text 1036;
+LAYER_MAP 71 -texttype 20 1036;
+LAYER_DEF via4 1037;
+LAYER_MAP 71 -datatype 44 1037;
+LAYER_DEF m5_dg 1038;
+LAYER_MAP 72 -datatype 20 1038;
+LAYER_DEF met5_text 1039;
+LAYER_MAP 72 -texttype 20 1039;
+LAYER_DEF pad 1040;
+LAYER_MAP 76 -datatype 20 1040;
+LAYER_DEF pad_text 1041;
+LAYER_MAP 76 -texttype 20 1041;
+LAYER_DEF nsm 1042;
+LAYER_MAP 61 -datatype 20 1042;
+LAYER_DEF capm 1043;
+LAYER_MAP 89 -datatype 44 1043;
+LAYER_DEF cap2m 1044;
+LAYER_MAP 97 -datatype 44 1044;
+LAYER_DEF vhvi 1045;
+LAYER_MAP 74 -datatype 21 1045;
+LAYER_DEF uhvi 1046;
+LAYER_MAP 74 -datatype 22 1046;
+LAYER_DEF npn 1047;
+LAYER_MAP 82 -datatype 20 1047;
+LAYER_DEF inductor 1048;
+LAYER_MAP 82 -datatype 24 1048;
+LAYER_DEF capacitor_in 1049;
+LAYER_MAP 82 -datatype 64 1049;
+LAYER_DEF pnp 1050;
+LAYER_MAP 82 -datatype 44 1050;
+LAYER_DEF LVS_prune 1051;
+LAYER_MAP 84 -datatype 44 1051;
+LAYER_DEF ncm 1052;
+LAYER_MAP 92 -datatype 44 1052;
+LAYER_DEF padCenter 1053;
+LAYER_MAP 81 -datatype 20 1053;
+LAYER_DEF target 1054;
+LAYER_MAP 76 -datatype 44 1054;
+LAYER_DEF SEALID 1055;
+LAYER_MAP 81 -datatype 1 1055;
+LAYER_DEF areaid.ce 1056;
+LAYER_MAP 81 -datatype 2 1056;
+LAYER_DEF areaid.fe 1057;
+LAYER_MAP 81 -datatype 3 1057;
+LAYER_DEF areaid.sc 1058;
+LAYER_MAP 81 -datatype 4 1058;
+LAYER_DEF areaid.sf 1059;
+LAYER_MAP 81 -datatype 6 1059;
+LAYER_DEF areaid.sr 1061;
+LAYER_MAP 81 -datatype 8 1061;
+LAYER_DEF areaid.mt 1062;
+LAYER_MAP 81 -datatype 10 1062;
+LAYER_DEF areaid.dt 1063;
+LAYER_MAP 81 -datatype 11 1063;
+LAYER_DEF areaid.ft 1064;
+LAYER_MAP 81 -datatype 12 1064;
+LAYER_DEF areaid.ww 1065;
+LAYER_MAP 81 -datatype 13 1065;
+LAYER_DEF areaid.ld 1066;
+LAYER_MAP 81 -datatype 14 1066;
+LAYER_DEF areaid.ns 1067;
+LAYER_MAP 81 -datatype 15 1067;
+LAYER_DEF areaid.ij 1068;
+LAYER_MAP 81 -datatype 17 1068;
+LAYER_DEF areaid.zr 1069;
+LAYER_MAP 81 -datatype 18 1069;
+LAYER_DEF areaid.ed 1070;
+LAYER_MAP 81 -datatype 19 1070;
+LAYER_DEF areaid.de 1071;
+LAYER_MAP 81 -datatype 23 1071;
+LAYER_DEF areaid.rd 1072;
+LAYER_MAP 81 -datatype 24 1072;
+LAYER_DEF areaid.dn 1073;
+LAYER_MAP 81 -datatype 50 1073;
+LAYER_DEF areaid.cr 1074;
+LAYER_MAP 81 -datatype 51 1074;
+LAYER_DEF areaid.cd 1075;
+LAYER_MAP 81 -datatype 52 1075;
+LAYER_DEF localSub 1076;
+LAYER_MAP 81 -datatype 53 1076;
+LAYER_DEF areaid.op 1077;
+LAYER_MAP 81 -datatype 54 1077;
+LAYER_DEF areaid.en 1078;
+LAYER_MAP 81 -datatype 57 1078;
+LAYER_DEF areaid.en20 1079;
+LAYER_MAP 81 -datatype 58 1079;
+LAYER_DEF areaid.le 1080;
+LAYER_MAP 81 -datatype 60 1080;
+LAYER_DEF areaid.hl 1081;
+LAYER_MAP 81 -datatype 63 1081;
+LAYER_DEF lv_net 1299;
+LAYER_MAP 81 -datatype 66 1299;
+LAYER_DEF areaid.sd 1082;
+LAYER_MAP 81 -datatype 70 1082;
+LAYER_DEF areaid.po 1083;
+LAYER_MAP 81 -datatype 81 1083;
+LAYER_DEF areaid.it 1084;
+LAYER_MAP 81 -datatype 84 1084;
+LAYER_DEF areaid.et 1085;
+LAYER_MAP 81 -datatype 101 1085;
+LAYER_DEF areaid.lvt 1086;
+LAYER_MAP 81 -datatype 108 1086;
+LAYER_DEF areaid.re 1087;
+LAYER_MAP 81 -datatype 125 1087;
+LAYER_DEF fom 1088;
+LAYER_MAP 22 -datatype 23 1088;
+LAYER_DEF poly_gate 1089;
+LAYER_MAP 66 -datatype 9 1089;
+LAYER_DEF poly_model 1090;
+LAYER_MAP 66 -texttype 83 1090;
+LAYER_DEF poly_res 1091;
+LAYER_MAP 66 -datatype 13 1091;
+LAYER_DEF diff_res 1092;
+LAYER_MAP 65 -datatype 13 1092;
+LAYER_DEF pwell_res 1093;
+LAYER_MAP 64 -datatype 13 1093;
+LAYER_DEF li1_res 1094;
+LAYER_MAP 67 -datatype 13 1094;
+LAYER_DEF diff_hv 1095;
+LAYER_MAP 65 -datatype 8 1095;
+LAYER_DEF met4_fuse 1096;
+LAYER_MAP 71 -datatype 17 1096;
+LAYER_DEF inductor_trm1 1097;
+LAYER_MAP 82 -datatype 26 1097;
+LAYER_DEF inductor_trm2 1098;
+LAYER_MAP 82 -datatype 27 1098;
+LAYER_DEF inductor_trm3 1099;
+LAYER_MAP 82 -datatype 28 1099;
+LAYER_DEF li1_block 1100;
+LAYER_MAP 67 -datatype 10 1100;
+LAYER_DEF met1_block 1101;
+LAYER_MAP 68 -datatype 10 1101;
+LAYER_DEF met2_block 1102;
+LAYER_MAP 69 -datatype 10 1102;
+LAYER_DEF met3_block 1103;
+LAYER_MAP 70 -datatype 10 1103;
+LAYER_DEF met4_block 1104;
+LAYER_MAP 71 -datatype 10 1104;
+LAYER_DEF met5_block 1105;
+LAYER_MAP 72 -datatype 10 1105;
+LAYER_DEF prBndry 1106;
+LAYER_MAP 235 -datatype 4 1106;
+LAYER_DEF diff_bnd 1107;
+LAYER_MAP 65 -datatype 4 1107;
+LAYER_DEF tap_bnd 1108;
+LAYER_MAP 65 -datatype 60 1108;
+LAYER_DEF mcon_bnd 1109;
+LAYER_MAP 67 -datatype 60 1109;
+LAYER_DEF poly_bnd 1110;
+LAYER_MAP 66 -datatype 4 1110;
+LAYER_DEF via1_bnd 1111;
+LAYER_MAP 68 -datatype 60 1111;
+LAYER_DEF via2_bnd 1112;
+LAYER_MAP 69 -datatype 60 1112;
+LAYER_DEF via3_bnd 1113;
+LAYER_MAP 70 -datatype 60 1113;
+LAYER_DEF via4_bnd 1114;
+LAYER_MAP 71 -datatype 60 1114;
+LAYER_DEF li1_label 1115;
+LAYER_MAP 67 -texttype 5 1115;
+LAYER_DEF met1_label 1116;
+LAYER_MAP 68 -texttype 5 1116;
+LAYER_DEF met2_label 1117;
+LAYER_MAP 69 -texttype 5 1117;
+LAYER_DEF met3_label 1118;
+LAYER_MAP 70 -texttype 5 1118;
+LAYER_DEF met4_label 1119;
+LAYER_MAP 71 -texttype 5 1119;
+LAYER_DEF met5_label 1120;
+LAYER_MAP 72 -texttype 5 1120;
+LAYER_DEF poly_label 1121;
+LAYER_MAP 66 -texttype 5 1121;
+LAYER_DEF diff_label 1122;
+LAYER_MAP 65 -texttype 6 1122;
+LAYER_DEF pwell_in 1123;
+LAYER_MAP 64 -datatype 59 1123;
+LAYER_DEF pwell_label 1124;
+LAYER_MAP 64 -texttype 59 1124;
+LAYER_DEF pwelliso_label 1125;
+LAYER_MAP 44 -datatype 5 1125;
+LAYER_DEF pad_label 1126;
+LAYER_MAP 76 -texttype 5 1126;
+LAYER_DEF tap_label 1127;
+LAYER_MAP 65 -texttype 5 1127;
+LAYER_DEF nwell_label 1128;
+LAYER_MAP 64 -texttype 5 1128;
+LAYER_DEF inductor_label 1129;
+LAYER_MAP 82 -texttype 25 1129;
+LAYER_DEF text 1130;
+LAYER_MAP 83 -texttype 44 1130;
+LAYER_DEF li1_net 1131;
+LAYER_MAP 67 -texttype 23 1131;
+LAYER_DEF met1_net 1132;
+LAYER_MAP 68 -texttype 23 1132;
+LAYER_DEF met2_net 1133;
+LAYER_MAP 69 -texttype 23 1133;
+LAYER_DEF met3_net 1134;
+LAYER_MAP 70 -texttype 23 1134;
+LAYER_DEF met4_net 1135;
+LAYER_MAP 71 -texttype 23 1135;
+LAYER_DEF met5_net 1136;
+LAYER_MAP 72 -texttype 23 1136;
+LAYER_DEF poly_net 1137;
+LAYER_MAP 66 -texttype 23 1137;
+LAYER_DEF diff_net 1138;
+LAYER_MAP 65 -texttype 23 1138;
+LAYER_DEF li1_pin 1139;
+LAYER_MAP 67 -texttype 0 1139;
+LAYER_MAP 67 -datatype 16 1139;
+LAYER_MAP 67 -texttype 16 1139;
+LAYER_DEF met1_pin 1141;
+LAYER_MAP 68 -texttype 0 1141;
+LAYER_MAP 68 -datatype 16 1141;
+LAYER_MAP 68 -texttype 16 1141;
+LAYER_DEF met2_pin 1143;
+LAYER_MAP 69 -texttype 0 1143;
+LAYER_MAP 69 -datatype 16 1143;
+LAYER_MAP 69 -texttype 16 1143;
+LAYER_DEF met3_pin 1145;
+LAYER_MAP 70 -texttype 0 1145;
+LAYER_MAP 70 -datatype 16 1145;
+LAYER_MAP 70 -texttype 16 1145;
+LAYER_DEF met4_pin 1147;
+LAYER_MAP 71 -texttype 0 1147;
+LAYER_MAP 71 -datatype 16 1147;
+LAYER_MAP 71 -texttype 16 1147;
+LAYER_DEF met5_pin 1149;
+LAYER_MAP 72 -texttype 0 1149;
+LAYER_MAP 72 -datatype 16 1149;
+LAYER_MAP 72 -texttype 16 1149;
+LAYER_DEF poly_pin 1152;
+LAYER_MAP 66 -texttype 0 1152;
+LAYER_MAP 66 -texttype 16 1152;
+LAYER_DEF diff_pin 1153;
+LAYER_MAP 65 -texttype 16 1153;
+LAYER_DEF nwell_pin 1154;
+LAYER_MAP 64 -datatype 16 1154;
+LAYER_MAP 64 -texttype 0 1154;
+LAYER_DEF pad_pin 1155;
+LAYER_MAP 76 -texttype 0 1155;
+LAYER_MAP 76 -datatype 16 1155;
+LAYER_MAP 76 -texttype 16 1155;
+LAYER_DEF pwell_pin 1157;
+LAYER_MAP 122 -datatype 16 1157;
+LAYER_MAP 122 -texttype 16 1157;
+LAYER_MAP 122 -texttype 0 1157;
+LAYER_DEF pwelliso 1159;
+LAYER_MAP 44 -datatype 16 1159;
+LAYER_MAP 44 -texttype 16 1159;
+LAYER_DEF diff_cut 1171;
+LAYER_MAP 65 -datatype 14 1171;
+LAYER_DEF poly_cut 1172;
+LAYER_MAP 66 -datatype 14 1172;
+LAYER_DEF li1_cut 1173;
+LAYER_MAP 67 -datatype 14 1173;
+LAYER_DEF met1_cut 1174;
+LAYER_MAP 68 -datatype 14 1174;
+LAYER_DEF met2_cut 1175;
+LAYER_MAP 69 -datatype 14 1175;
+LAYER_DEF met3_cut 1176;
+LAYER_MAP 70 -datatype 14 1176;
+LAYER_DEF met4_cut 1177;
+LAYER_MAP 71 -datatype 14 1177;
+LAYER_DEF met5_cut 1178;
+LAYER_MAP 72 -datatype 14 1178;
+LAYER_DEF pwell_cut 1179;
+LAYER_MAP 64 -datatype 14 1179;
+LAYER_DEF met5_probe 1180;
+LAYER_MAP 72 -datatype 25 1180;
+LAYER_DEF met4_probe 1181;
+LAYER_MAP 71 -datatype 25 1181;
+LAYER_DEF met3_probe 1182;
+LAYER_MAP 70 -datatype 25 1182;
+LAYER_DEF met2_probe 1183;
+LAYER_MAP 69 -datatype 25 1183;
+LAYER_DEF met1_probe 1184;
+LAYER_MAP 68 -datatype 25 1184;
+LAYER_DEF li1_probe 1185;
+LAYER_MAP 67 -datatype 25 1185;
+LAYER_DEF poly_probe 1186;
+LAYER_MAP 66 -datatype 25 1186;
+LAYER_DEF poly_short 1187;
+LAYER_MAP 66 -datatype 15 1187;
+LAYER_DEF li1_short 1188;
+LAYER_MAP 67 -datatype 15 1188;
+LAYER_DEF met1_short 1189;
+LAYER_MAP 68 -datatype 15 1189;
+LAYER_DEF met2_short 1190;
+LAYER_MAP 69 -datatype 15 1190;
+LAYER_DEF met3_short 1191;
+LAYER_MAP 70 -datatype 15 1191;
+LAYER_DEF met4_short 1192;
+LAYER_MAP 71 -datatype 15 1192;
+LAYER_DEF met5_short 1193;
+LAYER_MAP 72 -datatype 15 1193;
+LAYER_DEF cncm_mk 1194;
+LAYER_MAP 17 -datatype 0 1194;
+LAYER_DEF crpm_mk 1195;
+LAYER_MAP 96 -datatype 0 1195;
+LAYER_DEF cpdm_mk 1196;
+LAYER_MAP 37 -datatype 0 1196;
+LAYER_DEF cnsm_mk 1197;
+LAYER_MAP 22 -datatype 0 1197;
+LAYER_DEF m5_mask 1198;
+LAYER_MAP 59 -datatype 0 1198;
+LAYER_DEF cviam4_mk 1199;
+LAYER_MAP 58 -datatype 0 1199;
+LAYER_DEF m4_mask 1200;
+LAYER_MAP 51 -datatype 0 1200;
+LAYER_DEF cviam3_mk 1201;
+LAYER_MAP 50 -datatype 0 1201;
+LAYER_DEF m3_mask 1202;
+LAYER_MAP 34 -datatype 0 1202;
+LAYER_DEF cviam2_mk 1203;
+LAYER_MAP 44 -datatype 0 1203;
+LAYER_DEF m2_mask 1204;
+LAYER_MAP 41 -datatype 0 1204;
+LAYER_DEF cviam1_mk 1205;
+LAYER_MAP 40 -datatype 0 1205;
+LAYER_DEF m1_mask 1206;
+LAYER_MAP 36 -datatype 0 1206;
+LAYER_DEF ctm1_mk 1207;
+LAYER_MAP 35 -datatype 0 1207;
+LAYER_DEF li_mask 1208;
+LAYER_MAP 56 -datatype 0 1208;
+LAYER_DEF clicm1_mk 1209;
+LAYER_MAP 43 -datatype 0 1209;
+LAYER_DEF cpsdm_mk 1210;
+LAYER_MAP 32 -datatype 0 1210;
+LAYER_DEF cnsdm_mk 1211;
+LAYER_MAP 30 -datatype 0 1211;
+LAYER_DEF cldntm_mk 1212;
+LAYER_MAP 11 -datatype 0 1212;
+LAYER_DEF cnpc_mk 1213;
+LAYER_MAP 49 -datatype 0 1213;
+LAYER_DEF chvntm_mk 1214;
+LAYER_MAP 39 -datatype 0 1214;
+LAYER_DEF cntm_mk 1215;
+LAYER_MAP 27 -datatype 0 1215;
+LAYER_DEF poly_mask 1216;
+LAYER_MAP 28 -datatype 0 1216;
+LAYER_DEF clvom_mk 1217;
+LAYER_MAP 46 -datatype 0 1217;
+LAYER_DEF conom_mk 1218;
+LAYER_MAP 88 -datatype 0 1218;
+LAYER_DEF ctunm_mk 1219;
+LAYER_MAP 20 -datatype 0 1219;
+LAYER_DEF chvtrm_mk 1220;
+LAYER_MAP 98 -datatype 0 1220;
+LAYER_DEF chvtpm_mk 1221;
+LAYER_MAP 97 -datatype 0 1221;
+LAYER_DEF clvtnm_mk 1222;
+LAYER_MAP 25 -datatype 0 1222;
+LAYER_DEF cnwm_mk 1223;
+LAYER_MAP 21 -datatype 0 1223;
+LAYER_DEF cdnm_mk 1224;
+LAYER_MAP 48 -datatype 0 1224;
+LAYER_DEF diff_mask 1225;
+LAYER_MAP 23 -datatype 0 1225;
+LAYER_DEF cfom 1226;
+LAYER_MAP 22 -datatype 20 1226;
+LAYER_DEF clvtnm 1227;
+LAYER_MAP 25 -datatype 44 1227;
+LAYER_DEF chvtpm 1228;
+LAYER_MAP 88 -datatype 44 1228;
+LAYER_DEF conom 1229;
+LAYER_MAP 87 -datatype 44 1229;
+LAYER_DEF clvom 1230;
+LAYER_MAP 45 -datatype 20 1230;
+LAYER_DEF cntm 1231;
+LAYER_MAP 26 -datatype 20 1231;
+LAYER_DEF chvntm 1232;
+LAYER_MAP 38 -datatype 20 1232;
+LAYER_DEF cnpc 1233;
+LAYER_MAP 44 -datatype 20 1233;
+LAYER_DEF cnsdm 1234;
+LAYER_MAP 29 -datatype 20 1234;
+LAYER_DEF cpsdm 1235;
+LAYER_MAP 31 -datatype 20 1235;
+LAYER_DEF cli1m 1236;
+LAYER_MAP 115 -datatype 44 1236;
+LAYER_DEF cviam3 1237;
+LAYER_MAP 112 -datatype 20 1237;
+LAYER_DEF cviam4 1238;
+LAYER_MAP 117 -datatype 20 1238;
+LAYER_DEF cncm 1239;
+LAYER_MAP 96 -datatype 44 1239;
+LAYER_DEF cntm_mk_add 1240;
+LAYER_MAP 26 -datatype 21 1240;
+LAYER_DEF clvtnm_mk_add 1241;
+LAYER_MAP 25 -datatype 43 1241;
+LAYER_DEF chvtpm_mk_add 1242;
+LAYER_MAP 97 -datatype 43 1242;
+LAYER_DEF li_mask_add 1243;
+LAYER_MAP 115 -datatype 43 1243;
+LAYER_DEF clicm1_mk_add 1244;
+LAYER_MAP 106 -datatype 43 1244;
+LAYER_DEF cpsdm_mk_add 1245;
+LAYER_MAP 31 -datatype 21 1245;
+LAYER_DEF cnsdm_mk_add 1246;
+LAYER_MAP 29 -datatype 21 1246;
+LAYER_DEF poly_mask_add 1247;
+LAYER_MAP 33 -datatype 43 1247;
+LAYER_DEF diff_mask_add 1248;
+LAYER_MAP 22 -datatype 21 1248;
+LAYER_DEF cntm_mk_drop 1249;
+LAYER_MAP 26 -datatype 22 1249;
+LAYER_DEF clvtnm_mk_drop 1250;
+LAYER_MAP 25 -datatype 42 1250;
+LAYER_DEF chvtpm_mk_drop 1251;
+LAYER_MAP 97 -datatype 42 1251;
+LAYER_DEF li_mask_drop 1252;
+LAYER_MAP 115 -datatype 42 1252;
+LAYER_DEF clicm1_mk_drop 1253;
+LAYER_MAP 106 -datatype 42 1253;
+LAYER_DEF cpsdm_mk_drop 1254;
+LAYER_MAP 31 -datatype 22 1254;
+LAYER_DEF cnsdm_mk_drop 1255;
+LAYER_MAP 29 -datatype 22 1255;
+LAYER_DEF poly_mask_drop 1256;
+LAYER_MAP 33 -datatype 42 1256;
+LAYER_DEF diff_mask_drop 1257;
+LAYER_MAP 22 -datatype 22 1257;
+LAYER_DEF cfom_waffle_drop 1258;
+LAYER_MAP 22 -datatype 24 1258;
+LAYER_DEF cp1m_waffle_drop 1259;
+LAYER_MAP 33 -datatype 24 1259;
+LAYER_DEF cmm1_waffle_drop 1260;
+LAYER_MAP 62 -datatype 24 1260;
+LAYER_DEF cmm2_waffle_drop 1261;
+LAYER_MAP 105 -datatype 52 1261;
+LAYER_DEF cmm3_waffle_drop 1262;
+LAYER_MAP 107 -datatype 24 1262;
+LAYER_DEF cmm4_waffle_drop 1263;
+LAYER_MAP 112 -datatype 4 1263;
+LAYER_DEF cmm5_waffle_drop 1264;
+LAYER_MAP 117 -datatype 4 1264;
+LAYER_DEF met1_res 1291;
+LAYER_MAP 68 -datatype 13 1291;
+LAYER_DEF met2_res 1292;
+LAYER_MAP 69 -datatype 13 1292;
+LAYER_DEF met3_res 1293;
+LAYER_MAP 70 -datatype 13 1293;
+LAYER_DEF met4_res 1294;
+LAYER_MAP 71 -datatype 13 1294;
+LAYER_DEF met5_res 1295;
+LAYER_MAP 72 -datatype 13 1295;
+LAYER_DEF diff_fill 1286;
+LAYER_MAP 65 -datatype 99 1286;
+LAYER_DEF poly_fill 1287;
+LAYER_MAP 66 -datatype 99 1287;
+LAYER_DEF li_fill 1288;
+LAYER_MAP 67 -datatype 99 1288;
+LAYER_DEF m1_fill 1281;
+LAYER_MAP 68 -datatype 99 1281;
+LAYER_DEF m2_fill 1282;
+LAYER_MAP 69 -datatype 99 1282;
+LAYER_DEF m3_fill 1283;
+LAYER_MAP 70 -datatype 99 1283;
+LAYER_DEF m4_fill 1284;
+LAYER_MAP 71 -datatype 99 1284;
+LAYER_DEF m5_fill 1285;
+LAYER_MAP 72 -datatype 99 1285;
+LAYER_DEF diff_fillblock 1296;
+LAYER_MAP 65 -datatype 98 1296;
+LAYER_DEF poly_fillblock 1297;
+LAYER_MAP 66 -datatype 98 1297;
+LAYER_DEF li_fillblock 1298;
+LAYER_MAP 67 -datatype 98 1298;
+LAYER_DEF m1_fillblock 1291;
+LAYER_MAP 68 -datatype 98 1291;
+LAYER_DEF m2_fillblock 1292;
+LAYER_MAP 69 -datatype 98 1292;
+LAYER_DEF m3_fillblock 1293;
+LAYER_MAP 70 -datatype 98 1293;
+LAYER_DEF m4_fillblock 1294;
+LAYER_MAP 71 -datatype 98 1294;
+LAYER_DEF m5_fillblock 1295;
+LAYER_MAP 72 -datatype 98 1295;
+OR diff_dg diff_fill diff_all;
+OR poly_dg poly_fill poly;
+OR li_dg li_fill li1;
+OR m1_dg m1_fill met1;
+OR m2_dg m2_fill met2;
+OR m3_dg m3_fill met3;
+OR m4_dg m4_fill met4;
+OR m5_dg m5_fill met5;
+LAYER_DEF rdl 1270;
+LAYER_MAP 74 -datatype 20 1270;
+LAYER_DEF rdl_text 1271;
+LAYER_MAP 74 -texttype 20 1271;
+LAYER_DEF rdl_block 1272;
+LAYER_MAP 74 -datatype 10 1272;
+LAYER_DEF rdl_label 1273;
+LAYER_MAP 74 -texttype 5 1273;
+LAYER_DEF rdl_pin 1274;
+LAYER_MAP 74 -texttype 0 1274;
+LAYER_MAP 74 -datatype 16 1274;
+LAYER_MAP 74 -texttype 16 1274;
+LAYER_DEF rdl_cut 1275;
+LAYER_MAP 74 -datatype 14 1275;
+LAYER_DEF rdl_probe 1276;
+LAYER_MAP 74 -datatype 25 1276;
+LAYER_DEF rdl_short 1277;
+LAYER_MAP 74 -datatype 15 1277;
+SELECT -outside pad areaid.ft -outputlayer bondPad;
+AND capm met2 -outputlayer bottom_plate_pvsTmp1;
+SIZE bottom_plate_pvsTmp1 -by 3 -outputlayer bottom_plate;
+SELECT -enclose capm via2 -gt 1 -outputlayer capacitor;
+SELECT -cut -not capm via2 -outputlayer dummy_capacitor;
+SELECT -label "poly" -textname "dummy_poly" -textlayer text -outputlayer dummy_poly;
+HOLES SEALID -outputlayer Chip_extent_pvsTmp1;
+OR Chip_extent_pvsTmp1 SEALID -outputlayer Chip_extent;
+OR diff_mask poly_mask m1_mask m2_mask -outputlayer Diecut_pmm_pvsTmp1;
+NOT areaid.dt Diecut_pmm_pvsTmp1 -outputlayer Diecut_pmm;
+WITH_WIDTH met1 -gt 3 -outputlayer huge_met1;
+WITH_WIDTH met2 -gt 3 -outputlayer huge_met2;
+WITH_WIDTH met3 -gt 3 -outputlayer huge_met3;
+WITH_WIDTH met4 -gt 3 -outputlayer huge_met4;
+WITH_WIDTH met5 -gt 3 -outputlayer huge_met5;
+WITH_WIDTH pad -gt 100 -outputlayer hugePad;
+EXTENT_DRAWN -original -outputlayer ALL;
+NOT ALL SEALID -outputlayer ALL_not_sealid;
+SELECT -cut -not ALL SEALID -outputlayer ALL_outside_sealid;
+HOLES SEALID -inner -empty -outputlayer sealid_hole;
+OR sealid_hole ALL_outside_sealid -outputlayer fill_area;
+OR nwell localSub _EPTMPL262173;
+NOT Chip_extent _EPTMPL262173 -outputlayer pwell;
+SELECT -touch ptap pwell_res -outputlayer pwell_terminal;
+AND pwell dnwell -outputlayer iso_pwell;
+AND poly diff -outputlayer gate_a;
+SELECT -donut -not gate_a -outputlayer gate;
+NOT gate nwell -outputlayer nfet;
+AND gate nwell -outputlayer pfet;
+SELECT -inside gate lvtn -outputlayer LVTN_Gate;
+OR diff_dg tap_dg diff_in;
+AND diff_in nsdm diff_and_nsdm;
+AND diff_in psdm diff_and_psdm;
+NOT diff_and_nsdm nwell ndiff;
+AND diff_and_psdm nwell pdiff;
+AND diff_and_nsdm nwell _EPTMPL262187;
+NOT _EPTMPL262187 poly ntap;
+NOT diff_and_psdm nwell _EPTMPL262189;
+NOT poly npn _EPTMPL262190;
+NOT _EPTMPL262189 _EPTMPL262190 ptap;
+OR ntap ptap tap;
+NOT diff_in tap diff;
+NOT diff_and_nsdm diff_res _EPTMPL262194;
+NOT _EPTMPL262194 poly _EPTMPL262195;
+NOT _EPTMPL262195 ntap nsd;
+NOT diff_and_psdm diff_res _EPTMPL262197;
+NOT _EPTMPL262197 poly _EPTMPL262198;
+NOT _EPTMPL262198 ptap psd;
+AND diff hvi -outputlayer hdiff;
+AND tap licon -outputlayer tap_licon;
+NOT tap poly -outputlayer tap_notPoly;
+SELECT -inside tap nwell -outputlayer tap_nwell;
+NOT nwell hvi -outputlayer Var_channel_pvsTmp1;
+AND poly tap -outputlayer Var_channel_pvsTmp2;
+AND Var_channel_pvsTmp2 Var_channel_pvsTmp1 -outputlayer Var_channel_pvsTmp3;
+NOT Var_channel_pvsTmp3 areaid.ce -outputlayer Var_channel;
+SELECT -cut tap Var_channel -outputlayer VaracTap;
+SELECT -enclose met4 met4_fuse -outputlayer fuse;
+NOT fuse met4_fuse -outputlayer fuse_contact;
+SELECT -enclose -not met4 via3 -outputlayer fuse_shield_a;
+SELECT -enclose -not fuse_shield_a via4 fuse_shield_b;
+RECT_CHK fuse_shield_b -eq 0.5 -by -eq 2.4 -outputlayer fuse_shield;
+OR rpm urpm -outputlayer rpm_urpm;
+AND rpm_urpm psdm _EPTMPL262215;
+AND poly_res _EPTMPL262215 _EPTMPL262216;
+AND poly _EPTMPL262216 -outputlayer prec_resistor;
+SELECT -enclose poly prec_resistor -outputlayer poly_prec_resistor;
+AND nwell hvi -outputlayer nhvi;
+SELECT -inside nwell areaid.hl -outputlayer nhl;
+OR nhvi nhl -outputlayer hv_nwell;
+AND tap hvi -outputlayer htap;
+SELECT -inside poly vhvi -outputlayer VHVPoly;
+AND VHVPoly diff -outputlayer VHVGate;
+AND diff tap -outputlayer dtap;
+AND dtap vhvi -outputlayer dhvi;
+NOT dhvi poly -outputlayer dpoly;
+NOT dpoly diff_res -outputlayer VHVSourceDrain;
+SELECT -donut SEALID -outputlayer sealring_donut;
+SELECT -donut diff -outputlayer sealring_diff;
+SELECT -donut nsm -outputlayer sealring_nsm;
+SELECT -enclose sealring_donut sealring_diff _EPTMPL262232;
+SELECT -enclose sealring_donut sealring_nsm _EPTMPL262233;
+SELECT -enclose _EPTMPL262232 _EPTMPL262233 -outputlayer sealring;
+CONNECT nwell dnwell;
+CONNECT ntap nwell;
+CONNECT ptap pwell;
+CONNECT li1 nsd -by licon;
+CONNECT li1 psd -by licon;
+CONNECT li1 ntap -by licon;
+CONNECT li1 ptap -by licon;
+CONNECT li1 poly -by licon;
+CONNECT met1 li1 -by mcon;
+CONNECT met2 met1 -by via1;
+CONNECT met3 met2 -by via2;
+CONNECT met4 met3 -by via3;
+CONNECT met5 met4 -by via4;
+
+RULE x.1b {
+    CAPTION "Data for SKY130 layout and mask on all layers;
+    CAPTION "except those mentioned in 1a must be on a grid;
+    CAPTION "of 0.005 um (except inside Seal ring)";
+    CAPTION "	NOTE: Seal ring not currently excluded";
+    OFFGRID nwell 5;
+    OFFGRID diff 5;
+    OFFGRID dnwell 5;
+    OFFGRID lvtn 5;
+    OFFGRID hvtp 5;
+    OFFGRID hvi 5;
+    OFFGRID vhvi 5;
+    OFFGRID uhvi 5;
+    OFFGRID tunm 5;
+    OFFGRID poly 5;
+    OFFGRID npc 5 f;
+    OFFGRID nsdm 5;
+    OFFGRID psdm 5;
+    OFFGRID licon 5;
+    OFFGRID li1 5;
+    OFFGRID mcon 5;
+    OFFGRID met1 5;
+    OFFGRID via1 5;
+    OFFGRID met2 5;
+    OFFGRID via2 5;
+    OFFGRID met3 5;
+    OFFGRID via3 5;
+    OFFGRID met4 5;
+    OFFGRID via4 5;
+    OFFGRID met5 5;
+    OFFGRID nsm 5;
+    OFFGRID pad 5;
+    OFFGRID hvntm 5;
+    OFFGRID pnp 5;
+    OFFGRID capacitor 5;
+    OFFGRID ncm 5;
+    OFFGRID inductor 5;
+    OFFGRID rpm 5;
+    OFFGRID hvtr 5;
+}
+RECT_CHK -not nwell -orthogonal_only nwell_not_rect;
+RECT_CHK -not diff -orthogonal_only diff_not_rect;
+RECT_CHK -not dnwell -orthogonal_only dnwell_not_rect;
+RECT_CHK -not lvtn -orthogonal_only lvtn_not_rect;
+RECT_CHK -not hvtp -orthogonal_only hvtp_not_rect;
+RECT_CHK -not hvi -orthogonal_only hvi_not_rect;
+RECT_CHK -not vhvi -orthogonal_only vhvi_not_rect;
+RECT_CHK -not uhvi -orthogonal_only uhvi_not_rect;
+RECT_CHK -not tunm -orthogonal_only tunm_not_rect;
+RECT_CHK -not poly -orthogonal_only poly_not_rect;
+RECT_CHK -not npc -orthogonal_only npc_not_rect;
+RECT_CHK -not nsdm -orthogonal_only nsdm_not_rect;
+RECT_CHK -not psdm -orthogonal_only psdm_not_rect;
+RECT_CHK -not licon -orthogonal_only licon_not_rect;
+RECT_CHK -not li1 -orthogonal_only li1_not_rect;
+RECT_CHK -not mcon -orthogonal_only mcon_not_rect;
+RECT_CHK -not met1 -orthogonal_only met1_not_rect;
+RECT_CHK -not via1 -orthogonal_only via1_not_rect;
+RECT_CHK -not met2 -orthogonal_only met2_not_rect;
+RECT_CHK -not via2 -orthogonal_only via2_not_rect;
+RECT_CHK -not met3 -orthogonal_only met3_not_rect;
+RECT_CHK -not via3 -orthogonal_only via3_not_rect;
+RECT_CHK -not met4 -orthogonal_only met4_not_rect;
+RECT_CHK -not via4 -orthogonal_only via4_not_rect;
+RECT_CHK -not met5 -orthogonal_only met5_not_rect;
+RECT_CHK -not nsm -orthogonal_only nsm_not_rect;
+RECT_CHK -not pad -orthogonal_only pad_not_rect;
+RECT_CHK -not hvntm -orthogonal_only hvntm_not_rect;
+RECT_CHK -not pnp -orthogonal_only pnp_not_rect;
+RECT_CHK -not ncm -orthogonal_only ncm_not_rect;
+RECT_CHK -not hvtr -orthogonal_only hvtr_not_rect;
+RECT_CHK -not capacitor -orthogonal_only capacitor_not_rect;
+RECT_CHK -not inductor -orthogonal_only inductor_not_rect;
+
+RULE CDR.x.2.licon {
+    CAPTION "CDR: licon shapes must be rectangles";
+    COPY licon_not_rect;
+}
+
+RULE CDR.x.2.mcon {
+    CAPTION "CDR: mcon shapes must be rectangles";
+    COPY mcon_not_rect;
+}
+
+RULE CDR.x.2.via1 {
+    CAPTION "CDR: via1 shapes must be rectangles";
+    COPY via1_not_rect;
+}
+
+RULE CDR.x.2.via2 {
+    CAPTION "CDR: via2 shapes must be rectangles";
+    COPY via2_not_rect;
+}
+
+RULE CDR.x.2.via3 {
+    CAPTION "CDR: via3 shapes must be rectangles";
+    COPY via3_not_rect;
+}
+
+RULE CDR.x.2.via4 {
+    CAPTION "CDR: via4 shapes must be rectangles";
+    COPY via4_not_rect;
+}
+
+RULE x.3.nwell {
+    CAPTION "nwell has non-45 degree edge ";
+    ANGLE nwell_not_rect -ne 45 _EPTMPL262321;
+    ANGLE x.3.nwell:_EPTMPL262321 -ltgt 0 90;
+}
+
+RULE x.3.dnwell {
+    CAPTION "dnwell has non-45 degree edge ";
+    ANGLE dnwell_not_rect -ne 45 _EPTMPL262323;
+    ANGLE x.3.dnwell:_EPTMPL262323 -ltgt 0 90;
+}
+
+RULE x.3.hvtp {
+    CAPTION "hvtp has non-45 degree edge ";
+    ANGLE hvtp_not_rect -ne 45 _EPTMPL262325;
+    ANGLE x.3.hvtp:_EPTMPL262325 -ltgt 0 90;
+}
+
+RULE x.3.diff {
+    CAPTION "diff has non-45 degree edge ";
+    ANGLE diff_not_rect -ne 45 _EPTMPL262327;
+    ANGLE x.3.diff:_EPTMPL262327 -ltgt 0 90;
+}
+
+RULE x.3.tunm {
+    CAPTION "tunm has non-45 degree edge ";
+    ANGLE tunm_not_rect -ne 45 _EPTMPL262329;
+    ANGLE x.3.tunm:_EPTMPL262329 -ltgt 0 90;
+}
+
+RULE x.3.poly {
+    CAPTION "poly has non-45 degree edge ";
+    ANGLE poly_not_rect -ne 45 _EPTMPL262331;
+    ANGLE x.3.poly:_EPTMPL262331 -ltgt 0 90;
+}
+
+RULE x.3.npc {
+    CAPTION "npc has non-45 degree edge ";
+    ANGLE npc_not_rect -ne 45 _EPTMPL262333;
+    ANGLE x.3.npc:_EPTMPL262333 -ltgt 0 90;
+}
+
+RULE x.3.nsdm {
+    CAPTION "nsdm has non-45 degree edge ";
+    ANGLE nsdm_not_rect -ne 45 _EPTMPL262335;
+    ANGLE x.3.nsdm:_EPTMPL262335 -ltgt 0 90;
+}
+
+RULE x.3.psdm {
+    CAPTION "Angles permitted on all other layers except WLCSP layers: 45";
+    CAPTION "psdm has non-45 degree edge ";
+    ANGLE psdm_not_rect -ne 45 _EPTMPL262337;
+    ANGLE x.3.psdm:_EPTMPL262337 -ltgt 0 90;
+}
+
+RULE x.3.li1 {
+    CAPTION "li has non-45 degree edge ";
+    ANGLE li1_not_rect -ne 45 _EPTMPL262339;
+    ANGLE x.3.li1:_EPTMPL262339 -ltgt 0 90;
+}
+
+RULE x.3.m1 {
+    CAPTION "met1 has non-45 degree edge ";
+    ANGLE met1_not_rect -ne 45 _EPTMPL262341;
+    ANGLE x.3.m1:_EPTMPL262341 -ltgt 0 90;
+}
+
+RULE x.3.m2 {
+    CAPTION "met2 has non-45 degree edge ";
+    ANGLE met2_not_rect -ne 45 _EPTMPL262343;
+    ANGLE x.3.m2:_EPTMPL262343 -ltgt 0 90;
+}
+
+RULE x.3.m3 {
+    CAPTION "met3 has non-45 degree edge ";
+    ANGLE met3_not_rect -ne 45 _EPTMPL262345;
+    ANGLE x.3.m3:_EPTMPL262345 -ltgt 0 90;
+}
+
+RULE x.3.m4 {
+    CAPTION "met4 has non-45 degree edge ";
+    ANGLE met4_not_rect -ne 45 _EPTMPL262347;
+    ANGLE x.3.m4:_EPTMPL262347 -ltgt 0 90;
+}
+
+RULE x.3.m5 {
+    CAPTION "met5 has non-45 degree edge ";
+    ANGLE met5_not_rect -ne 45 _EPTMPL262349;
+    ANGLE x.3.m5:_EPTMPL262349 -ltgt 0 90;
+}
+
+RULE x.3.nsm {
+    CAPTION "nsm has non-45 degree edge ";
+    ANGLE nsm_not_rect -ne 45 _EPTMPL262351;
+    ANGLE x.3.nsm:_EPTMPL262351 -ltgt 0 90;
+}
+
+RULE x.3.pad {
+    CAPTION "Angles permitted on all other layers except WLCSP layers: 45";
+    CAPTION "pad has non-45 degree edge ";
+    ANGLE pad_not_rect -ne 45 _EPTMPL262353;
+    ANGLE x.3.pad:_EPTMPL262353 -ltgt 0 90;
+}
+
+RULE x.3.hvntm {
+    CAPTION "hvntm has non-45 degree edge ";
+    ANGLE hvntm_not_rect -ne 45 _EPTMPL262355;
+    ANGLE x.3.hvntm:_EPTMPL262355 -ltgt 0 90;
+}
+
+RULE x.3.capacitor {
+    CAPTION "capacitor has non-45 degree edge ";
+    ANGLE capacitor_not_rect -ne 45 _EPTMPL262357;
+    ANGLE x.3.capacitor:_EPTMPL262357 -ltgt 0 90;
+}
+
+RULE x.3.ncm {
+    CAPTION "ncm has non-45 degree edge ";
+    ANGLE ncm_not_rect -ne 45 _EPTMPL262359;
+    ANGLE x.3.ncm:_EPTMPL262359 -ltgt 0 90;
+}
+
+RULE x.3.inductor {
+    CAPTION "inductor has non-45 degree edge ";
+    ANGLE inductor_not_rect -ne 45 _EPTMPL262361;
+    ANGLE x.3.inductor:_EPTMPL262361 -ltgt 0 90;
+}
+
+RULE x.3.hvtr {
+    CAPTION "hvtr has non-45 degree edge ";
+    ANGLE hvtr_not_rect -ne 45 _EPTMPL262363;
+    ANGLE x.3.hvtr:_EPTMPL262363 -ltgt 0 90;
+}
+
+RULE x.5.nwell {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - nwell';
+    NOT nwell_pin nwell;
+}
+
+RULE x.5.diff {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - diff';
+    NOT diff_pin diff_dg;
+}
+
+RULE x.5.poly {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - poly';
+    NOT poly_pin poly_dg;
+}
+
+RULE x.5.li {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - LI';
+    NOT li1_pin li_dg;
+}
+
+RULE x.5.m1 {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - met1';
+    NOT met1_pin m1_dg;
+}
+
+RULE x.5.m2 {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - met2';
+    NOT met2_pin m2_dg;
+}
+
+RULE x.5.m3 {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - met3';
+    NOT met3_pin m3_dg;
+}
+
+RULE x.5.m4 {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - met4';
+    NOT met4_pin m4_dg;
+}
+
+RULE x.5.m5 {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - met5';
+    NOT met5_pin m5_dg;
+}
+
+RULE x.5.pad {
+    CAPTION 'All "pin" polygons must be within the 'drawing' polygons of the layer - pad';
+    NOT pad_pin pad;
+}
+
+RULE x.10.diff {
+    CAPTION "res purpose layer for diff cannot overlap licon";
+    AND diff_res licon;
+}
+
+RULE x.10.poly {
+    CAPTION "res purpose layer for poly cannot overlap licon";
+    AND poly_res licon;
+}
+LAYER_DEF quadrant1 9991;
+LAYER_DEF quadrant2 9992;
+LAYER_DEF quadrant3 9993;
+LAYER_DEF quadrant4 9994;
+CREATE_POLYGON 0 0 0.005 0.005 "quadrant1";
+CREATE_POLYGON -0.005 0 0 0.005 "quadrant2";
+CREATE_POLYGON -0.005 -0.005 0 0 "quadrant3";
+CREATE_POLYGON 0 -0.005 0.005 0 "quadrant4";
+EXTENT -layer SEALID -outputlayer SEALID_extent;
+SELECT -enclose SEALID_extent quadrant1 -outputlayer SEALID_quadrant1;
+SELECT -touch SEALID_quadrant1 quadrant2 -outputlayer SEALID_quadrant12;
+SELECT -outside SEALID_quadrant12 quadrant3 -outputlayer SEALID_quadrant123;
+SELECT -touch SEALID_quadrant123 quadrant4 -outputlayer SEALID_quadrant1234;
+
+RULE x.19 {
+    CAPTION "Lower left corner of the Seal Ring should be at origin (0,0)";
+    NOT SEALID_extent SEALID_quadrant1234;
+}
+
+RULE x.23c.poly {
+    CAPTION "areaid:seal (Seal Ring) must not overlap poly";
+    AND SEALID poly;
+}
+
+RULE x.23c.li1 {
+    CAPTION "areaid:seal (Seal Ring) must not overlap li1";
+    AND SEALID li1;
+}
+
+RULE x.23c.m1 {
+    CAPTION "areaid:seal (Seal Ring) must not overlap met1";
+    AND SEALID met1;
+}
+
+RULE x.23c.m2 {
+    CAPTION "areaid:seal (Seal Ring) must not overlap met2";
+    AND SEALID met2;
+}
+
+RULE x.23c.m3 {
+    CAPTION "areaid:seal (Seal Ring) must not overlap met3";
+    AND SEALID met3;
+}
+
+RULE x.23c.m4 {
+    CAPTION "areaid:seal (Seal Ring) must not overlap met4";
+    AND SEALID met4;
+}
+
+RULE x.23c.m5 {
+    CAPTION "areaid:seal (Seal Ring) must not overlap met5";
+    AND SEALID met5;
+}
+
+RULE CDRW.x.8 {
+    CAPTION "CDRW: WARNING: Use of areaid.ce layer (memory core ID layer) must be approved by SkyWater Technology";
+    CAPTION "CDRW: WARNING: Some rules apply only to areas outside of areid.ce and a core rule may not exist ";
+    EXTENT_DRAWN areaid.ce;
+}
+
+RULE CDRW.x.fuse {
+    CAPTION "CDRW: WARNING: The met4 fuse layer (GDS 71:17) is no longer supported";
+    COPY met4_fuse;
+}
+
+RULE x.moduleCut {
+    CAPTION "WARNING: Use of areaid.mt (moduleCut) layer (GDS 81:10) is for SkyWater Technology only";
+    EXTENT_DRAWN areaid.mt;
+}
+
+RULE CDRW.x.photo {
+    CAPTION "CDRW: WARNING: Use of areaid:photo layer (GDS 81:81) is prohibited";
+    COPY areaid.po;
+}
+
+RULE x.prBndry {
+    CAPTION "WARNING: Use of prBoundary layer (GDS 235:4) is prohibited";
+    COPY prBndry;
+}
+
+RULE x.pwell {
+    CAPTION "WARNING: pwell must connect by ptap at least once";
+    SELECT -enclose -not pwell ptap;
+    SELECT -enclose -not localSub ptap;
+}
+
+RULE CDRW.x.RDL {
+    CAPTION "CDRW: WARNING: Use of the RDL layer (GDS 74:20) is prohibited";
+    COPY target;
+}
+
+RULE CDRW.x.target {
+    CAPTION "CDRW: WARNING: Use of the fuse target layer (GDS 76:44) is prohibited";
+    COPY target;
+}
+
+RULE CDRW.x.tunm {
+    CAPTION "CDRW: WARNING: Use of the tunm layer (GDS 80:20) is prohibited";
+    COPY tunm;
+}
+
+RULE CDRW.dnwell.2 {
+    CAPTION "CDRW: Min width of deep nwell: 3. um";
+    INTE dnwell -lt 3 -output region;
+}
+SELECT -outside dnwell uhvi -outputlayer dnwell_lvi;
+STAMP dnwell_lvi dnwell dnwell_lv;
+AND dnwell uhvi -outputlayer dnwell_uhvi;
+
+RULE CDRW.dnwell.3 {
+    CAPTION "CDRW: Min spacing/notch between deep nwell (rule exempt inside UHVI): 6.3 um";
+    EXTE dnwell_lv -lt 6.3 -abut -lt 90 -single_point -output region;
+}
+
+RULE dnwell.3a {
+    CAPTION "Min spacing of dwnell in v20 on same net: 2.5";
+    EXTE dnwell_uhvi -lt 12 -abut -lt 90 -single_point -output region -connected;
+}
+
+RULE dnwell.3d {
+    CAPTION "Min spacing of dwnell in v20 not on same net: 12.0";
+    EXTE dnwell_uhvi -lt 12 -abut -lt 90 -single_point -output region -not_connected;
+}
+
+RULE dnwell.3b {
+    CAPTION "Min spacing of dnwell in uhvi to dnwell outside uhvi: 12.0";
+    EXTE dnwell_uhvi dnwell_lv -lt 12 -abut -lt 90 -single_point -output region -exclude_false_notch;
+Warning: EXTE: Skip -exclude_false_notch option at line 33 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/dnwell.drc.pvl
+}
+
+RULE dnwell.3c {
+    CAPTION "Min spacing of dnwell in v20 to nwell outside v20: 9.5";
+    EXTE dnwell_uhvi dnwell_lv -lt 9.5 -abut -lt 90 -single_point -output region;
+}
+
+RULE dnwell.4 {
+    CAPTION "Dnwell can not overlap pnp";
+    AND dnwell pnp;
+}
+
+RULE dnwell.5 {
+    CAPTION P+ Diff can not straddle dnwell";
+    SELECT -cut pdiff dnwell;
+}
+
+RULE dnwell.7 {
+    CAPTION "Dnwell can not straddle areaid:substratecut";
+    SELECT -cut dnwell localSub;
+}
+
+RULE nwell.1 {
+    CAPTION "Width of nwell: 0.84 um";
+    INTE nwell -lt 0.84 -output region;
+}
+
+RULE CDR.nwell.2a.lv {
+    CAPTION "CDR: Min space/notch between two LV n-wells: 1.27 um";
+    CAPTION "  Manual merge wells if less than minimum ";
+    EXTE nwell_lv -lt 1.27 -notch also -single_point -output region;
+}
+
+RULE nwell.2a.lv_hv {
+    CAPTION "Min space of LV_nwell to HV_nwell: 1.27";
+    EXTE nwell_lv nwell_hv -lt 1.27 -abut -lt 90 -single_point -output region;
+}
+
+RULE nwell.2a.lv_vhv {
+    CAPTION "Min space of LV_nwell to VHV_nwell: 2.0";
+    EXTE nwell_lv nwell_vhv -lt 2 -abut -lt 90 -single_point -output region;
+}
+
+RULE nwell.2a.lv_uhv {
+    CAPTION "Min space of LV_nwell to UHV_nwell: 2.5";
+    EXTE nwell_lv nwell_uhv -lt 2.5 -abut -lt 90 -single_point -output region;
+}
+
+RULE nwell.4 {
+    CAPTION "All n-wells will contain metal-contacted tap";
+    CAPTION "(rule checks only for licon on tap).";
+    CAPTION "Rule exempted from high voltage cells inside UHVI";
+    CAPTION "NOTE: exceptions have NOT been considered, there may be false errors";
+    SELECT -enclose -not nwell tap_licon;
+}
+
+RULE nwell.5 {
+    CAPTION "Deep nwell must be enclosed by nwell by atleast: 0.40 um";
+    CAPTION "Exempted inside UHVI (layer v20) or areaid.lw";
+    CAPTION "Nwells can merge over deep nwell if spacing too small";
+    CAPTION "NOTE: exceptions have NOT been considered, there may be false errors";
+    INSIDE_CELL -not "nwell" "*_tech_CD_top" -outputlayer "nwell.5_notCD";
+    NOT dnwell uhvi -outputlayer dnwell.5;
+    ENC dnwell.5 nwell.5_notCD -lt 0.4 -output region;
+}
+
+RULE nwell.6 {
+    CAPTION "Min enclosure of nwell hole by deep nwell outside UHVI: 1.03 um";
+    CAPTION "shapes in cell "*_tech_CD_top" exempted";
+    INSIDE_CELL -not "nwell" "*_tech_CD_top" -outputlayer "nwell.6_a";
+    SELECT -outside nwell.6_a uhvi -outputlayer nwell.6_b;
+    HOLES nwell.6_b -outputlayer nwell.6_c;
+    ENC nwell.6_c dnwell -lt 1.03 -output region;
+}
+
+RULE nwell.ntap {
+    CAPTION "nwell must have at least one ntap";
+    SELECT -enclose -not nwell ntap;
+}
+
+RULE hvtp.1 {
+    CAPTION "CDR: Min width of hvtp: 0.38 um";
+    INTE hvtp -lt 0.38 -single_point -output region;
+}
+
+RULE hvtp.2 {
+    CAPTION "CDR: Min spacing of hvtp to hvtp: 0.38 um";
+    EXTE hvtp -lt 0.38 -single_point -output region;
+}
+
+RULE hvtp.3 {
+    CAPTION "Min enclosure of pfet outside of areaid.ce by hvtp: 0.18 um";
+    SELECT -outside pfet areaid.ce _EPTMPL262428;
+    ENC hvtp.3:_EPTMPL262428 hvtp -lt 0.18 -output region;
+}
+
+RULE hvtp.4 {
+    CAPTION "Min spacing between pfet and hvtp: 0.18 um";
+    EXTE pfet hvtp -lt 0.18 -single_point -output region;
+}
+
+RULE hvtp.5 {
+    CAPTION "Min area of hvtp: 0.265 sq um";
+    AREA hvtp -lt 0.265;
+}
+
+RULE hvtp.6 {
+    CAPTION "Min area of hvtp holes: 0.265 sq um";
+    HOLES hvtp -outputlayer hvtp.6_a;
+    AREA hvtp.6_a -lt 0.265;
+}
+
+RULE hvtr.1 {
+    CAPTION "CDR: Min width of hvtr: 0.38 um";
+    INTE hvtr -lt 0.38 -single_point -output region;
+}
+
+RULE hvtr.2 {
+    CAPTION "CDR: Min spacing of hvtp to hvtr: 0.38 um";
+    EXTE hvtp hvtr -lt 0.38 -single_point -output region;
+}
+
+RULE hvtr.3 {
+    CAPTION "Min enclosure of pfet by hvtr: 0.18 um";
+    ENC pfet hvtr -lt 0.18 -output region;
+}
+
+RULE CDR.lvtn.1a {
+    CAPTION "CDR: Min width of lvtn: 0.38 um";
+    INTE lvtn -lt 0.38 -single_point -output region;
+}
+
+RULE CDR.lvtn.2 {
+    CAPTION "CDR: Min spacing lvtn to lvtn: 0.38 um";
+    EXTE lvtn -lt 0.38 -single_point -output region;
+}
+
+RULE lvtn.3a {
+    CAPTION "Min spacing of lvtn to gate. Rule exempted inside UHVI: 0.18 um";
+    NOT lvtn uhvi -outputlayer lvtn.3a_exempt;
+    EXTE lvtn.3a_exempt -lt 0.18 -single_point -output region;
+}
+
+RULE lvtn.3b {
+    CAPTION "Min spacing of lvtn to pfet along the S/D direction: 0.19 um";
+    EDGE_BOOLEAN -coincident_only -outside gate pdiff -outputlayer lvtn.3b_a;
+    EXTE lvtn lvtn.3b_a -lt 0.19 -single_point -output region;
+}
+
+RULE lvtn.4b {
+    CAPTION "Min enclosure of gate by lvtn. Rule exempted inside UHVI: 0.18 um";
+    NOT lvtn uhvi -outputlayer lvtn.3a_exempt;
+    ENC gate lvtn -lt 0.18 -abut -lt 90 -output region;
+}
+
+RULE lvtn.9 {
+    CAPTION "Min spacing, no overlap, between lvtn and hvtp: 0.38 um";
+    EXTE lvtn hvtp -lt 0.38 -overlap -single_point -output region;
+}
+
+RULE lvtn.10 {
+    CAPTION "Min enclosure of lvtn by (nwell not overlapping Var_channel) (exclude coincident edges): 0.38 um";
+    SELECT -cut -not nwell Var_channel -outputlayer lvtn.10_a;
+    ENC lvtn lvtn.10_a -lt 0.38 -output region;
+}
+
+RULE lvtn.12 {
+    CAPTION "Min spacing between lvtn and (nwell inside areaid.ce): 0.38 um";
+    SELECT -inside nwell areaid.ce -outputlayer lvtn.12_a;
+    EXTE lvtn lvtn.12_a -lt 0.38 -single_point -output region;
+}
+
+RULE lvtn.13 {
+    CAPTION "Min area of lvtn: 0.265 sq um";
+    AREA lvtn -lt 0.265;
+}
+
+RULE lvtn.14 {
+    CAPTION "Min area of lvtn holes: 0.265 sq um";
+    HOLES lvtn -outputlayer lvtn.14_a;
+    AREA lvtn.14_a -lt 0.265;
+}
+
+RULE CDR.lvtn.15 {
+    CAPTION "CDR: lvtn cannot straddle nwell";
+    SELECT -cut lvtn nwell;
+}
+
+RULE CDR.ncm.1 {
+    CAPTION "CDR: Min width of ncm: 0.38 um";
+    INTE ncm -lt 0.38 -single_point -output region;
+}
+
+RULE CDR.ncm.2 {
+    CAPTION "CDR: Min spacing of ncm: 0.38 um";
+    CAPTION "Manual merge ncm if space is below minimum";
+    EXTE ncm -lt 0.38 -single_point -output region;
+}
+
+RULE ncm.3 {
+    CAPTION "Min enclosure of P+diff by Ncm: 0.18 um";
+    ENC pdiff Ncm -lt 0.18 -output region;
+}
+NOT areaid.ed areaid.de _EPTMPL262457;
+AND pdiff _EPTMPL262457 -outputlayer pdiff_edde;
+
+RULE ncm.4 {
+    CAPTION "Min enclosure of P+diff within (areaid:esd AndNot areaid:diode) by Ncm: 0.18 um";
+    ENC pdiff_edde Ncm -lt 0.18 -output region;
+}
+
+RULE ncm.5 {
+    CAPTION "Min space, no overlap, between ncm and (LVTN_gate) OR (diff containing lvtn): 0.23 um;
+    SELECT -enclose diff lvtn -outputlayer ncm.5_a;
+    OR LVTN_gate ncm.5_a -outputlayer ncm.5_b;
+    EXTE ncm ncm.5_b -lt 0.23 -overlap -single_point -output region -outputlayer ncm.5_c;
+    SELECT -touch ncm ncm.5_b -outputlayer ncm.5_touch;
+    OR ncm.5_c ncm.5_touch;
+}
+
+RULE ncm.6 {
+    CAPTION "Min space, no overlap, between ncm and nfet: 0.20 um";
+    EXTE ncm nfet -lt 0.2 -overlap -single_point -output region -outputlayer ncm.6_a;
+    SELECT -touch ncm nfet -outputlayer ncm.6_touch;
+    OR ncm.6_a ncm.6_touch;
+}
+
+RULE ncm.7 {
+    CAPTION "Min area of ncm: 0.265 sq um";
+    AREA ncm -lt 0.265;
+}
+
+RULE ncm.8 {
+    CAPTION "Min area of ncm Holes: 0.265 sq um";
+    HOLES ncm -outputlayer ncm.8_a;
+    AREA ncm.8_a -lt 0.265;
+}
+SELECT -inside diff_in areaid.ce -outputlayer diff_core;
+SELECT -outside diff_in areaid.ce -outputlayer diff_notcore;
+SELECT -cut diff_in areaid.ce -outputlayer diff_cut_core;
+SELECT -inside gate areaid.ce -outputlayer gate_core;
+NOT gate gate_core -outputlayer gate_notcore;
+SELECT -inside gate_notcore areaid.sc -outputlayer gate_SC;
+NOT gate_notcore gate_SC -outputlayer gate_not_SC;
+SELECT -inside tap areaid.ce -outputlayer tap_core;
+SELECT -outside tap areaid.ce -outputlayer tap_notcore;
+
+RULE CDR.difftap.1 {
+    CAPTION "CDR: Minimum width of diff or tap outside areaid.ce: 0.15 um";
+    OR diff_notcore tap_notcore _EPTMPL262480;
+    INTE CDR.difftap.1:_EPTMPL262480 -lt 0.15 -output region;
+}
+
+RULE CDR.difftap.1a {
+    CAPTION "CDR: Minimum width of diff or tap inside areaid.ce: 0.14 um";
+    OR diff_core tap_core _EPTMPL262482;
+    INTE CDR.difftap.1a:_EPTMPL262482 -lt 0.14 -output region;
+}
+
+RULE CDR.difftap.1b {
+    CAPTION "CDR: Minimum width of diff or tap crossing areaid.ce: 0.15 um";
+    INTE diff_cut_core -lt 0.15 -abut -lt 90 -single_point -output region;
+}
+
+RULE difftap.2 {
+    CAPTION "Min channel width (Diff And Poly) for FETs outside areaid.sc and outside areaid.ce : 0.42 um";
+    NOT diff_notcore gate_not_SC -outputlayer difftap.2_b;
+    EDGE_BOOLEAN -not -coincident_only gate_not_SC difftap.2_b -outputlayer difftap.2_c;
+    INTE difftap.2_c -lt 0.42 -output region;
+}
+
+RULE difftap.2b {
+    CAPTION "Min channel width (Diff and Poly) for FETs inside areaid.sc but outside areaid.ce : 0.36 um";
+    NOT diff_notcore gate_SC -outputlayer difftap.2b_b;
+    EDGE_BOOLEAN -not -coincident_only gate_SC difftap.2b_b -outputlayer difftap.2b_c;
+    INTE difftap.2b_c -lt 0.36 -output region;
+}
+
+RULE difftap.2c {
+    CAPTION "Min channel width in areaid.ce: 0.14 um";
+    AND gate areaid.ce _EPTMPL262491;
+    EDGE_BOOLEAN -coincident_only -inside difftap.2c:_EPTMPL262491 diff _EPTMPL262492;
+    INTE difftap.2c:_EPTMPL262492 -lt 0.14 -abut -lt 90 -output region;
+}
+
+RULE difftap.4 {
+    CAPTION "Min width of tap butting diffusion: 0.29 um";
+    SELECT -touch tap diff_in -eq 1 -outputlayer difftap.4_a;
+    INTE difftap.4_a -lt 0.29 -output region;
+}
+
+RULE difftap.5a {
+    CAPTION "Min width of tap outside areaid.ce butting and between diffusion: 0.40 um";
+    NOT tap areaid.ce _EPTMPL262496;
+    EDGE_BOOLEAN -coincident_only -outside difftap.5a:_EPTMPL262496 diff _EPTMPL262497;
+    INTE difftap.5a:_EPTMPL262497 -lt 0.4 -abut -lt 90 -output region;
+}
+
+RULE difftap.5b {
+    CAPTION "Min width of tap inside areaid.ce butting and between diffusion: 0.38 um";
+    AND tap areaid.ce _EPTMPL262499;
+    EDGE_BOOLEAN -coincident_only -outside difftap.5b:_EPTMPL262499 diff _EPTMPL262500;
+    INTE difftap.5b:_EPTMPL262500 -lt 0.38 -abut -lt 90 -output region;
+}
+
+RULE CDR.difftap.3 {
+    CAPTION "CDR: Min spacing of diff to diff: 0.27 um";
+    EXTE diff_in -lt 0.27 -notch also -output region;
+}
+EXTE nsdm diff_and_psdm -lt 0.13 -metric opposite -para ONLY -output region -outputlayer diff_nbutting;
+EXTE psdm diff_and_nsdm -lt 0.13 -metric opposite -para ONLY -output region -outputlayer diff_pbutting;
+
+RULE difftap.7 {
+    CAPTION "Min spacing of diff/tap abutting edge to a non-coinciding diff or tap edge: 0.13 um";
+    OR diff_nbutting diff_pbutting;
+}
+NOT diff_and_nsdm areaid.ce ndiff_notcore;
+AND diff_and_nsdm areaid.ce ndiff_core;
+
+RULE difftap.9 {
+    CAPTION "Min spacing of (n+) diffusion to N-well outside UHVI: 0.34 um";
+    NOT ndiff_notcore UHVI -outputlayer difftap.9_a;
+    EXTE difftap.9_a nwell -lt 0.34 -overlap -single_point -output region;
+}
+
+RULE difftap.11 {
+    CAPTION "Min spacing of (p+) tap to N-well. Rule exempted inside UHVI: 0.13 um";
+    NOT ptap_actual UHVI -outputlayer difftap.11_a;
+    EXTE difftap.11_a nwell -lt 0.13 -output region;
+}
+
+RULE difftap.8a {
+    CAPTION "Min enclosure of (p+) diffusion by N-well: 0.18 um";
+    CAPTION "Rule exempted inside: UHVI / areaid.ed (ESD) / areaid.ce (CORE) ";
+    NOT pdiff_actual UHVI _EPTMPL262512;
+    NOT difftap.8a:_EPTMPL262512 areaid.ed _EPTMPL262513;
+    NOT difftap.8a:_EPTMPL262513 areaid.ce -outputlayer difftap.8_a;
+    ENC difftap.8_a nwell -lt 0.18 -output region;
+}
+
+RULE difftap.8b {
+    CAPTION "Min enclosure of (p+) diffusion in areaid.ce by N-well: 0.15 um";
+    AND pdiff_actual areaid.ce -outputlayer difftap.8b_a;
+    ENC difftap.8b_a nwell -lt 0.15 -output region;
+}
+
+RULE difftap.8c {
+    CAPTION "Min enclosure of adjacent sides of (p+) diffusion in areaid.ce by N-well: 0.18 um";
+    RECT_CHK pdiff_actual -orthogonal_only _EPTMPL262518;
+    SELECT -inside difftap.8c:_EPTMPL262518 areaid.ce -outputlayer difftap.8c_a;
+    RECT_ENC difftap.8c_a nwell -good 0.18 0 0.18 0;
+}
+
+RULE difftap.10a {
+    CAPTION "Min enclosure of (n+) tap by N-well: 0.18 um";
+    CAPTION "Rule exempted inside: UHVI / areaid.ed (ESD) / areaid.ce (CORE) ";
+    NOT ntap_actual UHVI _EPTMPL262521;
+    NOT difftap.10a:_EPTMPL262521 areaid.ed _EPTMPL262522;
+    NOT difftap.10a:_EPTMPL262522 areaid.ce -outputlayer difftap.10_a;
+    ENC difftap.10_a nwell -lt 0.18 -output region;
+}
+
+RULE difftap.10b {
+    CAPTION "Min enclosure of (n+) tap in areaid.ce by N-well: 0.15 um";
+    AND ntap_actual areaid.ce -outputlayer difftap.10b_a;
+    ENC difftap.10b_a nwell -lt 0.15 -output region;
+}
+
+RULE difftap.6 {
+    CAPTION "diff and tap are not allowed to extend beyond their abutting edge";
+    EDGE_BOOLEAN -coincident_only diff tap -outputlayer difftap.6_a;
+    EDGE_SELECT -coincident_only diff tap -outputlayer difftap.6_b;
+    EDGE_BOOLEAN -coincident_only -not difftap.6_a difftap.6_b;
+}
+
+RULE CDR.tunm.1 {
+    CAPTION "CDR: Min width of tunm: 0.41 um";
+    INTE tunm -lt 0.41 -single_point -output region;
+}
+
+RULE CDR.tunm.2 {
+    CAPTION "CDR: Min spacing/notch of tunm: 0.50 um";
+    EXTE tunm -lt 0.5 -single_point -output region;
+}
+
+RULE tunm.3 {
+    CAPTION "Extension of tunm beyond (poly and diff): 0.095 um";
+    ENC tunm gate -lt 0.095 -single_point -output region;
+}
+
+RULE tunm.4 {
+    CAPTION "Min spacing of tunm to (poly and diff) outside tunm: 0.095 um";
+    SELECT -outside gate tunm -outputlayer tunm.4_a;
+    EXTE tunm tunm.4_a -lt 0.095 -single_point -output region;
+}
+
+RULE tunm.5 {
+    CAPTION "(poly and diff) may not straddle tunm";
+    SELECT -cut gate tunm;
+}
+
+RULE tunm.6a {
+    CAPTION "Tunm outside deep n-well is not allowed";
+    NOT tunm dnwell;
+}
+
+RULE tunm.7 {
+    CAPTION "Min tunm area: 0.672 sq um";
+    AREA tunm -lt 0.672;
+}
+
+RULE tunm.8 {
+    CAPTION "tunm must be enclosed by areaid.ce";
+    NOT tunm areaid.ce;
+}
+AND poly_dg areaid.ce -outputlayer poly_core;
+NOT poly_dg areaid.ce -outputlayer poly_notcore;
+
+RULE CDR.poly.1a {
+    CAPTION "CDR: Min width of poly: 0.15 um";
+    INTE poly_dg -lt 0.15 -output region;
+}
+
+RULE poly.1b {
+    CAPTION "Min channel length (poly width) for pfet overlapping lvtn: 0.35 um";
+    CAPTION "(exempt rule for dummy_poly in cells listed on Table H3)";
+    SELECT -interact pfet lvtn -outputlayer poly.1b_a;
+    INTE poly.1b_a -lt 0.35 -output region;
+}
+
+RULE CDR.poly.2 {
+    CAPTION "CDR: Min spacing of poly to poly outside of areaid.ce: 0.21 um";
+    EXTE poly_notcore -lt 0.21 -output region;
+}
+EDGE_LENGTH poly_core -le 0.15 -outputlayer poly_gap_edge;
+EDGE_LENGTH poly_core -gt 0.2 -outputlayer poly_not_gap_edge;
+
+RULE CDR.poly.2a {
+    EXTE poly_gap_edge -lt 0.16 -para only -output region;
+    CAPTION "CDR: Min spacing of poly core gap: 0.16 um";
+    CAPTION "  (end-to-end spacing of poly in areaid.ce) ";
+}
+
+RULE CDR.poly.2b {
+    EXTE poly_not_gap_edge -lt 0.175 -para only -output region;
+    CAPTION "CDR: Min spacing of poly inside areaid.ce: 0.175 um";
+    CAPTION "  (except for end-to-end spacing of poly in areaid.ce) ";
+}
+
+RULE poly.4a {
+    CAPTION "Min spacing of poly on field (outside areaid.ce) to diff (parallel edges only): 0.075 um";
+    EXTE poly_notcore diff -lt 0.075 -abut -eq 0 -para only -output region;
+}
+
+RULE poly.4b {
+    CAPTION "Min spacing of poly in core (inside areaid.ce) to diff: 0.03 um";
+    EXTE poly_core diff -lt 0.03 -para only -output region;
+}
+
+RULE poly.5a {
+    CAPTION "Min spacing of poly on field (outside areaid.ce) to tap: 0.055 um";
+    EXTE poly_notcore tap -lt 0.055 -single_point -output region;
+}
+
+RULE poly.5b {
+    CAPTION "Min spacing of poly in core (inside areaid.ce) to tap: 0.03 um";
+    EXTE poly_core tap -lt 0.03 -single_point -output region;
+}
+AND ptap psdm ptap_actual;
+AND ntap nsdm ntap_actual;
+AND pdiff psdm pdiff_actual;
+AND ndiff nsdm ndiff_actual;
+SELECT -touch ptap_actual ndiff_actual -outputlayer tap_ndiff;
+SELECT -touch ntap_actual pdiff_actual -outputlayer tap_pdiff;
+
+RULE poly.9a {
+    CAPTION "Min poly resistor spacing to diff/tap: 0.48 um";
+    EXTE poly_res diff_in -lt 0.48 -abut -lt 90 -single_point -output region;
+}
+
+RULE poly.9b {
+    CAPTION "Min poly resistor spacing to poly: 0.21" um;
+    EXTE poly_res poly_dg -lt 0.21 -abut -ltgt 0 90 -single_point -output region;
+}
+AND poly poly_res -outputlayer poly_res_body;
+
+RULE CDR.poly.3 {
+    CAPTION "CDR: Min poly resistor width: 0.33 um";
+    INTE poly_res_body -lt 0.33 -output region;
+}
+
+RULE poly.3a {
+    CAPTION "Poly resistor must be covered by poly";
+    NOT poly_res poly;
+}
+AND poly_res rpm_urpm _EPTMPL262564;
+EDGE_BOOLEAN -coincident_only -inside _EPTMPL262564 poly -outputlayer poly_prec_len;
+NOT poly_res rpm_urpm _EPTMPL262566;
+EDGE_BOOLEAN -coincident_only -inside _EPTMPL262566 poly -outputlayer poly_res_len;
+
+RULE CDR.poly.3b {
+    CAPTION "CDR: Min length of precision poly resistor: 0.66 um";
+    PATH_LENGTH poly_prec_len -lt 0.66;
+}
+
+RULE CDRW.poly.3c {
+    CAPTION "CDRW: Min length of non-precision poly resistor: 0.47 um";
+    PATH_LENGTH poly_res_len -lt 0.47;
+}
+ENC poly_notcore diff_in -lt 0.25 -output region -outputlayer poly_dif_enc;
+SELECT -inside poly_dif_enc diff_in -outputlayer poly.7;
+
+RULE poly.7 {
+    CAPTION "Min extension of diff beyond poly in periphery (outside areaid.ce): 0.25 um";
+    COPY poly.7;
+}
+SELECT -interact -not gate tap _EPTMPL262573;
+EDGE_BOOLEAN -coincident_only -inside _EPTMPL262573 diff -outputlayer gate_endcap;
+EDGE_BOOLEAN -outside gate_endcap areaid.ce -outputlayer gate_peri_endcap;
+
+RULE poly.8 {
+    CAPTION "Min extension of poly outside areaid.ce beyond gate end (endcap): 0.13 um";
+    ENC gate_peri_endcap poly -lt 0.13 -output region;
+}
+AND poly_dg diff_in polydiff;
+VERTEX polydiff -gt 4 -outputlayer polydiff_gt4;
+BBOX polydiff_gt4 -outputlayer polydiff_bbox;
+SELECT polydiff_bbox -inside diff -outputlayer poly_has_bend;
+SELECT polydiff_bbox -inside poly -outputlayer diff_has_bend;
+
+RULE poly.10 {
+    CAPTION "Poly cannot overlap inner corners of diff";
+    COPY diff_has_bend;
+}
+SELECT polydiff_gt4 -inside poly_has_bend -outputlayer poly_11_maybe;
+NOT poly_has_bend poly_11_maybe poly_11_not;
+RECT_CHK poly_11_not -orthogonal_only -outputlayer poly_11;
+
+RULE poly.11 {
+    CAPTION "No 90 deg turns of poly on diff";
+    COPY poly_11;
+}
+NOT nwell hvi -outputlayer poly.12_a;
+SELECT -interact -not poly_dg poly.12_a -outputlayer poly.12_b;
+SELECT -donut -not poly.12_b -outputlayer poly.12_c;
+
+RULE poly.12 {
+    CAPTION "(Poly NOT (nwell NOT hvi)) may not overlap tap";
+    CAPTION "Rule exempted for gated_npn and inside UHVI.";
+    AND tap psdm _EPTMPL262590;
+    AND poly.12_c poly.12:_EPTMPL262590;
+}
+
+RULE poly.15 {
+    CAPTION "Poly must not overlap diff:rs (diff res)";
+    AND poly diff_res;
+}
+
+RULE CDR.rpm.1a {
+    CAPTION "CDR: Min width of rpm: 1.27 um";
+    INTE rpm -lt 1.27 -single_point -output region;
+}
+
+RULE CDR.rpm.2 {
+    CAPTION "CDR: Min spacing of rpm: 0.84 um";
+    EXTE rpm -lt 0.84 -single_point -output region;
+}
+
+RULE rpm.3 {
+    CAPTION "Min enclosure of prec_resistor by rpm: 0.20 um";
+    ENC rpm prec_resistor -lt 0.2 -output region;
+}
+
+RULE rpm.4 {
+    CAPTION "Min enclosure of prec_resistor by psdm: 0.11 um";
+    ENC prec_resistor psdm -lt 0.11 -output region;
+}
+
+RULE rpm.5 {
+    CAPTION "Min enclosure of prec_resistor by npc: 0.095 um";
+    ENC prec_resistor npc -lt 0.095 -output region;
+}
+
+RULE rpm.6 {
+    CAPTION "Min spacing, no overlap, of rpm and nsdm: 0.20 um";
+    EXTE rpm nsdm -lt 0.2 -overlap -single_point -output region;
+}
+
+RULE rpm.7 {
+    CAPTION "Min spacing between rpm and poly: 0.20 um";
+    EXTE rpm poly -lt 0.2 -single_point -output region;
+}
+
+RULE rpm.8 {
+    CAPTION "poly must not straddle rpm";
+    SELECT -cut poly rpm;
+}
+
+RULE rpm.9 {
+    CAPTION "Min space, no overlap, between prec_resistor and hvntm: 0.185 um";
+    EXTE prec_resistor hvntm -lt 0.185 -overlap -single_point -output region;
+}
+
+RULE rpm.11 {
+    CAPTION "rpm should not overlap or straddle pwbm";
+    SELECT -interact rpm pwbm;
+}
+
+RULE CDR.urpm.1a {
+    CAPTION "CDR: Min width of urpm: 1.27 um";
+    INTE urpm -lt 1.27 -single_point -output region;
+}
+
+RULE CDR.urpm.2 {
+    CAPTION "CDR: Min spacing of urpm: 0.84 um";
+    EXTE urpm -lt 0.84 -single_point -output region;
+}
+
+RULE varac.1 {
+    CAPTION "Min channel length (poly width) of Var_channel: 0.18 um";
+    AND poly Var_channel -outputlayer varac.1_a;
+    INTE varac.1_a -lt 0.18 -output region;
+}
+
+RULE varac.2 {
+    CAPTION "Min channel width (tap width) of Var_channel: 1.00 um";
+    AND tap Var_channel -outputlayer varac.2_a;
+    INTE varac.2_a -lt 1 -output region;
+}
+
+RULE varac.3 {
+    CAPTION "Min spacing between hvtp to Var_channel: 0.18 um";
+    EXTE hvtp Var_channel -lt 0.18 -single_point -output region;
+}
+
+RULE varac.5 {
+    CAPTION "Min enclosure of poly overlapping Var_channel by nwell: 0.15 um";
+    SELECT -cut poly Var_channel -outputlayer varac.5_a;
+    ENC varac.5_a nwell -lt 0.15 -output region;
+}
+
+RULE varac.7 {
+    CAPTION "Nwell overlapping Var_channel must not overlap P+ diff";
+    SELECT -cut nwell Var_channel -outputlayer varac.7_a;
+    AND varac.7_a pdiff;
+}
+
+RULE varac.8 {
+    CAPTION "Min enclosure of Var_channel by hvtp: 0.255";
+    ENC Var_channel hvtp -lt 0.255 -output region;
+}
+AND areaid.po dnwell _EPTMPL262615;
+SELECT -enclose _EPTMPL262615 nwell -outputlayer photo;
+
+RULE photo.2 {
+    CAPTION "Min/Max width of photoDiode: 3.0 um ";
+    INTE photo -lt 3 -output region;
+}
+
+RULE photo.3 {
+    CAPTION "Min spacing between photoDiode: 5.0 um ";
+    EXTE photo -lt 5 -output region;
+}
+
+RULE CDR.npc.1 {
+    CAPTION "CDR: Min width of npc: 0.27 um";
+    INTE npc -lt 0.27 -output region;
+}
+
+RULE CDR.npc.2 {
+    CAPTION "CDR: Min spacing/notch of npc: 0.27 um";
+    CAPTION "Rule npc.3 Manual merge if less than minimum";
+    EXTE npc -lt 0.27 -single_point -output region;
+}
+
+RULE npc.4 {
+    CAPTION "Spacing (no overlap) of NPC to Gate: 0.09 um";
+    EXTE npc gate -lt 0.09 -single_point -overlap -output region;
+}
+AND nsdm areaid.ce nsdm.core;
+NOT nsdm areaid.ce nsdm.ncore;
+AND psdm areaid.ce psdm.core;
+NOT psdm areaid.ce psdm.ncore;
+
+RULE CDR.psd.1a {
+    CAPTION "CDR: Min width of nsdm / psdm outside areaid.ce: 0.38 um";
+    INTE nsdm.ncore -lt 0.38 -output region;
+    INTE psdm.ncore -lt 0.38 -output region;
+}
+
+RULE CDR.psd.1b {
+    CAPTION "CDR: Min width of nsdm / psdm inside areaid.ce: 0.29 um";
+    INTE nsdm.core -lt 0.29 -output region;
+    INTE psdm.core -lt 0.29 -output region;
+}
+
+RULE CDR.psd.2 {
+    CAPTION "CDR: Min spacing of nsdm(psdm) to nsdm(psdm): 0.38 um";
+    CAPTION "psd.3 - Manual merge if less than minimum";
+    EXTE nsdm -lt 0.38 -single_point -output region;
+    EXTE psdm -lt 0.38 -single_point -output region;
+}
+OR nsdm psdm -outputlayer psd.5;
+
+RULE psd.5a {
+    CAPTION "Min enclosure of diff by nsdm(psdm), except for butting edge: 0.125 um";
+    ENC diff psd.5 -lt 0.125 -output region;
+}
+
+RULE psd.5b {
+    CAPTION "Min enclosure of tap by nsdm(psdm), except for butting edge: 0.125 um";
+    ENC tap_dg psd.5 -lt 0.125 -output region;
+}
+
+RULE psd.7 {
+    CAPTION "Spacing of nsdm/psdm opposite implant diff or tap -lt 0.130";
+    CAPTION "(for non-abutting diff/tap edges)";
+    EXTE nsdm pdiff_actual -ltgt 0 0.13 -output region;
+    EXTE psdm ndiff_actual -ltgt 0 0.13 -output region;
+}
+
+RULE psd.8 {
+    CAPTION "Nsdm and psdm cannot overlap diff/tap regions of opposite doping";
+    AND nsdm psdm;
+}
+
+RULE psd.9 {
+    CAPTION "WARNING: Ddiff and tap must be enclosed by their corresponding implant layers.";
+    CAPTION "Rule exempted for diff rings around the die";
+    CAPTION "Rule exempted for gated_npn & areaid.zr";
+    OR npn areaid.zr SEALID -outputlayer psd.9_exempt;
+    OR nsdm psdm _EPTMPL262639;
+    NOT psd.9:_EPTMPL262639 psd.9_exempt -outputlayer psd.9_a;
+    SELECT -outside diff_dg psd.9_exempt _EPTMPL262641;
+    NOT psd.9:_EPTMPL262641 psd.9_a;
+    SELECT -outside tap_dg psd.9_exempt _EPTMPL262643;
+    NOT psd.9:_EPTMPL262643 psd.9_a;
+}
+
+RULE psd.10a {
+    CAPTION "Min area of nsdm: 0.265 sq um";
+    AREA nsdm -lt 0.265;
+}
+
+RULE psd.10b {
+    CAPTION "Min area of psdm: 0.255 sq um";
+    AREA psdm -lt 0.255;
+}
+
+RULE psd.11 {
+    CAPTION "Min area of nsdm/psdm Holes: 0.265 sq um";
+    HOLES nsdm -outputlayer psd.11_a;
+    AREA psd.11_a -lt 0.265;
+    HOLES psdm -outputlayer psd.11_b;
+    AREA psd.11_b -lt 0.265;
+}
+SELECT -inside licon SEALID -outputlayer licon_insideSR;
+NOT licon licon_insideSR licon_outsideSR;
+OR rpm urpm _EPTMPL262653;
+SELECT -interact -not licon _EPTMPL262653 -outputlayer licon_not_precR;
+NOT licon licon_not_precR licon_precR;
+SELECT -interact licon areaid.ce -outputlayer licon_core;
+NOT licon licon_core -outputlayer licon_notcore;
+RECT_CHK licon_outsideSR -aspect -eq 1 -outputlayer licon_square;
+AND poly licon -outputlayer poly_licon;
+AND poly licon_notcore -outputlayer poly_licon_notcore;
+AND poly licon_core -outputlayer poly_licon_core;
+
+RULE CDR.licon.1 {
+    CAPTION "CDR: Min and max L and W of licon, except for bar licon: 0.17 um";
+    RECT_CHK -not licon_not_precR -eq 0.17 -by -eq 0.17 -orthogonal_only;
+}
+RECT_CHK licon_precR -eq 0.17 -by -eq 0.17 -outputlayer licon_017_in_prec;
+
+RULE licon.1a {
+    CAPTION "licon sized 0.17 um X 0.17 um found in precision resistor -- ";
+    CAPTION "licon inside (rpm OR urpm) should be 0.19 um X 2.0 um bar licon " ;
+    COPY licon_017_in_prec;
+}
+
+RULE CDR.licon.1b {
+    CAPTION "CDR: Min and max width of bar licon == 0.19 um";
+    NOT licon_precR licon_017_in_prec _EPTMPL262665;
+    RECT_CHK -not CDR.licon.1b:_EPTMPL262665 -eq 0.19;
+}
+
+RULE CDR.licon.1c {
+    CAPTION "CDR: Min and max length of bar licon == 2.00 um";
+    NOT licon_precR licon_017_in_prec _EPTMPL262667;
+    RECT_CHK -not CDR.licon.1c:_EPTMPL262667 -eq 2;
+}
+
+RULE licon.3 {
+    CAPTION "Only min. square licons are allowed except die seal ring where licons are (licon CD)*L: 0.17 um";
+    CAPTION "  this seal ring licon does not have width = 0.17 um ";
+    RECT_CHK -not licon_insideSR -eq 0.17;
+}
+
+RULE CDR.licon.2 {
+    CAPTION "CDR: Min spacing of licon to licon: 0.17 um";
+    CAPTION "  For non-bar licon outside of areaid.ce ";
+    EXTE licon_notcore -lt 0.17 -single_point -output region;
+}
+
+RULE CDR.licon.2a {
+    CAPTION "CDR: Min spacing of licon to licon: 0.165 um";
+    CAPTION "  For non-bar licon inside of areaid.ce ";
+    EXTE licon_core -lt 0.165 -single_point -output region;
+}
+RECT_CHK licon -eq 0.19 -by -eq 2 -outputlayer licon_bar;
+
+RULE CDR.licon.2b {
+    CAPTION "CDR: Min end-to-end space of bar licon: 0.35 um";
+    EDGE_LENGTH licon_bar -lt 2 -outputlayer licon_end;
+    EXTE licon_end -lt 0.35 -abut -lt 90 -output region;
+}
+
+RULE CDR.licon.2c {
+    CAPTION "CDR: Min side-to-side spacing of bar licon: 0.51 um";
+    EDGE_LENGTH licon_bar -gt 0.19 -outputlayer licon_side;
+    EXTE licon_side -lt 0.51 -abut -lt 90 -output region;
+}
+
+RULE CDR.licon.2d {
+    CAPTION "CDR: Min space from bar licon to square licon: 0.51 um";
+    EXTE licon_square licon_bar -lt 0.51 -abut -lt 90 -output region -single_point;
+}
+
+RULE CDR.licon.5b {
+    CAPTION "CDR: Min space between tap_licon outside areaid.ce and diff-abutting tap edge: 0.06 um";
+    AND tap licon_notcore -outputlayer licon.5b;
+    EDGE_BOOLEAN -coincident_only -outside diff tap _EPTMPL262679;
+    EXTE licon.5b CDR.licon.5b:_EPTMPL262679 -lt 0.06 -abut -lt 90 -output region;
+}
+
+RULE CDR.licon.9 {
+    CAPTION "CDR: Min spacing, no overlap, between poly_licon outside areaid.ce and psdm: 0.11 um";
+    SELECT -outside poly_licon_notcore rpm_urpm -outputlayer licon.9_a;
+    EXTE licon.9_a psdm -lt 0.11 -overlap -output region;
+    AND licon.9_a psdm;
+}
+
+RULE licon.14a {
+    CAPTION "Min spacing of poly_licon outside areaid.ce to diff or tap: 0.19 um";
+    OR diff tap -outputlayer licon.14_2;
+    EXTE poly_licon_notcore licon.14_2 -lt 0.19 -output region;
+}
+
+RULE licon.14b {
+    CAPTION "Min spacing of poly_licon inside areaid.ce to diff or tap: 0.13 um";
+    OR diff tap -outputlayer licon.14a_2;
+    EXTE poly_licon_core licon.14a_2 -lt 0.19 -output region;
+}
+
+RULE licon.4a {
+    CAPTION "licon must be inside li";
+    NOT licon li1;
+}
+
+RULE licon.4b {
+    CAPTION "licon must be inside (poly or diff or tap)";
+    OR poly diff tap _EPTMPL262689;
+    NOT licon licon.4b:_EPTMPL262689;
+}
+
+RULE licon.5a {
+    CAPTION "Min enclosure of licon outside areaid.ce by diff (not tap): 0.04 um";
+    ENC licon_notcore diff_all -lt 0.04 -output region;
+    EDGE_SELECT licon_notcore diff;
+}
+
+RULE licon.5c {
+    CAPTION "Min enclosure of licon outside areaid.ce by diff on one of two adjacent sides: 0.06 um";
+    RECT_ENC licon_notcore diff_in -good 0.06 0 0.06 0;
+}
+EDGE_BOOLEAN -coincident_only -outside tap diff _EPTMPL262694;
+SELECT -with_edge tap _EPTMPL262694 -outputlayer non_isolated_tap;
+NOT tap non_isolated_tap -outputlayer isolated_tap;
+
+RULE licon.7 {
+    CAPTION "Min enclosure of licon outside areaid.ce by one of two adjacent sides of isolated tap: 0.12 um";
+    RECT_ENC licon_notcore isolated_tap -good 0.12 0 0.12 0;
+}
+
+RULE licon.8 {
+    CAPTION "Min enclosure of poly_licon outside areaid.ce by poly: 0.05 um";
+    ENC poly_licon_notcore poly -lt 0.05 -output region;
+    EDGE_SELECT poly_licon_notcore poly;
+}
+
+RULE licon.8a {
+    CAPTION "Min enclosure of poly_licon outside areaid.ce by poly on one of two adjacent sides: 0.08 um";
+    RECT_ENC poly_licon_notcore poly -good 0.08 0 0.08 0;
+}
+
+RULE licon.15a {
+    CAPTION "Min enclosure of poly_licon outside areaid.ce by npc: 0.10 um";
+    ENC poly_licon_notcore npc -lt 0.1 -output region;
+    EDGE_SELECT poly_licon_notcore npc;
+}
+
+RULE CDR.licon.15b {
+    CAPTION "CDR: Min enclosure of poly_licon inside areaid.ce by npc: 0.045 um";
+    ENC poly_licon_core npc -lt 0.045 -output region;
+    EDGE_SELECT poly_licon_core npc;
+}
+
+RULE licon.6 {
+    CAPTION "licon cannot straddle tap";
+    OR ptap_actual ntap_actual _EPTMPL262705;
+    SELECT -cut licon licon.6:_EPTMPL262705;
+}
+
+RULE licon.11 {
+    CAPTION "Spacing of licon on diff or tap to poly on diff: 0.055 um";
+    CAPTION "(except for all FETs inside areaid.sc";
+    CAPTION "and except s8spf-10r flow for 0.5um phv inside cell names s8fs_gwdlvx4,";
+    CAPTION "s8fs_gwdlvx8, s8fs_hvrsw_x4, s8fs_hvrsw8, s8fs_hvrsw264,";
+    CAPTION "and s8fs_hvrsw520 and for 0.15um nshort inside cell names s8fs_rdecdrv,";
+    CAPTION "s8fs_rdec8, s8fs_rdec32, s8fs_rdec264, s8fs_rdec520)";
+    CAPTION "NOTE: exceptions have NOT been considered, there may be false errors";
+    NOT gate areaid.sc -outputlayer licon.11_a;
+    OR diff tap -outputlayer licon.11_b;
+    AND licon_notcore licon.11_b -outputlayer licon.11_c;
+    EXTE licon.11_a licon.11_c -lt 0.055 -output region;
+}
+
+RULE CDR.licon.11a {
+    CAPTION "CDR: Spacing of licon on diff or tap to poly on diff: 0.05 um";
+    CAPTION "(for all FETs inside areaid.sc except 0.15um phighvt)";
+    CAPTION "NOTE: exceptions have NOT been considered, there may be false errors";
+    AND gate areaid.sc -outputlayer licon.11a_a;
+    OR diff tap -outputlayer licon.11a_b;
+    AND licon_notcore licon.11a_b -outputlayer licon.11a_c;
+    AND licon.11a_a diff -outputlayer licon.11a_d;
+    EXTE licon.11a_c licon.11a_d -lt 0.05 -output region;
+}
+NOT diff gate -outputlayer diff_not_gate;
+SELECT -enclose -not diff_not_gate licon -outputlayer diff_no_licon;
+EDGE_SELECT -coincident_only diff_no_licon gate -outputlayer diff_no_licon_edge;
+EDGE_LENGTH diff_no_licon_edge -gt 5.7 -outputlayer diff_edge57_no_licon;
+
+RULE licon.12 {
+    CAPTION "GUIDELINE: Max SD width without licon: 5.70 um";
+    COPY diff_edge57_no_licon;
+}
+
+RULE CDR.licon.13 {
+    CAPTION "CDR: Spacing (no overlap) of NPC to licon on diff or tap: 0.09 um";
+    OR diff tap -outputlayer licon.13_a;
+    AND licon licon.13_a -outputlayer licon.13_b;
+    EXTE npc licon.13_b -lt 0.09 -overlap -output region;
+}
+
+RULE CDR.licon.17 {
+    CAPTION "CDR: licon may not overlap both poly and (diff or tap)";
+    SELECT -cut licon poly -outputlayer licon.17_a;
+    OR diff tap -outputlayer licon.17_b;
+    SELECT -cut licon.17_a licon.17_b;
+    AND diff poly _EPTMPL262727;
+    AND licon CDR.licon.17:_EPTMPL262727;
+}
+
+RULE licon.18 {
+    CAPTION "npc must enclose poly_licon";
+    NOT poly_licon npc;
+}
+
+RULE licon.20 {
+    CAPTION "Every tap must enclose at least 1 licon (except in uhvi)";
+    NOT tap areaid.ce -outputlayer tap_not_core;
+    SELECT -cut tap areaid.ce _EPTMPL262731;
+    OR tap_not_core licon.20:_EPTMPL262731 -outputlayer npcon_tap;
+    NOT npcon_tap diff_fill _EPTMPL262733;
+    SELECT -enclose -not licon.20:_EPTMPL262733 licon _EPTMPL262734;
+    NOT licon.20:_EPTMPL262734 uhvi;
+}
+
+RULE licon.21 {
+    CAPTION "psdm overlapping (poly and licon) is prohibited inside areaid.ce";
+    AND poly_licon_core psdm _EPTMPL262736;
+    AND licon.21:_EPTMPL262736 areaid.ce;
+}
+
+RULE licon.core {
+    CAPTION "WARNING: licon straddling areaid.ce (CORE)";
+    SELECT -cut licon areaid.ce _EPTMPL262738;
+    NOT licon.core:_EPTMPL262738 areaid.ce;
+}
+SELECT -cut li_dg areaid.ce -outputlayer li_crossing_core;
+SELECT -inside li_dg areaid.ce -outputlayer li_inside_core;
+SELECT -outside li_dg areaid.ce -outputlayer li_outside_core;
+NOT li_dg areaid.ce -outputlayer li_notcore;
+AND li_dg areaid.ce -outputlayer li_core;
+
+RULE CDR.li.1a {
+    CAPTION "CDR: Width of LI inside areaid.ce: 0.14 um";
+    INTE li_inside_core -lt 0.14 -output region;
+}
+
+RULE CDR.li.1b {
+    CAPTION "CDR: Width of LI outside areaid.ce: 0.17 um";
+    INTE li_outside_core -lt 0.17 -output region;
+}
+
+RULE CDR.li.1c {
+    CAPTION "CDR: Width of LI crossing areaid.ce border: 0.17 um";
+    INTE li_crossing_core -lt 0.17 -output region;
+}
+
+RULE CDR.li.3a {
+    CAPTION "CDR: Spacing of LI to LI inside areaid.ce: 0.14 um";
+    EXTE li_inside_core li1 -lt 0.14 -single_point -output region;
+}
+
+RULE CDR.li.3b {
+    CAPTION "CDR: Spacing of LI to LI outside areaid.ce: 0.17 um";
+    EXTE li_outside_core li1 -lt 0.17 -single_point -output region;
+}
+
+RULE CDR.li.3c {
+    CAPTION "CDR: Spacing of LI to LI crossing areaid.ce border: 0.17 um";
+    EXTE li_crossing_core li1 -lt 0.17 -single_point -output region;
+}
+
+RULE CDR.li.5 {
+    CAPTION "CDR: Min enclosure of licon outside areaid.ce by one of two adjacent LI sides: 0.08 um";
+    RECT_ENC licon_notcore li1 -good 0 0.08 0 0.08;
+}
+
+RULE CDR.li.6 {
+    CAPTION "CDR: Min area of LI: 0.0561 sq um";
+    AREA li_outside_core -lt 0.0561;
+}
+SELECT -inside li1_res areaid.ed li1_res_esd;
+NOT li1_res li1_res_esd li1_res_not_esd;
+
+RULE CDR.li.7 {
+    CAPTION "CDR: Min LI resistor width 0.29 um";
+    INTE li1_res -lt 0.29 -output region;
+}
+
+RULE CDR.mcon.1 {
+    CAPTION "CDR: Min and max L and W of mcon: 0.17 um";
+    RECT_CHK mcon -ne 0.17 -orthogonal_only;
+}
+
+RULE CDR.mcon.2 {
+    CAPTION "CDR: Min spacing of mcon: 0.19 um";
+    EXTE mcon -lt 0.19 -single_point -output region;
+}
+
+RULE mcon.core {
+    CAPTION "WARNING: mcon straddling areaid.ce (CORE)";
+    SELECT -cut mcon areaid.ce _EPTMPL262758;
+    NOT mcon.core:_EPTMPL262758 areaid.ce;
+}
+AND met3 capm -outputlayer m3_bot_plate;
+NOT met3 capm -outputlayer m3_not_capm;
+
+RULE capm.1a {
+    CAPTION "met3 must completely enclose capm";
+    NOT capm m3_dg;
+}
+
+RULE capm.1b {
+    CAPTION "capm without met4 is prohibited";
+    SELECT -outside capm m4_dg;
+}
+
+RULE capm.2a {
+    CAPTION "capm without via3 is prohibited";
+    SELECT -interact -not capm via3;
+}
+
+RULE capm.2b {
+    CAPTION "capm must contain at least 2 via3";
+    SELECT -enclose capm -lt 2 via3;
+}
+SIZE -by 0.14 m3_bot_plate -outputlayer m3_capm_plate;
+EXTE -lt 1.2 m3_capm_plate -output region -outputlayer capm.3a.possible;
+SELECT -inside -not capm.3a.possible met3 -outputlayer capm.3a_part;
+EXTE -lt 0.145 capm capm.3a_part -output region -outputlayer capm.3a_part2;
+
+RULE capm.3a {
+    CAPTION "Min space between capm bottom plates";
+    CAPTION "For this rule, capm is extended by 0.14 um to form bottom plate";
+    OR capm.3a_part capm.3a_part2;
+}
+AND m3_dg capm -outputlayer cap_bot;
+SIZE -by 1.34 cap_bot -outputlayer cap_bot_1p2;
+CONNECT cap_bot_1p2 met3 -by capm;
+AND cap_bot_1p2 met3 -not_connected -outputlayer met3_not_connected;
+EXTE -lt 1.34 cap_bot met3_not_connected -output region -outputlayer capm.m3_too_close;
+SELECT -enclose m3_dg capm -outputlayer m3_capm_enclose;
+EDGE_EXPAND m3_capm_enclose -inside_by 0.005 -outputlayer met3_capm_edge;
+CONNECT cap_bot met3;
+CONNECT met3_capm_edge met3;
+
+RULE CDR.capm.3b {
+    CAPTION "CDR: Min space capm bottom plates to unconnected met3: 1.2 um";
+    CAPTION "For this rule, capm is extended by 0.14 um to form bottom plate";
+    EXTE -lt 1.2 cap_bot met3_capm_edge -exclude_shielded 0 -not_connected -output region;
+    COPY capm.m3_too_close;
+}
+
+RULE CDR.capm.3c {
+    CAPTION "CDR: Min capm space: 0.84 um";
+    EXTE capm -lt 0.84 -abut -lt 90 -single_point -output region;
+}
+
+RULE CDR.capm.4 {
+    CAPTION "CDR: Min capm width: 1.0 um";
+    INTE capm -lt 1 -abut -lt 90 -single_point -output region;
+}
+
+RULE CDR.capm.5 {
+    CAPTION "CDR: Min enclosure of capm by met3: 0.14 um";
+    ENC capm m3_dg -lt 0.14 -measure all -abut -lt 90 -single_point -output region;
+}
+
+RULE CDR.capm.6 {
+    CAPTION "CDR: Min enclosure of via3 by capm: 0.14 um";
+    ENC via3 capm -lt 0.14 -measure all -abut -lt 90 -single_point -output region;
+}
+
+RULE CDR.capm.7 {
+    CAPTION "CDR: Min spacing of capm and via3: 0.14 um ";
+    EXTE capm via3 -lt 0.14 -abut -lt 90 -single_point -output region;
+    SELECT -touch via3 capm;
+}
+
+RULE capm.8a {
+    CAPTION "Max capm aspect ratio (L/W): 20.0 um";
+    RECT_CHK capm -aspect -gt 20;
+}
+
+RULE capm.8b {
+    CAPTION "Only rectangular capm is permitted";
+    RECT_CHK -not capm;
+}
+
+RULE capm.8c {
+    CAPTION "Max area of capm: 1,000,000 square um";
+    AREA capm -gt 1000000;
+}
+
+RULE capm.9a {
+    CAPTION "Min space of capm to via2: 0.14 um";
+    EXTE capm via2 -lt 0.14 -abut -lt 90 -single_point -output region;
+    SELECT -touch via2 capm;
+}
+
+RULE capm.9b {
+    CAPTION "capm cannot overlap via2";
+    AND capm via2;
+}
+AND met4 cap2m -outputlayer m4_bot_plate;
+
+RULE cap2m.1a {
+    CAPTION "cap2m without met4 is prohibited";
+    NOT cap2m m4_dg;
+}
+
+RULE cap2m.1b {
+    CAPTION "cap2m without met5 is prohibited";
+    SELECT -outside cap2m m5_dg;
+}
+
+RULE cap2m.2a {
+    CAPTION "cap2m without via4 is prohibited";
+    SELECT -interact -not cap2m via4;
+}
+
+RULE cap2m.2b {
+    CAPTION "cap2m must contain at least 2 via4";
+    SELECT -enclose cap2m -lt 2 via4;
+}
+SIZE -by 0.14 m4_bot_plate -outputlayer m4_cap2m_plate;
+EXTE -lt 1.2 m4_cap2m_plate -output region -outputlayer cap2m.3a.possible;
+SELECT -inside -not cap2m.3a.possible met4 -outputlayer cap2m.3a_part;
+EXTE -lt 0.145 cap2m cap2m.3a_part -output region -outputlayer cap2m.3a_part2;
+
+RULE CDR.cap2m.3a {
+    CAPTION "CDR: Min space between cap2m bottom plates";
+    CAPTION "For this rule, cap2m is extended by 0.14 um to form bottom plate";
+    OR cap2m.3a_part cap2m.3a_part2;
+}
+AND m4_dg cap2m -outputlayer cap2m_bot;
+SIZE -by 1.34 cap2m_bot -outputlayer cap2m_bot_1p2;
+CONNECT cap2m_bot_1p2 met4 -by cap2m;
+AND cap2m_bot_1p2 met4 -not_connected -outputlayer met4_not_connected;
+EXTE -lt 1.34 cap2m_bot met4_not_connected -output region -outputlayer cap2m.m4_too_close;
+SELECT -enclose m4_dg cap2m -outputlayer m4_cap2m_enclose;
+EDGE_EXPAND m4_cap2m_enclose -inside_by 0.005 -outputlayer met4_cap2m_edge;
+CONNECT cap2m_bot met4;
+CONNECT met4_cap2m_edge met4;
+
+RULE CDR.cap2m.3b {
+    CAPTION "CDR: Min space cap2m bottom plates to unconnected met4: 1.2 um";
+    CAPTION "For this rule, cap2m is extended by 0.14 um to form bottom plate";
+    EXTE -lt 1.2 cap2m_bot met4_cap2m_edge -exclude_shielded 0 -not_connected -output region;
+    COPY cap2m.m4_too_close;
+}
+
+RULE CDR.cap2m.3c {
+    CAPTION "CDR: Min cap2m space: 0.84 um";
+    EXTE cap2m -lt 0.84 -abut -lt 90 -single_point -output region;
+}
+
+RULE CDR.cap2m.4 {
+    CAPTION "CDR: Min cap2m width: 1.0 um";
+    INTE cap2m -lt 1 -abut -lt 90 -single_point -output region;
+}
+
+RULE CDR.cap2m.5 {
+    CAPTION "CDR: Min enclosure of cap2m by met4: 0.14 um";
+    ENC cap2m m4_dg -lt 0.14 -measure all -abut -lt 90 -single_point -output region;
+}
+
+RULE CDR.cap2m.6 {
+    CAPTION "CDR: Min enclosure of via4 by cap2m: 0.2 um";
+    ENC via4 cap2m -lt 0.2 -measure all -abut -lt 90 -single_point -output region;
+}
+
+RULE CDR.cap2m.7 {
+    CAPTION "CDR: Min spacing of cap2m and via4: 0.2 um ";
+    EXTE cap2m via4 -lt 0.2 -single_point -output region;
+    SELECT -touch via4 cap2m;
+}
+
+RULE cap2m.8a {
+    CAPTION "Max cap2m aspect ratio (L/W): 20.0 um";
+    RECT_CHK cap2m -aspect -gt 20;
+}
+
+RULE cap2m.8b {
+    CAPTION "Only rectangular cap2m is permitted";
+    RECT_CHK -not cap2m;
+}
+
+RULE cap2m.8c {
+    CAPTION "Max area of cap2m: 1,000,000 square um";
+    AREA cap2m -gt 1000000;
+}
+
+RULE cap2m.9a {
+    CAPTION "Min space of cap2m to via3: 0.14 um";
+    EXTE cap2m via3 -lt 0.14 -single_point -output region;
+    SELECT -touch via3 cap2m;
+}
+
+RULE cap2m.9b {
+    CAPTION "cap2m cannot overlap via3 except for stacked capm / cap2m capacitors";
+    NOT via3 capm _EPTMPL262826;
+    AND cap2m cap2m.9b:_EPTMPL262826;
+}
+
+RULE vpp.1 {
+    CAPTION "GUIDELINE: Min width of capacitor:dg: 1.43 um";
+    INTE capacitor_in -lt 1.43 -single_point -output region;
+}
+
+RULE vpp.8 {
+    CAPTION "GUIDELINE: Min enclosure of capacitor:dg by nwell: 1.50 um";
+    ENC capacitor_in nwell -lt 1.5 -output region;
+}
+
+RULE vpp.9 {
+    CAPTION "GUIDELINE: Min spacing of capacitor:dg to nwell (not applicable for vpp_over_MOSCAP): 1.50 um";
+    EXTE capacitor_in nwell -lt 1.5 -single_point -output region;
+}
+
+RULE vpp.13 {
+    CAPTION "GUIDELINE: Min space of met1 to met1 inside VPP capacitor: 0.16 um";
+    AND met1 capacitor_in -outputlayer met1_cap;
+    SELECT -outside met1 capacitor_in -outputlayer met1_notcap;
+    EXTE met1_cap met1_notcap -lt 0.16 -single_point -output region;
+}
+
+RULE vpp.14 {
+    CAPTION "GUIDELINE: Min space of met2 to met2 inside VPP capacitor: 0.16 um";
+    AND met2 capacitor_in -outputlayer met2_cap;
+    SELECT -outside met2 capacitor_in -outputlayer met2_notcap;
+    EXTE met2_cap met2_notcap -lt 0.16 -single_point -output region;
+}
+
+RULE CDR.m1.1 {
+    CAPTION "CDR: Min width of met1: 0.14 um";
+    INTE m1_dg -lt 0.14 -output region;
+}
+
+RULE CDR.m1.2 {
+    CAPTION "CDR: Min spacing/notch of met1: 0.14 um";
+    EXTE m1_dg -lt 0.14 -single_point -output region;
+}
+NOT m1_dg huge_met1 met1_not_huge;
+SIZE huge_met1 -by 0.28 -inside_of m1_dg -outputlayer huge_met1_028;
+AND met1_not_huge huge_met1_028 met1_huge_and;
+SELECT -touch met1_huge_and huge_met1 -outputlayer met1_touching_huge;
+
+RULE CDRW.m1.3a {
+    CAPTION "CDRW: Min spacing of huge met1 (width > 3.0 um) to narrow met1,";
+    CAPTION "including features extending 0.28 um into narrow met1: 0.28 um";
+    EXTE met1_touching_huge m1_dg -lt 0.28 -single_point -output region;
+}
+
+RULE CDRW.m1.3b {
+    CAPTION "CDRW: Min spacing of huge_met1 to met1 excluding features checked by m1.3a: 0.28 um";
+    EXTE huge_met1 m1_dg -lt 0.28 -single_point -output region;
+}
+INSIDE_CELL mcon "s8cell_ee_plus_sseln_a" "s8cell_ee_plus_sseln_b" "s8cell_ee_plus_sselp_a" "s8cell_ee_plus_sselp_b" "s8fpls_pl8" "s8fs_cmux4_fm" -outputlayer "mcon_m1.4a";
+NOT mcon mcon_m1.4a mcon_m1.4;
+NOT mcon areaid.ce mcon_notcore;
+AND mcon areaid.ce mcon_core;
+
+RULE CDR.m1.4 {
+    CAPTION "CDR: Mcon outside areaid.ce must be enclosed by met1 by at least: 0.03 um";
+    ENC mcon_notcore m1_dg -lt 0.03 -output region;
+    EDGE_SELECT mcon_notcore met1;
+}
+
+RULE CDR.m1.4a {
+    CAPTION "CDR: Mcon inside areaid.ce must be enclosed by met1 by at least: 0.005";
+    ENC mcon_core m1_dg -lt 0.005 -output region;
+    EDGE_SELECT mcon_core m1_dg;
+}
+
+RULE CDR.m1.5 {
+    CAPTION "CDR: mcon outside areaid.ce must be enclosed by met1 on one of two adjacent sides by at least: 0.06 um" ;
+    RECT_ENC mcon_notcore m1_dg -good 0.06 0 0.06 0;
+}
+
+RULE CDR.m1.6 {
+    CAPTION "CDR: min met1 area: 0.083 sq um";
+    AREA m1_dg -lt 0.083;
+}
+
+RULE CDR.m1.7 {
+    CAPTION "CDR: min area of met1 holes: 0.140 sq um";
+    HOLES m1_dg -outputlayer m1.7_a;
+    AREA m1.7_a -lt 0.14;
+}
+SELECT -inside via1 SEALID -outputlayer via1.insideSR;
+NOT via1 via1.insideSR via1.outsideSR;
+SELECT -inside via1 areaid.mt -outputlayer via1_mt;
+NOT via1 via1_mt via1_not_mt;
+NOT via1_not_mt via1.insideSR via1_neither;
+
+RULE via1.3 {
+    CAPTION "Only min. square vias are allowed except die seal ring where vias are (via1 CD)*L == 0.20 * L";
+    CAPTION " this seal ring via1 does not have W = 0.2 um ";
+    RECT_CHK -not via1.insideSR -eq 0.2;
+}
+
+RULE via1.1a {
+    CAPTION "CDR: Min and max L and W of via1 outside areaid.mt == 0.15 um";
+    RECT_CHK -not via1_neither -eq 0.15 -by -eq 0.15 -orthogonal_only;
+}
+
+RULE via1.1b {
+    CAPTION "AL Flow - Three sizes of square Vias allowed inside areaid.mt: 0.15 um, 0.23 um and 0.28 um";
+    RECT_CHK -not via1_mt -eq 0.15 -by -eq 0.15 -orthogonal_only -outputlayer via1.not15;
+    RECT_CHK -not via1.not15 -eq 0.23 -by -eq 0.23 -orthogonal_only -outputlayer via1.not15_23;
+    RECT_CHK -not via1.not15_23 -eq 0.28 -by -eq 0.28 -orthogonal_only;
+}
+
+RULE CDR.via1.2 {
+    CAPTION "CDR: Min spacing of via1: 0.17 um";
+    EXTE via1 -lt 0.17 -single_point -output region;
+}
+
+RULE CDR.via1.4a {
+    CAPTION "CDR: via1 outside of areaid.mt must be enclosed by met1 by at least: 0.055 um";
+    ENC via1_not_mt met1 -lt 0.055 -output region;
+    EDGE_SELECT via1_not_mt met1;
+}
+
+RULE via1.4b {
+    CAPTION "Inside areaid.mt, 0.23 um via1 must be enclosed by met1 by at least: 0.03 um";
+    RECT_CHK via1_mt -eq 0.23 -orthogonal_only -outputlayer via1.4b_a;
+    ENC via1.4b_a met1 -lt 0.03 -outside_also -output region;
+}
+
+RULE CDR.via1.5a {
+    CAPTION "CDR: Min enclosure of 0.15 um via1 by met1 on one of two adjacent sides: 0.085 um";
+    RECT_CHK via1 -eq 0.15 -orthogonal_only -outputlayer via1.5a_a;
+    RECT_ENC via1.5a_a met1 -good 0.085 0 0.085 0;
+}
+
+RULE via1.5b {
+    CAPTION "Min enclosure of 0.23 um via1 by met1 on one of two adjacent sides: 0.085 um";
+    RECT_CHK via1 -eq 0.23 -orthogonal_only -outputlayer via1.5b_a;
+    RECT_ENC via1.5b_a met1 -good 0.085 0 0.085 0;
+}
+
+RULE CDR.m2.1 {
+    CAPTION "CDR: Min width of met2: 0.14 um";
+    INTE m2_dg -lt 0.14 -output region;
+}
+
+RULE CDR.m2.2 {
+    CAPTION "CDR: Min spacing/notch of met2: 0.14 um";
+    EXTE m2_dg -lt 0.14 -single_point -output region;
+}
+NOT m2_dg huge_met2 met2_not_huge;
+SIZE huge_met2 -by 0.28 -inside_of m2_dg -outputlayer huge_met2_028;
+AND met2_not_huge huge_met2_028 met2_huge_and;
+SELECT -touch met2_huge_and huge_met2 -outputlayer met2_touching_huge;
+
+RULE CDRW.m2.3a {
+    CAPTION "CDRW: Min spacing of huge met2 (width > 3.0 um) to narrow met2,";
+    CAPTION "including features extending 0.28 um into narrow met2: 0.28 um";
+    EXTE met2_touching_huge m2_dg -lt 0.28 -single_point -output region;
+}
+
+RULE CDRW.m2.3b {
+    CAPTION "CDRW: Min spacing of huge_met2 to met2 excluding features checked by m2.3a: 0.28 um";
+    EXTE huge_met2 m2_dg -lt 0.28 -single_point -output region;
+}
+
+RULE CDR.m2.4a {
+    CAPTION "CDR: via1 outside areaid.ce must be enclosed by met2 by at least: 0.055 um";
+    NOT via1 areaid.ce _EPTMPL262884;
+    ENC CDR.m2.4a:_EPTMPL262884 m2_dg -lt 0.055 -output region;
+    NOT via1 areaid.ce _EPTMPL262886;
+    EDGE_SELECT CDR.m2.4a:_EPTMPL262886 m2_dg;
+}
+
+RULE CDR.m2.4b {
+    CAPTION "CDR: via1 inside areaid.ce must be enclosed by met2 by at least: 0.045 um";
+    AND via1 areaid.ce _EPTMPL262888;
+    ENC CDR.m2.4b:_EPTMPL262888 met2 -lt 0.045 -output region;
+    AND via1 areaid.ce _EPTMPL262890;
+    EDGE_SELECT CDR.m2.4b:_EPTMPL262890 m2_dg;
+}
+
+RULE CDR.m2.5 {
+    CAPTION "CDR: via1 outside areaid.ce must be enclosed by met2 on one of two adjacent sides by at least: 0.085 um" ;
+    NOT via1 areaid.ce _EPTMPL262892;
+    RECT_ENC CDR.m2.5:_EPTMPL262892 m2_dg -good 0.085 0 0.085 0;
+}
+
+RULE CDR.m2.6 {
+    CAPTION "CDR: min met2 area: 0.067 sq um";
+    AREA m2_dg -lt 0.067;
+}
+
+RULE CDR.m2.7 {
+    CAPTION "CDR: min area of met2 holes: 0.140 sq um";
+    HOLES m2_dg -outputlayer m2.7_a;
+    AREA m2.7_a -lt 0.14;
+}
+SELECT -inside via2 SEALID -outputlayer via2.insideSR;
+NOT via2 via2.insideSR via2.outsideSR;
+SELECT -inside via2 areaid.mt -outputlayer via2.areaid.mt;
+NOT via2 via2.areaid.mt -outputlayer via2.not_areaid.mt;
+NOT via2.not_areaid.mt via2.insideSR via2_neither;
+
+RULE CDR.via2.1a {
+    CAPTION "CDR: Min and max L and W of via2 outside areaid.mt: 0.20 um";
+    RECT_CHK -not via2_neither -eq 0.2 -by -eq 0.2 -orthogonal_only;
+}
+
+RULE via2.1d {
+    CAPTION "Four sizes of square Via2s allowed inside areaid.mt: 0.200um, 0.280um, 1.200um and 1.500um";
+    RECT_CHK -not via2.areaid.mt -eq 0.2 -by -eq 0.2 -orthogonal_only -outputlayer via2.1d_b;
+    RECT_CHK -not via2.1d_b -eq 0.28 -by -eq 0.28 -orthogonal_only -outputlayer via2.1d_c;
+    RECT_CHK -not via2.1d_c -eq 1.2 -by -eq 1.2 -orthogonal_only -outputlayer via2.1d_d;
+    RECT_CHK -not via2.1d_d -eq 1.5 -by -eq 1.5 -orthogonal_only;
+}
+
+RULE CDR.via2.2 {
+    CAPTION "CDR: Min spacing of via2: 0.20 um";
+    EXTE via2 -lt 0.2 -single_point -output region;
+}
+
+RULE via2.3 {
+    CAPTION "Only min. square via2s are allowed except die seal ring where vias are (via2 CD)*L == 0.20 * L";
+    CAPTION " this seal ring via2 does not have W = 0.2 um";
+    RECT_CHK -not via2.insideSR -eq 0.2;
+}
+
+RULE CDR.via2.4 {
+    CAPTION "CDR: Min enclosure of via2 by met2: 0.04 um";
+    ENC via2 met2 -lt 0.04 -output region;
+    EDGE_SELECT via2 met2;
+}
+
+RULE via2.4a {
+    CAPTION "Inside areaid.mt, Min enclosure of 1.5 um via2 by met2: 0.14 um";
+    RECT_CHK via2.areaid.mt -eq 1.5 -orthogonal_only -outputlayer via2.4b_a;
+    ENC via2.4b_a met2 -lt 0.14 -output region;
+    EDGE_SELECT via2.4b_a met2;
+}
+
+RULE CDR.via2.5 {
+    CAPTION "CDR: Min enclosure of via2 by met2 on one of two adjacent sides: 0.085 um";
+    RECT_ENC via2 met2 -good 0.085 0 0.085 0;
+}
+
+RULE m3.1 {
+    CAPTION "CDR: Min width of met3: 0.30 um";
+    INTE m3_dg -lt 0.3 -output region;
+}
+
+RULE CDR.m3.2 {
+    CAPTION "CDR: Min spacing/notch of met3: 0.30 um";
+    EXTE m3_dg -lt 0.3 -single_point -output region;
+}
+NOT m3_dg huge_met3 met3_not_huge;
+SIZE huge_met3 -by 0.28 -inside_of m3_dg -outputlayer huge_met3_040;
+AND met3_not_huge huge_met3_040 met3_huge_and;
+SELECT -touch met3_huge_and huge_met3 -outputlayer met3_touching_huge;
+
+RULE CDRW.m3.3c {
+    CAPTION "CDRW: Min spacing of huge met3 (width > 3.0 um) to narrow met3,";
+    CAPTION "including features extending 0.28 um into narrow met3: 0.40 um";
+    EXTE met3_touching_huge m3_dg -lt 0.4 -single_point -output region;
+}
+
+RULE CDRW.m3.3d {
+    CAPTION "CDRW: Min spacing of huge_met3 to met3 excluding features checked by m3.3c: 0.40 um";
+    EXTE huge_met3 m3_dg -lt 0.4 -single_point -output region;
+}
+
+RULE CDR.m3.4 {
+    CAPTION "CDR: Min enclosure of via2 by met3: 0.065 um";
+    ENC via2 m3_dg -lt 0.065 -output region;
+    EDGE_SELECT -inside via2 m3_dg;
+}
+
+RULE CDR.m3.6 {
+    CAPTION "CDR: min met3 area: 0.240 sq um";
+    AREA m3_dg -lt 0.24;
+}
+
+RULE CDR.m3.7 {
+    CAPTION "CDR: min area of met3 holes: 0.200 sq um";
+    HOLES m3_dg -outputlayer m3.7_a;
+    AREA m3.7_a -lt 0.2;
+}
+SELECT -inside via3 SEALID -outputlayer via3.insideSR;
+NOT via3 via3.insideSR via3.outsideSR;
+SELECT -inside via3 areaid.mt -outputlayer via3.areaid.mt;
+NOT via3 via3.areaid.mt via3.not_areaid.mt;
+NOT via3.not_areaid.mt via3.insideSR via3_neither;
+
+RULE CDR.via3.1 {
+    CAPTION "CDR: Min and max L and W of via3 (except for rule via3.1a) == 0.20 um";
+    RECT_CHK -not via3_neither -eq 0.2 -by -eq 0.2 -orthogonal_only;
+}
+
+RULE via3.1a {
+    CAPTION "Two sizes of square via3 allowed inside areaid.mt: 0.200um and 0.800um";
+    RECT_CHK -not via3.areaid.mt -eq 0.2 -by -eq 0.2 -orthogonal_only -outputlayer via3.not0.2;
+    RECT_CHK -not via3.not0.2 -eq 0.8 -by -eq 0.8 -orthogonal_only;
+}
+
+RULE CDR.via3.2 {
+    CAPTION "CDR: Min spacing of via3: 0.20 um";
+    EXTE via3 -lt 0.2 -single_point -output region;
+}
+
+RULE via3.3 {
+    CAPTION "Only min. square via3s are allowed except die seal ring where via3s are (via3 CD)*L == 0.20 * L";
+    CAPTION " this seal ring via3 does not have W = 0.2 um";
+    RECT_CHK -not via3.insideSR -eq 0.2;
+}
+
+RULE CDR.via3.4 {
+    CAPTION "CDR: Min enclosure of via3 by met3: 0.06 um";
+    ENC via3 met3 -lt 0.06 -output region;
+    EDGE_SELECT via3 met3;
+}
+
+RULE CDR.via3.5 {
+    CAPTION "CDR: Min enclosure of via3 by 3et3 on one of two adjacent sides: 0.09 um";
+    RECT_ENC via3 met3 -good 0.09 0 0.09 0;
+}
+
+RULE CDR.nsm.1 {
+    CAPTION "CDR: Min width of nsm: 3.00 um";
+    INTE nsm -lt 3 -single_point -output region;
+}
+
+RULE CDR.nsm.2 {
+    CAPTION "CDR: Min spacing of nsm: 4.00 um";
+    EXTE nsm nsm -lt 4 -single_point -output region;
+}
+
+RULE CDR.m4.1 {
+    CAPTION "CDR: Min width of met4: 0.30 um";
+    INTE m4_dg -lt 0.3 -output region;
+}
+
+RULE CDR.m4.2 {
+    CAPTION "CDR: Min spacing/notch of met4: 0.30 um";
+    EXTE m4_dg -lt 0.3 -single_point -output region;
+}
+
+RULE CDR.m4.3 {
+    CAPTION "CDR: Min enclosure of via3 by met4: 0.065 um";
+    ENC via3 m4_dg -lt 0.065 -output region;
+    EDGE_SELECT -inside via3 m4_dg;
+}
+
+RULE CDR.m4.4a {
+    CAPTION "CDR: Min met4 area: 0.240 sq um";
+    AREA m4_dg -lt 0.24;
+}
+NOT m4_dg huge_met4 met4_not_huge;
+SIZE huge_met4 -by 0.28 -inside_of m4_dg -outputlayer huge_met4_040;
+AND met4_not_huge huge_met4_040 met4_huge_and;
+SELECT -touch met4_huge_and huge_met4 -outputlayer met4_touching_huge;
+
+RULE CDRW.m4.5a {
+    CAPTION "CDRW: Min spacing of huge met4 (width > 3.0 um) to narrow met4,";
+    CAPTION "including features extending 0.28 um into narrow met4: 0.40 um";
+    CAPTION "(rule not checked over non-huge m4_dg features)";
+    EXTE met4_touching_huge m4_dg -lt 0.4 -single_point -output region;
+}
+
+RULE CDRW.m4.5b {
+    CAPTION "CDRW: Min spacing of huge_met4 to met4 excluding features checked by m4.3c: 0.40 um";
+    EXTE huge_met4 m4_dg -lt 0.4 -single_point -output region;
+}
+
+RULE CDR.m4.7 {
+    CAPTION "CDR: Min area of met4 holes: 0.200 sq um";
+    HOLES met4 -outputlayer m4.7_a;
+    AREA m4.7_a -lt 0.2;
+}
+SELECT -inside via4 SEALID -outputlayer via4.insideSR;
+NOT via4 via4.insideSR via4.outsideSR;
+
+RULE CDR.via4.1 {
+    CAPTION "CDR: Min and max L and W of via4 == 0.80 um";
+    RECT_CHK -not via4.outsideSR -eq 0.8 -by -eq 0.8 -orthogonal_only;
+}
+
+RULE CDR.via4.2 {
+    CAPTION "CDR: Spacing of via4: 0.80 um";
+    EXTE via4 -lt 0.8 -single_point -output region;
+}
+
+RULE via4.3 {
+    CAPTION "Only min. square via4s are allowed except die seal ring where via4s are (via4 CD)*L == 0.80 * L";
+    CAPTION " this seal ring via4 does not have W = 0.8 um";
+    RECT_CHK -not via4.insideSR -eq 0.8;
+}
+
+RULE CDR.via4.4 {
+    CAPTION "CDR: Min enclosure of via4 by met4: 0.19 um";
+    ENC via4 met4 -lt 0.19 -output region;
+    EDGE_SELECT via4 met4;
+}
+
+RULE CDR.m5.1 {
+    CAPTION "CDR: Min width of met5: 1.60 um";
+    INTE m5_dg -lt 1.6 -output region;
+}
+
+RULE CDR.m5.2 {
+    CAPTION "CDR: Min spacing/notch of met5: 1.60 um";
+    EXTE m5_dg -lt 1.6 -single_point -output region;
+}
+
+RULE CDR.m5.3 {
+    CAPTION "CDR: Min enclosure of via4 by met5: 0.31 um";
+    ENC via4 m5_dg -lt 0.31 -output region;
+    EDGE_SELECT -inside via4 m5_dg;
+}
+
+RULE CDR.m5.4 {
+    CAPTION "CDR: Min area of met5: 4.0 sq um";
+    AREA m5_dg -lt 4;
+}
+
+RULE CDR.pad.2 {
+    CAPTION "CDR: Min spacing of pad: 1.27 um";
+    EXTE pad -lt 1.27 -single_point -output region;
+}
+
+RULE pad.3 {
+    CAPTION "Min area of hugePad NOT top_metal: 30000 sq um";
+    CAPTION " Adjust top_metal based on final process type";
+    NOT hugePad met5 -outputlayer pad.3a;
+    AREA pad.3a -lt 30000;
+}
+
+RULE hvi.nwell {
+    CAPTION "hvi must not straddle nwell";
+    EDGE_BOOLEAN -inside hvi nwell;
+}
+
+RULE hvi.1 {
+    CAPTION "Min width of Hvi: 0.02 um";
+    INTE hvi -lt 0.02 -single_point -output region;
+}
+
+RULE hvi.2 {
+    CAPTION "Min spacing of Hvi to Hvi: 0.70 um";
+    CAPTION "Manual merge if space is below minimum";
+    EXTE hvi hvi -lt 0.7 -single_point -output region;
+}
+
+RULE hvi.4 {
+    CAPTION "Hvi must not overlap tunm";
+    AND hvi tunm;
+}
+OR hvi vhvi uhvi -outputlayer all_hvi;
+SELECT -interact nwell uhvi -outputlayer nwell_uhvi;
+STAMP nwell_uhvi nwell -outputlayer nwell_uhv;
+NOT nwell nwell_uhv -outputlayer nw_not_uvh;
+SELECT -interact nw_not_uvh vhvi -outputlayer nwell_vhvi;
+STAMP nwell_vhvi nwell -outputlayer nwell_vhv;
+OR nwell_uhv nwell_vhv _EPTMPL262981;
+NOT nwell _EPTMPL262981 -outputlayer nw_not_vhv_or_uhv;
+SELECT -interact nw_not_vhv_or_uhv hvi -outputlayer nwell_hvi;
+STAMP nwell_hvi nwell -outputlayer nwell_hv;
+SELECT -interact -not nwell all_hvi -outputlayer nwell_lvi;
+STAMP nwell_lvi nwell -outputlayer nwell_lv;
+
+RULE hvnwell.8.hv {
+    CAPTION "Min space/notch of HV_nwell: 1.27";
+    EXTE nwell_hv -lt 1.27 -abut -lt 90 -single_point -output region;
+}
+
+RULE hvnwell.8.hv_vhv {
+    CAPTION "Min space of HV_nwell to VHV_nwell: 2.0";
+    EXTE nwell_hv nwell_vhv -lt 2 -abut -lt 90 -single_point -output region;
+}
+
+RULE hvnwell.8.hv_uhv {
+    CAPTION "Min space of HV_nwell to UHV_nwell: 2.5";
+    EXTE nwell_hv nwell_uhv -lt 2.5 -abut -lt 90 -single_point -output region;
+}
+
+RULE hvnwell.8.vhv {
+    CAPTION "Min space/notch of VHV_nwell: 2.0";
+    EXTE nwell_vhv -lt 2 -abut -lt 90 -single_point -output region;
+}
+
+RULE hvnwell.8.vhv_uhv {
+    CAPTION "Min space of VHV_nwell to UHV_nwell: 2.5";
+    EXTE nwell_vhv nwell_uhv -lt 2.5 -abut -lt 90 -single_point -output region;
+}
+
+RULE hvnwell.8.uvh {
+    CAPTION "Min space/notch of UHV_nwell: 2.5";
+    EXTE nwell_uhv -lt 2.5 -abut -lt 90 -single_point -output region;
+}
+SELECT -cut nwell hvi -outputlayer nwell_ovlp_hvi;
+
+RULE hvnwell.9 {
+    CAPTION "(Nwell overlapping hvi) must be enclosed by hvi";
+    NOT nwell_ovlp_hvi hvi;
+}
+
+RULE hvdifftap.14 {
+    CAPTION "Min width of diff (not tap) inside hvi, except HV pdiff resistors (hvdifftap.14a): 0.29 um";
+    AND diff hvi -outputlayer hvdiff;
+    SELECT -interact -not hvdiff diff_res _EPTMPL262996;
+    INTE hvdifftap.14:_EPTMPL262996 -lt 0.29 -single_point -output region;
+}
+
+RULE hvdifftap.14a {
+    CAPTION "Min width of diff inside hvi, HV pdiff resistors only: 0.15 um";
+    AND diff diff_res _EPTMPL262998;
+    AND hvdifftap.14a:_EPTMPL262998 hvi -outputlayer hvdiff;
+    INTE hvdiff -lt 0.15 -single_point -output region;
+}
+
+RULE hvdifftap.15a {
+    CAPTION "Min space of diff inside hvi: 0.30 um";
+    EXTE hdiff hdiff -lt 0.3 -single_point -output region;
+}
+
+RULE hvdifftap.15b {
+    CAPTION "Min space of ndiff to non-abutting ptap inside hvi: 0.37 um";
+    AND ptap hvi -outputlayer hvdifftap.15b_a;
+    AND ndiff hvi -outputlayer hvdifftap.15b_b;
+    EXTE hvdifftap.15b_a hvdifftap.15b_b -lt 0.37 -single_point -output region;
+}
+
+RULE hvdifftap.16 {
+    CAPTION "Min width tap butting diff on one or two sides inside hvi: 0.70 um";
+    CAPTION " Rule exempted inside UHVI";
+    SELECT -touch htap hdiff -ltgt 0 3 -outputlayer hvdifftap.16_a;
+    NOT hvdifftap.16_a uhvi -outputlayer hvdifftap.16_b;
+    INTE hvdifftap.16_b -lt 0.7 -single_point -output region;
+}
+
+RULE hvdifftap.17 {
+    CAPTION "Min enclosure of HV pdiff or pdiff inside areaid:hvnwell by HV nwell: 0.33 um";
+    CAPTION "  Rule exempted inside UHVI ";
+    SELECT -outside -not pdiff areaid.hl -outputlayer hvdifftap.17_a;
+    ENC hvdifftap.17_a hv_nwell -lt 0.33 -output region;
+}
+
+RULE hvdifftap.18 {
+    CAPTION "Min spacing of N+ diff to HV nwell (rule exempted inside UHVI): 0.43 um";
+    NOT ndiff uhvi -outputlayer hvdifftap.18_a;
+    EXTE hvdifftap.18_a hv_nwell -lt 0.43 -single_point -output region;
+}
+
+RULE hvdifftap.19 {
+    CAPTION "Min enclosure of HV ntap by HV nwell: 0.33 um";
+    CAPTION "  Rule exempted inside UHVI ";
+    NOT htap uhvi -outputlayer hvdifftap.19_a;
+    ENC hvdifftap.19_a hv_nwell -lt 0.33 -output region;
+}
+
+RULE hvdifftap.20 {
+    CAPTION "Spacing of P+ tap to HV nwell (Exempted for ptap butting pwell.rs, rule exempted inside UHVI): 0.43 um";
+    NOT ptap uhvi -outputlayer hvdifftap.20_a;
+    EXTE hvdifftap.20_a hv_nwell -lt 0.43 -output region;
+}
+
+RULE hvdifftap.21 {
+    CAPTION "Diff or tap cannot straddle hvi";
+    SELECT -cut diff hvi;
+    SELECT -cut tap hvi;
+}
+
+RULE hvdifftap.22 {
+    CAPTION "Min enclosure of Hdiff or Htap by hvi. Rule exempted inside UHVI: 0.18 um ";
+    NOT hdiff uhvi -outputlayer hvdifftap.22_a;
+    NOT htap uhvi -outputlayer hvdifftap.22_b;
+    ENC hvdifftap.22_a hvi -lt 0.18 -output region;
+    ENC hvdifftap.22_b hvi -lt 0.18 -output region;
+}
+
+RULE hvdifftap.24 {
+    CAPTION "Min spacing of nwell to HV ndiff (rule exempted inside UHVI): 0.43 um";
+    NOT nwell uhvi -outputlayer hvdifftap.24_a;
+    EXTE hvdifftap.24_a hdiff -lt 0.43 -output region;
+}
+
+RULE CDR.hvdifftap.25 {
+    CAPTION "CDR: Min space of N+ Hdiff inside HVI across non-abutting P+_tap: 1.07 um";
+    NOT hdiff hvi -outputlayer hvdifftap.25_a;
+    EXTE hvdifftap.25_a ptap -lt 0.107 -output region;
+}
+SELECT -inside poly hvi -outputlayer hvpoly.13_a;
+SELECT -cut hvpoly.13_a diff -outputlayer hvpoly.13_b;
+EDGE_BOOLEAN -coincident_only hvpoly.13_b gate_a -outputlayer poly_edges;
+
+RULE hvpoly.13 {
+    CAPTION "Min width of poly over diff inside hvi: 0.50 um" ;
+    INTE poly_edges -lt 0.5 -metric opposite -para ONLY -output region;
+}
+
+RULE hvpoly.14 {
+    CAPTION "(poly and diff) cannot straddle hvi";
+    SELECT -cut gate hvi;
+}
+
+RULE CDR.hvntm.1 {
+    CAPTION "CDR: Min width of hvntm: 0.70 um";
+    INTE hvntm -lt 0.7 -single_point -output region;
+}
+
+RULE hvntm.2 {
+    CAPTION "Spacing of hvntm to hvntm: 0.70 um";
+    EXTE hvntm hvntm -lt 0.7 -single_point -output region;
+}
+
+RULE hvntm.3 {
+    CAPTION "Min enclosure of (ndiff inside hvi) but not overlapping areaid.ce by hvntm: 0.185 um";
+    SELECT -inside ndiff hvi -outputlayer hvntm.3_a;
+    NOT hvntm.3_a areaid.ce hvntm.3_b;
+    ENC hvntm.3_b hvntm -lt 0.185 -output region;
+}
+
+RULE hvntm.4 {
+    CAPTION "Min space between (ndiff outside hvi) and hvntm: 0.185 um";
+    CAPTION " No overlap allowed "	;
+    SELECT -outside ndiff hvi -outputlayer hvntm.4_a;
+    EXTE hvntm.4_a hvntm -lt 0.185 -single_point -output region;
+    NOT ndiff hvi _EPTMPL263038;
+    AND hvntm.4:_EPTMPL263038 hvntm;
+}
+
+RULE hvntm.5 {
+    CAPTION "Min space between pdiff and hvntm: 0.185 um";
+    CAPTION " No overlap allowed "	;
+    EXTE pdiff hvntm -lt 0.185 -overlap -single_point -output region;
+}
+
+RULE hvntm.6a {
+    CAPTION "Min space between ptap and hvntm (except along the diff-butting edge): 0.185 um";
+    CAPTION " No overlap allowed "	;
+    EXTE ptap hvntm -lt 0.185 -overlap -single_point -output region;
+}
+
+RULE hvntm.6b {
+    CAPTION "Min space between ptap and hvntm along the diff-butting edge: 0.00 um";
+    CAPTION " No overlap allowed "	;
+    SELECT -touch ptap hvntm -outputlayer hvntm.6b_a;
+    EXTE hvntm.6b_a ptap -eq 0 -output region;
+}
+
+RULE hvntm.9 {
+    CAPTION "hvntm must not overlap areaid.ce";
+    AND hvntm areaid.ce;
+}
+
+RULE hvntm.10 {
+    CAPTION "hvntm must overlap hvi (v5)" ;
+    NOT hvntm hvi;
+}
+NOT areaid.en dnwell areaid.de_nFet;
+AND diff areaid.de_nFet -outputlayer de_nFet_SD;
+SELECT -interact -not de_nFet_SD poly -outputlayer isolated_ntap;
+AND poly areaid.de_nFet -outputlayer deFET_gate_pvsTmp1;
+SELECT -inside -not deFET_gate_pvsTmp1 pwde -outputlayer deFET_gate;
+NOT diff dnwell -outputlayer de_nFet_gate_pvsTmp1;
+SELECT -cut deFET_gate de_nFet_gate_pvsTmp1 -outputlayer de_nFet_gate;
+SELECT -cut de_nFet_SD de_nFet_gate -outputlayer de_nFet_source;
+AND isolated_ntap areaid.de_nFet -outputlayer de_nFet_drain_pvsTmp1;
+SELECT -inside de_nFet_drain_pvsTmp1 nwell -outputlayer de_nFet_drain;
+
+RULE denmos.1 {
+    CAPTION "Min width of de_nFet_gate: 1.055 um" ;
+    INTE de_nFet_gate -lt 1.055 -single_point -output region;
+}
+NOT de_nFet_source poly -outputlayer de_nFet_source_not_poly;
+AND de_nFet_source poly -outputlayer de_nFet_source_and_poly;
+
+RULE denmos.2 {
+    CAPTION "Min width of de_nFet_source not overlapping poly: 0.28 um";
+    INTE de_nFet_source_not_poly -lt 0.28 -single_point -output region;
+}
+
+RULE denmos.3 {
+    CAPTION "Min width of de_nFet_source overlapping poly: 0.925 um";
+    INTE de_nFet_source_and_poly -lt 0.925 -single_point -output region;
+}
+ANGLE -not de_nFet_drain -ltgt 0 90 -outputlayer de_nFet_drain_ortho;
+EDGE_LENGTH de_nFet_drain_ortho -lt 0.17 -outputlayer de_nFet_drain_bad;
+
+RULE denmos.4 {
+    CAPTION "Min width of the de_nFet_drain: 0.17 um";
+    COPY de_nFet_drain_bad;
+}
+AND de_nFet_source nwell -outputlayer de_nFet_source_nwell;
+
+RULE denmos.5 {
+    CAPTION "Min/Max extension of de_nFet_source over nwell == 0.225";
+    WITH_WIDTH -not de_nFet_source_nwell -eq 0.225;
+}
+EXTE de_nFet_drain de_nFet_source -eq 1.585 -single_point -parallel only -metric opposite -output region -outputlayer de_nFet_good_region;
+SELECT -touch -not de_nFet_source de_nFet_good_region -outputlayer de_nFet_source_bad;
+
+RULE denmos.6 {
+    CAPTION "Min/Max spacing between de_nFet_drain and de_nFet_source == 1.585 um";
+    EXTE de_nFet_drain de_nFet_source_bad -lt 3 -parallel only -metric opposite -output region;
+}
+EDGE_BOOLEAN -inside de_nFet_gate diff -outputlayer denmos_width;
+
+RULE denmos.7 {
+    CAPTION "Min channel width for de_nFet_gate: 5.00 um";
+    EDGE_LENGTH denmos_width -lt 5;
+}
+SELECT -enclose nwell de_nFET_drain -outputlayer denmos.8_nwell;
+
+RULE denmos.8 {
+    CAPTION "90 degree angles are not permitted for nwell overlapping de_nFET_drain";
+    VERTEX denmos.8_nwell -lt 8;
+}
+ENC ntap nwell_ovlp_de_nFET_Drain -lt 0.66 -output region -outputlayer denmos.10.region;
+SELECT -interact -not denmos.10.region de_nFet_source -outputlayer denmos.10.bad;
+
+RULE denmos.10 {
+    CAPTION "Min enclosure of de_nFet_drain by nwell: 0.66 um";
+    COPY denmos.10.bad;
+}
+SELECT -cut nwell de_nFET_drain -outputlayer nwell_ovlp_de_nFET_Drain;
+
+RULE denmos.11 {
+    CAPTION "Min spacing between p+ tap and (nwell overlapping de_nFet_drain): 0.86 um";
+    EXTE ptap_actual nwell_ovlp_de_nFET_Drain -lt 0.86 -single_point -output region;
+}
+
+RULE denmos.12 {
+    CAPTION "Min spacing between nwells overlapping de_nFET_drain: 2.40 um";
+    EXTE nwell_ovlp_de_nFET_Drain -lt 2.4 -single_point -output region;
+}
+
+RULE denmos.13 {
+    CAPTION "de_nFet_source must be enclosed by nsdm by: 0.13 um";
+    ENC de_nFet_source nsdm -lt 0.13 -output region;
+}
+AND areaid.en dnwell areaid.de_pFet;
+AND diff areaid.de_pFet -outputlayer de_pFet_SD;
+SELECT -interact -not de_pFet_SD poly -outputlayer isolated_ptap;
+AND isolated_ptap areaid.de_pFet -outputlayer de_pFet_drain_pvsTmp1;
+SELECT -inside -not de_pFet_drain_pvsTmp1 nwell -outputlayer de_pFet_drain;
+NOT de_pFet_SD de_pFet_drain de_pFet_source;
+SELECT -cut poly de_pFet_SD -outputlayer de_pFet_gate;
+
+RULE depmos.1 {
+    CAPTION "Min width of de_pFet_gate: 1.05 um" ;
+    INTE de_pFet_gate -lt 1.05 -single_point -output region;
+}
+NOT de_pFet_source poly -outputlayer de_pFet_source_not_poly;
+AND de_pFet_source poly -outputlayer de_pFet_source_and_poly;
+
+RULE depmos.2 {
+    CAPTION "Min width of de_pFet_source not overlapping poly: 0.28 um";
+    INTE de_pFet_source_not_poly -lt 0.28 -single_point -output region;
+}
+
+RULE depmos.3 {
+    CAPTION "Min width of de_pFet_source overlapping poly: 0.92 um";
+    INTE de_pFet_source_and_poly -lt 0.92 -single_point -output region;
+}
+ANGLE -not de_pFet_drain -ltgt 0 90 -outputlayer de_pFet_drain_ortho;
+EDGE_LENGTH de_pFet_drain_ortho -lt 0.17 -outputlayer de_pFet_drain_bad;
+
+RULE depmos.4 {
+    CAPTION "Min width of the de_pFet_drain: 0.17 um";
+    COPY de_pFet_drain_bad;
+}
+SELECT -cut de_pFet_source nwell -outputlayer de_pFet_source_w_nwell;
+NOT de_pFet_source_w_nwell nwell -outputlayer de_pFet_source_not_nwell;
+
+RULE depmos.5 {
+    CAPTION "Min/Max extension of de_pFet_source beyond nwell == 0.260";
+    WITH_WIDTH de_pFet_source_not_nwell -ne 0.26;
+}
+EXTE de_pFet_drain de_pFet_source -eq 1.19 -single_point -parallel only -metric opposite -output region -outputlayer de_pFet_good_region;
+SELECT -touch -not de_pFet_source de_pFet_good_region -outputlayer de_pFet_source_bad;
+
+RULE depmos.6 {
+    CAPTION "Min/Max spacing between de_pFet_drain and de_pFet_source == 1.19 um";
+    EXTE de_pFet_drain de_pFet_source_bad -lt 2 -parallel only -metric opposite -output region;
+}
+EDGE_BOOLEAN -inside de_pFet_gate diff -outputlayer depmos_width;
+
+RULE depmos.7 {
+    CAPTION "Min channel width for de_pFet_gate: 5.00 um";
+    EDGE_LENGTH depmos_width -lt 5;
+}
+HOLES nwell -outputlayer nwell_holes;
+SELECT -enclose nwell_holes de_pFET_drain -outputlayer depmos.8_nwell;
+
+RULE depmos.8 {
+    CAPTION "90 degree angles are not permitted for nwell overlapping de_pFET_drain";
+    VERTEX depmos.8_nwell -lt 8;
+}
+
+RULE depmos.10 {
+    CAPTION "Min enclosure of de_pFet_drain by nwell hole: 0.86 um";
+    ENC de_pFet_drain nwell_holes -lt 0.86 -output region;
+}
+SELECT -enclose nwell_holes de_pFET_drain -outputlayer nwell_enc_de_pFET_Drain;
+
+RULE depmos.11 {
+    CAPTION "Min spacing between n+ tap and (nwell hole enclosing de_pFet_drain): 0.66 um";
+    EXTE ntap_actual nwell_enc_de_pFET_Drain -lt 0.66 -single_point -output region;
+}
+
+RULE depmos.12 {
+    CAPTION "Min enclosure of de_pFet_source by psdm: 0.13 um";
+    ENC de_pFet_source psdm -lt 0.13 -output region;
+}
+
+RULE vhvi.uhvi {
+    CAPTION "vhvi must not overlap uhvi";
+    AND vhvi uhvi;
+}
+
+RULE vhvi.1 {
+    CAPTION "Min width of vhvi:dg: 0.02 um";
+    INTE vhvi -lt 0.02 -single_point -output region;
+}
+
+RULE vhvi.2 {
+    CAPTION "Vhvi:dg cannot overlap areaid:ce";
+    AND vhvi areaid.ce;
+}
+
+RULE vhvi.3 {
+    CAPTION "VHVGate must overlap hvi:dg"	;
+    SELECT -interact -not VHVGate hvi;
+}
+
+RULE vhvi.5 {
+    CAPTION "Vhvi:dg cannot straddle VHVSourceDrain";
+    SELECT -cut vhvi VHVSourceDrain;
+}
+
+RULE vhvi.6 {
+    CAPTION "Vhvi:dg overlapping VHVSourceDrain must not overlap poly"	;
+    SELECT -interact -not vhvi VHVSourceDrain -outputlayer vhvi.6_a;
+    AND vhvi.6_a poly;
+}
+
+RULE vhvi.7 {
+    CAPTION "Vhvi:dg cannot straddle VHVPoly";
+    SELECT -cut vhvi VHVPoly;
+}
+
+RULE uhvi.1 {
+    CAPTION "diff/tap cannot straddle UHVI";
+    SELECT -cut diff uhvi;
+}
+
+RULE uhvi.2 {
+    CAPTION "poly cannot straddle UHVI";
+    SELECT -cut poly uhvi;
+}
+NOT pwbm lv_net pwbm_not_LV;
+
+RULE uhvi.3 {
+    CAPTION "pwbm must be enclosed by UHVI (exempt inside areaid:lvnet)";
+    SELECT -inside -not pwbm_not_LV uhvi;
+}
+
+RULE uhvi.4 {
+    CAPTION "dnwell cannot straddle UHVI";
+    SELECT -cut dnwell uhvi;
+}
+
+RULE pwres.3 {
+    CAPTION "Min length of pwell resistor: 26.50 um";
+    RECT_CHK -not pwell_res -eq 2.65 -by -lege 26.5 265;
+}
+
+RULE pwres.5 {
+    CAPTION "Min/Max spacing of tap inside the pwell resistor to nwell == 0.22 um";
+    SELECT -inside tap pwell_res -outputlayer pwres.5_a;
+    EXTE pwres.5_a nwell -lt 0.22 -single_point -output region;
+}
+
+RULE pwres.6 {
+    CAPTION "Min/Max width of tap inside the pwell resistor == 0.53 um";
+    SELECT -inside tap pwell_res -outputlayer pwres.6_a;
+    WITH_WIDTH pwres.6_a -ne 0.53;
+}
+
+RULE pwres.7a {
+    CAPTION "Every pwres_terminal must enclose 12 licon";
+    SELECT -enclose -not pwell_terminal licon -eq 12;
+}
+
+RULE pwres.7b {
+    CAPTION "Every pwres_terminal must enclose 12 mcons if routed through metal1";
+    SELECT -inside licon pwell_terminal -outputlayer licon_in_term;
+    SELECT -enclose li1 licon_in_term -outputlayer li1_with_licon_in_term;
+    SELECT -enclose li1_with_licon_in_term mcon -outputlayer li1_con_met1_in_term;
+    SELECT -inside li1_con_met1_in_term met1 -outputlayer term_con_met1;
+    SELECT -enclose -not pwell_terminal mcon -eq 12;
+}
+
+RULE pwres.8 {
+    CAPTION "Diff or poly is not allowed in the pwell resistor.";
+    AND diff pwell_res;
+    AND poly pwell_res;
+}
+OR sealid_hole SEALID -outputlayer chip_plus_sealhole;
+SELECT -interact -not ALL SEALID _EPTMPL263137;
+OR chip_plus_sealhole _EPTMPL263137 -outputlayer fill_extent;
+NOT fill_extent SEALID -outputlayer fill_extent_not_SEALID;
+OR diff_in diff_fill diff_mask -outputlayer diff_layers;
+OR poly_dg poly_fill poly_mask -outputlayer poly_layers;
+OR li_dg li_fill li_mask -outputlayer li_layers;
+OR m1_dg m1_fill m1_mask -outputlayer m1_layers;
+OR m2_dg m2_fill m2_mask -outputlayer m2_layers;
+OR m3_dg m3_fill m3_mask -outputlayer m3_layers;
+OR m4_dg m4_fill m4_mask -outputlayer m4_layers;
+OR m5_dg m5_fill m5_mask -outputlayer m5_layers;
+
+RULE CDR.diff.local.low {
+    CAPTION "CDR: Min diff local density (700 square um window, 7 um step): 28%";
+    CAPTION "  rdb file: diff_low_density.rdb";
+    DENSITY diff_layers -lt 0.28 -window 700 -step 70 -inside_of layer fill_extent_not_SEALID -rdb diff_low_density.rdb;
+}
+
+RULE CDRW.diff.local.high {
+    CAPTION "CDRW: Max diff local density (700 square um window, 7 um step): 62%";
+    CAPTION "  rdb file: diff_high_density.rdb";
+    DENSITY diff_layers -gt 0.62 -window 700 -step 70 -inside_of layer fill_extent_not_SEALID -rdb diff_high_density.rdb;
+}
+
+RULE CDRW.poly.local.low {
+    CAPTION "CDRW: Min poly local density (700 square um window, 7 um step): 8%";
+    CAPTION "  rdb file: poly_low_density.rdb";
+    DENSITY poly_layers -lt 0.08 -window 700 -step 70 -inside_of layer fill_extent_not_SEALID -rdb poly_low_density.rdb;
+}
+
+RULE CDRW.poly.local.high {
+    CAPTION "CDRW: Max poly local density (700 square um window, 7 um step): 38%";
+    CAPTION "  rdb file: poly_high_density.rdb";
+    DENSITY poly_layers -gt 0.38 -window 700 -step 70 -inside_of layer fill_extent_not_SEALID -rdb poly_high_density.rdb;
+}
+
+RULE CDRW.li.global.min {
+    CAPTION "CDRW: Min global density of LI inside seal ring: 33%";
+    CAPTION "  rdb file: li_global_low.rdb";
+    DENSITY li_layers -lt 0.33 -inside_of layer fill_extent_not_SEALID -rdb li_global_low.rdb;
+}
+
+RULE CDRW.li.global.max {
+    CAPTION "CDRW: Max global density of LI inside seal ring: 62%";
+    CAPTION "  rdb file: li_global_high.rdb";
+    DENSITY li_layers -gt 0.62 -inside_of layer fill_extent_not_SEALID -rdb li_global_high.rdb;
+}
+
+RULE CDRW.m1.global.min {
+    CAPTION "CDRW: Min global density of met1 inside seal ring: 33%";
+    CAPTION "  rdb file: m1_global_low.rdb";
+    DENSITY m1_layers -lt 0.33 -inside_of layer fill_extent_not_SEALID -rdb m1_global_low.rdb;
+}
+
+RULE CDRW.m1.global.max {
+    CAPTION "CDRW: Max global density of met1 inside seal ring: 62%";
+    CAPTION "  rdb file: m1_global_high.rdb";
+    DENSITY m1_layers -gt 0.62 -inside_of layer fill_extent_not_SEALID -rdb m1_global_high.rdb;
+}
+
+RULE CDRW.m2.global.min {
+    CAPTION "CDRW: Min global density of met2 inside seal ring: 33%";
+    CAPTION "  rdb file: m2_global_low.rdb";
+    DENSITY m2_layers -lt 0.33 -inside_of layer fill_extent_not_SEALID -rdb m2_global_low.rdb;
+}
+
+RULE CDRW.m2.global.max {
+    CAPTION "CDRW: Max global density of met2 inside seal ring: 62%";
+    CAPTION "  rdb file: m2_global_high.rdb";
+    DENSITY m2_layers -gt 0.62 -inside_of layer fill_extent_not_SEALID -rdb m2_global_high.rdb;
+}
+
+RULE CDRW.m3.global.min {
+    CAPTION "CDRW: Min global density of met3 inside seal ring: 33%";
+    CAPTION "  rdb file: m3_global_low.rdb";
+    DENSITY m3_layers -lt 0.33 -inside_of layer fill_extent_not_SEALID -rdb m3_global_low.rdb;
+}
+
+RULE CDRW.m3.global.max {
+    CAPTION "CDRW: Max global density of met3 inside seal ring: 62%";
+    CAPTION "  rdb file: m3_global_high.rdb";
+    DENSITY m3_layers -gt 0.62 -inside_of layer fill_extent_not_SEALID -rdb m3_global_high.rdb;
+}
+
+RULE CDRW.m4.global.min {
+    CAPTION "CDRW: Min global density of met4 inside seal ring: 33%";
+    CAPTION "  rdb file: m4_global_low.rdb";
+    DENSITY m4_layers -lt 0.33 -inside_of layer fill_extent_not_SEALID -rdb m4_global_low.rdb;
+}
+
+RULE CDRW.m4.global.max {
+    CAPTION "CDRW: Max global density of met4 inside seal ring: 62%";
+    CAPTION "  rdb file: m4_global_high.rdb";
+    DENSITY m4_layers -gt 0.62 -inside_of layer fill_extent_not_SEALID -rdb m4_global_high.rdb;
+}
+
+RULE CDRW.m5.global.min {
+    CAPTION "CDRW: Min global density of met5 inside seal ring: 43%";
+    CAPTION "  rdb file: m5_global_low.rdb";
+    DENSITY m5_layers -lt 0.43 -inside_of layer fill_extent_not_SEALID -rdb m5_global_low.rdb;
+}
+
+RULE CDRW.m5.global.max {
+    CAPTION "CDRW: Max global density of met5 inside seal ring: 78%";
+    CAPTION "  rdb file: m5_global_high.rdb";
+    DENSITY m5_layers -gt 0.78 -inside_of layer fill_extent_not_SEALID -rdb m5_global_high.rdb;
+}
+SIZE met1 -by 0.6 -outputlayer met1_oxide;
+
+RULE CDR.m1.local.min {
+    CAPTION "CDR: Min met1 oxide pattern local density: 80%";
+    CAPTION "  700 square micron window stepped at 70 um";
+    CAPTION "  NOTE: 'met1 oxide pattern' is all met1 sized by 0.6 um';
+    CAPTION "  rdb file:  m1_oxide_low.rdb";
+    DENSITY met1_oxide -lt 0.8 -window 700 -step 70 -inside_of layer fill_area -rdb m1_local_low.rdb;
+}
+SIZE met2 -by 0.6 -outputlayer met2_oxide;
+
+RULE CDR.m2.local.min {
+    CAPTION "CDR: Min met2 oxide pattern local density (AL): 80%";
+    CAPTION "  700 square micron window stepped at 70 um ";
+    CAPTION "  NOTE: 'met2 oxide pattern' is all met2 sized by 0.6 um";
+    CAPTION "  rdb file:  m2_oxide_low.rdb";
+    DENSITY met2_oxide -lt 0.8 -window 700 -step 70 -inside_of layer fill_area -rdb m2_local_low.rdb;
+}
+SIZE met3 -by 1.15 -outputlayer met3_oxide;
+
+RULE CDR.m3.local.min {
+    CAPTION "CDR: Min met3 oxide pattern local density (AL): 80%";
+    CAPTION "  700 square micron window stepped at 70 um ";
+    CAPTION "  NOTE: 'met3 oxide pattern' is all met3 sized by 1.15 um";
+    CAPTION "  rdb file:  m3_oxide_low.rdb";
+    DENSITY met3_oxide -lt 0.8 -window 700 -step 70 -inside_of layer fill_area -rdb m3_local_low.rdb;
+}
+SIZE met4 -by 1.15 -outputlayer met4_oxide;
+
+RULE CDR.m4.local.min {
+    CAPTION "CDR: Min met4 oxide pattern local density (AL): 80%";
+    CAPTION "  700 square micron window stepped at 70 um ";
+    CAPTION "  NOTE: 'met4 oxide pattern' is all met4 sized by 0.6 um";
+    CAPTION "  rdb file:  m4_oxide_low.rdb";
+    DENSITY met4_oxide -lt 0.8 -window 700 -step 70 -inside_of layer fill_area -rdb m4_local_low.rdb;
+}
+
+RULE diff.fill.1 {
+    CAPTION "diff fill must be rectangles";
+    VERTEX diff_fill -gt 4;
+}
+
+RULE diff.fill.2 {
+    CAPTION "Min width of diff fill:  0.5 um";
+    RECT_CHK diff_fill -lt 0.5;
+}
+
+RULE diff.fill.3 {
+    CAPTION "Max length of diff fill:  25. um";
+    RECT_CHK diff_fill -gt 25;
+}
+
+RULE diff.fill.4 {
+    CAPTION "diff fill must not overlap diff or tap";
+    SELECT -outside -not diff_fill diff_in;
+}
+
+RULE diff.fill.5 {
+    CAPTION "diff fill must not overlap poly";
+    SELECT -outside -not diff_fill poly_dg;
+}
+
+RULE diff.fill.6 {
+    CAPTION "diff fill must not overlap or touch licon";
+    SELECT -interact diff_fill licon;
+}
+
+RULE diff.fill.7 {
+    CAPTION "diff fill must not overlap areaid:seal";
+    SELECT -outside -not diff_fill SEALID;
+}
+
+RULE diff.fill.8 {
+    CAPTION "diff fill must not overlap diff fill block";
+    SELECT -outside -not diff_fill diff_fillblock;
+}
+
+RULE diff.fill.9 {
+    CAPTION "Min spacing diff fill to diff fill: 0.4 um";
+    EXTE diff_fill -lt 0.4 -single_point -output region;
+}
+
+RULE diff.fill.10 {
+    CAPTION "Min spacing (no touch) diff fill to diff or tap: 0.5 um";
+    EXTE diff_fill diff_in -lt 0.5 -output region;
+    SELECT -touch diff_fill diff_in;
+}
+
+RULE diff.fill.11 {
+    CAPTION "Min spacing (no touch) diff fill to diff fill_block: 0.5 um";
+    EXTE diff_fill diff_fillblock -lt 0.5 -output region;
+    SELECT -touch diff_fill diff_fillblock;
+    SELECT -interact -single_point only diff_fill diff_fillblock;
+}
+
+RULE diff.fill.12 {
+    CAPTION "Min spacing (no touch) diff fill to nsdm / psdm: 0.13 um";
+    OR nsdm psdm _EPTMPL263186;
+    EXTE diff_fill diff.fill.12:_EPTMPL263186 -lt 0.13 -output region;
+    OR nsdm psdm _EPTMPL263188;
+    SELECT -touch diff_fill diff.fill.12:_EPTMPL263188;
+}
+
+RULE diff.fill.13 {
+    CAPTION "Min spacing (no touch) diff fill to poly: 0.5 um";
+    EXTE diff_fill poly_dg -lt 0.5 -output region;
+    SELECT -touch diff_fill poly_dg;
+}
+
+RULE diff.fill.14 {
+    CAPTION "Min spacing diff fill to nwell: 0.34 um";
+    EXTE diff_fill nwell -lt 0.34 -output region;
+    SELECT -touch diff_fill nwell;
+}
+
+RULE diff.fill.15 {
+    CAPTION "Min spacing (no touch) diff fill to HV nwell: 0.33 um";
+    AND nwell all_hvi _EPTMPL263194;
+    EXTE diff_fill diff.fill.15:_EPTMPL263194 -lt 0.33 -output region;
+    AND nwell all_hvi _EPTMPL263196;
+    SELECT -touch diff_fill diff.fill.15:_EPTMPL263196;
+}
+
+RULE diff.fill.16 {
+    CAPTION "Min spacing (no touch) diff fill to areaid.seal (SEALID): 1. um";
+    EXTE diff_fill SEALID -lt 1 -output region;
+    SELECT -touch diff_fill SEALID;
+    SELECT -interact -single_point only diff_fill SEALID;
+}
+AND nwell hvi -outputlayer nwell_5v;
+NOT nwell hvi -outputlayer nwell_not_5v;
+
+RULE diff.fill.17 {
+    CAPTION "Min enclosure of diff fill by nwell: 0.18 um";
+    CAPTION " diff fill straddling nwell not allowed ";
+    ENC diff_fill nwell_not_5v -lt 0.18 -output region;
+    EDGE_SELECT -inside diff_fill nwell_not_5v;
+    SELECT -cut diff_fill nwell_not_5v;
+}
+
+RULE diff.fill.18 {
+    CAPTION "Min enclosure of diff fill by 5 volt nwell: 0.43 um";
+    CAPTION " diff fill straddling 5 volt nwell not allowed ";
+    ENC diff_fill nwell_5v -lt 0.43 -output region;
+    EDGE_SELECT -inside diff_fill nwell_5v;
+    SELECT -cut diff_fill nwell_5v;
+}
+
+RULE diff.fill.19 {
+    CAPTION "Min enclosure, with no overlap, of diff fill by FRAME (areaid.fe): 0.5 um";
+    CAPTION " diff fill straddling FRAME not allowed ";
+    ENC diff_fill areaid.fe -lt 0.5 -output region;
+    EDGE_SELECT -inside diff_fill areaid.fe;
+    SELECT -cut diff_fill areaid.fe;
+}
+
+RULE poly.fill.1 {
+    CAPTION "poly fill must be rectangles";
+    VERTEX poly_fill -gt 4;
+}
+
+RULE poly.fill.2 {
+    CAPTION "Min width of poly fill:  0.48 um";
+    RECT_CHK poly_fill -lt 0.48;
+}
+
+RULE poly.fill.3 {
+    CAPTION "Max length of poly fill:  0.72 um";
+    RECT_CHK poly_fill -gt 0.72;
+}
+
+RULE poly.fill.4 {
+    CAPTION "poly fill must not overlap diff or tap";
+    SELECT -outside -not poly_fill diff_in;
+}
+
+RULE poly.fill.5 {
+    CAPTION "poly fill must not overlap poly";
+    SELECT -outside -not poly_fill poly_dg;
+}
+
+RULE poly.fill.6 {
+    CAPTION "poly fill must not overlap areaid:seal";
+    SELECT -outside -not poly_fill SEALID;
+}
+
+RULE poly.fill.7 {
+    CAPTION "poly fill must not overlap poly fill block";
+    SELECT -outside -not poly_fill poly_fillblock;
+}
+
+RULE poly.fill.8 {
+    CAPTION "Min spacing poly fill to poly fill: 0.36 um";
+    EXTE poly_fill -lt 0.36 -single_point -output region;
+}
+
+RULE poly.fill.9 {
+    CAPTION "Min spacing (no touch) poly fill to poly: 1. um";
+    EXTE poly_fill poly_dg -lt 1 -output region;
+    SELECT -touch poly_fill poly_dg;
+}
+
+RULE poly.fill.10 {
+    CAPTION "Min spacing (no touch) poly fill to poly fill_block: 1. um";
+    EXTE poly_fill poly_fillblock -lt 1 -output region;
+    SELECT -touch poly_fill poly_fillblock;
+}
+
+RULE poly.fill.11 {
+    CAPTION "Min spacing (no touch) poly fill to diff fill: 0.3 um";
+    EXTE poly_fill diff_fill -lt 0.3 -output region;
+    SELECT -touch poly_fill diff_fill;
+}
+
+RULE poly.fill.12 {
+    CAPTION "Min spacing (no touch) poly fill to diff or tap: 1. um";
+    EXTE poly_fill diff_in -lt 1 -output region;
+    SELECT -touch poly_fill diff_in;
+    SELECT -interact -single_point only poly_fill diff_in;
+}
+
+RULE poly.fill.13 {
+    CAPTION "Min spacing (no touch) poly fill to areaid.seal (SEALID): 1. um";
+    EXTE poly_fill SEALID -lt 1 -output region;
+    SELECT -touch poly_fill SEALID;
+    SELECT -interact -single_point only poly_fill SEALID;
+}
+
+RULE poly.fill.14 {
+    CAPTION "Min enclosure of poly fill by FRAME (areaid.fe): 0.5 um";
+    CAPTION " poly fill straddling FRAME not allowed ";
+    ENC poly_fill areaid.fe -lt 0.5 -output region;
+    EDGE_SELECT -inside poly_fill areaid.fe;
+    SELECT -cut poly_fill areaid.fe;
+}
+
+RULE li.fill.1 {
+    CAPTION "li fill must be rectangles";
+    VERTEX li_fill -gt 4;
+}
+
+RULE li.fill.2 {
+    CAPTION "Min width of li fill:  0.5 um";
+    RECT_CHK li_fill -lt 0.5;
+}
+
+RULE li.fill.3 {
+    CAPTION "Max length of li fill:  5.0 um";
+    RECT_CHK li_fill -gt 5;
+}
+
+RULE li.fill.4 {
+    CAPTION "li fill must not overlap li";
+    SELECT -outside -not li_fill li_dg;
+}
+
+RULE li.fill.5 {
+    CAPTION "li fill must not overlap poly";
+    SELECT -outside -not li_fill poly_dg;
+}
+
+RULE li.fill.6 {
+    CAPTION "li fill must not overlap or touch licon";
+    SELECT -interact li_fill licon;
+}
+
+RULE li.fill.7 {
+    CAPTION "li fill must not overlap or touch mcon";
+    SELECT -interact li_fill mcon;
+}
+
+RULE li.fill.8 {
+    CAPTION "li fill must not overlap areaid:seal";
+    SELECT -outside -not li_fill SEALID;
+}
+
+RULE li.fill.9 {
+    CAPTION "li fill must not overlap li fill block";
+    SELECT -outside -not li_fill li_fillblock;
+}
+
+RULE li.fill.10 {
+    CAPTION "Min spacing li fill to li fill: 0.5 um";
+    EXTE li_fill -lt 0.5 -single_point -output region;
+}
+
+RULE li.fill.11 {
+    CAPTION "Min spacing (no touch) li fill to li: 0.5 um";
+    EXTE li_fill li_dg -lt 0.5 -output region;
+    SELECT -touch li_fill li_dg;
+    SELECT -interact -single_point only li_fill li_dg;
+}
+
+RULE li.fill.12 {
+    CAPTION "Min spacing (no touch) li fill to li fill_block: 0.5 um";
+    EXTE li_fill li_fillblock -lt 0.5 -output region;
+    SELECT -touch li_fill li_fillblock;
+    SELECT -interact -single_point only li_fill li_fillblock;
+}
+
+RULE li.fill.13 {
+    CAPTION "Min spacing (no touch) li fill to licon: 0.5 um";
+    EXTE li_fill licon -lt 0.5 -output region;
+    SELECT -touch li_fill licon;
+}
+
+RULE li.fill.14 {
+    CAPTION "Min spacing (no touch) li fill to mcon: 0.5 um";
+    EXTE li_fill mcon -lt 0.5 -output region;
+    SELECT -touch li_fill mcon;
+}
+
+RULE li.fill.15 {
+    CAPTION "Min spacing (no touch) li fill to areaid.seal (SEALID): 1. um";
+    EXTE li_fill SEALID -lt 1 -output region;
+    SELECT -touch li_fill SEALID;
+    SELECT -interact -single_point only li_fill SEALID;
+}
+
+RULE li.fill.16 {
+    CAPTION "Min enclosure of LI fill by FRAME (areaid.fe): 0.5 um";
+    CAPTION " LI fill straddling FRAME not allowed ";
+    ENC li_fill areaid.fe -lt 0.5 -output region;
+    EDGE_SELECT -inside li_fill areaid.fe;
+    SELECT -cut li_fill areaid.fe;
+}
+
+RULE m1.fill.1 {
+    CAPTION "met1 fill must be rectangles";
+    VERTEX m1_fill -gt 4;
+}
+
+RULE m1.fill.2 {
+    CAPTION "Min width of met1 fill:  0.3 um";
+    RECT_CHK m1_fill -lt 0.3;
+}
+
+RULE m1.fill.3 {
+    CAPTION "Max length of met1 fill:  2. um";
+    RECT_CHK m1_fill -gt 2;
+}
+
+RULE m1.fill.4 {
+    CAPTION "met1 fill must not overlap met1";
+    SELECT -outside -not m1_fill m1_dg;
+}
+
+RULE m1.fill.5 {
+    CAPTION "met1 fill must not overlap areaid:seal";
+    SELECT -outside -not m1_fill SEALID;
+}
+
+RULE m1.fill.6 {
+    CAPTION "met1 fill must not overlap mcon";
+    SELECT -outside -not m1_fill mcon;
+}
+
+RULE m1.fill.7 {
+    CAPTION "met1 fill must not overlap via1";
+    SELECT -outside -not m1_fill via1;
+}
+
+RULE m1.fill.8 {
+    CAPTION "met1 fill must not overlap met1 fill block";
+    SELECT -outside -not m1_fill m1_fillblock;
+}
+
+RULE m1.fill.9 {
+    CAPTION "Min spacing met1 fill to met1 fill: 0.3 um";
+    EXTE m1_fill -lt 0.3 -single_point -output region;
+}
+
+RULE m1.fill.10 {
+    CAPTION "Min spacing (no touch) met1 fill to areaid.seal (SEALID): 1. um";
+    EXTE m1_fill SEALID -lt 1 -output region;
+    SELECT -touch m1_fill SEALID;
+    SELECT -interact -single_point only m1_fill SEALID;
+}
+
+RULE m1.fill.11 {
+    CAPTION "Min spacing (no touch) met1 fill to mcon: 0.3 um";
+    EXTE m1_fill mcon -lt 0.3 -output region;
+    SELECT -touch m1_fill mcon;
+}
+
+RULE m1.fill.12 {
+    CAPTION "Min spacing (no touch) met1 fill to met1 dg: 0.3 um";
+    EXTE m1_fill m1_dg -lt 0.3 -output region;
+    SELECT -touch m1_fill m1_dg;
+    SELECT -interact -single_point only m1_fill m1_dg;
+}
+
+RULE m1.fill.13 {
+    CAPTION "Min spacing (no touch) met1 fill to via1: 0.3 um";
+    EXTE m1_fill via1 -lt 0.3 -output region;
+    SELECT -touch m1_fill via1;
+}
+
+RULE m1.fill.14 {
+    CAPTION "Min spacing (no touch) met1 fill to met1 fill_block: 0.3 um";
+    EXTE m1_fill m1_fillblock -lt 0.3 -output region;
+    SELECT -touch m1_fill m1_fillblock;
+    SELECT -interact -single_point only m1_fill m1_fillblock;
+}
+
+RULE m1.fill.15 {
+    CAPTION "Min enclosure of met1 fill by FRAME (areaid.fe): 0.5 um";
+    CAPTION " met1 fill straddling FRAME not allowed ";
+    ENC m1_fill areaid.fe -lt 0.5 -output region;
+    EDGE_SELECT -inside m1_fill areaid.fe;
+    SELECT -cut m1_fill areaid.fe;
+}
+
+RULE m2.fill.1 {
+    CAPTION "met2 fill must be rectangles";
+    VERTEX m2_fill -gt 4;
+}
+
+RULE m2.fill.2 {
+    CAPTION "Min width of met2 fill:  0.3 um";
+    RECT_CHK m2_fill -lt 0.3;
+}
+
+RULE m2.fill.3 {
+    CAPTION "Max length of met2 fill:  2. um";
+    RECT_CHK m2_fill -gt 2;
+}
+
+RULE m2.fill.4 {
+    CAPTION "met2 fill must not overlap met2";
+    SELECT -outside -not m2_fill m2_dg;
+}
+
+RULE m2.fill.5 {
+    CAPTION "met2 fill must not overlap areaid:seal";
+    SELECT -outside -not m2_fill SEALID;
+}
+
+RULE m2.fill.6 {
+    CAPTION "met2 fill must not overlap via1";
+    SELECT -outside -not m2_fill via1;
+}
+
+RULE m2.fill.7 {
+    CAPTION "met2 fill must not overlap via2";
+    SELECT -outside -not m2_fill via2;
+}
+
+RULE m2.fill.8 {
+    CAPTION "met2 fill must not overlap met2 fill block";
+    SELECT -outside -not m2_fill m2_fillblock;
+}
+
+RULE m2.fill.9 {
+    CAPTION "Min spacing met2 fill to met2 fill: 0.3 um";
+    EXTE m2_fill -lt 0.3 -single_point -output region;
+}
+
+RULE m2.fill.10 {
+    CAPTION "Min spacing (no touch) met2 fill to areaid.seal (SEALID): 1. um";
+    EXTE m2_fill SEALID -lt 1 -output region;
+    SELECT -touch m2_fill SEALID;
+    SELECT -interact -single_point only m2_fill SEALID;
+}
+
+RULE m2.fill.11 {
+    CAPTION "Min spacing (no touch) met2 fill to via1: 0.3 um";
+    EXTE m2_fill via1 -lt 0.3 -output region;
+    SELECT -touch m2_fill via1;
+}
+
+RULE m2.fill.12 {
+    CAPTION "Min spacing (no touch) met2 fill to met2 dg: 0.3 um";
+    EXTE m2_fill m2_dg -lt 0.3 -output region;
+    SELECT -touch m2_fill m2_dg;
+    SELECT -interact -single_point only m2_fill m2_dg;
+}
+
+RULE m2.fill.13 {
+    CAPTION "Min spacing (no touch) met2 fill to via2: 0.3 um";
+    EXTE m2_fill via2 -lt 0.3 -output region;
+    SELECT -touch m2_fill via2;
+}
+
+RULE m2.fill.14 {
+    CAPTION "Min spacing (no touch) met2 fill to met2 fill_block: 0.3 um";
+    EXTE m2_fill m2_fillblock -lt 0.3 -output region;
+    SELECT -touch m2_fill m2_fillblock;
+    SELECT -interact -single_point only m2_fill m2_fillblock;
+}
+
+RULE m2.fill.15 {
+    CAPTION "Min enclosure of met2 fill by FRAME (areaid.fe): 0.5 um";
+    CAPTION " met2 fill straddling FRAME not allowed ";
+    ENC m2_fill areaid.fe -lt 0.5 -output region;
+    EDGE_SELECT -inside m2_fill areaid.fe;
+    SELECT -cut m2_fill areaid.fe;
+}
+
+RULE m3.fill.1 {
+    CAPTION "met3 fill must be rectangles";
+    VERTEX m3_fill -gt 4;
+}
+
+RULE m3.fill.2 {
+    CAPTION "Min width of met3 fill:  0.5 um";
+    RECT_CHK m3_fill -lt 0.5;
+}
+
+RULE m3.fill.3 {
+    CAPTION "Max length of met3 fill:  2. um";
+    RECT_CHK m3_fill -gt 2;
+}
+
+RULE m3.fill.4 {
+    CAPTION "met3 fill must not overlap met3";
+    SELECT -outside -not m3_fill m3_dg;
+}
+
+RULE m3.fill.5 {
+    CAPTION "met3 fill must not overlap areaid:seal";
+    SELECT -outside -not m3_fill SEALID;
+}
+
+RULE m3.fill.6 {
+    CAPTION "met3 fill must not overlap via2";
+    SELECT -outside -not m3_fill via2;
+}
+
+RULE m3.fill.7 {
+    CAPTION "met3 fill must not overlap via3";
+    SELECT -outside -not m3_fill via3;
+}
+
+RULE m3.fill.8 {
+    CAPTION "met3 fill must not overlap met3 fill block";
+    SELECT -outside -not m3_fill m3_fillblock;
+}
+
+RULE m3.fill.9 {
+    CAPTION "Min spacing met3 fill to met3 fill: 0.3 um";
+    EXTE m3_fill -lt 0.3 -single_point -output region;
+}
+
+RULE m3.fill.10 {
+    CAPTION "Min spacing (no touch) met3 fill to areaid.seal (SEALID): 1. um";
+    EXTE m3_fill SEALID -lt 1 -output region;
+    SELECT -touch m3_fill SEALID;
+    SELECT -interact -single_point only m3_fill SEALID;
+}
+
+RULE m3.fill.11 {
+    CAPTION "Min spacing (no touch) met3 fill to via2: 0.5 um";
+    EXTE m3_fill via2 -lt 0.5 -output region;
+    SELECT -touch m3_fill via2;
+}
+
+RULE m3.fill.12 {
+    CAPTION "Min spacing (no touch) met3 fill to met3 dg: 0.5 um";
+    EXTE m3_fill m3_dg -lt 0.5 -output region;
+    SELECT -touch m3_fill m3_dg;
+    SELECT -interact -single_point only m3_fill m3_dg;
+}
+
+RULE m3.fill.13 {
+    CAPTION "Min spacing (no touch) met3 fill to via3: 0.5 um";
+    EXTE m3_fill via3 -lt 0.5 -output region;
+    SELECT -touch m3_fill via3;
+}
+
+RULE m3.fill.14 {
+    CAPTION "Min spacing (no touch) met3 fill to met3 fill_block: 0.5 um";
+    EXTE m3_fill m3_fillblock -lt 0.5 -output region;
+    SELECT -touch m3_fill m3_fillblock;
+    SELECT -interact -single_point only m3_fill m3_fillblock;
+}
+
+RULE m3.fill.15 {
+    CAPTION "Min enclosure of met3 fill by FRAME (areaid.fe): 0.5 um";
+    CAPTION " met3 fill straddling FRAME not allowed ";
+    ENC m3_fill areaid.fe -lt 0.5 -output region;
+    EDGE_SELECT -inside m3_fill areaid.fe;
+    SELECT -cut m3_fill areaid.fe;
+}
+
+RULE m4.fill.1 {
+    CAPTION "met4 fill must be rectangles";
+    VERTEX m4_fill -gt 4;
+}
+
+RULE m4.fill.2 {
+    CAPTION "Min width of met4 fill:  0.5 um";
+    RECT_CHK m4_fill -lt 0.5;
+}
+
+RULE m4.fill.3 {
+    CAPTION "Max length of met4 fill:  2. um";
+    RECT_CHK m4_fill -gt 2;
+}
+
+RULE m4.fill.4 {
+    CAPTION "met4 fill must not overlap met4";
+    SELECT -outside -not m4_fill m4_dg;
+}
+
+RULE m4.fill.5 {
+    CAPTION "met4 fill must not overlap areaid:seal";
+    SELECT -outside -not m4_fill SEALID;
+}
+
+RULE m4.fill.6 {
+    CAPTION "met4 fill must not overlap via3";
+    SELECT -outside -not m4_fill via3;
+}
+
+RULE m4.fill.7 {
+    CAPTION "met4 fill must not overlap via4";
+    SELECT -outside -not m4_fill via4;
+}
+
+RULE m4.fill.8 {
+    CAPTION "met4 fill must not overlap met4 fill block";
+    SELECT -outside -not m4_fill m4_fillblock;
+}
+
+RULE m4.fill.9 {
+    CAPTION "Min spacing met4 fill to met4 fill: 0.3 um";
+    EXTE m4_fill -lt 0.3 -single_point -output region;
+}
+
+RULE m4.fill.10 {
+    CAPTION "Min spacing (no touch) met4 fill to areaid.seal (SEALID): 1. um";
+    EXTE m4_fill SEALID -lt 1 -output region;
+    SELECT -touch m4_fill SEALID;
+    SELECT -interact -single_point only m4_fill SEALID;
+}
+
+RULE m4.fill.11 {
+    CAPTION "Min spacing (no touch) met4 fill to via3: 0.5 um";
+    EXTE m4_fill via3 -lt 0.5 -output region;
+    SELECT -touch m4_fill via3;
+}
+
+RULE m4.fill.12 {
+    CAPTION "Min spacing (no touch) met4 fill to met4 dg: 0.5 um";
+    EXTE m4_fill m4_dg -lt 0.5 -output region;
+    SELECT -touch m4_fill m4_dg;
+    SELECT -interact -single_point only m4_fill m4_dg;
+}
+
+RULE m4.fill.13 {
+    CAPTION "Min spacing (no touch) met4 fill to via4: 0.5 um";
+    EXTE m4_fill via4 -lt 0.5 -output region;
+    SELECT -touch m4_fill via4;
+}
+
+RULE m4.fill.14 {
+    CAPTION "Min spacing (no touch) met4 fill to met4 fill_block: 0.5 um";
+    EXTE m4_fill m4_fillblock -lt 0.3 -output region;
+    SELECT -touch m4_fill m4_fillblock;
+    SELECT -interact -single_point only m4_fill m4_fillblock;
+}
+
+RULE m4.fill.15 {
+    CAPTION "Min enclosure of met4 fill by FRAME (areaid.fe): 0.5 um";
+    CAPTION " met4 fill straddling FRAME not allowed ";
+    ENC m4_fill areaid.fe -lt 0.5 -output region;
+    EDGE_SELECT -inside m4_fill areaid.fe;
+    SELECT -cut m4_fill areaid.fe;
+}
+
+RULE m5.fill.1 {
+    CAPTION "met5 fill must be rectangles";
+    VERTEX m5_fill -gt 4;
+}
+
+RULE m5.fill.2 {
+    CAPTION "Min width of met5 fill:  2. um";
+    RECT_CHK m5_fill -lt 2;
+}
+
+RULE m5.fill.3 {
+    CAPTION "Max length of met5 fill:  5. um";
+    RECT_CHK m5_fill -gt 5;
+}
+
+RULE m5.fill.4 {
+    CAPTION "met5 fill must not overlap met5";
+    SELECT -outside -not m5_fill m5_dg;
+}
+
+RULE m5.fill.5 {
+    CAPTION "met5 fill must not overlap areaid:seal";
+    SELECT -outside -not m5_fill SEALID;
+}
+
+RULE m5.fill.6 {
+    CAPTION "met5 fill must not overlap via4";
+    SELECT -outside -not m5_fill via4;
+}
+
+RULE m5.fill.7 {
+    CAPTION "met5 fill must not overlap met5 fill block";
+    SELECT -outside -not m5_fill m5_fillblock;
+}
+
+RULE m5.fill.8 {
+    CAPTION "Min spacing met5 fill to met5 fill: 1.6 um";
+    EXTE m5_fill -lt 1.6 -single_point -output region;
+}
+
+RULE m5.fill.9 {
+    CAPTION "Min spacing (no touch) met5 fill to areaid.seal (SEALID): 1. um";
+    EXTE m5_fill SEALID -lt 1 -output region;
+    SELECT -touch m5_fill SEALID;
+    SELECT -interact -single_point only m5_fill SEALID;
+}
+
+RULE m5.fill.10 {
+    CAPTION "Min spacing (no touch) met5 fill to met5 dg: 3. um";
+    EXTE m5_fill m5_dg -lt 3 -output region;
+    SELECT -touch m5_fill m5_dg;
+    SELECT -interact -single_point only m5_fill m5_dg;
+}
+
+RULE m5.fill.11 {
+    CAPTION "Min spacing (no touch) met5 fill to via4: 3. um";
+    EXTE m5_fill via4 -lt 3 -output region;
+    SELECT -touch m5_fill via4;
+}
+
+RULE m5.fill.12 {
+    CAPTION "Min spacing (no touch) met5 fill to met5 fill_block: 3. um";
+    EXTE m5_fill m5_fillblock -lt 3 -output region;
+    SELECT -touch m5_fill m5_fillblock;
+    SELECT -interact -single_point only m5_fill m5_fillblock;
+}
+
+RULE m5.fill.13 {
+    CAPTION "Min enclosure of met5 fill by FRAME (areaid.fe): 0.5 um";
+    CAPTION " met5 fill straddling FRAME not allowed ";
+    ENC m5_fill areaid.fe -lt 0.5 -output region;
+    EDGE_SELECT -inside m5_fill areaid.fe;
+    SELECT -cut m5_fill areaid.fe;
+}
+
+RULE m3.fill.capm.1 {
+    CAPTION "met3 fill should not overlap or touch capm";
+    SELECT -interact -single_point also m3_fill capm;
+}
+
+RULE m3.fill.capm.2 {
+    CAPTION "Min space met3 fill to capm: 1.2;
+    EXTE capm m3_fill -lt 1.2 -abut -lt 90 -exclude_shielded -output region;
+}
+
+RULE m4.fill.cap2m.1 {
+    CAPTION "met4 fill should not overlap or touch cap2m";
+    SELECT -interact -single_point also m4_fill cap2m;
+}
+
+RULE m4.fill.cap2m.2 {
+    CAPTION "Min space met4 fill to capm: 1.2;
+    EXTE capm m3_fill -lt 1.2 -abut -lt 90 -exclude_shielded -output region;
+}
+
+RULE CDR.mcon.cover.1 {
+    CAPTION "CDR: mcon must be inside li";
+    NOT mcon li_dg;
+}
+
+RULE mcon.cover.2 {
+    CAPTION "mcon must be inside met1";
+    NOT mcon m1_dg;
+}
+
+RULE via1.cover.1 {
+    CAPTION "via1 must be inside met1";
+    NOT via1 m1_dg;
+}
+
+RULE via1.cover.2 {
+    CAPTION "via1 must be inside met2";
+    NOT via1 m2_dg;
+}
+
+RULE via2.cover.1 {
+    CAPTION "via2 must be inside met2";
+    NOT via2 m2_dg;
+}
+
+RULE via2.cover.2 {
+    CAPTION "via2 must be inside met3";
+    NOT via2 m3_dg;
+}
+
+RULE via3.cover.1 {
+    CAPTION "via3 must be inside met3";
+    NOT via3 m3_dg;
+}
+
+RULE via3.cover.2 {
+    CAPTION "via3 must be inside met4";
+    NOT via3 m3_dg;
+}
+
+RULE via4.cover.1 {
+    CAPTION "via4 must be inside met4";
+    NOT via4 m4_dg;
+}
+
+RULE via4.cover.2 {
+    CAPTION "via4 must be inside met5";
+    NOT via4 m4_dg;
+}
+SELECT -cut -not diff_res li1 -outputlayer diffres_maybe;
+NOT diff_dg diffres_maybe diff_dg_not_res;
+
+RULE difftap.res {
+    CAPTION "WARNING: diff res must fit exactly inside diff drawing";
+    SELECT -touch -not diffres_maybe diff_dg_not_res -eq 2;
+    SELECT -cut diff_res diff;
+}
+SELECT -cut -not li1_res li_dg -outputlayer lires_maybe;
+NOT li_dg lires_maybe li_dg_not_res;
+
+RULE li.res {
+    CAPTION "WARNING: li res must fit exactly inside li drawing";
+    SELECT -touch -not lires_maybe li_dg_not_res -eq 2;
+    SELECT -cut li1_res li_dg;
+}
+SELECT -cut -not met1_res m1_dg -outputlayer met1res_maybe;
+NOT m1_dg met1res_maybe m1_dg_not_res;
+
+RULE m1.res {
+    CAPTION "WARNING: met1 res must fit exactly inside met1 drawing";
+    SELECT -touch -not met1res_maybe m1_dg_not_res -eq 2;
+    SELECT -cut met1_res m1_dg;
+}
+SELECT -cut -not met2_res m2_dg -outputlayer met2res_maybe;
+NOT m2_dg met2res_maybe m2_dg_not_res;
+
+RULE m2.res {
+    CAPTION "WARNING: met2 res must fit exactly inside met2 drawing";
+    SELECT -touch -not met2res_maybe m2_dg_not_res -eq 2;
+    SELECT -cut met2_res m2_dg;
+}
+SELECT -cut -not met3_res m3_dg -outputlayer met3res_maybe;
+NOT m3_dg met3res_maybe m3_dg_not_res;
+
+RULE m3.res {
+    CAPTION "WARNING: met3 res must fit exactly inside met3 drawing";
+    SELECT -touch -not met3res_maybe m3_dg_not_res -eq 2;
+    SELECT -cut met3_res m3_dg;
+}
+SELECT -cut -not met4_res m4_dg -outputlayer met4res_maybe;
+NOT m4_dg met4res_maybe m4_dg_not_res;
+
+RULE m4.res {
+    CAPTION "WARNING: met4 res must fit exactly inside met4 drawing";
+    SELECT -touch -not met4res_maybe m4_dg_not_res -eq 2;
+    SELECT -cut met4_res m4_dg;
+}
+SELECT -cut -not met5_res m5_dg -outputlayer met5res_maybe;
+NOT m5_dg met5res_maybe m5_dg_not_res;
+
+RULE m5.res {
+    CAPTION "WARNING: met5 res must fit exactly inside met5 drawing";
+    SELECT -touch -not met5res_maybe m5_dg_not_res -eq 2;
+    SELECT -cut met5_res m4_dg;
+}
+
+RULE li.block.1 {
+    CAPTION "li cannot overlap li blockage";
+    AND li1 li1_block;
+}
+
+RULE m1.block.1 {
+    CAPTION "met1 cannot overlap met1 blockage";
+    AND met1 met1_block;
+}
+
+RULE m2.block.1 {
+    CAPTION "met2 cannot overlap met2 blockage";
+    AND met2 met2_block;
+}
+
+RULE m3.block.1 {
+    CAPTION "met3 cannot overlap met3 blockage";
+    AND met3 met3_block;
+}
+
+RULE m4.block.1 {
+    CAPTION "met4 cannot overlap met4 blockage";
+    AND met4 met4_block;
+}
+
+RULE m5.block.1 {
+    CAPTION "met5 cannot overlap met5 blockage";
+    AND met5 met5_block;
+}
+
+RULE li.block.2 {
+    CAPTION "Min spacing of li to li blockage: 0.17 um";
+    EXTE li1 li1_block -lt 0.17 -single_point -output region;
+}
+
+RULE m1.block.2 {
+    CAPTION "Min spacing of met1 to met1 blockage: 0.14 um";
+    EXTE met1 met1_block -lt 0.14 -single_point -output region;
+}
+
+RULE m2.block.2 {
+    CAPTION "Min spacing of met2 to met2 blockage: 0.14 um";
+    EXTE met2 met2_block -lt 0.14 -single_point -output region;
+}
+
+RULE m3.block.2 {
+    CAPTION "Min spacing of met3 to met3 blockage: 0.3 um";
+    EXTE met3 met3_block -lt 0.3 -single_point -output region;
+}
+
+RULE m4.block.2 {
+    CAPTION "Min spacing of met4 to met4 blockage: 0.3 um";
+    EXTE met4 met4_block -lt 0.3 -single_point -output region;
+}
+
+RULE m5.block.2 {
+    CAPTION "Min spacing of met5 to met5 blockage: 1.6 um";
+    EXTE met5 met5_block -lt 1.6 -single_point -output region;
+}
+LAYER_DEF cfom_fill 9001;
+LAYER_MAP 22 -datatype 99 9001;
+
+RULE diff.oldfill.1 {
+    CAPTION "WARNING: cfom/fill (GDS 22:99) is not supported. Use diff/fill (GDS 65:99)";
+    COPY cfom_fill;
+}
+
+RULE diff.oldfill.2 {
+    CAPTION "WARNING: cfom/waffleDrop (GDS 22:24) is not supported. Use diff/fill_block (GDS 65:98)";
+    COPY cfom_waffle_drop;
+}
+LAYER_DEF cp1m_fill 9091;
+LAYER_MAP 28 -datatype 28 9091;
+
+RULE poly.oldfill.1 {
+    CAPTION "WARNING: cp1m/fill (GDS 28:28) is not supported. Use poly/fill (GDS 66:99)";
+    COPY cp1m_fill;
+}
+
+RULE poly.oldfill.2 {
+    CAPTION "WARNING: cp1m/waffleDrop (GDS 33:24) is not supported. Use poly/fill_block (GDS 66:98)";
+    COPY cp1m_waffle_drop;
+}
+LAYER_DEF cli1m_fill 9111;
+LAYER_MAP 56 -datatype 28 9111;
+
+RULE li.oldfill.1 {
+    CAPTION "WARNING: cli1m/fill (GDS 56:28) is not supported. Use li/fill (GDS 67:99)";
+    COPY cli1m_fill;
+}
+LAYER_DEF cmm1_fill 9002;
+LAYER_MAP 36 -datatype 28 9002;
+
+RULE m1.oldfill.1 {
+    CAPTION "WARNING: cmm1/fill (GDS 36:28) is not supported. Use met1/fill (GDS 68:99)";
+    COPY cmm1_fill;
+}
+
+RULE m1.oldfill.2 {
+    CAPTION "WARNING: cmm1/waffleDrop (GDS 62:24) is not supported. Use met1/fill_block (GDS 68:98)";
+    COPY cmm1_waffle_drop;
+}
+LAYER_DEF cmm2_fill 9003;
+LAYER_MAP 41 -datatype 28 9003;
+
+RULE m2.oldfill.1 {
+    CAPTION "WARNING: cmm2/fill (GDS 41:28) is not supported. Use met2/fill (GDS 69:99)";
+    COPY cmm2_fill;
+}
+
+RULE m2.oldfill.2 {
+    CAPTION "WARNING: cmm2/waffleDrop (GDS 105:52) is not supported. Use met2/fill_block (GDS 69:98)";
+    COPY cmm2_waffle_drop;
+}
+LAYER_DEF cmm3_fill 9004;
+LAYER_MAP 34 -datatype 28 9004;
+
+RULE m3.oldfill.1 {
+    CAPTION "WARNING: cmm3/fill (GDS 34:28) is not supported. Use met3/fill (GDS 70:99)";
+    COPY cmm3_fill;
+}
+
+RULE m3.oldfill.2 {
+    CAPTION "WARNING: cmm3/waffleDrop (GDS 107:52) is not supported. Use met3/fill_block (GDS 70:98)";
+    COPY cmm3_waffle_drop;
+}
+LAYER_DEF cmm4_fill 9005;
+LAYER_MAP 51 -datatype 28 9005;
+
+RULE m4.oldfill.1 {
+    CAPTION "WARNING: cmm4/fill (GDS 51:28) is not supported. Use met4/fill (GDS 71:99)";
+    COPY cmm4_fill;
+}
+
+RULE m4.oldfill.2 {
+    CAPTION "WARNING: cmm4/waffleDrop (GDS 112:4) is not supported. Use met4/fill_block (GDS 71:98)";
+    COPY cmm4_waffle_drop;
+}
+LAYER_DEF cmm5_fill 9006;
+LAYER_MAP 59 -datatype 28 9006;
+
+RULE m5.oldfill.1 {
+    CAPTION "WARNING: cmm5/fill (GDS 59:28)) is not supported. Use met5/fill (GDS 72:99)";
+    COPY cmm5_fill;
+}
+
+RULE m5.oldfill.2 {
+    CAPTION "WARNING: cmm5/waffleDrop (GDS 117:4) is not supported. Use met5/fill_block (GDS 72:98)";
+    COPY cmm5_waffle_drop;
+}
+GROUP_RULES X x.? CDR?x.?;
+GROUP_RULES NWELL nwell.? CDR?nwell.?;
+GROUP_RULES DNWELL dnwell.? CDR?dnwell.?;
+GROUP_RULES HVTP hvtp.? CDR?hvtp.?;
+GROUP_RULES HVTR hvtr.? CDR?hvtr.?;
+GROUP_RULES LVTN lvtn.? CDR?lvtn.?;
+GROUP_RULES NCM ncm.? CDR?ncm.?;
+GROUP_RULES DIFFTAP difftap.? diff.? CDR?difftap.? CDR?diff.?;
+GROUP_RULES TUNM tunm.? CDR?tunm.?;
+GROUP_RULES POLY poly.? CDR?poly.?;
+GROUP_RULES RPM rpm.? urpm.? CDR?rpm.? CDR?urpm.?;
+GROUP_RULES VARAC varac.? CDR?varac.?;
+GROUP_RULES PHOTO photo.? CDR?photo.?;
+GROUP_RULES NPC npc.? CDR?npc.?;
+GROUP_RULES N_PSD psd.? CDR?psd.?;
+GROUP_RULES LICON licon.? CDR?licon.?;
+GROUP_RULES LI li.? CDR?li.?;
+GROUP_RULES MCON mcon.? CDR?mcon.?;
+GROUP_RULES CAPM capm.? cap2m.? CDR?capm.? CDR?cap2m.?;
+GROUP_RULES VPP vpp.? CDR?vpp.?;
+GROUP_RULES M1 m1.? CDR?.m1.?;
+GROUP_RULES VIA1 via1.? CDR?via1.?;
+GROUP_RULES M2 m2.? CDR?m2.?;
+GROUP_RULES VIA2 via2.? CDR?via2.?;
+GROUP_RULES M3 m3.? CDR?m3.?;
+GROUP_RULES VIA3 via3.? CDR?via3.?;
+GROUP_RULES NSM nsm.? CDR?nsm.?;
+GROUP_RULES M4 m4.? CDR?m4.?;
+GROUP_RULES VIA4 via4.? CDR?via4.?;
+GROUP_RULES M5 m5.? CDR?m5.?;
+GROUP_RULES PAD pad.? CDR?pad.?;
+GROUP_RULES HVI hvi.? CDR?hvi.?;
+GROUP_RULES HVNWELL hvnwell.? CDR?hvnwell.?;
+GROUP_RULES HVDIFFTAP hvdifftap.? CDR?hvdifftap.?;
+GROUP_RULES HVPOLY hvpoly.? CDR?hvpoly.?;
+GROUP_RULES HVNTM hvntm.? CDR?hvntm.?;
+GROUP_RULES DENMOS denmos.? CDR?denmos.?;
+GROUP_RULES DEPMOS depmos.? CDR?depmos.?;
+GROUP_RULES VHVI vhvi.? CDR?vhvi.?;
+GROUP_RULES UHVI uhvi.? CDR?uhvi.?;
+GROUP_RULES PWRES pwres.? CDR?pwres.?;
+GROUP_RULES all_CDR_CDRW CDR.? CDRW.?;
+GROUP_RULES only_CDR CDR.?;
+GROUP_RULES only_CDRW CDRW.?;
+GROUP_RULES only_density ?.global.? ?.local.?;
+GROUP_RULES only_fill ?.fill.?;
+EXCEPTION_SEVERITY circle 4;
+EXCEPTION_SEVERITY ctrapezoid_degenerate 2;
+EXCEPTION_SEVERITY path_acute 6;
+EXCEPTION_SEVERITY path_circular 6;
+EXCEPTION_SEVERITY path_degenerate 2;
+EXCEPTION_SEVERITY path_endsegment_short 1;
+EXCEPTION_SEVERITY path_nonorientable 4;
+EXCEPTION_SEVERITY path_nonsimple 1;
+EXCEPTION_SEVERITY path_spike 2;
+EXCEPTION_SEVERITY polygon_degenerate 2;
+EXCEPTION_SEVERITY polygon_nonorientable 2;
+EXCEPTION_SEVERITY precision_rule_file 1;
+EXCEPTION_SEVERITY trapezoid_degenerate 2;
+LAYOUT_PATH_WIDTH_MULTIPLE 1;
+EXCEPTION_SEVERITY path_width_multiple 3;
+
+
+########################################################################
+Optimizing Rules ...
+########################################################################
+Layer 'met1_res' and 'm1_fillblock' have the same mask number 1291.
+Layer 'met2_res' and 'm2_fillblock' have the same mask number 1292.
+Layer 'met3_res' and 'm3_fillblock' have the same mask number 1293.
+Layer 'met4_res' and 'm4_fillblock' have the same mask number 1294.
+Layer 'met5_res' and 'm5_fillblock' have the same mask number 1295.
+Operation 'SELECT -outside' at line 6 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SIZE' at line 9 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -label' at line 14 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'OR' at line 19 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 20 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 35 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 122 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -inside' at line 123 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -cut' at line 130 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -enclose' at line 134 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 135 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -enclose' at line 137 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'RECT_CHK' at line 138 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -enclose' at line 147 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -donut' at line 172 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -donut' at line 173 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -donut' at line 174 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -enclose' at line 175 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -enclose' at line 175 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -enclose' at line 175 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'OFFGRID' at line 34 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/x.drc.pvl does not drive any operation, remove it.
+Operation 'RECT_CHK' at line 77 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/x.drc.pvl is not selected for executing, remove it.
+Operation 'RECT_CHK' at line 79 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/x.drc.pvl is not selected for executing, remove it.
+Operation 'RECT_CHK' at line 80 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/x.drc.pvl is not selected for executing, remove it.
+Operation 'RECT_CHK' at line 81 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/x.drc.pvl is not selected for executing, remove it.
+Operation 'RECT_CHK' at line 102 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/x.drc.pvl is not selected for executing, remove it.
+Operation 'AND' at line 116 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/difftap.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -touch' at line 89 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/poly.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -touch' at line 90 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/poly.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 14 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/li.drc.pvl is not selected for executing, remove it.
+Operation 'AND' at line 15 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/li.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -inside' at line 85 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/li.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 86 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/li.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 89 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/m1.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 26 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/via1.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 8 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/via2.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 12 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/via3.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -inside' at line 50 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/pwres.drc.pvl does not drive any operation, remove it.
+Operation 'SELECT -enclose' at line 49 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/pwres.drc.pvl does not drive any operation, remove it.
+Operation 'SELECT -enclose' at line 48 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/pwres.drc.pvl does not drive any operation, remove it.
+Operation 'SELECT -inside' at line 47 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/pwres.drc.pvl does not drive any operation, remove it.
+Operation 'AND' at line 8 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -cut' at line 12 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'WITH_WIDTH' at line 26 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'AND' at line 52 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'SELECT -enclose' at line 136 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/derived_layers.drc.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 22 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/capm.drc.pvl is not selected for executing, remove it.
+Operation 'INSIDE_CELL' at line 85 in file /home/aed/libs/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/Include/m1.drc.pvl is not selected for executing, remove it.
+Completed execution early, as requested by the "-get_rules" or "-gen_tags"
+
+   ONE LAYER BOOLEAN: Cumulative Time CPU =        0(s) REAL =        0(s)
+   TWO LAYER BOOLEAN: Cumulative Time CPU =        0(s) REAL =        0(s)
+ POLYGON TOPOLOGICAL: Cumulative Time CPU =        0(s) REAL =        0(s)
+ POLYGON MEASUREMENT: Cumulative Time CPU =        0(s) REAL =        0(s)
+                SIZE: Cumulative Time CPU =        0(s) REAL =        0(s)
+    EDGE TOPOLOGICAL: Cumulative Time CPU =        0(s) REAL =        0(s)
+    EDGE MEASUREMENT: Cumulative Time CPU =        0(s) REAL =        0(s)
+               STAMP: Cumulative Time CPU =        0(s) REAL =        0(s)
+       ONE LAYER DRC: Cumulative Time CPU =        0(s) REAL =        0(s)
+       TWO LAYER DRC: Cumulative Time CPU =        0(s) REAL =        0(s)
+            NET AREA: Cumulative Time CPU =        0(s) REAL =        0(s)
+             DENSITY: Cumulative Time CPU =        0(s) REAL =        0(s)
+       MISCELLANEOUS: Cumulative Time CPU =        0(s) REAL =        0(s)
+             CONNECT: Cumulative Time CPU =        0(s) REAL =        0(s)
+              DEVICE: Cumulative Time CPU =        0(s) REAL =        0(s)
+                 ERC: Cumulative Time CPU =        0(s) REAL =        0(s)
+       PATTERN_MATCH: Cumulative Time CPU =        0(s) REAL =        0(s)
+            DFM FILL: Cumulative Time CPU =        0(s) REAL =        0(s)
+
+
+Total CPU Time                    : 0(s)
+Total Real Time                   : 0(s)
+Peak Memory Used                  : 6(M)
+Total Original Geometry           : 0(0)
+Total DRC RuleChecks              : 0
+Total DRC Results                 : 0 (0)
+
+
+Design Rule Check Finished Normally. Sun Aug 30 10:08:52 2026
+
+

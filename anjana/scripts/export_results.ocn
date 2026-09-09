@@ -1,0 +1,55 @@
+; export_results.ocn
+; OCEAN script — run in Cadence ICADV to export Sar_3_tb transient
+; waveforms to CSV for Python benchmark analysis.
+;
+; Usage (in Cadence CIW):
+;   load("/home/user23/NS_SAR_ADC/scripts/export_results.ocn")
+;
+; Or from shell:
+;   ocean -nograph -replay /home/user23/NS_SAR_ADC/scripts/export_results.ocn
+
+; -----------------------------------------------------------------------
+; Paths (adjust if running from a different location)
+; -----------------------------------------------------------------------
+psfDir   = "/home/user23/NS_SAR_ADC/simulations/Sar_3_tb/spectre/schematic/psf"
+csvFile  = "/home/user23/NS_SAR_ADC/simulations/Sar_3_tb/results.csv"
+
+; -----------------------------------------------------------------------
+; Open simulation results
+; -----------------------------------------------------------------------
+openResults(psfDir)
+selectResult('tran)
+
+; -----------------------------------------------------------------------
+; Load waveforms
+; -----------------------------------------------------------------------
+wVin  = getData("Vin")
+wVDAC = getData("VDAC")
+wCLK  = getData("CLK")
+
+; -----------------------------------------------------------------------
+; Write CSV
+; -----------------------------------------------------------------------
+port = outfile(csvFile "w")
+
+fprintf(port "time,Vin,VDAC,CLK\n")
+
+xVec = drGetWaveformXVec(wVin)
+yVin  = drGetWaveformYVec(wVin)
+yVDAC = drGetWaveformYVec(wVDAC)
+yCLK  = drGetWaveformYVec(wCLK)
+
+nPts = drVectorLength(xVec)
+
+for(i 0 (nPts - 1)
+    fprintf(port "%g,%g,%g,%g\n"
+        drGetElem(xVec  i)
+        drGetElem(yVin  i)
+        drGetElem(yVDAC i)
+        drGetElem(yCLK  i)
+    )
+)
+
+close(port)
+
+printf("Exported %d points to %s\n" nPts csvFile)

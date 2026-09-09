@@ -1,0 +1,1 @@
+results_db -drc "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/controller/controller.drc_errors.ascii" -ascii;

@@ -1,0 +1,33 @@
+# Project Revision and Timeline
+
+## Completed Tasks
+* Behavioural modeling of the 8-bit SAR Core.
+* Behavioral modeling of Noise Shaping (NS).
+* Transistor-level implementation of the analog blocks for the SAR core (Unit Caps, Comparator, Switches).
+* Top-level testbench creation
+
+## Pending Tasks
+* Complete a tapeout-ready layout of the SAR core.
+* Select the target application.
+* Select the NS architecture based on the chosen application (filter orders and active/passive implementation).
+* Explore the feasibility of a variable precision (power and accuracy) ADC implementation with NS(8/10/12).
+* Familiarize with NS and explore the possibility of an innovation.
+* Behavioral modeling of the finalized architecture.
+* Transistor-level implementation of the NS block.
+* Layout of top-level blocks.
+* Decide and implement the DSP for NS (on silicon or firmware).
+* SAR control logic implementation (RTL/Synthesis).
+* Post-layout verification (DRC, LVS, PEX) of the SAR core.
+* System-level PVT verification.
+
+## Expected Timeline Projection
+
+**Available Time:**
+* **May:** 2 weeks
+* **June:** 4 weeks
+* **July:** 2 weeks
+
+**Timeline Breakdown:**
+* **May (2 weeks):** Complete tapeout-ready layout of the SAR core, perform SAR logic implementation, run post-layout verification (DRC/LVS/PEX), select target application, and select architecture.
+* **June (4 weeks):** Explore innovation in the selected architecture, perform behavioral modeling, transistor modeling, and layout.
+* **July (2 weeks):** Finalize NS layout, complete top-level layout, run top-level testbench and system-level PVT verification, and finalize DSP on silicon decision and implementation.

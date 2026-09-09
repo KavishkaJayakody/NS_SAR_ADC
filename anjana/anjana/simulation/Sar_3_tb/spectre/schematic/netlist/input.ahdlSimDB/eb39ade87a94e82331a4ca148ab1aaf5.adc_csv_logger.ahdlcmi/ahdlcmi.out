@@ -1,0 +1,73 @@
+ahdlcmicompile: Compiling ahdlcmi in input.ahdlSimDB//eb39ade87a94e82331a4ca148ab1aaf5.adc_csv_logger.ahdlcmi/Linux-64/ for Linux-64 with optimize using gcc on Mon Apr 13 22:48:43 +0530 2026 [5.0]
+ahdlcmicompile: Generating makefile
+PATH:  /home/aed/cadence/SPECTRE181/bin:/home/aed/cadence/SPECTRE181/tools.lnx86/bin/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/bin:/home/aed/cadence/IC617/bin:/home/aed/cadence/IC617/tools/bin:/home/aed/cadence/IC617/tools.lnx86/bin/64bit:/home/aed/cadence/IC617/tools.lnx86/bin:/home/aed/cadence/IC617/share/oa/bin:/home/aed/cadence/PVS161/bin:/home/aed/cadence/Incisive152/bin:/home/aed/cadence/Genus181/bin:/home/aed/cadence/Modus181/bin:/home/aed/cadence/Liberate181/bin:/home/aed/cadence/EXT181/bin:/home/aed/cadence/SSV181/bin:/home/aed/cadence/LEC181/bin:/home/aed/cadence/Innovus/bin:/home/aed/cadence/Assura41/bin:/home/aed/cadence/Innovus/bin:/home/user23/miniconda3/bin:/home/user23/miniconda3/condabin:/usr/lib64/qt-3.3/bin:/home/aed/cadence/PVS161/bin:/home/aed/cadence/Incisive152/bin:/home/aed/cadence/Genus181/bin:/home/aed/cadence/Modus181/bin:/home/aed/cadence/Liberate181/bin:/home/aed/cadence/EXT181/bin:/home/aed/cadence/SSV181/bin:/home/aed/cadence/LEC181/bin:/home/aed/cadence/Innovus/bin:/home/aed/cadence/Assura41/bin:/home/aed/cadence/Innovus/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/lab/usr/synopsys/apps/syn/T-2022.03-SP5-1/bin:/home/aed/cadence/Incisive152/tools/bin:/home/lab/usr/synopsys/apps/icc2/icc2/U-2022.12/bin:/home/lab/usr/synopsys/apps/vcs/vcs/S-2021.09-SP2-7/bin:/home/user23/.local/bin:/home/user23/bin:/home/lab/usr/synopsys/apps/syn/T-2022.03-SP5-1/bin:/home/aed/cadence/Incisive152/tools/bin:/home/lab/usr/synopsys/apps/icc2/icc2/U-2022.12/bin:/home/lab/usr/synopsys/apps/vcs/vcs/S-2021.09-SP2-7/bin:/home/user23/.local/bin:/home/user23/bin
+LD_LIBRARY_PATH:  /home/aed/cadence/SPECTRE181/tools.lnx86/giganta/lib/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/mdl/lib/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/mmsim/lib/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/tcltk-8.4.20/lib/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/inca/lib/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/spectre/lib/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/dfII/lib/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/lib/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/lib/64bit:/home/aed/cadence/SPECTRE181/tools.lnx86/lib:/home/aed/cadence/IC617/tools/lib:/home/aed/cadence/IC617/share/oa/lib/linux_rhel50_gcc48x_64/opt:/home/aed/cadence/IC617/tools.lnx86/Qt/64bit/lib:/home/aed/cadence/IC617/tools.lnx86/dfII/lib/64bit:/home/aed/cadence/IC617/tools.lnx86/sev/lib/64bit:/home/aed/cadence/IC617/tools.lnx86/lib/64bit:/home/aed/cadence/IC617/tools.lnx86/lib:/home/aed/cadence/IC617/tools.lnx86/hdf5/lib/64bit:/home/aed/cadence/IC617/tools.lnx86/lz4/lib/64bit:/home/aed/cadence/Incisive152/tools.lnx86/lib/64bit
+/home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/bin/gnumake -j8 -f GNUmakefile
+Cleaning ./obj/optimize/5.0
+rm -f -rf ./obj/optimize/5.0
+Compiling C file adc_csv_logger.c (optimize)
+/home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/bin/64bit/ahdlcc 0 /home/aed/cadence/SPECTRE181/tools.lnx86/cdsgcc/gcc/6.3/bin/gcc  -march=k8 -ffast-math  -fno-unsafe-math-optimizations -O3 -m64 -DSYSV -DSVR4 -D_REENTRANT -fPIC   -DconfigSPECTRE -I. -I/home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include -c adc_csv_logger.c -o obj/optimize/5.0/adc_csv_logger.o || rm -f -f obj/optimize/5.0/adc_csv_logger.o
+<stdin>: In function 'adc_csv_logger_ParamInit':
+<stdin>:444:24: warning: passing argument 2 of 'aslDevAssignStringC' from incompatible pointer type [-Wincompatible-pointer-types]
+In file included from <stdin>:24:0:
+/home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2418:32: note: expected 'char *' but argument is of type 'long int *'
+ ASL_FUNC_DECL_START extern int aslDevAssignStringC( int, char *, char *, struct ahdlFuncModeParam * );
+                                ^~~~~~~~~~~~~~~~~~~
+<stdin>: In function 'adc_csv_logger_pPrintDescription':
+<stdin>:1487:234: warning: implicit declaration of function 'msgWrite' [-Wimplicit-function-declaration]
+<stdin>:1487:336: warning: implicit declaration of function 'devGetRFinFreqDomain' [-Wimplicit-function-declaration]
+<stdin>: In function 'adc_csv_logger_pGetInstanceParams':
+<stdin>:1502:1600: warning: implicit declaration of function 'devGetInstKnotStatus' [-Wimplicit-function-declaration]
+<stdin>: In function 'adc_csv_logger_pDC_Load':
+<stdin>:1519:3036: warning: passing argument 1 of 'aslDevFillZeorDiagonalElemet' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:0:
+/home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2711:33: note: expected 'void *' but argument is of type 'long int'
+ ASL_FUNC_DECL_START extern void aslDevFillZeorDiagonalElemet( void *, int, unsigned int, struct ahdlFuncModeParam * );
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<stdin>: In function 'adc_csv_logger_pCompare':
+<stdin>:1573:1106: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+<stdin>:1573:1185: warning: passing argument 1 of 'memcpy' makes pointer from integer without a cast [-Wint-conversion]
+In file included from /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include/ahdlPiCmi.h:5:0,
+                 from /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:83,
+                 from <stdin>:24:
+/usr/include/string.h:42:14: note: expected 'void * restrict' but argument is of type 'long int'
+ extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+              ^~~~~~
+<stdin>:1573:1219: warning: passing argument 2 of 'memcpy' makes pointer from integer without a cast [-Wint-conversion]
+In file included from /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include/ahdlPiCmi.h:5:0,
+                 from /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:83,
+                 from <stdin>:24:
+/usr/include/string.h:42:14: note: expected 'const void * restrict' but argument is of type 'long int'
+ extern void *memcpy (void *__restrict __dest, const void *__restrict __src,
+              ^~~~~~
+<stdin>:1573:1343: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+<stdin>: In function 'adc_csv_logger_pGetMatrixPointers':
+<stdin>:1579:1818: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+<stdin>: In function 'adc_csv_logger_pAnalTranLoad':
+<stdin>:1621:3405: warning: implicit declaration of function 'isEurekaFlow' [-Wimplicit-function-declaration]
+<stdin>:1621:0: warning: passing argument 1 of 'aslDevFillZeorDiagonalElemet' makes pointer from integer without a cast [-Wint-conversion]
+In file included from <stdin>:24:0:
+/home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:2711:33: note: expected 'void *' but argument is of type 'long int'
+ ASL_FUNC_DECL_START extern void aslDevFillZeorDiagonalElemet( void *, int, unsigned int, struct ahdlFuncModeParam * );
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<stdin>: In function 'adc_csv_logger_pSaveRestart':
+<stdin>:1647:1862: warning: implicit declaration of function 'mmsThreshSR' [-Wimplicit-function-declaration]
+<stdin>:1647:2099: warning: implicit declaration of function 'pklAccessDouble' [-Wimplicit-function-declaration]
+<stdin>:1647:2177: warning: passing argument 2 of 'aslDevAvarSR' from incompatible pointer type [-Wincompatible-pointer-types]
+In file included from <stdin>:24:0:
+/home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:1223:39: note: expected 'struct ahdlAnalogVar *' but argument is of type 'char *'
+ ASL_FUNC_DECL_START extern PklError_e aslDevAvarSR( int, struct ahdlAnalogVar *, char *, char *, char *, PklJar_t * );
+                                       ^~~~~~~~~~~~
+<stdin>: In function 'adc_csv_logger_pSaveRestartInst':
+<stdin>:1650:2083: warning: passing argument 2 of 'aslDevAvarSR' from incompatible pointer type [-Wincompatible-pointer-types]
+In file included from <stdin>:24:0:
+/home/aed/cadence/SPECTRE181/tools.lnx86/spectre/ahdlcmi/include/ahdlDevLibGlobal.h:1223:39: note: expected 'struct ahdlAnalogVar *' but argument is of type 'char *'
+ ASL_FUNC_DECL_START extern PklError_e aslDevAvarSR( int, struct ahdlAnalogVar *, char *, char *, char *, PklJar_t * );
+                                       ^~~~~~~~~~~~
+<stdin>: In function 'ahdladc_csv_loggerDescInstall':
+<stdin>:1702:2184: warning: implicit declaration of function 'descSetSetContrInfoPtr' [-Wimplicit-function-declaration]
+<stdin>:1702:2632: warning: implicit declaration of function 'descSetCopySignals' [-Wimplicit-function-declaration]
+<stdin>:1702:0: warning: implicit declaration of function 'descSetPrintDescription' [-Wimplicit-function-declaration]
+rm -f -rf adc_csv_logger.c
+/home/aed/cadence/SPECTRE181/tools.lnx86/cdsgcc/gcc/6.3/bin/gcc -shared -O3 -m64 -fPIC -o obj/optimize/5.0/libahdlcmi_adc_csv_logger.so ./obj/optimize/5.0/adc_csv_logger.o  -Wl,-rpath,/usr/lib -Wl,-rpath,/lib -s 
+rm -f -f ./obj/optimize/5.0/adc_csv_logger.o 

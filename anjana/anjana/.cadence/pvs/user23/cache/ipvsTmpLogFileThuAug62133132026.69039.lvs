@@ -1,0 +1,1459 @@
+********************************************************************************
+pvs 16.10-p006 64 bit (Thu Jul 27 18:05:02 PDT 2017)
+Build Ref No.: 006 Production (07-27-2017) [pvs_1610]
+
+Copyright 2017 Cadence Design Systems, Inc.
+All rights reserved worldwide.
+
+Build O/S:       Linux x86_64 2.6.18-194.el5
+Executed on:     aed (Linux x86_64 3.10.0-1160.108.1.el7.x86_64)
+Process Id:      20971
+Starting Time:   Thu Aug  6 21:33:13 2026 (Thu Aug  6 16:03:13 2026 GMT)
+With parameters: -lvs -get_rules /tmp/pvsrng.18630@aed.1 -tc top -gds /dev/null -get_options /tmp/pvsoptpar.18630@aed.1 -gen_tags /tmp/pvsgentags.18630@aed.1 -stc top -cdl . -control /tmp/ipvsRulesCheckControl.18630@aed.1 /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl 
+********************************************************************************
+
+
+########################################################################
+Get host info ...
+########################################################################
+CPU info:
+    model name      :  Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+    cpu MHz         :  3749.877
+    cache size      :  8192 KB
+    physical cores  :  4
+    logical cores   :  8
+    hyper-threading on
+
+Memory info:
+    31920M physical memory installed.
+
+    MemTotal:       32689660 kB
+    MemFree:        14290680 kB
+    MemAvailable:   21308980 kB
+    Buffers:            1088 kB
+    Cached:          7497956 kB
+    SwapCached:            0 kB
+    Active:         11049440 kB
+    Inactive:        5723248 kB
+    Active(anon):    9276200 kB
+    Inactive(anon):   338828 kB
+    Active(file):    1773240 kB
+    Inactive(file):  5384420 kB
+    Unevictable:           0 kB
+    Mlocked:               0 kB
+    SwapTotal:       8191996 kB
+    SwapFree:        8191996 kB
+    Dirty:                72 kB
+    Writeback:             0 kB
+    AnonPages:       9273756 kB
+    Mapped:           820012 kB
+    Shmem:            341384 kB
+    Slab:             544560 kB
+    SReclaimable:     261312 kB
+    SUnreclaim:       283248 kB
+    KernelStack:       64576 kB
+    PageTables:       513356 kB
+    NFS_Unstable:          0 kB
+    Bounce:                0 kB
+    WritebackTmp:          0 kB
+    CommitLimit:    24536824 kB
+    Committed_AS:   38246684 kB
+    VmallocTotal:   34359738367 kB
+    VmallocUsed:      397612 kB
+    VmallocChunk:   34358947836 kB
+    Percpu:             1504 kB
+    HardwareCorrupted:     0 kB
+    AnonHugePages:   3264512 kB
+    CmaTotal:              0 kB
+    CmaFree:               0 kB
+    HugePages_Total:       0
+    HugePages_Free:        0
+    HugePages_Rsvd:        0
+    HugePages_Surp:        0
+    Hugepagesize:       2048 kB
+    DirectMap4k:       96180 kB
+    DirectMap2M:     5056512 kB
+    DirectMap1G:    28311552 kB
+
+
+########################################################################
+Get environment info ...
+########################################################################
+ENV VAR: TCL_LIBRARY = /home/aed/cadence/PVS161/share/lib/tcltk/08.64/tcl8.6
+ENV VAR: TCLX_LIBRARY = /home/aed/cadence/PVS161/share/lib/tclx/08.40
+ENV VAR: TCLLIBPATH = /home/aed/cadence/PVS161/share/lib/itcl/3.4.1 /home/aed/cadence/PVS161/share/lib/tclxml/3.2 /home/aed/cadence/PVS161/share/lib/tcllib/1.18 /home/aed/cadence/PVS161/share/lib/itcl/3.4.1 /home/aed/cadence/PVS161/share/lib/tclxml/3.2 /home/aed/cadence/PVS161/share/lib/tcllib/1.18 
+
+
+########################################################################
+Parsing Control File /tmp/ipvsRulesCheckControl.18630@aed.1 ...
+########################################################################
+RESULTS_DB -erc "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Analog/gate_driver/LVS/gate_driver.erc_errors.ascii" -ascii;
+LVS_RUN_ERC_CHECKS yes;
+
+########################################################################
+Parsing Rule File /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl ...
+########################################################################
+LAYOUT_FORMAT gdsii;
+LAYOUT_PATH "./TOPCELL.gds";
+[WARN] Cmd-line override: LAYOUT_PATH "/dev/null";
+LAYOUT_PRIMARY "TOPCELL";
+[WARN] Cmd-line override: LAYOUT_PRIMARY "top";
+REPORT_SUMMARY -drc "TOPCELL.sum" -replace;
+[WARN] REPORT_SUMMARY -drc is skipped at line 48 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl
+RESULTS_DB -drc "./TOPCELL.drc_errors.ascii" -ascii;
+[WARN] option -drc is skipped at line 52 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl
+MAX_RESULTS -erc 100000;
+MAX_VERTEX -drc 4096;
+[WARN] option -drc is skipped at line 60 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl
+ABORT_ON_LAYOUT_ERROR no;
+TEXT_DEPTH -primary;
+LVS_RECOGNIZE_GATES -none;
+KEEP_LAYERS
+LAYER_DEF diff 1001;
+LAYER_MAP 65 -datatype 20 1001;
+LAYER_DEF diff_txt 1002;
+LAYER_MAP 65 -texttype 120 1002;
+LAYER_DEF tap 1003;
+LAYER_MAP 65 -datatype 44 1003;
+LAYER_DEF nwell_in 1004;
+LAYER_MAP 64 -datatype 20 1004;
+LAYER_DEF dnwell 1005;
+LAYER_MAP 64 -datatype 18 1005;
+LAYER_DEF pwbm 1006;
+LAYER_MAP 19 -datatype 44 1006;
+LAYER_DEF pwde 1007;
+LAYER_MAP 124 -datatype 20 1007;
+LAYER_DEF hvtr 1008;
+LAYER_MAP 18 -datatype 20 1008;
+LAYER_DEF hvtp 1009;
+LAYER_MAP 78 -datatype 44 1009;
+LAYER_DEF ldntm 1010;
+LAYER_MAP 11 -datatype 44 1010;
+LAYER_DEF hvi 1011;
+LAYER_MAP 75 -datatype 20 1011;
+LAYER_DEF tunm 1012;
+LAYER_MAP 80 -datatype 20 1012;
+LAYER_DEF lvtn 1013;
+LAYER_MAP 125 -datatype 44 1013;
+LAYER_DEF poly_in 1014;
+LAYER_MAP 66 -datatype 20 1014;
+LAYER_DEF poly_txt 1015;
+LAYER_MAP 66 -texttype 20 1015;
+LAYER_DEF hvntm 1016;
+LAYER_MAP 125 -datatype 20 1016;
+LAYER_DEF nsdm 1017;
+LAYER_MAP 93 -datatype 44 1017;
+LAYER_DEF psdm 1018;
+LAYER_MAP 94 -datatype 20 1018;
+LAYER_DEF rpm 1019;
+LAYER_MAP 86 -datatype 20 1019;
+LAYER_DEF urpm 1020;
+LAYER_MAP 79 -datatype 20 1020;
+LAYER_DEF npc 1021;
+LAYER_MAP 95 -datatype 20 1021;
+LAYER_DEF licon1 1022;
+LAYER_MAP 66 -datatype 44 1022;
+LAYER_DEF li1_in 1023;
+LAYER_MAP 67 -datatype 20 1023;
+LAYER_DEF li1_text 1024;
+LAYER_MAP 67 -texttype 20 1024;
+LAYER_DEF mcon 1025;
+LAYER_MAP 67 -datatype 44 1025;
+LAYER_DEF met1_in 1026;
+LAYER_MAP 68 -datatype 20 1026;
+LAYER_DEF met1_text 1027;
+LAYER_MAP 68 -texttype 20 1027;
+LAYER_DEF met1_label 1116;
+LAYER_MAP 68 -texttype 5 1116;
+LAYER_DEF met1_pin 1141;
+LAYER_MAP 68 -texttype 0 1141;
+LAYER_MAP 68 -texttype 16 1141;
+LAYER_DEF met1_net 1132;
+LAYER_MAP 68 -texttype 23 1132;
+LAYER_DEF via 1028;
+LAYER_MAP 68 -datatype 44 1028;
+LAYER_DEF met2_in 1029;
+LAYER_MAP 69 -datatype 20 1029;
+LAYER_DEF met2_text 1030;
+LAYER_MAP 69 -texttype 20 1030;
+LAYER_DEF via2 1031;
+LAYER_MAP 69 -datatype 44 1031;
+LAYER_DEF met3_in 1032;
+LAYER_MAP 70 -datatype 20 1032;
+LAYER_DEF met3_text 1033;
+LAYER_MAP 70 -texttype 20 1033;
+LAYER_DEF via3_in 1034;
+LAYER_MAP 70 -datatype 44 1034;
+LAYER_DEF met4_in 1035;
+LAYER_MAP 71 -datatype 20 1035;
+LAYER_DEF met4_text 1036;
+LAYER_MAP 71 -texttype 20 1036;
+LAYER_DEF via4 1037;
+LAYER_MAP 71 -datatype 44 1037;
+LAYER_DEF met5_in 1038;
+LAYER_MAP 72 -datatype 20 1038;
+LAYER_DEF met5_text 1039;
+LAYER_MAP 72 -texttype 20 1039;
+LAYER_DEF pad 1040;
+LAYER_MAP 76 -datatype 20 1040;
+LAYER_DEF pad_text 1041;
+LAYER_MAP 76 -texttype 20 1041;
+LAYER_DEF nsm 1042;
+LAYER_MAP 61 -datatype 20 1042;
+LAYER_DEF capm 1043;
+LAYER_MAP 89 -datatype 44 1043;
+LAYER_DEF cap2m 1044;
+LAYER_MAP 97 -datatype 44 1044;
+LAYER_DEF vhvi 1045;
+LAYER_MAP 74 -datatype 21 1045;
+LAYER_DEF uhvi 1046;
+LAYER_MAP 74 -datatype 22 1046;
+LAYER_DEF npn 1047;
+LAYER_MAP 82 -datatype 20 1047;
+LAYER_DEF inductor 1048;
+LAYER_MAP 82 -datatype 24 1048;
+LAYER_DEF capacitor_in 1049;
+LAYER_MAP 82 -datatype 64 1049;
+LAYER_DEF pnp 1050;
+LAYER_MAP 82 -datatype 44 1050;
+LAYER_DEF LVS_prune 1051;
+LAYER_MAP 84 -datatype 44 1051;
+LAYER_DEF ncm 1052;
+LAYER_MAP 92 -datatype 44 1052;
+LAYER_DEF padCenter 1053;
+LAYER_MAP 81 -datatype 20 1053;
+LAYER_DEF target 1054;
+LAYER_MAP 76 -datatype 44 1054;
+LAYER_DEF areaid.sl 1055;
+LAYER_MAP 81 -datatype 1 1055;
+LAYER_MAP 81 -datatype 7 1055;
+LAYER_DEF areaid.ce 1056;
+LAYER_MAP 81 -datatype 2 1056;
+LAYER_DEF areaid.fe 1057;
+LAYER_MAP 81 -datatype 3 1057;
+LAYER_DEF areaid.sc 1058;
+LAYER_MAP 81 -datatype 4 1058;
+LAYER_DEF areaid.sf 1059;
+LAYER_MAP 81 -datatype 6 1059;
+LAYER_DEF areaid.sr 1061;
+LAYER_MAP 81 -datatype 8 1061;
+LAYER_DEF areaid.mt 1062;
+LAYER_MAP 81 -datatype 10 1062;
+LAYER_DEF areaid.dt 1063;
+LAYER_MAP 81 -datatype 11 1063;
+LAYER_DEF areaid.ft 1064;
+LAYER_MAP 81 -datatype 12 1064;
+LAYER_DEF areaid.ww 1065;
+LAYER_MAP 81 -datatype 13 1065;
+LAYER_DEF areaid.ld 1066;
+LAYER_MAP 81 -datatype 14 1066;
+LAYER_DEF areaid.ns 1067;
+LAYER_MAP 81 -datatype 15 1067;
+LAYER_DEF areaid.ij 1068;
+LAYER_MAP 81 -datatype 17 1068;
+LAYER_DEF areaid.zr 1069;
+LAYER_MAP 81 -datatype 18 1069;
+LAYER_DEF areaid.ed 1070;
+LAYER_MAP 81 -datatype 19 1070;
+LAYER_DEF areaid.de 1071;
+LAYER_MAP 81 -datatype 23 1071;
+LAYER_DEF areaid.rd 1072;
+LAYER_MAP 81 -datatype 24 1072;
+LAYER_DEF areaid.dn 1073;
+LAYER_MAP 81 -datatype 50 1073;
+LAYER_DEF areaid.cr 1074;
+LAYER_MAP 81 -datatype 51 1074;
+LAYER_DEF areaid.cd 1075;
+LAYER_MAP 81 -datatype 52 1075;
+LAYER_DEF localSub 1076;
+LAYER_MAP 81 -datatype 53 1076;
+LAYER_DEF areaid.op 1077;
+LAYER_MAP 81 -datatype 54 1077;
+LAYER_DEF areaid.en 1078;
+LAYER_MAP 81 -datatype 57 1078;
+LAYER_DEF areaid.en20 1079;
+LAYER_MAP 81 -datatype 58 1079;
+LAYER_DEF areaid.le 1080;
+LAYER_MAP 81 -datatype 60 1080;
+LAYER_DEF areaid.hl 1081;
+LAYER_MAP 81 -datatype 63 1081;
+LAYER_DEF areaid.sd 1082;
+LAYER_MAP 81 -datatype 70 1082;
+LAYER_DEF areaid.po 1083;
+LAYER_MAP 81 -datatype 81 1083;
+LAYER_DEF areaid.it 1084;
+LAYER_MAP 81 -datatype 84 1084;
+LAYER_DEF areaid.et 1085;
+LAYER_MAP 81 -datatype 101 1085;
+LAYER_DEF areaid.lvt 1086;
+LAYER_MAP 81 -datatype 108 1086;
+LAYER_DEF areaid.re 1087;
+LAYER_MAP 81 -datatype 125 1087;
+LAYER_DEF fom 1088;
+LAYER_MAP 22 -datatype 23 1088;
+LAYER_DEF poly_gate 1089;
+LAYER_MAP 66 -datatype 9 1089;
+LAYER_DEF poly_model 1090;
+LAYER_MAP 66 -texttype 83 1090;
+LAYER_DEF poly_res 1091;
+LAYER_MAP 66 -datatype 13 1091;
+LAYER_DEF diff_res 1092;
+LAYER_MAP 65 -datatype 13 1092;
+LAYER_DEF pwell_res 1093;
+LAYER_MAP 64 -datatype 13 1093;
+LAYER_DEF li1_res 1094;
+LAYER_MAP 67 -datatype 13 1094;
+LAYER_DEF diff_hv 1095;
+LAYER_MAP 65 -datatype 8 1095;
+LAYER_DEF met4_fuse 1096;
+LAYER_MAP 71 -datatype 17 1096;
+LAYER_DEF inductor_trm1 1097;
+LAYER_MAP 82 -datatype 26 1097;
+LAYER_DEF inductor_trm2 1098;
+LAYER_MAP 82 -datatype 27 1098;
+LAYER_DEF inductor_trm3 1099;
+LAYER_MAP 82 -datatype 28 1099;
+LAYER_DEF li1_block 1100;
+LAYER_MAP 67 -datatype 10 1100;
+LAYER_DEF met1_block 1101;
+LAYER_MAP 68 -datatype 10 1101;
+LAYER_DEF met2_block 1102;
+LAYER_MAP 69 -datatype 10 1102;
+LAYER_DEF met3_block 1103;
+LAYER_MAP 70 -datatype 10 1103;
+LAYER_DEF met4_block 1104;
+LAYER_MAP 71 -datatype 10 1104;
+LAYER_DEF met5_block 1105;
+LAYER_MAP 72 -datatype 10 1105;
+LAYER_DEF prBndry 1106;
+LAYER_MAP 235 -datatype 4 1106;
+LAYER_DEF diff_bnd 1107;
+LAYER_MAP 65 -datatype 4 1107;
+LAYER_DEF tap_bnd 1108;
+LAYER_MAP 65 -datatype 60 1108;
+LAYER_DEF mcon_bnd 1109;
+LAYER_MAP 67 -datatype 60 1109;
+LAYER_DEF poly_bnd 1110;
+LAYER_MAP 66 -datatype 4 1110;
+LAYER_DEF via_bnd 1111;
+LAYER_MAP 68 -datatype 60 1111;
+LAYER_DEF via2_bnd 1112;
+LAYER_MAP 69 -datatype 60 1112;
+LAYER_DEF via3_bnd 1113;
+LAYER_MAP 70 -datatype 60 1113;
+LAYER_DEF via4_bnd 1114;
+LAYER_MAP 71 -datatype 60 1114;
+LAYER_DEF li1_label 1115;
+LAYER_MAP 67 -texttype 5 1115;
+LAYER_DEF met2_label 1117;
+LAYER_MAP 69 -texttype 5 1117;
+LAYER_DEF met3_label 1118;
+LAYER_MAP 70 -texttype 5 1118;
+LAYER_DEF met4_label 1119;
+LAYER_MAP 71 -texttype 5 1119;
+LAYER_DEF met5_label 1120;
+LAYER_MAP 72 -texttype 5 1120;
+LAYER_DEF poly_label 1121;
+LAYER_MAP 66 -texttype 5 1121;
+LAYER_DEF diff_label 1122;
+LAYER_MAP 65 -texttype 6 1122;
+LAYER_DEF pwell_in 1123;
+LAYER_MAP 64 -datatype 59 1123;
+LAYER_DEF pwell_label 1124;
+LAYER_MAP 64 -texttype 59 1124;
+LAYER_DEF pwelliso_label 1125;
+LAYER_MAP 44 -datatype 5 1125;
+LAYER_DEF pad_label 1126;
+LAYER_MAP 76 -texttype 5 1126;
+LAYER_DEF tap_label 1127;
+LAYER_MAP 65 -texttype 5 1127;
+LAYER_DEF nwell_label 1128;
+LAYER_MAP 64 -texttype 5 1128;
+LAYER_DEF inductor_label 1129;
+LAYER_MAP 82 -texttype 25 1129;
+LAYER_DEF text 1130;
+LAYER_MAP 83 -texttype 44 1130;
+LAYER_DEF li1_net 1131;
+LAYER_MAP 67 -texttype 23 1131;
+LAYER_DEF met2_net 1133;
+LAYER_MAP 69 -texttype 23 1133;
+LAYER_DEF met3_net 1134;
+LAYER_MAP 70 -texttype 23 1134;
+LAYER_DEF met4_net 1135;
+LAYER_MAP 71 -texttype 23 1135;
+LAYER_DEF met5_net 1136;
+LAYER_MAP 72 -texttype 23 1136;
+LAYER_DEF poly_net 1137;
+LAYER_MAP 66 -texttype 23 1137;
+LAYER_DEF diff_net 1138;
+LAYER_MAP 65 -texttype 23 1138;
+LAYER_DEF li1_pin 1139;
+LAYER_MAP 67 -texttype 0 1139;
+LAYER_MAP 67 -datatype 16 1139;
+LAYER_MAP 67 -texttype 16 1139;
+LAYER_DEF met2_pin 1143;
+LAYER_MAP 69 -texttype 0 1143;
+LAYER_MAP 69 -datatype 16 1143;
+LAYER_MAP 69 -texttype 16 1143;
+LAYER_DEF met3_pin 1145;
+LAYER_MAP 70 -texttype 0 1145;
+LAYER_MAP 70 -datatype 16 1145;
+LAYER_MAP 70 -texttype 16 1145;
+LAYER_DEF met4_pin 1147;
+LAYER_MAP 71 -texttype 0 1147;
+LAYER_MAP 71 -datatype 16 1147;
+LAYER_MAP 71 -texttype 16 1147;
+LAYER_DEF met5_pin 1149;
+LAYER_MAP 72 -texttype 0 1149;
+LAYER_MAP 72 -datatype 16 1149;
+LAYER_MAP 72 -texttype 16 1149;
+LAYER_DEF poly_pin 1152;
+LAYER_MAP 66 -texttype 0 1152;
+LAYER_MAP 66 -texttype 16 1152;
+LAYER_DEF diff_pin 1153;
+LAYER_MAP 65 -texttype 16 1153;
+LAYER_DEF nwell_pin 1154;
+LAYER_MAP 64 -datatype 16 1154;
+LAYER_MAP 64 -texttype 0 1154;
+LAYER_DEF pad_pin 1155;
+LAYER_MAP 76 -texttype 0 1155;
+LAYER_MAP 76 -datatype 16 1155;
+LAYER_MAP 76 -texttype 16 1155;
+LAYER_DEF pwell_pin 1157;
+LAYER_MAP 122 -datatype 16 1157;
+LAYER_MAP 122 -texttype 16 1157;
+LAYER_MAP 122 -texttype 0 1157;
+LAYER_DEF pwelliso 1159;
+LAYER_MAP 44 -datatype 16 1159;
+LAYER_MAP 44 -texttype 16 1159;
+LAYER_DEF diff_cut 1171;
+LAYER_MAP 65 -datatype 14 1171;
+LAYER_DEF poly_cut 1172;
+LAYER_MAP 66 -datatype 14 1172;
+LAYER_DEF li1_cut 1173;
+LAYER_MAP 67 -datatype 14 1173;
+LAYER_DEF met1_cut 1174;
+LAYER_MAP 68 -datatype 14 1174;
+LAYER_DEF met2_cut 1175;
+LAYER_MAP 69 -datatype 14 1175;
+LAYER_DEF met3_cut 1176;
+LAYER_MAP 70 -datatype 14 1176;
+LAYER_DEF met4_cut 1177;
+LAYER_MAP 71 -datatype 14 1177;
+LAYER_DEF met5_cut 1178;
+LAYER_MAP 72 -datatype 14 1178;
+LAYER_DEF pwell_cut 1179;
+LAYER_MAP 64 -datatype 14 1179;
+LAYER_DEF met5_probe 1180;
+LAYER_MAP 72 -datatype 25 1180;
+LAYER_DEF met4_probe 1181;
+LAYER_MAP 71 -datatype 25 1181;
+LAYER_DEF met3_probe 1182;
+LAYER_MAP 70 -datatype 25 1182;
+LAYER_DEF met2_probe 1183;
+LAYER_MAP 69 -datatype 25 1183;
+LAYER_DEF met1_probe 1184;
+LAYER_MAP 68 -datatype 25 1184;
+LAYER_DEF li1_probe 1185;
+LAYER_MAP 67 -datatype 25 1185;
+LAYER_DEF poly_probe 1186;
+LAYER_MAP 66 -datatype 25 1186;
+LAYER_DEF poly_short 1187;
+LAYER_MAP 66 -datatype 15 1187;
+LAYER_DEF li1_short 1188;
+LAYER_MAP 67 -datatype 15 1188;
+LAYER_DEF met1_short 1189;
+LAYER_MAP 68 -datatype 15 1189;
+LAYER_DEF met2_short 1190;
+LAYER_MAP 69 -datatype 15 1190;
+LAYER_DEF met3_short 1191;
+LAYER_MAP 70 -datatype 15 1191;
+LAYER_DEF met4_short 1192;
+LAYER_MAP 71 -datatype 15 1192;
+LAYER_DEF met5_short 1193;
+LAYER_MAP 72 -datatype 15 1193;
+LAYER_DEF cncm_mk 1194;
+LAYER_MAP 17 -datatype 0 1194;
+LAYER_DEF crpm_mk 1195;
+LAYER_MAP 96 -datatype 0 1195;
+LAYER_DEF cpdm_mk 1196;
+LAYER_MAP 37 -datatype 0 1196;
+LAYER_DEF cnsm_mk 1197;
+LAYER_MAP 22 -datatype 0 1197;
+LAYER_DEF cmm5_mk 1198;
+LAYER_MAP 59 -datatype 0 1198;
+LAYER_DEF cviam4_mk 1199;
+LAYER_MAP 58 -datatype 0 1199;
+LAYER_DEF cmm4_mk 1200;
+LAYER_MAP 51 -datatype 0 1200;
+LAYER_DEF cviam3_mk 1201;
+LAYER_MAP 50 -datatype 0 1201;
+LAYER_DEF cmm3_mk 1202;
+LAYER_MAP 34 -datatype 0 1202;
+LAYER_DEF cviam2_mk 1203;
+LAYER_MAP 44 -datatype 0 1203;
+LAYER_DEF cmm2_mk 1204;
+LAYER_MAP 41 -datatype 0 1204;
+LAYER_DEF cviam_mk 1205;
+LAYER_MAP 40 -datatype 0 1205;
+LAYER_DEF cmm1_mk 1206;
+LAYER_MAP 36 -datatype 0 1206;
+LAYER_DEF ctm1_mk 1207;
+LAYER_MAP 35 -datatype 0 1207;
+LAYER_DEF cli1m_mk 1208;
+LAYER_MAP 56 -datatype 0 1208;
+LAYER_DEF clicm1_mk 1209;
+LAYER_MAP 43 -datatype 0 1209;
+LAYER_DEF cpsdm_mk 1210;
+LAYER_MAP 32 -datatype 0 1210;
+LAYER_DEF cnsdm_mk 1211;
+LAYER_MAP 30 -datatype 0 1211;
+LAYER_DEF cldntm_mk 1212;
+LAYER_MAP 11 -datatype 0 1212;
+LAYER_DEF cnpc_mk 1213;
+LAYER_MAP 49 -datatype 0 1213;
+LAYER_DEF chvntm_mk 1214;
+LAYER_MAP 39 -datatype 0 1214;
+LAYER_DEF cntm_mk 1215;
+LAYER_MAP 27 -datatype 0 1215;
+LAYER_DEF cp1m_mk 1216;
+LAYER_MAP 28 -datatype 0 1216;
+LAYER_DEF clvom_mk 1217;
+LAYER_MAP 46 -datatype 0 1217;
+LAYER_DEF conom_mk 1218;
+LAYER_MAP 88 -datatype 0 1218;
+LAYER_DEF ctunm_mk 1219;
+LAYER_MAP 20 -datatype 0 1219;
+LAYER_DEF chvtrm_mk 1220;
+LAYER_MAP 98 -datatype 0 1220;
+LAYER_DEF chvtpm_mk 1221;
+LAYER_MAP 97 -datatype 0 1221;
+LAYER_DEF clvtnm_mk 1222;
+LAYER_MAP 25 -datatype 0 1222;
+LAYER_DEF cnwm_mk 1223;
+LAYER_MAP 21 -datatype 0 1223;
+LAYER_DEF cdnm_mk 1224;
+LAYER_MAP 48 -datatype 0 1224;
+LAYER_DEF cfom_mk 1225;
+LAYER_MAP 23 -datatype 0 1225;
+LAYER_DEF cfom 1226;
+LAYER_MAP 22 -datatype 20 1226;
+LAYER_DEF clvtnm 1227;
+LAYER_MAP 25 -datatype 44 1227;
+LAYER_DEF chvtpm 1228;
+LAYER_MAP 88 -datatype 44 1228;
+LAYER_DEF conom 1229;
+LAYER_MAP 87 -datatype 44 1229;
+LAYER_DEF clvom 1230;
+LAYER_MAP 45 -datatype 20 1230;
+LAYER_DEF cntm 1231;
+LAYER_MAP 26 -datatype 20 1231;
+LAYER_DEF chvntm 1232;
+LAYER_MAP 38 -datatype 20 1232;
+LAYER_DEF cnpc 1233;
+LAYER_MAP 44 -datatype 20 1233;
+LAYER_DEF cnsdm 1234;
+LAYER_MAP 29 -datatype 20 1234;
+LAYER_DEF cpsdm 1235;
+LAYER_MAP 31 -datatype 20 1235;
+LAYER_DEF cli1m 1236;
+LAYER_MAP 115 -datatype 44 1236;
+LAYER_DEF cviam3 1237;
+LAYER_MAP 112 -datatype 20 1237;
+LAYER_DEF cviam4 1238;
+LAYER_MAP 117 -datatype 20 1238;
+LAYER_DEF cncm 1239;
+LAYER_MAP 96 -datatype 44 1239;
+LAYER_DEF cntm_mk_add 1240;
+LAYER_MAP 26 -datatype 21 1240;
+LAYER_DEF clvtnm_mk_add 1241;
+LAYER_MAP 25 -datatype 43 1241;
+LAYER_DEF chvtpm_mk_add 1242;
+LAYER_MAP 97 -datatype 43 1242;
+LAYER_DEF cli1m_mk_add 1243;
+LAYER_MAP 115 -datatype 43 1243;
+LAYER_DEF clicm1_mk_add 1244;
+LAYER_MAP 106 -datatype 43 1244;
+LAYER_DEF cpsdm_mk_add 1245;
+LAYER_MAP 31 -datatype 21 1245;
+LAYER_DEF cnsdm_mk_add 1246;
+LAYER_MAP 29 -datatype 21 1246;
+LAYER_DEF cp1m_mk_add 1247;
+LAYER_MAP 33 -datatype 43 1247;
+LAYER_DEF cfom_mk_add 1248;
+LAYER_MAP 22 -datatype 21 1248;
+LAYER_DEF cntm_mk_drop 1249;
+LAYER_MAP 26 -datatype 22 1249;
+LAYER_DEF clvtnm_mk_drop 1250;
+LAYER_MAP 25 -datatype 42 1250;
+LAYER_DEF chvtpm_mk_drop 1251;
+LAYER_MAP 97 -datatype 42 1251;
+LAYER_DEF cli1m_mk_drop 1252;
+LAYER_MAP 115 -datatype 42 1252;
+LAYER_DEF clicm1_mk_drop 1253;
+LAYER_MAP 106 -datatype 42 1253;
+LAYER_DEF cpsdm_mk_drop 1254;
+LAYER_MAP 31 -datatype 22 1254;
+LAYER_DEF cnsdm_mk_drop 1255;
+LAYER_MAP 29 -datatype 22 1255;
+LAYER_DEF cp1m_mk_drop 1256;
+LAYER_MAP 33 -datatype 42 1256;
+LAYER_DEF cfom_mk_drop 1257;
+LAYER_MAP 22 -datatype 22 1257;
+LAYER_DEF cmm4_waffle_drop 1258;
+LAYER_MAP 112 -datatype 4 1258;
+LAYER_DEF cmm3_waffle_drop 1259;
+LAYER_MAP 107 -datatype 24 1259;
+LAYER_DEF cmm2_waffle_drop 1260;
+LAYER_MAP 105 -datatype 52 1260;
+LAYER_DEF cmm1_waffle_drop 1261;
+LAYER_MAP 62 -datatype 24 1261;
+LAYER_DEF cp1m_waffle_drop 1262;
+LAYER_MAP 33 -datatype 24 1262;
+LAYER_DEF cfom_waffle_drop 1263;
+LAYER_MAP 22 -datatype 24 1263;
+LAYER_DEF cmm5_waffle_drop 1264;
+LAYER_MAP 117 -datatype 4 1264;
+LAYER_DEF met1_res 1265;
+LAYER_MAP 68 -datatype 13 1265;
+LAYER_DEF met2_res 1266;
+LAYER_MAP 69 -datatype 13 1266;
+LAYER_DEF met3_res 1267;
+LAYER_MAP 70 -datatype 13 1267;
+LAYER_DEF met4_res 1268;
+LAYER_MAP 71 -datatype 13 1268;
+LAYER_DEF met5_res 1269;
+LAYER_MAP 72 -datatype 13 1269;
+PORT -text_layer pwell_label pwell_pin nwell_label nwell_pin li1_label li1_pin met1_label met1_pin met2_label met2_pin met3_label met3_pin met4_label met4_pin met5_label met5_pin;
+TEXT_LAYER pwell_pin pwell_label nwell_pin nwell_label li1_pin li1_label;
+TEXT_LAYER met1_pin met1_label met2_pin met2_label met3_pin met3_label met4_pin met4_label met5_pin met5_label;
+ATTACH nwell_pin nwell;
+ATTACH nwell_label nwell;
+ATTACH pwell_pin pwell_all;
+ATTACH pwell_label pwell_all;
+ATTACH li1_label li1;
+ATTACH li1_pin li1;
+ATTACH met1_label met1;
+ATTACH met1_pin met1;
+ATTACH met2_label met2;
+ATTACH met3_pin met2;
+ATTACH met3_label met3;
+ATTACH met3_pin met3;
+ATTACH met4_label met4;
+ATTACH met4_pin met4;
+ATTACH met5_label met5;
+ATTACH met5_pin met5;
+EXTENT_DRAWN -original -outputlayer boundary;
+SIZE localSub -by 0.005 -outputlayer substrateCutDonut1;
+SIZE localSub -by -0.005 -outputlayer substrateCutDonut2;
+NOT substrateCutDonut1 substrateCutDonut2 -outputlayer substrateCutDonut;
+SELECT -cut nwell dnwell -outputlayer nwell_cut_dnw_1;
+SELECT -donut nwell _EPTMPL262149;
+SELECT -interact _EPTMPL262149 dnwell _EPTMPL262150;
+SELECT -interact nwell _EPTMPL262150 -outputlayer nwell_cut_dnw_2;
+OR nwell_cut_dnw_1 nwell_cut_dnw_2 -outputlayer nwell_cut_dnw;
+OR localSub nwell_cut_dnw _EPTMPL262153;
+NOT boundary _EPTMPL262153 _EPTMPL262154;
+HOLES nwell _EPTMPL262155;
+AND _EPTMPL262155 dnwell _EPTMPL262156;
+OR _EPTMPL262156 substrateCutDonut _EPTMPL262157;
+NOT _EPTMPL262154 _EPTMPL262157 -outputlayer pwell;
+HOLES nwell_cut_dnw _EPTMPL262159;
+AND _EPTMPL262159 dnwell _EPTMPL262160;
+SIZE _EPTMPL262160 -by -0.005 _EPTMPL262161;
+OR pwell_res pwell pwbm _EPTMPL262162;
+NOT _EPTMPL262161 _EPTMPL262162 -outputlayer ptub_a;
+HOLES nwell_cut_dnw _EPTMPL262164;
+AND _EPTMPL262164 dnwell _EPTMPL262165;
+SIZE _EPTMPL262165 -by -0.005 _EPTMPL262166;
+NOT _EPTMPL262166 pwell _EPTMPL262167;
+SIZE _EPTMPL262167 -by 0.005 -outputlayer ptub_b;
+HOLES nwell_cut_dnw _EPTMPL262169;
+AND _EPTMPL262169 dnwell _EPTMPL262170;
+SIZE _EPTMPL262170 -by -0.005 _EPTMPL262171;
+OR pwell_res pwell _EPTMPL262172;
+NOT _EPTMPL262171 _EPTMPL262172 _EPTMPL262173;
+SIZE _EPTMPL262173 -by 0.005 _EPTMPL262174;
+NOT _EPTMPL262174 pwell_res -outputlayer ptub_c;
+HOLES nwell -inner _EPTMPL262176;
+AND _EPTMPL262176 dnwell _EPTMPL262177;
+SELECT -interact _EPTMPL262177 pwell_res _EPTMPL262178;
+SELECT -interact diff pwell_res _EPTMPL262179;
+NOT _EPTMPL262178 _EPTMPL262179 _EPTMPL262180;
+SIZE _EPTMPL262180 -by 0.005 -outputlayer ptub_in_pwres;
+COPY ptub_a -outputlayer ptub;
+SIZE boundary -by 0.005 _EPTMPL262183;
+NOT _EPTMPL262183 substrateCutDonut -outputlayer pwell_all_1;
+NOT pwell_all_1 ptub -outputlayer pwell_all_2;
+OR pwell_in pwell_all_2 pwell_all;
+NOT via3_in capm -outputlayer via3;
+OR met5_pin met5_in -outputlayer met5_all;
+OR met4_pin met4_in -outputlayer met4_all;
+OR met3_pin met3_in -outputlayer met3_all;
+OR met2_pin met2_in -outputlayer met2_all;
+OR met1_pin met1_in -outputlayer met1_all;
+NOT met5_all met5_res -outputlayer met5;
+NOT met4_all met4_res -outputlayer met4;
+NOT met3_all met3_res -outputlayer met3;
+NOT met2_all met2_res -outputlayer met2;
+NOT met1_all met1_res -outputlayer met1;
+OR li1_pin li1_in -outputlayer li1;
+OR nwell_pin nwell_in -outputlayer nwell;
+DEVICE R ( res_generic_m1 ) met1_res met1 ( P ) met1 ( N );
+DEVICE R ( res_generic_m2 ) met2_res met2 ( P ) met2 ( N );
+DEVICE R ( res_generic_m3 ) met3_res met3 ( P ) met3 ( N );
+DEVICE R ( res_generic_m4 ) met4_res met4 ( P ) met4 ( N );
+DEVICE R ( res_generic_m5 ) met5_res met5 ( P ) met5 ( N );
+SELECT -outside pad areaid.ft -outputlayer bondPad;
+SELECT -label "poly_in" -textname "dummy_poly" -textlayer text -outputlayer dummy_poly;
+OR cfom cp1m_mk cmm1_mk cmm2_mk -outputlayer Diecut_pmm_pvsTmp1;
+NOT areaid.dt Diecut_pmm_pvsTmp1 -outputlayer Diecut_pmm;
+WITH_WIDTH met1 -gt 3 -outputlayer huge_met1;
+WITH_WIDTH met2 -gt 3 -outputlayer huge_met2;
+WITH_WIDTH met3 -gt 3 -outputlayer huge_met3;
+WITH_WIDTH met4 -gt 3 -outputlayer huge_met4;
+WITH_WIDTH met5 -gt 3 -outputlayer huge_met5;
+WITH_WIDTH pad -gt 100 -outputlayer hugePad;
+AND pwell dnwell -outputlayer iso_pwell;
+SELECT -interact poly_in poly_res -outputlayer prec_resistor_poly;
+NOT poly_in prec_resistor_poly -outputlayer poly;
+OR npn pnp bjt;
+NOT poly bjt _EPTMPL262224;
+AND _EPTMPL262224 diff -outputlayer gate;
+SELECT -inside gate lvtn -outputlayer LVTN_gate;
+AND tap nsdm -outputlayer np_tap;
+SELECT -inside nwell areaid.ed -outputlayer esd_nwell;
+SELECT -touch np_tap esd_nwell -outputlayer esd_nwell_tap_ntap_cand;
+HOLES esd_nwell -outputlayer esd_nwell_holes;
+SELECT -touch esd_nwell_tap_ntap_cand esd_nwell_holes -outputlayer esd_nwell_tap_cand_inhole;
+SELECT -touch esd_nwell esd_nwell_tap_cand_inhole -outputlayer esd_nwell_tap_well_cand;
+OR esd_nwell_tap_cand_inhole esd_nwell_tap_well_cand -outputlayer esd_nwell_tap_possible;
+XOR esd_nwell_tap_possible esd_nwell_tap_cand_inhole -outputlayer esd_nwell_tap_not;
+SELECT -interact -not esd_nwell_tap_well_cand esd_nwell_tap_not -outputlayer ESD_nwell_tap;
+HOLES nsdm -outputlayer nsdmHoles;
+OR nsm cnsm_mk -outputlayer NSM_keepout;
+HOLES psdm -outputlayer psdmHoles;
+SELECT -touch ptap pwell_res -outputlayer pwres_terminal;
+AND diff pnp -outputlayer pnp_emitter_1;
+AND pnp_emitter_1 psdm -outputlayer pnp_emitter;
+NOT areaid.ft areaid.dt -outputlayer scribe_line;
+AND diff_all nsdm _EPTMPL262243;
+NOT _EPTMPL262243 nwell _EPTMPL262244;
+NOT _EPTMPL262244 gate -outputlayer nsd1;
+AND diff_all psdm _EPTMPL262246;
+AND _EPTMPL262246 nwell _EPTMPL262247;
+NOT _EPTMPL262247 gate -outputlayer psd1;
+NOT nsd1 diff_res -outputlayer nsd;
+NOT psd1 diff_res -outputlayer psd;
+AND areaid.de nwell -outputlayer nw_dio;
+NOT areaid.de nwell -outputlayer pw_dio;
+NOT nw_dio hvtp _EPTMPL262253;
+NOT _EPTMPL262253 lvtn _EPTMPL262254;
+NOT _EPTMPL262254 hvi -outputlayer diode_pd2nw_05v5_rec;
+AND nw_dio hvtp _EPTMPL262256;
+NOT _EPTMPL262256 lvtn _EPTMPL262257;
+NOT _EPTMPL262257 hvi -outputlayer diode_pd2nw_05v5_hvt_rec;
+NOT nw_dio hvtp _EPTMPL262259;
+AND _EPTMPL262259 lvtn _EPTMPL262260;
+NOT _EPTMPL262260 hvi -outputlayer diode_pd2nw_05v5_lvt_rec;
+NOT nw_dio hvtp _EPTMPL262262;
+NOT _EPTMPL262262 lvtn _EPTMPL262263;
+AND _EPTMPL262263 hvi -outputlayer diode_pd2nw_11v0_rec;
+NOT pw_dio lvtn _EPTMPL262265;
+NOT _EPTMPL262265 hvi -outputlayer diode_pw2nd_05v5_rec;
+AND pw_dio lvtn _EPTMPL262267;
+NOT _EPTMPL262267 hvi -outputlayer diode_pw2nd_05v5_lvt_rec;
+AND pw_dio lvtn _EPTMPL262269;
+AND _EPTMPL262269 hvi -outputlayer diode_pw2nd_05v5_nvt_rec;
+NOT pw_dio lvtn _EPTMPL262271;
+AND _EPTMPL262271 hvi -outputlayer diode_pw2nd_11v0_rec;
+AND nsdm diff _EPTMPL262273;
+AND pw_dio _EPTMPL262273 -outputlayer PW_SD;
+AND psdm diff _EPTMPL262275;
+AND nw_dio _EPTMPL262275 -outputlayer NW_SD;
+DEVICE D ( diode_pd2nw_05v5 ) diode_pd2nw_05v5_rec psd ( PLUS ) nwell ( MINUS ) < NW_SD > [ 
+ PROPERTY a , p , m 
+ p = perimeter ( psd ) * 1000000 
+ a = area ( psd ) * 1e+12 
+ m = 1 
+ ];
+DEVICE D ( diode_pd2nw_05v5_hvt ) diode_pd2nw_05v5_hvt_rec psd ( PLUS ) nwell ( MINUS ) < NW_SD > [ 
+ PROPERTY a , p , m 
+ p = perimeter ( psd ) * 1000000 
+ a = area ( psd ) * 1e+12 
+ m = 1 
+ ];
+DEVICE D ( diode_pd2nw_05v5_lvt ) diode_pd2nw_05v5_lvt_rec psd ( PLUS ) nwell ( MINUS ) < NW_SD > [ 
+ PROPERTY a , p , m 
+ p = perimeter ( psd ) * 1000000 
+ a = area ( psd ) * 1e+12 
+ m = 1 
+ ];
+DEVICE D ( diode_pd2nw_11v0 ) diode_pd2nw_11v0_rec psd ( PLUS ) nwell ( MINUS ) < NW_SD > [ 
+ PROPERTY a , p , m 
+ p = perimeter ( psd ) * 1000000 
+ a = area ( psd ) * 1e+12 
+ m = 1 
+ ];
+DEVICE D ( diode_pw2nd_05v5 ) diode_pw2nd_05v5_rec pwell_all ( PLUS ) nsd ( MINUS ) < PW_SD > [ 
+ PROPERTY a , p , m 
+ p = perimeter ( nsd ) * 1000000 
+ a = area ( nsd ) * 1e+12 
+ m = 1 
+ ];
+DEVICE D ( diode_pw2nd_05v5_lvt ) diode_pw2nd_05v5_lvt_rec pwell_all ( PLUS ) nsd ( MINUS ) < PW_SD > [ 
+ PROPERTY a , p , m 
+ p = perimeter ( nsd ) * 1000000 
+ a = area ( nsd ) * 1e+12 
+ m = 1 
+ ];
+DEVICE D ( diode_pw2nd_05v5_nvt ) diode_pw2nd_05v5_nvt_rec pwell_all ( PLUS ) nsd ( MINUS ) < PW_SD > [ 
+ PROPERTY a , p , m 
+ p = perimeter ( nsd ) * 1000000 
+ a = area ( nsd ) * 1e+12 
+ m = 1 
+ ];
+DEVICE D ( diode_pw2nd_11v0 ) diode_pw2nd_11v0_rec pwell_all ( PLUS ) nsd ( MINUS ) < PW_SD > [ 
+ PROPERTY a , p , m 
+ p = perimeter ( nsd ) * 1000000 
+ a = area ( nsd ) * 1e+12 
+ m = 1 
+ ];
+LVS_CHECK_PROPERTY D ( diode_pd2nw_05v5 ) a a -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pd2nw_05v5 ) p p -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pw2nd_05v5 ) a a -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pw2nd_05v5 ) p p -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pd2nw_05v5_hvt ) a a -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pd2nw_05v5_hvt ) p p -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pd2nw_05v5_lvt ) a a -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pd2nw_05v5_lvt ) p p -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pd2nw_11v0 ) a a -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pd2nw_11v0 ) p p -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pw2nd_05v5_lvt ) a a -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pw2nd_05v5_lvt ) p p -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pw2nd_05v5_nvt ) a a -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pw2nd_05v5_nvt ) p p -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pw2nd_11v0 ) a a -tolerance 1;
+LVS_CHECK_PROPERTY D ( diode_pw2nd_11v0 ) p p -tolerance 1;
+AND prec_resistor_poly li1 -outputlayer prec_resistor_term;
+AND prec_resistor_poly psdm -outputlayer prec_resistor_body_1;
+AND prec_resistor_body_1 npc -outputlayer prec_resistor_body_2;
+NOT prec_resistor_body_2 prec_resistor_term -outputlayer prec_resistor_body_3;
+SELECT -touch prec_resistor_body_3 prec_resistor_term -eq 2 -outputlayer prec_resistor_body;
+EDGE_SELECT -coincident_only prec_resistor_body prec_resistor_term -outputlayer prec_resistor_width;
+EDGE_LENGTH prec_resistor_width -eq 0.35 -outputlayer prec_resistor_width_edge_0p35;
+EDGE_LENGTH prec_resistor_width -eq 0.69 -outputlayer prec_resistor_width_edge_0p69;
+EDGE_LENGTH prec_resistor_width -eq 1.41 -outputlayer prec_resistor_width_edge_1p41;
+EDGE_LENGTH prec_resistor_width -eq 2.85 -outputlayer prec_resistor_width_edge_2p85;
+EDGE_LENGTH prec_resistor_width -eq 5.73 -outputlayer prec_resistor_width_edge_5p73;
+SELECT -with_edge prec_resistor_body prec_resistor_width_edge_0p35 -eq 2 -outputlayer prec_resistor_0p35;
+SELECT -with_edge prec_resistor_body prec_resistor_width_edge_0p69 -eq 2 -outputlayer prec_resistor_0p69;
+SELECT -with_edge prec_resistor_body prec_resistor_width_edge_1p41 -eq 2 -outputlayer prec_resistor_1p41;
+SELECT -with_edge prec_resistor_body prec_resistor_width_edge_2p85 -eq 2 -outputlayer prec_resistor_2p85;
+SELECT -with_edge prec_resistor_body prec_resistor_width_edge_5p73 -eq 2 -outputlayer prec_resistor_5p73;
+AND prec_resistor_0p35 rpm -outputlayer res_high_po_0p35_rec_1;
+NOT res_high_po_0p35_rec_1 urpm -outputlayer res_high_po_0p35_rec;
+AND prec_resistor_0p69 rpm -outputlayer res_high_po_0p69_rec_1;
+NOT res_high_po_0p69_rec_1 urpm -outputlayer res_high_po_0p69_rec;
+AND prec_resistor_1p41 rpm -outputlayer res_high_po_1p41_rec_1;
+NOT res_high_po_1p41_rec_1 urpm -outputlayer res_high_po_1p41_rec;
+AND prec_resistor_2p85 rpm -outputlayer res_high_po_2p85_rec_1;
+NOT res_high_po_2p85_rec_1 urpm -outputlayer res_high_po_2p85_rec;
+AND prec_resistor_5p73 rpm -outputlayer res_high_po_5p73_rec_1;
+NOT res_high_po_5p73_rec_1 urpm -outputlayer res_high_po_5p73_rec;
+AND prec_resistor_0p35 urpm -outputlayer res_xhigh_po_0p35_rec;
+AND prec_resistor_0p69 urpm -outputlayer res_xhigh_po_0p69_rec;
+AND prec_resistor_1p41 urpm -outputlayer res_xhigh_po_1p41_rec;
+AND prec_resistor_2p85 urpm -outputlayer res_xhigh_po_2p85_rec;
+AND prec_resistor_5p73 urpm -outputlayer res_xhigh_po_5p73_rec;
+AND capm met3 -outputlayer bottom_plate;
+AND capm met4 -outputlayer top_plate;
+SELECT -enclose capm via3_in -gt 0 -outputlayer capacitor;
+SELECT -cut -not capm via3_in -outputlayer dummy_capacitor;
+OR diff tap poly pwell_res pad cfom cfom_mk cp1m_mk -outputlayer fomDummy_keepout.1;
+NOT gate nwell -outputlayer nfet;
+AND gate nwell -outputlayer pfet;
+NOT diff_all nwell -outputlayer ndiff_all;
+NOT ndiff_all diff_res -outputlayer ndiff;
+SELECT -touch ndiff diff_res -outputlayer np_term;
+AND diff_all nwell -outputlayer pdiff_all;
+NOT pdiff_all diff_res -outputlayer pdiff;
+SELECT -touch pdiff diff_res -outputlayer pp_term;
+CONNECT li1 prec_resistor_term -by licon1;
+CONNECT met3 bottom_plate;
+CONNECT met4 top_plate;
+CONNECT li1 pSourceDrain -by licon1;
+CONNECT li1 nSourceDrain -by licon1;
+CONNECT li1 pp_term -by licon1;
+CONNECT li1 np_term -by licon1;
+CONNECT li1 ptap -by licon1;
+CONNECT li1 ntap -by licon1;
+CONNECT li1 nsd -by licon1;
+CONNECT li1 psd -by licon1;
+CONNECT li1 isolated_tap -by licon1;
+SCONNECT ptap pwell_all;
+SCONNECT ntap nwell;
+CONNECT li1 poly -by poly_licon1;
+CONNECT poly pfet;
+CONNECT poly nfet;
+CONNECT gate poly;
+CONNECT li1 HV_poly -by licon1;
+CONNECT li1 HV_source_drain -by licon1;
+CONNECT met1 li1 -by mcon;
+CONNECT met2 met1 -by via;
+CONNECT met3 met2 -by via2;
+CONNECT met4 met3 -by via3;
+CONNECT met5 met4 -by via4;
+CONNECT HV_tap HV_nwell;
+CONNECT li1 npnC -by licon1;
+CONNECT li1 npnB -by licon1;
+CONNECT li1 npnE -by licon1;
+CONNECT li1 pnpC -by licon1;
+CONNECT li1 pnpB -by licon1;
+CONNECT li1 pnpE -by licon1;
+DEVICE R ( RES_GENERIC_ND ) diff_res np_term ( P ) np_term ( N );
+DEVICE R ( RES_GENERIC_PD ) diff_res pp_term ( P ) pp_term ( N );
+OR tap diff -outputlayer diff_all;
+AND diff_all nsdm _EPTMPL262374;
+AND _EPTMPL262374 nwell -outputlayer ntap;
+AND diff_all psdm _EPTMPL262376;
+NOT _EPTMPL262376 nwell -outputlayer ptap;
+OR npn pnp -outputlayer BJT;
+NOT pdiff pfet _EPTMPL262378;
+NOT _EPTMPL262378 BJT -outputlayer pSourceDrain;
+NOT ndiff nfet _EPTMPL262380;
+NOT _EPTMPL262380 BJT -outputlayer nSourceDrain;
+SELECT -interact -not tap diff -outputlayer isolated_tap;
+NOT nwell hvi -outputlayer LVnwell;
+OR diff tap -outputlayer poly_licon1_pvsTmp1;
+NOT poly_licon1_pvsTmp1 poly -outputlayer poly_licon1_pvsTmp2;
+SELECT -cut -not licon1 poly_licon1_pvsTmp2 -outputlayer poly_licon1;
+AND tap licon1 -outputlayer tap_licon;
+NOT tap poly -outputlayer tap_notPoly;
+SELECT -inside tap nwell -outputlayer tap_nwell;
+NOT nwell hvi -outputlayer Var_channel_pvsTmp1;
+AND poly tap -outputlayer Var_channel_pvsTmp2;
+AND Var_channel_pvsTmp2 Var_channel_pvsTmp1 -outputlayer Var_channel_pvsTmp3;
+NOT Var_channel_pvsTmp3 areaid.ce -outputlayer Var_channel;
+SELECT -outside -not tap Var_channel -outputlayer VaracTap;
+AND cp1m_mk Hvi -outputlayer cp1m_HV;
+AND isolated_tap areaid.en -outputlayer de_nFet_drain_pvsTmp1;
+SELECT -outside -not de_nFet_drain_pvsTmp1 nwell -outputlayer de_nFet_drain;
+AND poly areaid.en -outputlayer deFET_gate_pvsTmp1;
+SELECT -outside deFET_gate_pvsTmp1 pwde -outputlayer deFET_gate;
+NOT diff dnwell -outputlayer de_nFet_gate_pvsTmp1;
+SELECT -outside -not deFET_gate de_nFet_gate_pvsTmp1 -outputlayer de_nFet_gate;
+AND diff areaid.en -outputlayer de_nFet_source_pvsTmp1;
+SELECT -outside -not de_nFet_source_pvsTmp1 de_nFet_gate -outputlayer de_nFet_source;
+AND isolated_tap areaid.en -outputlayer de_pFet_drain_pvsTmp1;
+SELECT -outside de_pFet_drain_pvsTmp1 nwell -outputlayer de_pFet_drain;
+AND diff dnwell -outputlayer de_pFet_gate_pvsTmp1;
+SELECT -outside -not deFET_gate de_pFet_gate_pvsTmp1 -outputlayer de_pFet_gate;
+AND diff areaid.en -outputlayer de_pFet_source_pvsTmp1;
+SELECT -outside -not de_pfet_source_pvsTmp1 de_pFet_gate -outputlayer de_pFet_source;
+AND diff Hvi -outputlayer HV_Diff;
+AND poly Hvi -outputlayer HV_poly;
+SELECT -inside gate hvi -outputlayer HV_gate;
+AND tap Hvi -outputlayer HV_tap;
+NOT HV_Diff HV_poly -outputlayer HV_source_drain;
+SELECT -touch HV_gate HV_source_drain -outputlayer HV_FET_gate;
+AND nwell hvi -outputlayer HV_nwell_pvsTmp1;
+SELECT -outside -not nwell areaid.hl -outputlayer HV_nwell_pvsTmp2;
+OR HV_nwell_pvsTmp1 HV_nwell_pvsTmp2 -outputlayer HV_nwell;
+AND diff Hvi -outputlayer stack_hv_lv_diff_pvsTmp1;
+NOT stack_hv_lv_diff_pvsTmp1 nwell -outputlayer stack_hv_lv_diff_pvsTmp2;
+NOT diff nwell -outputlayer stack_hv_lv_diff_pvsTmp3;
+SELECT -touch stack_hv_lv_diff_pvsTmp2 stack_hv_lv_diff_pvsTmp3 -outputlayer stack_hv_lv_diff;
+AND diff uhvi -outputlayer UHVdiff;
+SELECT -outside -not poly uhvi -outputlayer UHVPoly;
+AND UHVPoly diff -outputlayer UHVGate;
+AND diff uhvi -outputlayer UHVSourceDrain_pvsTmp1;
+NOT UHVSourceDrain_pvsTmp1 poly -outputlayer UHVSourceDrain_pvsTmp2;
+NOT UHVSourceDrain_pvsTmp2 diff_res -outputlayer UHVSourceDrain;
+AND diff vhvi -outputlayer VHVDiff;
+SELECT -outside -not poly vhvi -outputlayer VHVPoly;
+AND VHVPoly diff -outputlayer VHVGate;
+AND diff tap -outputlayer SHVSourceDrain_pvsTmp1;
+AND SHVSourceDrain_pvsTmp1 vhvi -outputlayer SHVSourceDrain_pvsTmp2;
+NOT SHVSourceDrain_pvsTmp2 poly -outputlayer SHVSourceDrain_pvsTmp3;
+NOT SHVSourceDrain_pvsTmp3 diff_res -outputlayer SHVSourceDrain;
+OR met1 met2 met3 -outputlayer inductor_metal_pvsTmp1;
+AND inductor inductor_metal_pvsTmp1 -outputlayer inductor_metal_pvsTmp2;
+SIZE inductor_metal_pvsTmp2 -by 10 -outputlayer inductor_metal;
+LVS_REDUCE no -series_mos;
+LVS_REDUCE yes -parallel_mos;
+NOT nfet HV_FET_gate -outputlayer nfet_norm_a;
+NOT nfet_norm_a lvtn -outputlayer nfet_norm;
+AND nfet_norm ndiff -outputlayer nfet_01v8_rec;
+DEVICE MN ( nfet_01v8 ) nfet_01v8_rec nfet ( G ) nSourceDrain ( S ) nSourceDrain ( D ) pwell_all ( B );
+AND pfet hvtp -outputlayer hvtpfet;
+NOT pfet HV_FET_gate -outputlayer pfet_norm_a;
+NOT pfet_norm_a hvtpfet -outputlayer pfet_norm_b;
+NOT pfet_norm_b lvtn -outputlayer pfet_norm;
+AND pfet_norm pdiff -outputlayer pfet_01v8_rec;
+DEVICE MP ( pfet_01v8 ) pfet_01v8_rec pfet ( G ) pSourceDrain ( S ) pSourceDrain ( D ) nwell ( B );
+AND pfet_norm_b lvtn -outputlayer lvtpfet;
+AND lvtpfet pdiff -outputlayer lvtpfet_01v8_rec;
+DEVICE MP ( pfet_01v8_lvt ) lvtpfet_01v8_rec lvtpfet ( G ) pSourceDrain ( S ) pSourceDrain ( D ) nwell ( B );
+AND nfet_norm_a lvtn -outputlayer lvtnfet;
+AND lvtnfet ndiff -outputlayer lvtnfet_01v8_rec;
+DEVICE MN ( nfet_01v8_lvt ) lvtnfet_01v8_rec lvtnfet ( G ) nSourceDrain ( S ) nSourceDrain ( D ) pwell_all ( B );
+AND hvtpfet pdiff -outputlayer hvtpfet_01v8_rec;
+DEVICE MP ( pfet_01v8_hvt ) hvtpfet_01v8_rec hvtpfet ( G ) pSourceDrain ( S ) pSourceDrain ( D ) nwell ( B );
+AND HV_fet_gate nsdm -outputlayer HV_npoly;
+EDGE_SELECT -coincident_only HV_npoly HV_source_drain -outputlayer HV_ngate_length;
+INTE HV_ngate_length -ltge 0.5 0.9 -output region -outputlayer HV_ngate_3v3_a;
+AND HV_ngate_3v3_a lvtn -outputlayer HV_ngate_3v3;
+INTE HV_ngate_length -ltge 0.9 15 -output region -outputlayer HV_ngate_5v0_a;
+AND HV_ngate_5v0_a lvtn -outputlayer HV_ngate_5v0;
+NOT HV_FET_gate HV_ngate_5v0 -outputlayer HV_gate_5v10v_a;
+NOT HV_gate_5v10v_a HV_ngate_3v3 -outputlayer HV_gate_5v10v_b;
+AND HV_gate_5v10v_b nsdm -outputlayer HV_ngate_5v10v_0;
+AND HV_gate_5v10v_b psdm -outputlayer HV_pgate_5v10v_0;
+NOT HV_ngate_5v10v_0 uhvi HV_ngate_5v10v;
+AND HV_ngate_5v10v_0 uhvi nfet_20v0_1;
+NOT HV_pgate_5v10v_0 uhvi HV_pgate_5v10v;
+AND HV_pgate_5v10v_0 uhvi pfet_20v0;
+DEVICE MN ( nfet_03v3_nvt ) HV_ngate_3v3 HV_FET_gate ( G ) HV_source_drain ( S ) HV_source_drain ( D ) pwell_all ( B );
+DEVICE MN ( nfet_05v0_nvt ) HV_ngate_5v0 HV_FET_gate ( G ) HV_source_drain ( S ) HV_source_drain ( D ) pwell_all ( B );
+DEVICE MN ( nfet_g5v0d10v5 ) HV_ngate_5v10v HV_FET_gate ( G ) HV_source_drain ( S ) HV_source_drain ( D ) pwell_all ( B );
+DEVICE MP ( pfet_g5v0d10v5 ) HV_pgate_5v10v HV_FET_gate ( G ) HV_source_drain ( S ) HV_source_drain ( D ) nwell ( B );
+SELECT -donut poly -outputlayer poly_donut;
+SELECT -donut nwell -outputlayer nwell_donut;
+SELECT -donut nsdm -outputlayer nsdm_donut;
+SELECT -donut psdm -outputlayer psdm_donut;
+HOLES poly_donut -outputlayer poly_hole;
+SELECT -enclose uhvi psdm_donut -outputlayer uhvi_with_psdm_donut_1;
+AND lvtn hvi _EPTMPL262490;
+SELECT -enclose uhvi_with_psdm_donut_1 _EPTMPL262490 -outputlayer uhvi_with_psdm_donut;
+SELECT -enclose uhvi_with_psdm_donut nwell_donut -outputlayer uvhi_pfet_v20;
+NOT uhvi_with_psdm_donut uvhi_pfet_v20 -outputlayer uvhi_nfet_v20;
+AND uvhi_pfet_v20 nwell_donut -outputlayer pfet_v20_nwell;
+HOLES pfet_v20_nwell -outputlayer pfet_v20_nwell_holes;
+OR pfet_v20_nwell pfet_v20_nwell_holes -outputlayer pfet_v20;
+AND poly psdm _EPTMPL262497;
+AND pfet_v20 _EPTMPL262497 -outputlayer pfet_v20_rec;
+AND pfet_v20 poly_hole -outputlayer pfet_v20_poly_hole;
+AND poly_donut diff_all _EPTMPL262500;
+AND pfet_v20 _EPTMPL262500 -outputlayer pfet_v20_gate;
+AND psdm poly_hole _EPTMPL262502;
+AND pfet_v20 _EPTMPL262502 -outputlayer pfet_v20_drain;
+SELECT -cut pdiff_all poly_donut -outputlayer pdiff_poly_donut;
+AND pfet_v20 pdiff_poly_donut -outputlayer pfet_v20_SD;
+NOT pfet_v20_SD pfet_v20_drain -outputlayer pfet_v20_source;
+AND pfet_v20_gate pfet_v20_source -outputlayer pfet_v20_overlap;
+SELECT -inside nfet_20v0_1 lvtn -outputlayer nfet_20v0_zvt;
+SELECT -cut nfet_20v0_1 lvtn -outputlayer nfet_20v0;
+AND uvhi_nfet_v20 nsdm -outputlayer nfet_v20;
+AND nfet_v20 poly -outputlayer nfet_v20_rec_1;
+AND nfet_v20 poly_hole -outputlayer nfet_v20_poly_hole;
+AND poly_donut ndiff_all _EPTMPL262513;
+AND nfet_v20 _EPTMPL262513 -outputlayer nfet_v20_gate;
+AND nsdm poly_hole _EPTMPL262515;
+AND nfet_v20 _EPTMPL262515 -outputlayer nfet_v20_drain;
+NOT ndiff poly _EPTMPL262517;
+AND nfet_v20 _EPTMPL262517 -outputlayer nfet_v20_source;
+AND nfet_v20_rec_1 nfet_v20_gate -outputlayer nfet_v20_rec_2;
+EXTE nfet_v20_rec_2 nfet_v20_drain -le 5 -output region -outputlayer nfet_v20_rec_3;
+OR nfet_v20_rec_2 nfet_v20_rec_3 -outputlayer nfet_v20_rec_4;
+SELECT -cut nfet_v20_rec_4 lvtn -outputlayer nfet_v20_rec;
+NOT nfet_v20_rec_4 nfet_v20_rec nfet_v20_zvt_rec;
+CONNECT pfet_v20_gate poly;
+CONNECT pfet_v20_source psd;
+CONNECT pfet_v20_drain psd;
+CONNECT nfet_v20_gate poly;
+CONNECT nfet_v20_source nsd;
+CONNECT nfet_v20_drain nsd;
+DEVICE MN ( nfet_20v0 ) nfet_v20_rec nfet_v20_gate ( G ) nfet_v20_source ( S ) nfet_v20_drain ( D ) pwell_all ( B ) [ 
+ PROPERTY w , l , totalW , nf , m , a 
+ w = perimeter_coincide ( nfet_v20_gate , nfet_v20_source ) 
+ a = area ( nfet_v20_gate ) 
+ l = a / w 
+ totalW = w 
+ m = 1 
+ nf = 1 
+ ];
+DEVICE MN ( nfet_20v0_zvt ) nfet_v20_zvt_rec nfet_v20_gate ( G ) nfet_v20_source ( S ) nfet_v20_drain ( D ) pwell_all ( B ) [ 
+ PROPERTY w , l , totalW , nf , m , a 
+ w = perimeter_coincide ( nfet_v20_gate , nfet_v20_source ) 
+ a = area ( nfet_v20_gate ) 
+ l = a / w 
+ totalW = w 
+ m = 1 
+ nf = 1 
+ ];
+DEVICE MP ( pfet_20v0 ) pfet_v20_rec pfet_v20_gate ( G ) pfet_v20_source ( S ) pfet_v20_drain ( D ) nwell ( B ) < pfet_v20_overlap > [ 
+ PROPERTY w , l , totalW , nf , m , a 
+ l = perimeter_coincide ( pfet_v20_gate , pfet_v20_source ) * 0.5 
+ a = area ( pfet_v20_overlap ) 
+ w = a / l 
+ totalW = w 
+ m = 1 
+ nf = 1 
+ ];
+LVS_REDUCE_DEVICE MN ( nfet_20v0 ) -parallel [ effective w , l , totalW , nf , m 
+ w = sum ( w * nf ) 
+ totalW = w 
+ nf = sum ( nf ) 
+ l = sum ( l ) / nf 
+ m = 1 
+ ];
+LVS_REDUCE_DEVICE MN ( nfet_20v0_zvt ) -parallel [ effective w , l , totalW , nf , m 
+ w = sum ( w * nf ) 
+ totalW = w 
+ nf = sum ( nf ) 
+ l = sum ( l ) / nf 
+ m = 1 
+ ];
+LVS_REDUCE_DEVICE MP ( pfet_20v0 ) -parallel [ effective w , l , totalW , nf , m 
+ w = sum ( w * nf ) 
+ totalW = w 
+ nf = sum ( nf ) 
+ l = sum ( l ) / nf 
+ m = 1 
+ ];
+LVS_CHECK_PROPERTY MN ( nfet_20v0 ) w w;
+LVS_CHECK_PROPERTY MN ( nfet_20v0 ) l l;
+LVS_CHECK_PROPERTY MN ( nfet_20v0_zvt ) w w;
+LVS_CHECK_PROPERTY MN ( nfet_20v0_zvt ) l l;
+LVS_CHECK_PROPERTY MP ( pfet_20v0 ) w w;
+LVS_CHECK_PROPERTY MP ( pfet_20v0 ) l l;
+HOLES nwell -outputlayer nwell_holes;
+SELECT npn -enclose nwell_holes -outputlayer npn1;
+AND npn1 dnwell npn_all;
+AND npn_all hvi hvnpn_rec;
+NOT npn_all hvi npn_rec;
+AND npn_all psdm npnB;
+AND npn_all nsdm npnCE;
+SELECT -donut nsdm -outputlayer nsdm_donut;
+AND npnCE nsdm_donut npnC;
+NOT npnCE npnC _EPTMPL262544;
+AND _EPTMPL262544 diff npnE;
+DEVICE Q ( npn_05v5 ) npn_rec npnC ( C ) npnB ( B ) npnE ( E ) pwell_all ( BN ) [ 
+ PROPERTY EA , M 
+ EA = AREA ( npnE ) 
+ M = 1 
+ ];
+HOLES poly _EPTMPL262548;
+AND npnE _EPTMPL262548 hvnpnE;
+DEVICE Q ( npn_11v0 ) hvnpn_rec npnC ( C ) npnB ( B ) hvnpnE ( E ) pwell_all ( BN ) [ 
+ PROPERTY EA , M 
+ EA = AREA ( hvnpnE ) / 1.97248 
+ M = 1 
+ ];
+SELECT -donut psdm -outputlayer psdm_donut;
+HOLES psdm -outputlayer psdm_holes;
+AND psdm_holes nwell _EPTMPL262553;
+SELECT -enclose pnp _EPTMPL262553 -outputlayer pnp_rec;
+AND pnp psdm pnpEC;
+AND pnp psdm_donut pnpC;
+NOT pnpEC pnpC _EPTMPL262557;
+AND _EPTMPL262557 diff pnpE;
+AND pnp nsdm pnpB;
+DEVICE Q ( pnp_05v5 ) pnp_rec pnpC ( C ) pnpB ( B ) pnpE ( E ) pwell_all ( BN ) [ 
+ PROPERTY EA , M 
+ EA = AREA ( pnpE ) 
+ M = 1 
+ ];
+LVS_CHECK_PROPERTY Q EA EA -tolerance 0;
+LVS_CHECK_PROPERTY Q M M -tolerance 0;
+LVS_REDUCE_DEVICE Q -parallel yes [ 
+ tolerance EA 0 
+ EFFECTIVE EA , M 
+ M = SUM ( M ) 
+ EA_sum = SUM ( EA ) 
+ EA = EA_sum / M 
+ ];
+DEVICE R ( res_high_po_0p35 ) res_high_po_0p35_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_high_po_0p35_rec ) 
+ w = PERIMETER_COINCIDE ( res_high_po_0p35_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+DEVICE R ( res_high_po_0p69 ) res_high_po_0p69_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_high_po_0p69_rec ) 
+ w = PERIMETER_COINCIDE ( res_high_po_0p69_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+DEVICE R ( res_high_po_1p41 ) res_high_po_1p41_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_high_po_1p41_rec ) 
+ w = PERIMETER_COINCIDE ( res_high_po_1p41_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+DEVICE R ( res_high_po_2p85 ) res_high_po_2p85_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_high_po_2p85_rec ) 
+ w = PERIMETER_COINCIDE ( res_high_po_2p85_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+DEVICE R ( res_high_po_5p73 ) res_high_po_5p73_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_high_po_5p73_rec ) 
+ w = PERIMETER_COINCIDE ( res_high_po_5p73_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+DEVICE R ( res_xhigh_po_0p35 ) res_xhigh_po_0p35_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_xhigh_po_0p35_rec ) 
+ w = PERIMETER_COINCIDE ( res_xhigh_po_0p35_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+DEVICE R ( res_xhigh_po_0p69 ) res_xhigh_po_0p69_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_xhigh_po_0p69_rec ) 
+ w = PERIMETER_COINCIDE ( res_xhigh_po_0p69_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+DEVICE R ( res_xhigh_po_1p41 ) res_xhigh_po_1p41_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_xhigh_po_1p41_rec ) 
+ w = PERIMETER_COINCIDE ( res_xhigh_po_1p41_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+DEVICE R ( res_xhigh_po_2p85 ) res_xhigh_po_2p85_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_xhigh_po_2p85_rec ) 
+ w = PERIMETER_COINCIDE ( res_xhigh_po_2p85_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+DEVICE R ( res_xhigh_po_5p73 ) res_xhigh_po_5p73_rec prec_resistor_term ( PLUS ) prec_resistor_term ( MINUS ) pwell_all ( B ) ( PLUS MINUS ) -element R [ 
+ PROPERTY 
+ l , w 
+ area = AREA ( res_xhigh_po_5p73_rec ) 
+ w = PERIMETER_COINCIDE ( res_xhigh_po_5p73_rec , prec_resistor_term ) / 2 
+ l = AREA / w 
+ ];
+ANGLE capacitor -eq 0 -outputlayer cap_width;
+ANGLE capacitor -eq 90 -outputlayer cap_length;
+DEVICE C ( cap_mim_m3__base ) capacitor top_plate ( PLUS ) bottom_plate ( MINUS ) < cap_width > < cap_length > -element C [ 
+ PROPERTY 
+ l , w 
+ l = PERIMETER_COINCIDE ( capacitor , cap_length ) 
+ w = PERIMETER_COINCIDE ( capacitor , cap_width ) / 2 
+ ];
+LVS_CDN_FLOW_OPTIONS -cdl_use_scale;
+LVS_RECOGNIZE_GATES -none;
+[WARN]: LVS_RECOGNIZE_GATES at line 1512 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is skipped. PVS only takes the first LVS_RECOGNIZE_GATES command.
+LVS_SHORT_EQUIVALENT_NODES yes;
+LVS_CHECK_PROPERTY MP L l;
+LVS_CHECK_PROPERTY MP W w;
+LVS_CHECK_PROPERTY MN L l;
+LVS_CHECK_PROPERTY MN W w;
+LVS_CHECK_PROPERTY R W W;
+LVS_CHECK_PROPERTY R L L;
+LVS_CHECK_PROPERTY C L L;
+LVS_CHECK_PROPERTY C W W;
+LVS_BLACK_BOX_PORT li1_in li1_pin li1;
+LVS_BLACK_BOX_PORT met1_in met1_pin met1;
+LVS_BLACK_BOX_PORT met2_in met2_pin met2;
+LVS_BLACK_BOX_PORT met3_in met3_pin met3;
+LVS_BLACK_BOX_PORT met4_in met4_pin met4;
+LVS_BLACK_BOX_PORT met5_in met5_pin met5;
+LVS_BLACK_BOX_PORT li1_in li1_label li1;
+LVS_BLACK_BOX_PORT met1_in met1_label met1;
+LVS_BLACK_BOX_PORT met2_in met2_label met2;
+LVS_BLACK_BOX_PORT met3_in met3_label met3;
+LVS_BLACK_BOX_PORT met4_in met4_label met4;
+LVS_BLACK_BOX_PORT met5_in met5_label met5;
+LVS_BLACK_BOX -black "cap_vpp_02p4x04p6_m1m2_noshield";
+LVS_BLACK_BOX -black "cap_vpp_02p7x06p1_m1m2m3m4_shieldl1_fingercap";
+LVS_BLACK_BOX -black "cap_vpp_02p7x11p1_m1m2m3m4_shieldl1_fingercap";
+LVS_BLACK_BOX -black "cap_vpp_02p7x21p1_m1m2m3m4_shieldl1_fingercap";
+LVS_BLACK_BOX -black "cap_vpp_02p7x41p1_m1m2m3m4_shieldl1_fingercap";
+LVS_BLACK_BOX -black "cap_vpp_02p9x06p1_m1m2m3m4_shieldl1_fingercap2";
+LVS_BLACK_BOX -black "cap_vpp_04p4x04p6_l1m1m2_noshield";
+LVS_BLACK_BOX -black "cap_vpp_04p4x04p6_l1m1m2_shieldpo_floatm3";
+LVS_BLACK_BOX -black "cap_vpp_04p4x04p6_m1m2m3_shieldl1";
+LVS_BLACK_BOX -black "cap_vpp_04p4x04p6_m1m2m3_shieldl1m5_floatm4";
+LVS_BLACK_BOX -black "cap_vpp_04p4x04p6_m1m2_noshield";
+LVS_BLACK_BOX -black "cap_vpp_04p4x04p6_m1m2_noshield_o2";
+LVS_BLACK_BOX -black "cap_vpp_04p4x04p6_m1m2_shieldl1";
+LVS_BLACK_BOX -black "cap_vpp_05p9x05p9_m1m2m3m4_shieldl1_wafflecap";
+LVS_BLACK_BOX -black "cap_vpp_06p8x06p1_l1m1m2m3_shieldpom4";
+LVS_BLACK_BOX -black "cap_vpp_06p8x06p1_m1m2m3_shieldl1m4";
+LVS_BLACK_BOX -black "cap_vpp_08p6x07p8_l1m1m2_noshield";
+LVS_BLACK_BOX -black "cap_vpp_08p6x07p8_l1m1m2_shieldpo_floatm3";
+LVS_BLACK_BOX -black "cap_vpp_08p6x07p8_m1m2m3_shieldl1";
+LVS_BLACK_BOX -black "cap_vpp_08p6x07p8_m1m2m3_shieldl1m5_floatm4";
+LVS_BLACK_BOX -black "cap_vpp_08p6x07p8_m1m2_noshield";
+LVS_BLACK_BOX -black "cap_vpp_08p6x07p8_m1m2_shieldl1";
+LVS_BLACK_BOX -black "cap_vpp_11p3x11p3_m1m2m3m4_shieldl1_wafflecap";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_l1m1m2m3m4_shieldm5";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_l1m1m2m3m4_shieldpom5";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_l1m1m2m3_shieldm4";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_l1m1m2m3_shieldpom4";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_l1m1m2_noshield";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_l1m1m2_shieldpom3";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_m1m2m3m4_shieldl1m5";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_m1m2m3m4_shieldm5";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_m1m2m3_shieldl1";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_m1m2m3_shieldl1m5_floatm4";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_m1m2_noshield";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_m1m2_shieldl1";
+LVS_BLACK_BOX -black "cap_vpp_11p5x11p7_m1m4_noshield";
+LVS_DELETE_CELL_PIN cap_vpp_02p4x04p6_m1m2_noshield b -source;
+LVS_DELETE_CELL_PIN cap_vpp_02p7x06p1_m1m2m3m4_shieldl1_fingercap b -source;
+LVS_DELETE_CELL_PIN cap_vpp_02p7x11p1_m1m2m3m4_shieldl1_fingercap b -source;
+LVS_DELETE_CELL_PIN cap_vpp_02p7x21p1_m1m2m3m4_shieldl1_fingercap b -source;
+LVS_DELETE_CELL_PIN cap_vpp_02p7x41p1_m1m2m3m4_shieldl1_fingercap b -source;
+LVS_DELETE_CELL_PIN cap_vpp_02p9x06p1_m1m2m3m4_shieldl1_fingercap2 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_04p4x04p6_l1m1m2_noshield b -source;
+LVS_DELETE_CELL_PIN cap_vpp_04p4x04p6_l1m1m2_shieldpo_floatm3 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_04p4x04p6_m1m2m3_shieldl1 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_04p4x04p6_m1m2m3_shieldl1m5_floatm4 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_04p4x04p6_m1m2_noshield b -source;
+LVS_DELETE_CELL_PIN cap_vpp_04p4x04p6_m1m2_noshield_o2 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_04p4x04p6_m1m2_shieldl1 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_05p9x05p9_m1m2m3m4_shieldl1_wafflecap b -source;
+LVS_DELETE_CELL_PIN cap_vpp_06p8x06p1_l1m1m2m3_shieldpom4 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_06p8x06p1_m1m2m3_shieldl1m4 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_08p6x07p8_l1m1m2_noshield b -source;
+LVS_DELETE_CELL_PIN cap_vpp_08p6x07p8_l1m1m2_shieldpo_floatm3 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_08p6x07p8_m1m2m3_shieldl1 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_08p6x07p8_m1m2m3_shieldl1m5_floatm4 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_08p6x07p8_m1m2_noshield b -source;
+LVS_DELETE_CELL_PIN cap_vpp_08p6x07p8_m1m2_shieldl1 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p3x11p3_m1m2m3m4_shieldl1_wafflecap b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_l1m1m2m3m4_shieldm5 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_l1m1m2m3m4_shieldpom5 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_l1m1m2m3_shieldm4 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_l1m1m2m3_shieldpom4 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_l1m1m2_noshield b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_l1m1m2_shieldpom3 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_m1m2m3m4_shieldl1m5 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_m1m2m3m4_shieldm5 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_m1m2m3_shieldl1 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_m1m2m3_shieldl1m5_floatm4 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_m1m2_noshield b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_m1m2_shieldl1 b -source;
+LVS_DELETE_CELL_PIN cap_vpp_11p5x11p7_m1m4_noshield b -source;
+LVS_DELETE_CELL_PIN cap_vpp_04p4x04p6_l1m1m2_noshield top -source;
+
+
+########################################################################
+Optimizing Rules ...
+########################################################################
+[WARN] Neither hcell nor -automatch option is specified.
+Operation 'NOT' at line 650 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SIZE' at line 650 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'OR' at line 651 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 651 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SIZE' at line 651 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 651 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 652 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -interact' at line 652 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -interact' at line 652 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 652 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SIZE' at line 652 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 689 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -label' at line 691 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'OR' at line 693 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 694 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'WITH_WIDTH' at line 702 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 704 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -inside' at line 714 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 721 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -inside' at line 722 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -touch' at line 723 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'HOLES' at line 724 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -touch' at line 725 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -touch' at line 726 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'OR' at line 727 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'XOR' at line 728 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -interact' at line 729 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'HOLES' at line 731 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'OR' at line 732 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -touch' at line 736 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 738 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 739 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 741 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -cut' at line 917 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'OR' at line 926 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1017 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1023 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1024 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -inside' at line 1025 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1028 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1029 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1030 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1032 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1034 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1036 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1037 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1039 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1040 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1042 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1043 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1045 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1046 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1049 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1051 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1052 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1055 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1074 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1075 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -touch' at line 1076 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1078 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1079 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1080 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1083 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1084 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1086 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -outside' at line 1087 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1089 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1091 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1092 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1093 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'NOT' at line 1094 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1097 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SIZE' at line 1098 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1171 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1174 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1219 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -inside' at line 1237 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'SELECT -cut' at line 1238 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Operation 'AND' at line 1244 in file /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_LVS/sky130.lvs.v0.0_1.1.pvl is not selected for executing, remove it.
+Completed execution early, as requested by the "-get_rules" or "-gen_tags"
+
+   ONE LAYER BOOLEAN: Cumulative Time CPU =        0(s) REAL =        0(s)
+   TWO LAYER BOOLEAN: Cumulative Time CPU =        0(s) REAL =        0(s)
+ POLYGON TOPOLOGICAL: Cumulative Time CPU =        0(s) REAL =        0(s)
+ POLYGON MEASUREMENT: Cumulative Time CPU =        0(s) REAL =        0(s)
+                SIZE: Cumulative Time CPU =        0(s) REAL =        0(s)
+    EDGE TOPOLOGICAL: Cumulative Time CPU =        0(s) REAL =        0(s)
+    EDGE MEASUREMENT: Cumulative Time CPU =        0(s) REAL =        0(s)
+               STAMP: Cumulative Time CPU =        0(s) REAL =        0(s)
+       ONE LAYER DRC: Cumulative Time CPU =        0(s) REAL =        0(s)
+       TWO LAYER DRC: Cumulative Time CPU =        0(s) REAL =        0(s)
+            NET AREA: Cumulative Time CPU =        0(s) REAL =        0(s)
+             DENSITY: Cumulative Time CPU =        0(s) REAL =        0(s)
+       MISCELLANEOUS: Cumulative Time CPU =        0(s) REAL =        0(s)
+             CONNECT: Cumulative Time CPU =        0(s) REAL =        0(s)
+              DEVICE: Cumulative Time CPU =        0(s) REAL =        0(s)
+                 ERC: Cumulative Time CPU =        0(s) REAL =        0(s)
+       PATTERN_MATCH: Cumulative Time CPU =        0(s) REAL =        0(s)
+            DFM FILL: Cumulative Time CPU =        0(s) REAL =        0(s)
+
+
+Total CPU Time                    : 0(s)
+Total Real Time                   : 0(s)
+Peak Memory Used                  : 9(M)
+Total Original Geometry           : 0(0)
+Total ERC RuleChecks              : 0
+Total ERC Results                 : 0 (0)
+
+
+Netlist Extraction Finished Normally. Thu Aug  6 21:33:13 2026
+
+

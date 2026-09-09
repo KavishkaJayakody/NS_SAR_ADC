@@ -1,0 +1,160 @@
+# Comparator Sizing Analysis
+
+## 1. Introduction
+The comparator is the most critical decision-making component within a Successive Approximation Register (SAR) ADC core. Its primary function is to accurately evaluate the differential voltage across the capacitor array (CDAC) top plates to determine which node holds the higher potential. Crucially, this evaluation must be performed while strictly conserving the sampled charge on the top plates. Therefore, designing a highly accurate and robust comparator is essential to the overall precision and performance of the ADC.
+
+To meet these requirements, we have opted for a multi-stage comparator architecture consisting of a preamplifier, a StrongARM latch (dynamic latch), and an SR (Set-Reset) latch. Each stage is carefully tailored to address specific design challenges, which are detailed in the subsequent sections.
+
+<image of the comparator and the stages>
+
+## 1.1 SPICE Model Extraction for Sky130 Devices
+We will use the following sky130_fd_pr PDK extracted values related to the nfet_01v8/pfet_01v8 nvt and lvt cells for the schematic modelling.
+For device sizing, we will consider the mismatch of Vth only, although matching can be carried out based on other aspects.
+
+Extracted from mismatch corner file:
+File: sky130A\libs.ref\sky130_fd_pr\spice\sky130_fd_pr__nfet_01v8__mismatch.corner.spice
+    .param sky130_fd_pr__nfet_01v8__vth0_slope=3.356e-03
+
+Extracted from device model file:
+File: sky130A\libs.ref\sky130_fd_pr\spice\sky130_fd_pr__nfet_01v8.pm3.spice
+    + vth0 = {0.49439+sky130_fd_pr__nfet_01v8__vth0_diff_0+MC_MM_SWITCH*AGAUSS(0,1.0,1)*(sky130_fd_pr__nfet_01v8__vth0_slope/sqrt(l*w*mult))}
+
+Thereby we can deduce the Pelgrom relationship for the standard deviation of the threshold voltage mismatch:
+    σ(ΔVth) = A_vth / √(W * L*m)
+
+Where the Pelgrom area coefficient A_vth is:
+    A_vth = 3.356 mV·µm
+
+## 2. StrongARM Latch
+The core decision element is implemented using a StrongARM latch, chosen for its proven effectiveness, fast regeneration speed, and ability to provide a full rail-to-rail digital output. The topology primarily consists of two cross-coupled inverters driven by an input differential pair, along with clocked reset switches to initialize the latch before each comparison phase.
+
+While a dynamic latch can be optimized for speed, low offset, and low power consumption, dynamic latches inherently suffer from input-referred offset, including signal-dependent dynamic offsets that can occur even in offset-optimized layouts. Sizing the input differential pair demands the utmost care, as it directly controls the critical trade-offs between speed, offset variance, and power consumption.
+
+<image of the strongarm latch>
+
+## 2.1 Design of the StrongARM Latch
+We are interested in the following design parameters:
+* Input offset
+* Speed
+* Power consumption
+* Metastability
+* Kickback noise
+* Input referred electronic noise
+
+### 2.1.1 Design Spec Definitions
+* Input offset: 1 LSB = 1.8 / 2^8 = 7 mV, but we will keep the offset less than 7 mV.
+* Clock rate: 96 kHz -> 100 kHz.
+* Power consumption (current): < 5 µA.
+
+We will begin the dimensioning with near minimum. The performance of the latch must be satisfactory for all corners and worst conditions. So we will choose slow-slow (SS) corner and -25°C.
+Target rise time and fall times to 10 ps. (This is stricter for our design; we can easily relax that to 10-100 ns, but an initial 10 ps target will be assumed).
+
+### 2.1.2 Transistor Dimensioning
+**Differential Pair (M1, M2)**
+We use the Pelgrom model for mismatch:
+    σ(ΔV_TH) = A_VTH / √(W * L)
+
+If we assume minimum dimension: W = 0.42 µm, L = 0.15 µm.
+    ΔV_TH = 3.356 / √(0.42 * 0.15) ≈ 13.37 mV
+(Not desirable)
+
+We will go for W = 2 µm, L = 0.15 µm:
+    ΔV_TH = 3.356 / √(2 * 0.15) ≈ 6.127 mV
+Which is a marginally acceptable value.
+
+**M7 Sizing**
+(Section noted, pending specific dimensions)
+
+**M3, M4**
+The mismatch according to the referred text is divided by a factor of 3-5, but still considering matching effects, let's go with W = 1 µm, L = 0.15 µm for now.
+
+**M5, M6**
+The effect of M5, M6 at the initial stages of latch operation can be neglected since they remain inactive and the gain of other parts are high. But they play a part in regeneration and the regeneration speed depends on the sizes. We can go for min length devices considering the mismatch tolerability. But we first check 2 µm x 0.15 µm and optimize the selection later.
+
+**Reset Switches**
+The reset switches will also be assumed to have minimum dimensions.
+
+### 2.1.3 Simulation Notes & Observations
+* Vcm ↑ -> τ_settle ↓
+* temp ↑ -> τ_settle ↓ (Note: ≈ for Vcm = 0.9 | for low Vcm, τ_settle ↓)
+* SS ↑
+* FS is the worst corner for settling.
+
+### 2.1.4 Design & Sizing Strategy
+The sizing was done identical for all the transistors in the signal paths and minimum sizes for reset transistors to minimize the effects of injected charges making node voltages rise (this is of no concern but implemented to make the nodes not pass VDD).
+The simulations show that the settling time worsens with decrease in input common mode, low temperature and at FS corner for the implemented dimensions, low voltage. However, all the practically possible worst conditions showed a settling time less than half period (5 ms).
+
+Operating Conditions (at difference of 1mV):
+* 1.5 < VDD < 2.1
+* -25 < temp < 125
+* 0.6 < Vcm < 1.8
+
+Further optimizations on the settling time will not be carried out since the design requirements are already met.
+
+### 2.1.5 Power Consumption Analysis
+The design shows peak dynamic current consumption of 300 uA. But at the extreme current making conditions the static current is less than 6mA and typical conditions static current is at pA range. No power optimizations needed unless parasites come into effect.
+
+## 3. Preamplifier Stage
+To mitigate the inherent offset of the StrongARM latch, a preamplifier stage is introduced to feed the latch. The preamplifier serves several vital functions:
+1. It provides raw voltage gain, significantly reducing the input-referred offset of the subsequent latch stage.
+2. It isolates the sensitive CDAC top plates from the severe kickback noise generated by the dynamic switching of the latch, preventing corruption of the sampled voltages.
+3. It provides a high-impedance input to conserve the charge on the capacitor array.
+
+For the preamplifier, raw gain is the primary design target; precise linearity and settling time are not critical in this context. However, while the preamplifier minimizes the latch's offset, it introduces its own static offset into the system. To eliminate this, an auto-zeroing technique will be employed. Implementing auto-zeroing effectively cancels the preamplifier's offset, which in turn allows us to significantly relax the sizing constraints that would otherwise be required to minimize mismatch.
+
+<image of the pre amplifier>
+
+### 3.1 Design of the Preamplifier
+The preamplifier is basically a differential amplifier with PMOS current source loads with a circuit configuration for output common mode regulation. The implemented schematic is as follows:
+<image>
+Upon initial simulation/calculations, the standard pfet_01v8 devices were not suitable for the PMOS loads since the threshold values of the devices and hence the headroom for output voltage swings were not desirable. So pfet_01v8_lvt devices were used. Further, to improve the headroom, the tail current sources were chosen to be nfet_01v8_lvt devices.
+
+The primary design goals for the preamplifier was to implement a differential amplifier with 10–20 gain, consume less than 20 µA, and input common mode voltage at 0.9 V. Linearity and settling time were not of interest. Since the preamp will be driving another set of MOS transistors, the slew rate concern was relaxed due to low output capacitance. However, hypothetical approximations showed that the chosen tail currents can drive the capacitance with ease.
+
+### 3.2 Sizing of the Differential Amplifier
+We will start the sizing with an initial current distribution of 2.5 µA per signal path, which gives a tail current of 5 µA. For initial calculations, we will ignore the feedback path of output common mode. We will target for a gain of 20 (10–20).
+
+Note: For sizing, g_m/I_D methodology is used.
+
+The gain of the amplifier is given by:
+    A = g_mn (r_op || r_on)
+
+In general, r_op > r_on and r_op is 2, 3 times of r_on for equal dimensioned devices. Taking this into account, we will choose initial sizing as W_p = 2W_n as a typical design choice.
+
+It is justifiable to present the above as:
+    (r_op || r_on) >= r_on / 2
+    g_mn (r_op || r_on) >= g_mn * (r_on / 2) = 20
+    g_mn * r_on = g_mn / g_ds = 40
+
+We will set (g_mn / g_ds) > 40 and refer the tables (g_m/I_D method). The tables suggest a device length limit for diff pair as L > 0.3 µm and g_m/I_D values as g_m/I_D > 2.14.
+
+We will choose L to be 1 µm. For low power high gain applications, choose g_m/I_D values high. By the g_m/I_D tables we can see that:
+
+| g_m/I_D | f_t   | I_D/W | W     |
+|---------|-------|-------|-------|
+| 5       | 2G    | 18.2  | 0.137 |
+| 10      | 1.27G | 6     | 0.416 |
+| 15      | 0.8G  | 2.4   | 1.04  |
+| 16.67   | 0.6G  | 1.68  | 1.5   |
+
+According to the mismatch calculation in the latch for diff pair, 1 µm x 1 µm will be suitable. But keeping a margin, we will choose W_n = 1.5 µm.
+
+* Differential pair NMOS dimensions: L_n = 1 µm, W_n = 1.5 µm, m=1.
+* Choose the same device parameters for PMOS load as well with multiplicity 2: L_p = 1 µm, W_p = 1.5 µm, m=2.
+
+For common mode feedback PMOS devices, same dimensions can be used while adjusting the tail current to match the output common mode voltage. Tail currents for these devices were based on simulations and design iterations.
+
+The tail currents were chosen such that the output swing is symmetrical around the possible output voltage range. The current mirror dimensions were also matched to the diff pair dimensions while the multiplicity of each output/input node was decided based on the branch current ratio.
+
+After a few design iterations, at the typical corner 27°C:
+* Preamp gain: ≈ 23 (for 1 mV input)
+* V_cm out: 1.4 V
+* Output range: 1 V – 1.8 V (Severe clipping occurs at high inputs. Since linearity is not of concern, not considered.)
+* Total current: < 20 µA
+
+Extreme input V_cm, temperature, corners showed a gain as low as 6. Other than that, the output range, output common mode, swing, current, slew showed acceptable performance.
+
+Further optimization will not be considered unless required after layout and parasitic extraction. However, due to concerns on the offset and its amplification, an auto-zeroing technique is to be implemented for robust mismatch rejection.
+
+## 4. SR Latch (Output Stage)
+The output of the StrongARM latch drives a subsequent SR latch. This final stage is necessary to capture the dynamic decisions from the StrongARM latch and hold them as a consistent, stable logic level for the SAR digital logic. Additionally, it buffers the StrongARM latch, shielding its sensitive internal nodes from external capacitive loading that could otherwise degrade its speed or symmetry.

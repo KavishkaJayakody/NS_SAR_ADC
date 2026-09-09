@@ -1,0 +1,7 @@
+1788162003 0 1788162003 "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/controller.drc_errors.ascii" "drcbrowser" "" "" "" "" "" "" "" "" "" "" "" true
+1788152797 0 1788152797 "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/tt_um_silicon_edge_ns_sar_adc.drc_errors.ascii" "drcbrowser" "" "" "" "" "" "" "" "" "" "" "" true
+1788070586 0 1788070586 "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/controller/controller.drc_errors.ascii" "drcbrowser" "" "" "" "" "" "" "" "" "" "" "" true
+1787782222 0 1787782222 "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/LVS_TEST" "lvsbrowser" "" "" "" "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/LVS_TEST" "auCdl" "auCdl schematic" "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/LVS_TEST/lay_cellMap.txt" "" "" "" "" true
+1787782156 0 1787782156 "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/comparator_latch_armstrong.drc_errors.ascii" "drcbrowser" "" "" "" "" "" "" "" "" "" "" "" true
+1787564132 0 1787564132 "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_armstrong" "lvsbrowser" "" "" "" "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_armstrong" "auCdl" "auCdl schematic" "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Analog/comparator_latch_armstrong/lay_cellMap.txt" "" "" "" "" true
+1787214258 0 1787214258 "/home/user23/NS_SAR_ADC/doc/comparator_latch_armstrong.drc_errors.ascii" "drcbrowser" "" "" "" "" "" "" "" "" "" "" "" true
