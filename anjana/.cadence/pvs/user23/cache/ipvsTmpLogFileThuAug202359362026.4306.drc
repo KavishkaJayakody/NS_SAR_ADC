@@ -1,0 +1,108 @@
+********************************************************************************
+pvs 16.10-p006 64 bit (Thu Jul 27 18:05:02 PDT 2017)
+Build Ref No.: 006 Production (07-27-2017) [pvs_1610]
+
+Copyright 2017 Cadence Design Systems, Inc.
+All rights reserved worldwide.
+
+Build O/S:       Linux x86_64 2.6.18-194.el5
+Executed on:     aed (Linux x86_64 3.10.0-1160.108.1.el7.x86_64)
+Process Id:      6296
+Starting Time:   Thu Aug 20 23:59:36 2026 (Thu Aug 20 18:29:36 2026 GMT)
+With parameters: -drc -get_rules /tmp/pvsrng.22014@aed.1 -tc top -gds /dev/null -get_options /tmp/pvsoptpar.22014@aed.1 -gen_tags /tmp/pvsgentags.22014@aed.1 -control /tmp/ipvsRulesCheckControl.22014@aed.1 /home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/.config.rul.22014@aed.1 /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC/sky130_rev_0.0_2.12.drc.pvl 
+********************************************************************************
+
+
+########################################################################
+Get host info ...
+########################################################################
+CPU info:
+    model name      :  Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+    cpu MHz         :  3490.686
+    cache size      :  8192 KB
+    physical cores  :  4
+    logical cores   :  8
+    hyper-threading on
+
+Memory info:
+    31920M physical memory installed.
+
+    MemTotal:       32689660 kB
+    MemFree:         1925536 kB
+    MemAvailable:   13927400 kB
+    Buffers:              92 kB
+    Cached:         11922316 kB
+    SwapCached:          288 kB
+    Active:         18156396 kB
+    Inactive:        7442096 kB
+    Active(anon):   14637304 kB
+    Inactive(anon):   949412 kB
+    Active(file):    3519092 kB
+    Inactive(file):  6492684 kB
+    Unevictable:        3652 kB
+    Mlocked:               0 kB
+    SwapTotal:       8191996 kB
+    SwapFree:        8191476 kB
+    Dirty:                36 kB
+    Writeback:             0 kB
+    AnonPages:      13678716 kB
+    Mapped:           771380 kB
+    Shmem:           1910632 kB
+    Slab:            2991292 kB
+    SReclaimable:    2390772 kB
+    SUnreclaim:       600520 kB
+    KernelStack:       62768 kB
+    PageTables:       521792 kB
+    NFS_Unstable:          0 kB
+    Bounce:                0 kB
+    WritebackTmp:          0 kB
+    CommitLimit:    24536824 kB
+    Committed_AS:   41984780 kB
+    VmallocTotal:   34359738367 kB
+    VmallocUsed:      397612 kB
+    VmallocChunk:   34358947836 kB
+    Percpu:             1504 kB
+    HardwareCorrupted:     0 kB
+    AnonHugePages:   6639616 kB
+    CmaTotal:              0 kB
+    CmaFree:               0 kB
+    HugePages_Total:       0
+    HugePages_Free:        0
+    HugePages_Rsvd:        0
+    HugePages_Surp:        0
+    Hugepagesize:       2048 kB
+    DirectMap4k:       96180 kB
+    DirectMap2M:     5056512 kB
+    DirectMap1G:    28311552 kB
+
+
+########################################################################
+Get environment info ...
+########################################################################
+ENV VAR: TCL_LIBRARY = /home/aed/cadence/PVS161/share/lib/tcltk/08.64/tcl8.6
+ENV VAR: TCLX_LIBRARY = /home/aed/cadence/PVS161/share/lib/tclx/08.40
+ENV VAR: TCLLIBPATH = /home/aed/cadence/PVS161/share/lib/itcl/3.4.1 /home/aed/cadence/PVS161/share/lib/tclxml/3.2 /home/aed/cadence/PVS161/share/lib/tcllib/1.18 /home/aed/cadence/PVS161/share/lib/itcl/3.4.1 /home/aed/cadence/PVS161/share/lib/tclxml/3.2 /home/aed/cadence/PVS161/share/lib/tcllib/1.18 
+
+
+########################################################################
+Parsing Control File /tmp/ipvsRulesCheckControl.22014@aed.1 ...
+########################################################################
+#DEFINE NODEN
+#UNDEFINE NOGLR
+#UNDEFINE NOWARN
+#UNDEFINE SRAM
+RESULTS_DB -drc -ascii;
+[ERROR] RESULTS_DB: Invalid file name at line 1 in file /tmp/ipvsRulesCheckControl.22014@aed.1
+Usage: results_db [ -drc | -erc ] <fileName>
+                  [ -ascii | -binary | -gdsii | -oasis [ -cblock ] | -oa ]
+                  [ <cellNameSuffix> ] [ -prefix <cellNamePrefix> ] [ -pseudo ] [ -gzip ];
+
+[INFO] There is 1 error in PVS rule file /tmp/ipvsRulesCheckControl.22014@aed.1
+Finished parsing rule file(s) with error.
+
+Execution aborted.  Exiting with status 1.
+
+
+Design Rule Check Finished Abnormally. Thu Aug 20 23:59:36 2026
+
+

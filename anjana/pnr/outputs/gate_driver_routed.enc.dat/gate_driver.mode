@@ -1,0 +1,26 @@
+if {![namespace exists ::IMEX]} { namespace eval ::IMEX {} }
+set ::IMEX::dataVar [file dirname [file normalize [info script]]]
+set ::IMEX::libVar ${::IMEX::dataVar}/libs
+
+catch { setAnalysisMode -analysisType single }
+catch { setAnalysisMode -clkSrcPath true }
+catch { setAnalysisMode -clockPropagation sdcControl }
+catch { setAnalysisMode -virtualIPO false }
+setExtractRCMode  -engine preRoute
+catch {setNanoRouteMode -quiet -drouteUseLefPinTaperRule true}
+catch {setNanoRouteMode -quiet -drouteUseMinSpacingForBlockage auto}
+catch {setNanoRouteMode -quiet -extractRcModelFile "${::IMEX::libVar}/misc/rc_model.bin"}
+catch {setNanoRouteMode -quiet -extractThirdPartyCompatible false}
+catch {setNanoRouteMode -quiet -grouteExpCurrentTimingReport "/tmp/innovus_temp_22810_aed_user23_fUTiVD/nanoroute_tmp_NE4YMt/.timing_report6.d"}
+catch {setNanoRouteMode -quiet -grouteExpTdStdDelay 37.600000}
+catch {setNanoRouteMode -quiet -routeStrictlyHonorNonDefaultRule "false"}
+catch {setNanoRouteMode -quiet -routeTopRoutingLayer 3}
+catch {setNanoRouteMode -quiet -timingEngine "${::IMEX::libVar}/misc/.timing_file_22810.tif.gz"}
+
+catch { setPlaceMode -place_global_place_io_pins true }
+catch { setIlmMode -keepHighFanoutPorts true -keepLoopBack false -keepFlatten true }
+catch { setDelayCalMode -engine aae }
+catch { setDelayCalMode -ignoreNetLoad false }
+catch { setRouteMode -earlyGlobalRouteSecondPG false }
+catch { setFPlanMode -maxIoHeight false }
+catch { setFPlanMode -powerRailLayer {} }

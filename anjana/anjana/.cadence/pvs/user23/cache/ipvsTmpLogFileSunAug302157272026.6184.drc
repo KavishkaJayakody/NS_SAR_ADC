@@ -1,0 +1,140 @@
+********************************************************************************
+pvs 16.10-p006 64 bit (Thu Jul 27 18:05:02 PDT 2017)
+Build Ref No.: 006 Production (07-27-2017) [pvs_1610]
+
+Copyright 2017 Cadence Design Systems, Inc.
+All rights reserved worldwide.
+
+Build O/S:       Linux x86_64 2.6.18-194.el5
+Executed on:     aed (Linux x86_64 3.10.0-1160.108.1.el7.x86_64)
+Process Id:      6846
+Starting Time:   Sun Aug 30 21:57:26 2026 (Sun Aug 30 16:27:26 2026 GMT)
+With parameters: -drc -get_rules /tmp/pvsrng.31891@aed.1 -tc top -gds /dev/null -get_options /tmp/pvsoptpar.31891@aed.1 -gen_tags /tmp/pvsgentags.31891@aed.1 -control /tmp/ipvsRulesCheckControl.31891@aed.1 /home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/.config.rul.31891@aed.1 
+********************************************************************************
+
+
+########################################################################
+Get host info ...
+########################################################################
+CPU info:
+    model name      :  Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+    cpu MHz         :  3790.551
+    cache size      :  8192 KB
+    physical cores  :  4
+    logical cores   :  8
+    hyper-threading on
+
+Memory info:
+    31920M physical memory installed.
+
+    MemTotal:       32689660 kB
+    MemFree:         1030980 kB
+    MemAvailable:   10091472 kB
+    Buffers:               0 kB
+    Cached:          9052792 kB
+    SwapCached:            0 kB
+    Active:         22254796 kB
+    Inactive:        4137700 kB
+    Active(anon):   17633292 kB
+    Inactive(anon):  1663676 kB
+    Active(file):    4621504 kB
+    Inactive(file):  2474024 kB
+    Unevictable:        3512 kB
+    Mlocked:               0 kB
+    SwapTotal:       8191996 kB
+    SwapFree:        8190708 kB
+    Dirty:                56 kB
+    Writeback:             0 kB
+    AnonPages:      17343340 kB
+    Mapped:          1019916 kB
+    Shmem:           1957264 kB
+    Slab:            3034240 kB
+    SReclaimable:    2365648 kB
+    SUnreclaim:       668592 kB
+    KernelStack:       63808 kB
+    PageTables:       545216 kB
+    NFS_Unstable:          0 kB
+    Bounce:                0 kB
+    WritebackTmp:          0 kB
+    CommitLimit:    24536824 kB
+    Committed_AS:   46676292 kB
+    VmallocTotal:   34359738367 kB
+    VmallocUsed:      397612 kB
+    VmallocChunk:   34358947836 kB
+    Percpu:             1504 kB
+    HardwareCorrupted:     0 kB
+    AnonHugePages:   6748160 kB
+    CmaTotal:              0 kB
+    CmaFree:               0 kB
+    HugePages_Total:       0
+    HugePages_Free:        0
+    HugePages_Rsvd:        0
+    HugePages_Surp:        0
+    Hugepagesize:       2048 kB
+    DirectMap4k:       96180 kB
+    DirectMap2M:     5056512 kB
+    DirectMap1G:    28311552 kB
+
+
+########################################################################
+Get environment info ...
+########################################################################
+ENV VAR: TCL_LIBRARY = /home/aed/cadence/PVS161/share/lib/tcltk/08.64/tcl8.6
+ENV VAR: TCLX_LIBRARY = /home/aed/cadence/PVS161/share/lib/tclx/08.40
+ENV VAR: TCLLIBPATH = /home/aed/cadence/PVS161/share/lib/itcl/3.4.1 /home/aed/cadence/PVS161/share/lib/tclxml/3.2 /home/aed/cadence/PVS161/share/lib/tcllib/1.18 /home/aed/cadence/PVS161/share/lib/itcl/3.4.1 /home/aed/cadence/PVS161/share/lib/tclxml/3.2 /home/aed/cadence/PVS161/share/lib/tcllib/1.18 
+
+
+########################################################################
+Parsing Control File /tmp/ipvsRulesCheckControl.31891@aed.1 ...
+########################################################################
+#UNDEFINE NODEN
+#UNDEFINE NOGLR
+#UNDEFINE NOWARN
+#UNDEFINE SRAM
+RESULTS_DB -drc "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/tt_um_silicon_edge_ns_sar_adc.drc_errors.ascii" -ascii;
+
+########################################################################
+Parsing Rule File /home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/.config.rul.31891@aed.1 ...
+########################################################################
+[WARN] Switch entry NODEN in control file is not existed in rules.
+[WARN] Switch entry SRAM in control file is not existed in rules.
+[WARN] Switch entry NOWARN in control file is not existed in rules.
+[WARN] Switch entry NOGLR in control file is not existed in rules.
+
+
+########################################################################
+Optimizing Rules ...
+########################################################################
+Completed execution early, as requested by the "-get_rules" or "-gen_tags"
+
+   ONE LAYER BOOLEAN: Cumulative Time CPU =        0(s) REAL =        0(s)
+   TWO LAYER BOOLEAN: Cumulative Time CPU =        0(s) REAL =        0(s)
+ POLYGON TOPOLOGICAL: Cumulative Time CPU =        0(s) REAL =        0(s)
+ POLYGON MEASUREMENT: Cumulative Time CPU =        0(s) REAL =        0(s)
+                SIZE: Cumulative Time CPU =        0(s) REAL =        0(s)
+    EDGE TOPOLOGICAL: Cumulative Time CPU =        0(s) REAL =        0(s)
+    EDGE MEASUREMENT: Cumulative Time CPU =        0(s) REAL =        0(s)
+               STAMP: Cumulative Time CPU =        0(s) REAL =        0(s)
+       ONE LAYER DRC: Cumulative Time CPU =        0(s) REAL =        0(s)
+       TWO LAYER DRC: Cumulative Time CPU =        0(s) REAL =        0(s)
+            NET AREA: Cumulative Time CPU =        0(s) REAL =        0(s)
+             DENSITY: Cumulative Time CPU =        0(s) REAL =        0(s)
+       MISCELLANEOUS: Cumulative Time CPU =        0(s) REAL =        0(s)
+             CONNECT: Cumulative Time CPU =        0(s) REAL =        0(s)
+              DEVICE: Cumulative Time CPU =        0(s) REAL =        0(s)
+                 ERC: Cumulative Time CPU =        0(s) REAL =        0(s)
+       PATTERN_MATCH: Cumulative Time CPU =        0(s) REAL =        0(s)
+            DFM FILL: Cumulative Time CPU =        0(s) REAL =        0(s)
+
+
+Total CPU Time                    : 0(s)
+Total Real Time                   : 0(s)
+Peak Memory Used                  : 5(M)
+Total Original Geometry           : 0(0)
+Total DRC RuleChecks              : 0
+Total DRC Results                 : 0 (0)
+
+
+Design Rule Check Finished Normally. Sun Aug 30 21:57:26 2026
+
+

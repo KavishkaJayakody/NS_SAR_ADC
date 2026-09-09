@@ -1,0 +1,152 @@
+# PPCMD 1 
+# sroute -connect corePin -nets {VDD VSS} -allowJogging 1 -allowLayerChange 1
+# 8 
+# 16 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 1 
+
+# PPCMD 2 
+# addRing -nets {VDD VSS} -type core_rings -follow core -layer {top met1 bottom met1 left met2 right met2} -width 0.6 -spacing 0.6 -offset 1.5
+# 7 
+# 32 
+# 1 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# VSS 600 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 13570 2060 13570 20480 
+# END_RING_PT_INFO_LIST 
+# VSS 600 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 2060 11270 25080 11270 
+# END_RING_PT_INFO_LIST 
+# VDD 600 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 13570 3260 13570 19280 
+# END_RING_PT_INFO_LIST 
+# VDD 600 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 3260 11270 23880 11270 
+# END_RING_PT_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 2 
+
+# PPCMD 3 
+# sroute -connect corePin -nets {VDD VSS} -allowJogging 1 -allowLayerChange 1
+# 6 
+# 16 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 3 
+
+# PPCMD 4 
+# addRing -nets {VDD VSS} -type core_rings -follow core -layer {top met1 bottom met1 left met2 right met2} -width 0.6 -spacing 0.6 -offset 0.8
+# 5 
+# 32 
+# 1 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# VSS 600 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 8280 920 8280 13800 
+# END_RING_PT_INFO_LIST 
+# VSS 600 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 920 7360 15640 7360 
+# END_RING_PT_INFO_LIST 
+# VDD 600 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 8280 2120 8280 12600 
+# END_RING_PT_INFO_LIST 
+# VDD 600 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 2120 7360 14440 7360 
+# END_RING_PT_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 4 
+
+# PPCMD 5 
+# sroute -connect corePin -nets {VDD VSS} -allowJogging 1 -allowLayerChange 1
+# 4 
+# 16 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 5 
+
+# PPCMD 6 
+# addRing -nets {VDD VSS} -type core_rings -follow core -layer {top met2 bottom met2 left met2 right met2} -width 0.5 -spacing 0.3 -offset 0.3
+# 3 
+# 32 
+# 1 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# VSS 500 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 8280 1870 1870 7360 14690 7360 8280 12850 
+# END_RING_PT_INFO_LIST 
+# VDD 500 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 8280 2670 2670 7360 13890 7360 8280 12050 
+# END_RING_PT_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 6 
+
+# PPCMD 7 
+# sroute -connect corePin -nets {VDD VSS} -allowJogging 1 -allowLayerChange 1
+# 2 
+# 16 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 7 
+
+# PPCMD 8 
+# sroute -connect corePin -nets {VDD VSS} -allowJogging 1 -allowLayerChange 1
+# 1 
+# 16 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 8 
+

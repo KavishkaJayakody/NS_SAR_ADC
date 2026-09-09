@@ -1,0 +1,20 @@
+ncvlog(64): 15.20-s062: (c) Copyright 1995-2018 Cadence Design Systems, Inc.
+TOOL:	ncvlog(64)	15.20-s062: Started on Aug 06, 2026 at 07:10:10 +0530
+ncvlog
+    -use5x
+    -SPECIFICUNIT not_gate
+    -zparse /tmp/vamsZparha7267
+    -NOWARN DLNOHV
+    -work NS_SAR_Test
+    -view functional
+    -nostdout
+    -logfile /home/user23/NS_SAR_ADC/.cadence/dfII/TextSupport/Logs/Parser/verilog/NS_SAR_Test/functional/compile0.log
+    -messages
+    -cdslib /home/user23/cds.lib
+    /home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/not_gate/functional/verilog.v
+
+file: /home/user23/NS_SAR_ADC/libraries/NS_SAR_Test/not_gate/functional/verilog.v
+	module NS_SAR_Test.not_gate:functional
+		errors: 0, warnings: 0
+	 writing out DPL output:
+TOOL:	ncvlog(64)	15.20-s062: Exiting on Aug 06, 2026 at 07:10:10 +0530  (total: 00:00:00)

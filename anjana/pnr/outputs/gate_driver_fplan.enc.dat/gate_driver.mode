@@ -1,0 +1,6 @@
+catch { setAnalysisMode -analysisType single }
+setExtractRCMode  -engine preRoute
+catch { setIlmMode -keepHighFanoutPorts true -keepLoopBack false -keepFlatten true }
+catch { setDelayCalMode -engine aae }
+catch { setFPlanMode -maxIoHeight false }
+catch { setFPlanMode -powerRailLayer {} }

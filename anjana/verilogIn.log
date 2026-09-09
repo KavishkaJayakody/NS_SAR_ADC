@@ -1,0 +1,11 @@
+@(#)$CDS: ihdl version 6.1.7-64b 12/01/2016 05:39 (sjfhw306) $  Sun Aug 30 12:10:08 2026
+
+ERROR (VERILOGIN-28): Unable to run the ncvlog analyzer. Either the analyzer binary does not exist in the
+shell search path or does not have the required file permissions. Correct the
+shell search path or the file permission before running the command again.
+ERROR (VERILOGIN-5): Unable to open the specified log file (ncvlog.log) for reading. Either the file does not
+exist or you do not have read permission on the file.
+INFO (VERILOGIN-206): End of Logfile.
+ERROR (VERILOGIN-5): Unable to open the specified log file (ncvlog.log) for reading. Either the file does not
+exist or you do not have read permission on the file.
+INFO (VERILOGIN-206): End of Logfile.

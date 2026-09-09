@@ -1,0 +1,217 @@
+This guide is for the setup of DRC LVS and PEX for layouts using SKY130 PDK with cadence tools
+
+
+The guide is based on https://github.com/atenfyr/ttsky_analog/blob/main/notes_on_using_virtuoso/notes_on_using_virtuoso.md
+
+The official cadence sky130 pdk is created to be used with Pegasus for DRC/LVS and Quantus for parasitic extraction . this guide directs to use PVS instead of pegasus for DRC and LVS. And for PEX we had access to Quantus (EXT18) which was not compatible with C extractions since the PEX techrules were compiled with EXT21.
+This guide directs to recompile the techrules using the EXT18 version to perform PEX
+
+
+
+PVS setup (DRC)
+To set up Pegasus for DRC:
+
+in your .bashrc file add
+
+export PEGASUS_DRC= pdk_dir/Sky130_cadance_pdk/sky130_release_0.1.0/Sky130_DRC
+
+this will tell the tool where to look when we use PVS instead of Pegasus
+
+Make sure Cadence Virtuoso is closed before adding this to your .bashrc file
+And after modifications make sure to source the file.
+
+To run a DRC,
+
+Open the PVS -> Run DRC... menu option within Layout L/XL.
+
+Under Run Data, choose any Run Directory that you would like. Under Rules -> Tech&Rules, choose "Add..." and select the file at "SKY130_DRC/sky130_rev_0.0_2.12.drc.pvl" (or similar). You do not need to choose a technology mapping file or similar.
+
+Under Rules -> Configurator, check "Use Configurator", press the "..." button and select the file at "SKY130_DRC/sky130.drc.cfg" (or similar). For Tiny Tapeout specifically, you may wish to check "Turn Off Density Rules."
+
+Press "Submit" to execute a DRC run.
+
+PVS setup (LVS)
+To set up Pegasus for LVS, there are some additional steps (as of March 2026). These steps are based off of these troubleshooting steps by Andrew Beckett: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/65351/quantus-error-sky130-qrctechfile-not-recognized-as-valid-technology-file/1406727
+These steps are similar for PVS aswell.
+
+Make sure Cadence Virtuoso is closed.
+
+Create a new file called "pvtech.lib" in your working directory with the following content (modified as needed to point to the correct directory):
+
+DEFINE sky130_pv /path/to/your/sky130_release_0.1.0/pv
+
+Navigate to pv directory mentioned above nd modify its contect as follows to use PVS instead of Pegasus.
+
+;; PVS Rulesets
+pvsRuleSet( "default"
+  ( DrcRules     "../Sky130_DRC/sky130_rev_0.0_2.3.drc.pvl" )
+  ( DrcGuiPreset "drc.preset" )
+  ( LvsRules     "../Sky130_LVS/sky130.lvs.pvl" )
+  ( LvsGuiPreset "lvs.preset" )
+)
+pvsRuleSet( "lvs_qrc"
+  ( LvsRules     "../Sky130_LVS/sky130.lvs.pvl" )
+  ( LvsGuiPreset "lvs_qrc.preset" )
+)
+
+;; Quantus Rulesets
+ruleSet( "typical"
+  ( RcxSetupDir "../quantus/extraction/typical" )
+)
+
+Navigate to the SKY130_LVS directory within your working directory, and execute ln -s sky130.lvs.v0.0_1.1.pvl sky130.lvs.pvl.
+
+Open Cadence Virtuoso and open Layout L/XL for your design of choice. Then, open the PVS -> Run LVS... menu option within Layout L/XL.
+
+Under Run Data, choose any Run Directory that you would like. Under Rules -> Tech&Rules, populate the window as follows (image taken by Andrew Beckett from the above guide):
+
+(image)
+
+Press "Submit" to execute a LVS run. 
+
+There are some minor cases where some errors will occur incorrectly (discussed under the "DRC/LVS Issues" section of https://github.com/atenfyr/ttsky_analog/blob/main/notes_on_using_virtuoso/notes_on_using_virtuoso.md).
+
+Quantus setup (parasitic extraction)
+Execute the steps above for PVS setup for LVS.
+
+As mentioned the older version of quantus (EXT18) didn't support(failed to compile) C extractions. So the Techrule file has to be regenerated to be compatible.
+
+The Step-by-Step Resolution
+
+Make sure that EXT18 is in your env in .bashrc. If not add it.
+
+If you can't see a drop down option called Quantus in the layout xl window create a .cdsInit file with the following content in your working directory:
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PVS-Quantus Bridge Automation for Sky130 by cdsInit file at user 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; 1. Load the PVS UI Context (The Bridge)
+let( (pvsContext)
+    pvsContext = "/home/aed/cadence/PVS161/tools.lnx86/pvs/bin/64bit/etc/context/6.1.0/64bit/pvsui.cxt"
+    if( isFile(pvsContext) then
+        loadContext(pvsContext)
+        printf("INFO: PVS 6.1.0 64-bit UI Context Loaded.\n")
+    else
+        printf("ERROR: PVS Context not found at %s\n" pvsContext)
+    )
+)
+
+; 2. Load the Quantus QRC Context (The Engine)
+let( (qrcContext)
+    qrcContext = "/home/aed/cadence/EXT181/tools.lnx86/extraction/bin/64bit/etc/context/6.1.7/64bit/qrc.cxt"
+    if( isFile(qrcContext) then
+        loadContext(qrcContext)
+        printf("INFO: Quantus QRC Context Loaded.\n")
+    )
+)
+
+; 3. Load SNA Context (Required for Menu Registration)
+let( (snaContext)
+    snaContext = "/home/aed/cadence/EXT181/tools.lnx86/extraction/bin/64bit/etc/context/6.1.7/64bit/sna.cxt"
+    if( isFile(snaContext) then
+        loadContext(snaContext)
+        printf("INFO: Quantus SNA Context Loaded.\n")
+    )
+)
+
+; 4. Initialize the Bridge and Auto-Register Menu
+if( isCallable('_vuiInitPvs) then 
+    _vuiInitPvs() 
+    _vuiInitPvsQrc()
+    
+    if( isCallable('_qrcInitRunForm) then
+        hiEnqueueCommand("_qrcInitRunForm()")
+        printf("INFO: QRC Menu Initialization Enquied.\n")
+      )
+    printf("INFO: PVS-Quantus Bridge Initialized Successfully.\n")
+)
+;If above initialization fails we will set atrigger to run the _qrcInitRunForm command when a window using that is opened.
+procedure( KS_InitializeQRC(args)
+    unless( isCallable('_qrcInitRunForm)
+        printf("DEBUG: Loading QRC Contexts inside trigger...\n")
+        ; (Paths already loaded in step 1, but we ensure callable here)
+    )
+    when( isCallable('_qrcInitRunForm)
+        _qrcInitRunForm()
+    )
+    t ; return true
+)
+
+; This registers the menu initialization to happen every time a maskLayout is opened
+deRegUserTriggers("maskLayout" nil nil 'KS_InitializeQRC)
+
+
+
+
+
+
+Step 1: Locate the Rule Build Directory
+Navigate to the exact PDK directory where the extraction rules for the targeted process corner are managed:
+
+Bash
+
+
+cd /home/user22/sky130_pdk/sky130_release_0.1.0/quantus/extraction/typical/
+Step 2: Clear Out the Incompatible Tech File
+Isolate or remove the factory-default qrcTechFile so the compiler has a completely clean runway and doesn't conflict with stale data:
+
+Bash
+
+
+# Move the original file to a backup folder
+mv qrcTechFile "Original files/"
+Step 3: Downgrade the Compilation Script to 2018 Tool Syntax
+The directory contains a compilation.cmd script meant to automate building the rules. Open it in a text editor (gedit compilation.cmd) and perform two critical modifications:
+
+Fix the Binary Path: The script originally pointed to a hardcoded, non-existent 2022 server directory. Strip that path away and replace it simply with the local command Techgen (ensure case-sensitivity with a capital T).
+
+Add the Input Mapping Flag: The 2018 Techgen engine uses the -compilation switch but strictly requires a reference template file passed to it via the -p2lvs flag to build from scratch.
+
+Your final, corrected compilation.cmd file should look exactly like this:
+
+Plaintext
+
+
+Techgen -compilation -cap_ground_layer pwell \
+-p poly,allGates,diff \
+-lvs_blocking nfet,nfet \
+-lvs_blocking pfet,pfet \
+-lvs_blocking hvtpfet,hvtpfet \
+-lvs_blocking lvtpfet,lvtpfet \
+-lvs_blocking lvtnfet,lvtnfet \
+-lvs_blocking HV_FET_gate,HV_FET_gate \
+-canonical_res_caps \
+-length_units meters \
+-lvs ./lvsfile -p2lvs ./qrcTechFile -layer_setup ./layer_setup 
+
+
+Please ensure that Techgen is installed and accessible. If not take actions to enable it if you have it in the server.
+Step 4: Supply the Reference Template
+Before running the compiler, copy the original qrcTechFile back into the folder temporarily so Techgen can read the baseline layer mapping structures:
+
+Bash
+
+
+cp "Original files/qrcTechFile" ./
+Step 5: Execute Local Compilation
+Grant execution permissions to the script and run it. This forces your active 2018 Techgen engine to overwrite the file, compiling a fresh binary version utilizing only the mathematical properties your local software version supports:
+
+Bash
+
+
+chmod +x compilation.cmd
+./compilation.cmd
+Verify success by checking that qrcTechFile shows a brand-new generation timestamp.
+
+To perform Extraction,
+
+Open the Quantus -> "Run PVS - Quantus" menu option within Layout L/XL.
+
+The initial form should be autopopulated if the PVS setup for LVS was performed correctly. Choose "OK."
+
+In the Parasitic Extraction Run Form, choose "sky130_pv" for Technology and "typical" for RuleSet. Choose "Extracted View" under Output and "av_extracted" under View.
+
+Make other changes as necessary and choose "OK" to perform parasitic extraction.
+
+When performing post-layout simulations with Cadence Spectre, include the word "av_extracted" before "schematic" in the view list. This can be done in a config cell view, or otherwise under Setup -> Environment if using ADE L.

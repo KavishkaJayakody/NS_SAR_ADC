@@ -1,0 +1,1421 @@
+598 46
+1 x.1b 4
+"Data for SKY130 layout and mask on all layers
+"except those mentioned in 1a must be on a grid
+"of 0.005 um (except inside Seal ring)"
+"	NOTE: Seal ring not currently excluded"
+1 CDR.x.2.licon 1
+"CDR: licon shapes must be rectangles"
+1 CDR.x.2.mcon 1
+"CDR: mcon shapes must be rectangles"
+1 CDR.x.2.via1 1
+"CDR: via1 shapes must be rectangles"
+1 CDR.x.2.via2 1
+"CDR: via2 shapes must be rectangles"
+1 CDR.x.2.via3 1
+"CDR: via3 shapes must be rectangles"
+1 CDR.x.2.via4 1
+"CDR: via4 shapes must be rectangles"
+1 x.3.nwell 1
+"nwell has non-45 degree edge "
+1 x.3.dnwell 1
+"dnwell has non-45 degree edge "
+1 x.3.hvtp 1
+"hvtp has non-45 degree edge "
+1 x.3.diff 1
+"diff has non-45 degree edge "
+1 x.3.tunm 1
+"tunm has non-45 degree edge "
+1 x.3.poly 1
+"poly has non-45 degree edge "
+1 x.3.npc 1
+"npc has non-45 degree edge "
+1 x.3.nsdm 1
+"nsdm has non-45 degree edge "
+1 x.3.psdm 2
+"Angles permitted on all other layers except WLCSP layers: 45"
+"psdm has non-45 degree edge "
+1 x.3.li1 1
+"li has non-45 degree edge "
+1 x.3.m1 1
+"met1 has non-45 degree edge "
+1 x.3.m2 1
+"met2 has non-45 degree edge "
+1 x.3.m3 1
+"met3 has non-45 degree edge "
+1 x.3.m4 1
+"met4 has non-45 degree edge "
+1 x.3.m5 1
+"met5 has non-45 degree edge "
+1 x.3.nsm 1
+"nsm has non-45 degree edge "
+1 x.3.pad 2
+"Angles permitted on all other layers except WLCSP layers: 45"
+"pad has non-45 degree edge "
+1 x.3.hvntm 1
+"hvntm has non-45 degree edge "
+1 x.3.capacitor 1
+"capacitor has non-45 degree edge "
+1 x.3.ncm 1
+"ncm has non-45 degree edge "
+1 x.3.inductor 1
+"inductor has non-45 degree edge "
+1 x.3.hvtr 1
+"hvtr has non-45 degree edge "
+1 x.5.nwell 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - nwell'
+1 x.5.diff 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - diff'
+1 x.5.poly 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - poly'
+1 x.5.li 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - LI'
+1 x.5.m1 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - met1'
+1 x.5.m2 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - met2'
+1 x.5.m3 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - met3'
+1 x.5.m4 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - met4'
+1 x.5.m5 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - met5'
+1 x.5.pad 1
+'All "pin" polygons must be within the 'drawing' polygons of the layer - pad'
+1 x.10.diff 1
+"res purpose layer for diff cannot overlap licon"
+1 x.10.poly 1
+"res purpose layer for poly cannot overlap licon"
+1 x.19 1
+"Lower left corner of the Seal Ring should be at origin (0,0)"
+1 x.23c.poly 1
+"areaid:seal (Seal Ring) must not overlap poly"
+1 x.23c.li1 1
+"areaid:seal (Seal Ring) must not overlap li1"
+1 x.23c.m1 1
+"areaid:seal (Seal Ring) must not overlap met1"
+1 x.23c.m2 1
+"areaid:seal (Seal Ring) must not overlap met2"
+1 x.23c.m3 1
+"areaid:seal (Seal Ring) must not overlap met3"
+1 x.23c.m4 1
+"areaid:seal (Seal Ring) must not overlap met4"
+1 x.23c.m5 1
+"areaid:seal (Seal Ring) must not overlap met5"
+1 CDRW.x.8 2
+"CDRW: WARNING: Use of areaid.ce layer (memory core ID layer) must be approved by SkyWater Technology"
+"CDRW: WARNING: Some rules apply only to areas outside of areid.ce and a core rule may not exist "
+1 CDRW.x.fuse 1
+"CDRW: WARNING: The met4 fuse layer (GDS 71:17) is no longer supported"
+1 x.moduleCut 1
+"WARNING: Use of areaid.mt (moduleCut) layer (GDS 81:10) is for SkyWater Technology only"
+1 CDRW.x.photo 1
+"CDRW: WARNING: Use of areaid:photo layer (GDS 81:81) is prohibited"
+1 x.prBndry 1
+"WARNING: Use of prBoundary layer (GDS 235:4) is prohibited"
+1 x.pwell 1
+"WARNING: pwell must connect by ptap at least once"
+1 CDRW.x.RDL 1
+"CDRW: WARNING: Use of the RDL layer (GDS 74:20) is prohibited"
+1 CDRW.x.target 1
+"CDRW: WARNING: Use of the fuse target layer (GDS 76:44) is prohibited"
+1 CDRW.x.tunm 1
+"CDRW: WARNING: Use of the tunm layer (GDS 80:20) is prohibited"
+1 CDRW.dnwell.2 1
+"CDRW: Min width of deep nwell: 3. um"
+1 CDRW.dnwell.3 1 connected
+"CDRW: Min spacing/notch between deep nwell (rule exempt inside UHVI): 6.3 um"
+1 dnwell.3a 1 connected
+"Min spacing of dwnell in v20 on same net: 2.5"
+1 dnwell.3d 1 connected
+"Min spacing of dwnell in v20 not on same net: 12.0"
+1 dnwell.3b 1 connected
+"Min spacing of dnwell in uhvi to dnwell outside uhvi: 12.0"
+1 dnwell.3c 1 connected
+"Min spacing of dnwell in v20 to nwell outside v20: 9.5"
+1 dnwell.4 1
+"Dnwell can not overlap pnp"
+1 dnwell.5 1
+P+ Diff can not straddle dnwell"
+1 dnwell.7 1
+"Dnwell can not straddle areaid:substratecut"
+1 nwell.1 1
+"Width of nwell: 0.84 um"
+1 CDR.nwell.2a.lv 2 connected
+"CDR: Min space/notch between two LV n-wells: 1.27 um"
+"  Manual merge wells if less than minimum "
+1 nwell.2a.lv_hv 1 connected
+"Min space of LV_nwell to HV_nwell: 1.27"
+1 nwell.2a.lv_vhv 1 connected
+"Min space of LV_nwell to VHV_nwell: 2.0"
+1 nwell.2a.lv_uhv 1 connected
+"Min space of LV_nwell to UHV_nwell: 2.5"
+1 nwell.4 4
+"All n-wells will contain metal-contacted tap"
+"(rule checks only for licon on tap)."
+"Rule exempted from high voltage cells inside UHVI"
+"NOTE: exceptions have NOT been considered, there may be false errors"
+1 nwell.5 4
+"Deep nwell must be enclosed by nwell by atleast: 0.40 um"
+"Exempted inside UHVI (layer v20) or areaid.lw"
+"Nwells can merge over deep nwell if spacing too small"
+"NOTE: exceptions have NOT been considered, there may be false errors"
+1 nwell.6 2
+"Min enclosure of nwell hole by deep nwell outside UHVI: 1.03 um"
+"shapes in cell "*_tech_CD_top" exempted"
+1 nwell.ntap 1
+"nwell must have at least one ntap"
+1 hvtp.1 1
+"CDR: Min width of hvtp: 0.38 um"
+1 hvtp.2 1
+"CDR: Min spacing of hvtp to hvtp: 0.38 um"
+1 hvtp.3 1
+"Min enclosure of pfet outside of areaid.ce by hvtp: 0.18 um"
+1 hvtp.4 1
+"Min spacing between pfet and hvtp: 0.18 um"
+1 hvtp.5 1
+"Min area of hvtp: 0.265 sq um"
+1 hvtp.6 1
+"Min area of hvtp holes: 0.265 sq um"
+1 hvtr.1 1
+"CDR: Min width of hvtr: 0.38 um"
+1 hvtr.2 1
+"CDR: Min spacing of hvtp to hvtr: 0.38 um"
+1 hvtr.3 1
+"Min enclosure of pfet by hvtr: 0.18 um"
+1 CDR.lvtn.1a 1
+"CDR: Min width of lvtn: 0.38 um"
+1 CDR.lvtn.2 1
+"CDR: Min spacing lvtn to lvtn: 0.38 um"
+1 lvtn.3a 1
+"Min spacing of lvtn to gate. Rule exempted inside UHVI: 0.18 um"
+1 lvtn.3b 1
+"Min spacing of lvtn to pfet along the S/D direction: 0.19 um"
+1 lvtn.4b 1
+"Min enclosure of gate by lvtn. Rule exempted inside UHVI: 0.18 um"
+1 lvtn.9 1
+"Min spacing, no overlap, between lvtn and hvtp: 0.38 um"
+1 lvtn.10 1
+"Min enclosure of lvtn by (nwell not overlapping Var_channel) (exclude coincident edges): 0.38 um"
+1 lvtn.12 1
+"Min spacing between lvtn and (nwell inside areaid.ce): 0.38 um"
+1 lvtn.13 1
+"Min area of lvtn: 0.265 sq um"
+1 lvtn.14 1
+"Min area of lvtn holes: 0.265 sq um"
+1 CDR.lvtn.15 1
+"CDR: lvtn cannot straddle nwell"
+1 CDR.ncm.1 1
+"CDR: Min width of ncm: 0.38 um"
+1 CDR.ncm.2 2
+"CDR: Min spacing of ncm: 0.38 um"
+"Manual merge ncm if space is below minimum"
+1 ncm.3 1
+"Min enclosure of P+diff by Ncm: 0.18 um"
+1 ncm.4 1
+"Min enclosure of P+diff within (areaid:esd AndNot areaid:diode) by Ncm: 0.18 um"
+1 ncm.5 1
+"Min space, no overlap, between ncm and (LVTN_gate) OR (diff containing lvtn): 0.23 um
+1 ncm.6 1
+"Min space, no overlap, between ncm and nfet: 0.20 um"
+1 ncm.7 1
+"Min area of ncm: 0.265 sq um"
+1 ncm.8 1
+"Min area of ncm Holes: 0.265 sq um"
+1 CDR.difftap.1 1
+"CDR: Minimum width of diff or tap outside areaid.ce: 0.15 um"
+1 CDR.difftap.1a 1
+"CDR: Minimum width of diff or tap inside areaid.ce: 0.14 um"
+1 CDR.difftap.1b 1
+"CDR: Minimum width of diff or tap crossing areaid.ce: 0.15 um"
+1 difftap.2 1
+"Min channel width (Diff And Poly) for FETs outside areaid.sc and outside areaid.ce : 0.42 um"
+1 difftap.2b 1
+"Min channel width (Diff and Poly) for FETs inside areaid.sc but outside areaid.ce : 0.36 um"
+1 difftap.2c 1
+"Min channel width in areaid.ce: 0.14 um"
+1 difftap.4 1
+"Min width of tap butting diffusion: 0.29 um"
+1 difftap.5a 1
+"Min width of tap outside areaid.ce butting and between diffusion: 0.40 um"
+1 difftap.5b 1
+"Min width of tap inside areaid.ce butting and between diffusion: 0.38 um"
+1 CDR.difftap.3 1
+"CDR: Min spacing of diff to diff: 0.27 um"
+1 difftap.7 1
+"Min spacing of diff/tap abutting edge to a non-coinciding diff or tap edge: 0.13 um"
+1 difftap.9 1
+"Min spacing of (n+) diffusion to N-well outside UHVI: 0.34 um"
+1 difftap.11 1
+"Min spacing of (p+) tap to N-well. Rule exempted inside UHVI: 0.13 um"
+1 difftap.8a 2
+"Min enclosure of (p+) diffusion by N-well: 0.18 um"
+"Rule exempted inside: UHVI / areaid.ed (ESD) / areaid.ce (CORE) "
+1 difftap.8b 1
+"Min enclosure of (p+) diffusion in areaid.ce by N-well: 0.15 um"
+1 difftap.8c 1
+"Min enclosure of adjacent sides of (p+) diffusion in areaid.ce by N-well: 0.18 um"
+1 difftap.10a 2
+"Min enclosure of (n+) tap by N-well: 0.18 um"
+"Rule exempted inside: UHVI / areaid.ed (ESD) / areaid.ce (CORE) "
+1 difftap.10b 1
+"Min enclosure of (n+) tap in areaid.ce by N-well: 0.15 um"
+1 difftap.6 1
+"diff and tap are not allowed to extend beyond their abutting edge"
+1 CDR.tunm.1 1
+"CDR: Min width of tunm: 0.41 um"
+1 CDR.tunm.2 1
+"CDR: Min spacing/notch of tunm: 0.50 um"
+1 tunm.3 1
+"Extension of tunm beyond (poly and diff): 0.095 um"
+1 tunm.4 1
+"Min spacing of tunm to (poly and diff) outside tunm: 0.095 um"
+1 tunm.5 1
+"(poly and diff) may not straddle tunm"
+1 tunm.6a 1
+"Tunm outside deep n-well is not allowed"
+1 tunm.7 1
+"Min tunm area: 0.672 sq um"
+1 tunm.8 1
+"tunm must be enclosed by areaid.ce"
+1 CDR.poly.1a 1
+"CDR: Min width of poly: 0.15 um"
+1 poly.1b 2
+"Min channel length (poly width) for pfet overlapping lvtn: 0.35 um"
+"(exempt rule for dummy_poly in cells listed on Table H3)"
+1 CDR.poly.2 1
+"CDR: Min spacing of poly to poly outside of areaid.ce: 0.21 um"
+1 CDR.poly.2a 2
+"CDR: Min spacing of poly core gap: 0.16 um"
+"  (end-to-end spacing of poly in areaid.ce) "
+1 CDR.poly.2b 2
+"CDR: Min spacing of poly inside areaid.ce: 0.175 um"
+"  (except for end-to-end spacing of poly in areaid.ce) "
+1 poly.4a 1
+"Min spacing of poly on field (outside areaid.ce) to diff (parallel edges only): 0.075 um"
+1 poly.4b 1
+"Min spacing of poly in core (inside areaid.ce) to diff: 0.03 um"
+1 poly.5a 1
+"Min spacing of poly on field (outside areaid.ce) to tap: 0.055 um"
+1 poly.5b 1
+"Min spacing of poly in core (inside areaid.ce) to tap: 0.03 um"
+1 poly.9a 1
+"Min poly resistor spacing to diff/tap: 0.48 um"
+1 poly.9b 1
+"Min poly resistor spacing to poly: 0.21" um
+1 CDR.poly.3 1
+"CDR: Min poly resistor width: 0.33 um"
+1 poly.3a 1
+"Poly resistor must be covered by poly"
+1 CDR.poly.3b 1
+"CDR: Min length of precision poly resistor: 0.66 um"
+1 CDRW.poly.3c 1
+"CDRW: Min length of non-precision poly resistor: 0.47 um"
+1 poly.7 1
+"Min extension of diff beyond poly in periphery (outside areaid.ce): 0.25 um"
+1 poly.8 1
+"Min extension of poly outside areaid.ce beyond gate end (endcap): 0.13 um"
+1 poly.10 1
+"Poly cannot overlap inner corners of diff"
+1 poly.11 1
+"No 90 deg turns of poly on diff"
+1 poly.12 2
+"(Poly NOT (nwell NOT hvi)) may not overlap tap"
+"Rule exempted for gated_npn and inside UHVI."
+1 poly.15 1
+"Poly must not overlap diff:rs (diff res)"
+1 CDR.rpm.1a 1
+"CDR: Min width of rpm: 1.27 um"
+1 CDR.rpm.2 1
+"CDR: Min spacing of rpm: 0.84 um"
+1 rpm.3 1
+"Min enclosure of prec_resistor by rpm: 0.20 um"
+1 rpm.4 1
+"Min enclosure of prec_resistor by psdm: 0.11 um"
+1 rpm.5 1
+"Min enclosure of prec_resistor by npc: 0.095 um"
+1 rpm.6 1
+"Min spacing, no overlap, of rpm and nsdm: 0.20 um"
+1 rpm.7 1
+"Min spacing between rpm and poly: 0.20 um"
+1 rpm.8 1
+"poly must not straddle rpm"
+1 rpm.9 1
+"Min space, no overlap, between prec_resistor and hvntm: 0.185 um"
+1 rpm.11 1
+"rpm should not overlap or straddle pwbm"
+1 CDR.urpm.1a 1
+"CDR: Min width of urpm: 1.27 um"
+1 CDR.urpm.2 1
+"CDR: Min spacing of urpm: 0.84 um"
+1 varac.1 1
+"Min channel length (poly width) of Var_channel: 0.18 um"
+1 varac.2 1
+"Min channel width (tap width) of Var_channel: 1.00 um"
+1 varac.3 1
+"Min spacing between hvtp to Var_channel: 0.18 um"
+1 varac.5 1
+"Min enclosure of poly overlapping Var_channel by nwell: 0.15 um"
+1 varac.7 1
+"Nwell overlapping Var_channel must not overlap P+ diff"
+1 varac.8 1
+"Min enclosure of Var_channel by hvtp: 0.255"
+1 photo.2 1
+"Min/Max width of photoDiode: 3.0 um "
+1 photo.3 1
+"Min spacing between photoDiode: 5.0 um "
+1 CDR.npc.1 1
+"CDR: Min width of npc: 0.27 um"
+1 CDR.npc.2 2
+"CDR: Min spacing/notch of npc: 0.27 um"
+"Rule npc.3 Manual merge if less than minimum"
+1 npc.4 1
+"Spacing (no overlap) of NPC to Gate: 0.09 um"
+1 CDR.psd.1a 1
+"CDR: Min width of nsdm / psdm outside areaid.ce: 0.38 um"
+1 CDR.psd.1b 1
+"CDR: Min width of nsdm / psdm inside areaid.ce: 0.29 um"
+1 CDR.psd.2 2
+"CDR: Min spacing of nsdm(psdm) to nsdm(psdm): 0.38 um"
+"psd.3 - Manual merge if less than minimum"
+1 psd.5a 1
+"Min enclosure of diff by nsdm(psdm), except for butting edge: 0.125 um"
+1 psd.5b 1
+"Min enclosure of tap by nsdm(psdm), except for butting edge: 0.125 um"
+1 psd.7 2
+"Spacing of nsdm/psdm opposite implant diff or tap -lt 0.130"
+"(for non-abutting diff/tap edges)"
+1 psd.8 1
+"Nsdm and psdm cannot overlap diff/tap regions of opposite doping"
+1 psd.9 3
+"WARNING: Ddiff and tap must be enclosed by their corresponding implant layers."
+"Rule exempted for diff rings around the die"
+"Rule exempted for gated_npn & areaid.zr"
+1 psd.10a 1
+"Min area of nsdm: 0.265 sq um"
+1 psd.10b 1
+"Min area of psdm: 0.255 sq um"
+1 psd.11 1
+"Min area of nsdm/psdm Holes: 0.265 sq um"
+1 CDR.licon.1 1
+"CDR: Min and max L and W of licon, except for bar licon: 0.17 um"
+1 licon.1a 2
+"licon sized 0.17 um X 0.17 um found in precision resistor -- "
+"licon inside (rpm OR urpm) should be 0.19 um X 2.0 um bar licon " 
+1 CDR.licon.1b 1
+"CDR: Min and max width of bar licon == 0.19 um"
+1 CDR.licon.1c 1
+"CDR: Min and max length of bar licon == 2.00 um"
+1 licon.3 2
+"Only min. square licons are allowed except die seal ring where licons are (licon CD)*L: 0.17 um"
+"  this seal ring licon does not have width = 0.17 um "
+1 CDR.licon.2 2
+"CDR: Min spacing of licon to licon: 0.17 um"
+"  For non-bar licon outside of areaid.ce "
+1 CDR.licon.2a 2
+"CDR: Min spacing of licon to licon: 0.165 um"
+"  For non-bar licon inside of areaid.ce "
+1 CDR.licon.2b 1
+"CDR: Min end-to-end space of bar licon: 0.35 um"
+1 CDR.licon.2c 1
+"CDR: Min side-to-side spacing of bar licon: 0.51 um"
+1 CDR.licon.2d 1
+"CDR: Min space from bar licon to square licon: 0.51 um"
+1 CDR.licon.5b 1
+"CDR: Min space between tap_licon outside areaid.ce and diff-abutting tap edge: 0.06 um"
+1 CDR.licon.9 1
+"CDR: Min spacing, no overlap, between poly_licon outside areaid.ce and psdm: 0.11 um"
+1 licon.14a 1
+"Min spacing of poly_licon outside areaid.ce to diff or tap: 0.19 um"
+1 licon.14b 1
+"Min spacing of poly_licon inside areaid.ce to diff or tap: 0.13 um"
+1 licon.4a 1
+"licon must be inside li"
+1 licon.4b 1
+"licon must be inside (poly or diff or tap)"
+1 licon.5a 1
+"Min enclosure of licon outside areaid.ce by diff (not tap): 0.04 um"
+1 licon.5c 1
+"Min enclosure of licon outside areaid.ce by diff on one of two adjacent sides: 0.06 um"
+1 licon.7 1
+"Min enclosure of licon outside areaid.ce by one of two adjacent sides of isolated tap: 0.12 um"
+1 licon.8 1
+"Min enclosure of poly_licon outside areaid.ce by poly: 0.05 um"
+1 licon.8a 1
+"Min enclosure of poly_licon outside areaid.ce by poly on one of two adjacent sides: 0.08 um"
+1 licon.15a 1
+"Min enclosure of poly_licon outside areaid.ce by npc: 0.10 um"
+1 CDR.licon.15b 1
+"CDR: Min enclosure of poly_licon inside areaid.ce by npc: 0.045 um"
+1 licon.6 1
+"licon cannot straddle tap"
+1 licon.11 7
+"Spacing of licon on diff or tap to poly on diff: 0.055 um"
+"(except for all FETs inside areaid.sc"
+"and except s8spf-10r flow for 0.5um phv inside cell names s8fs_gwdlvx4,"
+"s8fs_gwdlvx8, s8fs_hvrsw_x4, s8fs_hvrsw8, s8fs_hvrsw264,"
+"and s8fs_hvrsw520 and for 0.15um nshort inside cell names s8fs_rdecdrv,"
+"s8fs_rdec8, s8fs_rdec32, s8fs_rdec264, s8fs_rdec520)"
+"NOTE: exceptions have NOT been considered, there may be false errors"
+1 CDR.licon.11a 3
+"CDR: Spacing of licon on diff or tap to poly on diff: 0.05 um"
+"(for all FETs inside areaid.sc except 0.15um phighvt)"
+"NOTE: exceptions have NOT been considered, there may be false errors"
+1 licon.12 1
+"GUIDELINE: Max SD width without licon: 5.70 um"
+1 CDR.licon.13 1
+"CDR: Spacing (no overlap) of NPC to licon on diff or tap: 0.09 um"
+1 CDR.licon.17 1
+"CDR: licon may not overlap both poly and (diff or tap)"
+1 licon.18 1
+"npc must enclose poly_licon"
+1 licon.20 1
+"Every tap must enclose at least 1 licon (except in uhvi)"
+1 licon.21 1
+"psdm overlapping (poly and licon) is prohibited inside areaid.ce"
+1 licon.core 1
+"WARNING: licon straddling areaid.ce (CORE)"
+1 CDR.li.1a 1
+"CDR: Width of LI inside areaid.ce: 0.14 um"
+1 CDR.li.1b 1
+"CDR: Width of LI outside areaid.ce: 0.17 um"
+1 CDR.li.1c 1
+"CDR: Width of LI crossing areaid.ce border: 0.17 um"
+1 CDR.li.3a 1
+"CDR: Spacing of LI to LI inside areaid.ce: 0.14 um"
+1 CDR.li.3b 1
+"CDR: Spacing of LI to LI outside areaid.ce: 0.17 um"
+1 CDR.li.3c 1
+"CDR: Spacing of LI to LI crossing areaid.ce border: 0.17 um"
+1 CDR.li.5 1
+"CDR: Min enclosure of licon outside areaid.ce by one of two adjacent LI sides: 0.08 um"
+1 CDR.li.6 1
+"CDR: Min area of LI: 0.0561 sq um"
+1 CDR.li.7 1
+"CDR: Min LI resistor width 0.29 um"
+1 CDR.mcon.1 1
+"CDR: Min and max L and W of mcon: 0.17 um"
+1 CDR.mcon.2 1
+"CDR: Min spacing of mcon: 0.19 um"
+1 mcon.core 1
+"WARNING: mcon straddling areaid.ce (CORE)"
+1 capm.1a 1
+"met3 must completely enclose capm"
+1 capm.1b 1
+"capm without met4 is prohibited"
+1 capm.2a 1
+"capm without via3 is prohibited"
+1 capm.2b 1
+"capm must contain at least 2 via3"
+1 capm.3a 2
+"Min space between capm bottom plates"
+"For this rule, capm is extended by 0.14 um to form bottom plate"
+1 CDR.capm.3b 2 connected
+"CDR: Min space capm bottom plates to unconnected met3: 1.2 um"
+"For this rule, capm is extended by 0.14 um to form bottom plate"
+1 CDR.capm.3c 1
+"CDR: Min capm space: 0.84 um"
+1 CDR.capm.4 1
+"CDR: Min capm width: 1.0 um"
+1 CDR.capm.5 1
+"CDR: Min enclosure of capm by met3: 0.14 um"
+1 CDR.capm.6 1
+"CDR: Min enclosure of via3 by capm: 0.14 um"
+1 CDR.capm.7 1
+"CDR: Min spacing of capm and via3: 0.14 um "
+1 capm.8a 1
+"Max capm aspect ratio (L/W): 20.0 um"
+1 capm.8b 1
+"Only rectangular capm is permitted"
+1 capm.8c 1
+"Max area of capm: 1,000,000 square um"
+1 capm.9a 1
+"Min space of capm to via2: 0.14 um"
+1 capm.9b 1
+"capm cannot overlap via2"
+1 cap2m.1a 1
+"cap2m without met4 is prohibited"
+1 cap2m.1b 1
+"cap2m without met5 is prohibited"
+1 cap2m.2a 1
+"cap2m without via4 is prohibited"
+1 cap2m.2b 1
+"cap2m must contain at least 2 via4"
+1 CDR.cap2m.3a 2
+"CDR: Min space between cap2m bottom plates"
+"For this rule, cap2m is extended by 0.14 um to form bottom plate"
+1 CDR.cap2m.3b 2 connected
+"CDR: Min space cap2m bottom plates to unconnected met4: 1.2 um"
+"For this rule, cap2m is extended by 0.14 um to form bottom plate"
+1 CDR.cap2m.3c 1
+"CDR: Min cap2m space: 0.84 um"
+1 CDR.cap2m.4 1
+"CDR: Min cap2m width: 1.0 um"
+1 CDR.cap2m.5 1
+"CDR: Min enclosure of cap2m by met4: 0.14 um"
+1 CDR.cap2m.6 1
+"CDR: Min enclosure of via4 by cap2m: 0.2 um"
+1 CDR.cap2m.7 1
+"CDR: Min spacing of cap2m and via4: 0.2 um "
+1 cap2m.8a 1
+"Max cap2m aspect ratio (L/W): 20.0 um"
+1 cap2m.8b 1
+"Only rectangular cap2m is permitted"
+1 cap2m.8c 1
+"Max area of cap2m: 1,000,000 square um"
+1 cap2m.9a 1
+"Min space of cap2m to via3: 0.14 um"
+1 cap2m.9b 1
+"cap2m cannot overlap via3 except for stacked capm / cap2m capacitors"
+1 vpp.1 1
+"GUIDELINE: Min width of capacitor:dg: 1.43 um"
+1 vpp.8 1
+"GUIDELINE: Min enclosure of capacitor:dg by nwell: 1.50 um"
+1 vpp.9 1
+"GUIDELINE: Min spacing of capacitor:dg to nwell (not applicable for vpp_over_MOSCAP): 1.50 um"
+1 vpp.13 1
+"GUIDELINE: Min space of met1 to met1 inside VPP capacitor: 0.16 um"
+1 vpp.14 1
+"GUIDELINE: Min space of met2 to met2 inside VPP capacitor: 0.16 um"
+1 CDR.m1.1 1
+"CDR: Min width of met1: 0.14 um"
+1 CDR.m1.2 1
+"CDR: Min spacing/notch of met1: 0.14 um"
+1 CDRW.m1.3a 2
+"CDRW: Min spacing of huge met1 (width > 3.0 um) to narrow met1,"
+"including features extending 0.28 um into narrow met1: 0.28 um"
+1 CDRW.m1.3b 1
+"CDRW: Min spacing of huge_met1 to met1 excluding features checked by m1.3a: 0.28 um"
+1 CDR.m1.4 1
+"CDR: Mcon outside areaid.ce must be enclosed by met1 by at least: 0.03 um"
+1 CDR.m1.4a 1
+"CDR: Mcon inside areaid.ce must be enclosed by met1 by at least: 0.005"
+1 CDR.m1.5 1
+"CDR: mcon outside areaid.ce must be enclosed by met1 on one of two adjacent sides by at least: 0.06 um" 
+1 CDR.m1.6 1
+"CDR: min met1 area: 0.083 sq um"
+1 CDR.m1.7 1
+"CDR: min area of met1 holes: 0.140 sq um"
+1 via1.3 2
+"Only min. square vias are allowed except die seal ring where vias are (via1 CD)*L == 0.20 * L"
+" this seal ring via1 does not have W = 0.2 um "
+1 via1.1a 1
+"CDR: Min and max L and W of via1 outside areaid.mt == 0.15 um"
+1 via1.1b 1
+"AL Flow - Three sizes of square Vias allowed inside areaid.mt: 0.15 um, 0.23 um and 0.28 um"
+1 CDR.via1.2 1
+"CDR: Min spacing of via1: 0.17 um"
+1 CDR.via1.4a 1
+"CDR: via1 outside of areaid.mt must be enclosed by met1 by at least: 0.055 um"
+1 via1.4b 1
+"Inside areaid.mt, 0.23 um via1 must be enclosed by met1 by at least: 0.03 um"
+1 CDR.via1.5a 1
+"CDR: Min enclosure of 0.15 um via1 by met1 on one of two adjacent sides: 0.085 um"
+1 via1.5b 1
+"Min enclosure of 0.23 um via1 by met1 on one of two adjacent sides: 0.085 um"
+1 CDR.m2.1 1
+"CDR: Min width of met2: 0.14 um"
+1 CDR.m2.2 1
+"CDR: Min spacing/notch of met2: 0.14 um"
+1 CDRW.m2.3a 2
+"CDRW: Min spacing of huge met2 (width > 3.0 um) to narrow met2,"
+"including features extending 0.28 um into narrow met2: 0.28 um"
+1 CDRW.m2.3b 1
+"CDRW: Min spacing of huge_met2 to met2 excluding features checked by m2.3a: 0.28 um"
+1 CDR.m2.4a 1
+"CDR: via1 outside areaid.ce must be enclosed by met2 by at least: 0.055 um"
+1 CDR.m2.4b 1
+"CDR: via1 inside areaid.ce must be enclosed by met2 by at least: 0.045 um"
+1 CDR.m2.5 1
+"CDR: via1 outside areaid.ce must be enclosed by met2 on one of two adjacent sides by at least: 0.085 um" 
+1 CDR.m2.6 1
+"CDR: min met2 area: 0.067 sq um"
+1 CDR.m2.7 1
+"CDR: min area of met2 holes: 0.140 sq um"
+1 CDR.via2.1a 1
+"CDR: Min and max L and W of via2 outside areaid.mt: 0.20 um"
+1 via2.1d 1
+"Four sizes of square Via2s allowed inside areaid.mt: 0.200um, 0.280um, 1.200um and 1.500um"
+1 CDR.via2.2 1
+"CDR: Min spacing of via2: 0.20 um"
+1 via2.3 2
+"Only min. square via2s are allowed except die seal ring where vias are (via2 CD)*L == 0.20 * L"
+" this seal ring via2 does not have W = 0.2 um"
+1 CDR.via2.4 1
+"CDR: Min enclosure of via2 by met2: 0.04 um"
+1 via2.4a 1
+"Inside areaid.mt, Min enclosure of 1.5 um via2 by met2: 0.14 um"
+1 CDR.via2.5 1
+"CDR: Min enclosure of via2 by met2 on one of two adjacent sides: 0.085 um"
+1 m3.1 1
+"CDR: Min width of met3: 0.30 um"
+1 CDR.m3.2 1
+"CDR: Min spacing/notch of met3: 0.30 um"
+1 CDRW.m3.3c 2
+"CDRW: Min spacing of huge met3 (width > 3.0 um) to narrow met3,"
+"including features extending 0.28 um into narrow met3: 0.40 um"
+1 CDRW.m3.3d 1
+"CDRW: Min spacing of huge_met3 to met3 excluding features checked by m3.3c: 0.40 um"
+1 CDR.m3.4 1
+"CDR: Min enclosure of via2 by met3: 0.065 um"
+1 CDR.m3.6 1
+"CDR: min met3 area: 0.240 sq um"
+1 CDR.m3.7 1
+"CDR: min area of met3 holes: 0.200 sq um"
+1 CDR.via3.1 1
+"CDR: Min and max L and W of via3 (except for rule via3.1a) == 0.20 um"
+1 via3.1a 1
+"Two sizes of square via3 allowed inside areaid.mt: 0.200um and 0.800um"
+1 CDR.via3.2 1
+"CDR: Min spacing of via3: 0.20 um"
+1 via3.3 2
+"Only min. square via3s are allowed except die seal ring where via3s are (via3 CD)*L == 0.20 * L"
+" this seal ring via3 does not have W = 0.2 um"
+1 CDR.via3.4 1
+"CDR: Min enclosure of via3 by met3: 0.06 um"
+1 CDR.via3.5 1
+"CDR: Min enclosure of via3 by 3et3 on one of two adjacent sides: 0.09 um"
+1 CDR.nsm.1 1
+"CDR: Min width of nsm: 3.00 um"
+1 CDR.nsm.2 1
+"CDR: Min spacing of nsm: 4.00 um"
+1 CDR.m4.1 1
+"CDR: Min width of met4: 0.30 um"
+1 CDR.m4.2 1
+"CDR: Min spacing/notch of met4: 0.30 um"
+1 CDR.m4.3 1
+"CDR: Min enclosure of via3 by met4: 0.065 um"
+1 CDR.m4.4a 1
+"CDR: Min met4 area: 0.240 sq um"
+1 CDRW.m4.5a 3
+"CDRW: Min spacing of huge met4 (width > 3.0 um) to narrow met4,"
+"including features extending 0.28 um into narrow met4: 0.40 um"
+"(rule not checked over non-huge m4_dg features)"
+1 CDRW.m4.5b 1
+"CDRW: Min spacing of huge_met4 to met4 excluding features checked by m4.3c: 0.40 um"
+1 CDR.m4.7 1
+"CDR: Min area of met4 holes: 0.200 sq um"
+1 CDR.via4.1 1
+"CDR: Min and max L and W of via4 == 0.80 um"
+1 CDR.via4.2 1
+"CDR: Spacing of via4: 0.80 um"
+1 via4.3 2
+"Only min. square via4s are allowed except die seal ring where via4s are (via4 CD)*L == 0.80 * L"
+" this seal ring via4 does not have W = 0.8 um"
+1 CDR.via4.4 1
+"CDR: Min enclosure of via4 by met4: 0.19 um"
+1 CDR.m5.1 1
+"CDR: Min width of met5: 1.60 um"
+1 CDR.m5.2 1
+"CDR: Min spacing/notch of met5: 1.60 um"
+1 CDR.m5.3 1
+"CDR: Min enclosure of via4 by met5: 0.31 um"
+1 CDR.m5.4 1
+"CDR: Min area of met5: 4.0 sq um"
+1 CDR.pad.2 1
+"CDR: Min spacing of pad: 1.27 um"
+1 pad.3 2
+"Min area of hugePad NOT top_metal: 30000 sq um"
+" Adjust top_metal based on final process type"
+1 hvi.nwell 1
+"hvi must not straddle nwell"
+1 hvi.1 1
+"Min width of Hvi: 0.02 um"
+1 hvi.2 2
+"Min spacing of Hvi to Hvi: 0.70 um"
+"Manual merge if space is below minimum"
+1 hvi.4 1
+"Hvi must not overlap tunm"
+1 hvnwell.8.hv 1 connected
+"Min space/notch of HV_nwell: 1.27"
+1 hvnwell.8.hv_vhv 1 connected
+"Min space of HV_nwell to VHV_nwell: 2.0"
+1 hvnwell.8.hv_uhv 1 connected
+"Min space of HV_nwell to UHV_nwell: 2.5"
+1 hvnwell.8.vhv 1 connected
+"Min space/notch of VHV_nwell: 2.0"
+1 hvnwell.8.vhv_uhv 1 connected
+"Min space of VHV_nwell to UHV_nwell: 2.5"
+1 hvnwell.8.uvh 1 connected
+"Min space/notch of UHV_nwell: 2.5"
+1 hvnwell.9 1
+"(Nwell overlapping hvi) must be enclosed by hvi"
+1 hvdifftap.14 1
+"Min width of diff (not tap) inside hvi, except HV pdiff resistors (hvdifftap.14a): 0.29 um"
+1 hvdifftap.14a 1
+"Min width of diff inside hvi, HV pdiff resistors only: 0.15 um"
+1 hvdifftap.15a 1
+"Min space of diff inside hvi: 0.30 um"
+1 hvdifftap.15b 1
+"Min space of ndiff to non-abutting ptap inside hvi: 0.37 um"
+1 hvdifftap.16 2
+"Min width tap butting diff on one or two sides inside hvi: 0.70 um"
+" Rule exempted inside UHVI"
+1 hvdifftap.17 2
+"Min enclosure of HV pdiff or pdiff inside areaid:hvnwell by HV nwell: 0.33 um"
+"  Rule exempted inside UHVI "
+1 hvdifftap.18 1
+"Min spacing of N+ diff to HV nwell (rule exempted inside UHVI): 0.43 um"
+1 hvdifftap.19 2
+"Min enclosure of HV ntap by HV nwell: 0.33 um"
+"  Rule exempted inside UHVI "
+1 hvdifftap.20 1
+"Spacing of P+ tap to HV nwell (Exempted for ptap butting pwell.rs, rule exempted inside UHVI): 0.43 um"
+1 hvdifftap.21 1
+"Diff or tap cannot straddle hvi"
+1 hvdifftap.22 1
+"Min enclosure of Hdiff or Htap by hvi. Rule exempted inside UHVI: 0.18 um "
+1 hvdifftap.24 1
+"Min spacing of nwell to HV ndiff (rule exempted inside UHVI): 0.43 um"
+1 CDR.hvdifftap.25 1
+"CDR: Min space of N+ Hdiff inside HVI across non-abutting P+_tap: 1.07 um"
+1 hvpoly.13 1
+"Min width of poly over diff inside hvi: 0.50 um" 
+1 hvpoly.14 1
+"(poly and diff) cannot straddle hvi"
+1 CDR.hvntm.1 1
+"CDR: Min width of hvntm: 0.70 um"
+1 hvntm.2 1
+"Spacing of hvntm to hvntm: 0.70 um"
+1 hvntm.3 1
+"Min enclosure of (ndiff inside hvi) but not overlapping areaid.ce by hvntm: 0.185 um"
+1 hvntm.4 2
+"Min space between (ndiff outside hvi) and hvntm: 0.185 um"
+" No overlap allowed "	
+1 hvntm.5 2
+"Min space between pdiff and hvntm: 0.185 um"
+" No overlap allowed "	
+1 hvntm.6a 2
+"Min space between ptap and hvntm (except along the diff-butting edge): 0.185 um"
+" No overlap allowed "	
+1 hvntm.6b 2
+"Min space between ptap and hvntm along the diff-butting edge: 0.00 um"
+" No overlap allowed "	
+1 hvntm.9 1
+"hvntm must not overlap areaid.ce"
+1 hvntm.10 1
+"hvntm must overlap hvi (v5)" 
+1 denmos.1 1
+"Min width of de_nFet_gate: 1.055 um" 
+1 denmos.2 1
+"Min width of de_nFet_source not overlapping poly: 0.28 um"
+1 denmos.3 1
+"Min width of de_nFet_source overlapping poly: 0.925 um"
+1 denmos.4 1
+"Min width of the de_nFet_drain: 0.17 um"
+1 denmos.5 1
+"Min/Max extension of de_nFet_source over nwell == 0.225"
+1 denmos.6 1
+"Min/Max spacing between de_nFet_drain and de_nFet_source == 1.585 um"
+1 denmos.7 1
+"Min channel width for de_nFet_gate: 5.00 um"
+1 denmos.8 1
+"90 degree angles are not permitted for nwell overlapping de_nFET_drain"
+1 denmos.10 1
+"Min enclosure of de_nFet_drain by nwell: 0.66 um"
+1 denmos.11 1
+"Min spacing between p+ tap and (nwell overlapping de_nFet_drain): 0.86 um"
+1 denmos.12 1
+"Min spacing between nwells overlapping de_nFET_drain: 2.40 um"
+1 denmos.13 1
+"de_nFet_source must be enclosed by nsdm by: 0.13 um"
+1 depmos.1 1
+"Min width of de_pFet_gate: 1.05 um" 
+1 depmos.2 1
+"Min width of de_pFet_source not overlapping poly: 0.28 um"
+1 depmos.3 1
+"Min width of de_pFet_source overlapping poly: 0.92 um"
+1 depmos.4 1
+"Min width of the de_pFet_drain: 0.17 um"
+1 depmos.5 1
+"Min/Max extension of de_pFet_source beyond nwell == 0.260"
+1 depmos.6 1
+"Min/Max spacing between de_pFet_drain and de_pFet_source == 1.19 um"
+1 depmos.7 1
+"Min channel width for de_pFet_gate: 5.00 um"
+1 depmos.8 1
+"90 degree angles are not permitted for nwell overlapping de_pFET_drain"
+1 depmos.10 1
+"Min enclosure of de_pFet_drain by nwell hole: 0.86 um"
+1 depmos.11 1
+"Min spacing between n+ tap and (nwell hole enclosing de_pFet_drain): 0.66 um"
+1 depmos.12 1
+"Min enclosure of de_pFet_source by psdm: 0.13 um"
+1 vhvi.uhvi 1
+"vhvi must not overlap uhvi"
+1 vhvi.1 1
+"Min width of vhvi:dg: 0.02 um"
+1 vhvi.2 1
+"Vhvi:dg cannot overlap areaid:ce"
+1 vhvi.3 1
+"VHVGate must overlap hvi:dg"	
+1 vhvi.5 1
+"Vhvi:dg cannot straddle VHVSourceDrain"
+1 vhvi.6 1
+"Vhvi:dg overlapping VHVSourceDrain must not overlap poly"	
+1 vhvi.7 1
+"Vhvi:dg cannot straddle VHVPoly"
+1 uhvi.1 1
+"diff/tap cannot straddle UHVI"
+1 uhvi.2 1
+"poly cannot straddle UHVI"
+1 uhvi.3 1
+"pwbm must be enclosed by UHVI (exempt inside areaid:lvnet)"
+1 uhvi.4 1
+"dnwell cannot straddle UHVI"
+1 pwres.3 1
+"Min length of pwell resistor: 26.50 um"
+1 pwres.5 1
+"Min/Max spacing of tap inside the pwell resistor to nwell == 0.22 um"
+1 pwres.6 1
+"Min/Max width of tap inside the pwell resistor == 0.53 um"
+1 pwres.7a 1
+"Every pwres_terminal must enclose 12 licon"
+1 pwres.7b 1
+"Every pwres_terminal must enclose 12 mcons if routed through metal1"
+1 pwres.8 1
+"Diff or poly is not allowed in the pwell resistor."
+1 CDR.diff.local.low 2 density
+"CDR: Min diff local density (700 square um window, 7 um step): 28%"
+"  rdb file: diff_low_density.rdb"
+1 CDRW.diff.local.high 2 density
+"CDRW: Max diff local density (700 square um window, 7 um step): 62%"
+"  rdb file: diff_high_density.rdb"
+1 CDRW.poly.local.low 2 density
+"CDRW: Min poly local density (700 square um window, 7 um step): 8%"
+"  rdb file: poly_low_density.rdb"
+1 CDRW.poly.local.high 2 density
+"CDRW: Max poly local density (700 square um window, 7 um step): 38%"
+"  rdb file: poly_high_density.rdb"
+1 CDRW.li.global.min 2 density
+"CDRW: Min global density of LI inside seal ring: 33%"
+"  rdb file: li_global_low.rdb"
+1 CDRW.li.global.max 2 density
+"CDRW: Max global density of LI inside seal ring: 62%"
+"  rdb file: li_global_high.rdb"
+1 CDRW.m1.global.min 2 density
+"CDRW: Min global density of met1 inside seal ring: 33%"
+"  rdb file: m1_global_low.rdb"
+1 CDRW.m1.global.max 2 density
+"CDRW: Max global density of met1 inside seal ring: 62%"
+"  rdb file: m1_global_high.rdb"
+1 CDRW.m2.global.min 2 density
+"CDRW: Min global density of met2 inside seal ring: 33%"
+"  rdb file: m2_global_low.rdb"
+1 CDRW.m2.global.max 2 density
+"CDRW: Max global density of met2 inside seal ring: 62%"
+"  rdb file: m2_global_high.rdb"
+1 CDRW.m3.global.min 2 density
+"CDRW: Min global density of met3 inside seal ring: 33%"
+"  rdb file: m3_global_low.rdb"
+1 CDRW.m3.global.max 2 density
+"CDRW: Max global density of met3 inside seal ring: 62%"
+"  rdb file: m3_global_high.rdb"
+1 CDRW.m4.global.min 2 density
+"CDRW: Min global density of met4 inside seal ring: 33%"
+"  rdb file: m4_global_low.rdb"
+1 CDRW.m4.global.max 2 density
+"CDRW: Max global density of met4 inside seal ring: 62%"
+"  rdb file: m4_global_high.rdb"
+1 CDRW.m5.global.min 2 density
+"CDRW: Min global density of met5 inside seal ring: 43%"
+"  rdb file: m5_global_low.rdb"
+1 CDRW.m5.global.max 2 density
+"CDRW: Max global density of met5 inside seal ring: 78%"
+"  rdb file: m5_global_high.rdb"
+1 CDR.m1.local.min 4 density
+"CDR: Min met1 oxide pattern local density: 80%"
+"  700 square micron window stepped at 70 um"
+"  NOTE: 'met1 oxide pattern' is all met1 sized by 0.6 um'
+"  rdb file:  m1_oxide_low.rdb"
+1 CDR.m2.local.min 4 density
+"CDR: Min met2 oxide pattern local density (AL): 80%"
+"  700 square micron window stepped at 70 um "
+"  NOTE: 'met2 oxide pattern' is all met2 sized by 0.6 um"
+"  rdb file:  m2_oxide_low.rdb"
+1 CDR.m3.local.min 4 density
+"CDR: Min met3 oxide pattern local density (AL): 80%"
+"  700 square micron window stepped at 70 um "
+"  NOTE: 'met3 oxide pattern' is all met3 sized by 1.15 um"
+"  rdb file:  m3_oxide_low.rdb"
+1 CDR.m4.local.min 4 density
+"CDR: Min met4 oxide pattern local density (AL): 80%"
+"  700 square micron window stepped at 70 um "
+"  NOTE: 'met4 oxide pattern' is all met4 sized by 0.6 um"
+"  rdb file:  m4_oxide_low.rdb"
+1 diff.fill.1 1
+"diff fill must be rectangles"
+1 diff.fill.2 1
+"Min width of diff fill:  0.5 um"
+1 diff.fill.3 1
+"Max length of diff fill:  25. um"
+1 diff.fill.4 1
+"diff fill must not overlap diff or tap"
+1 diff.fill.5 1
+"diff fill must not overlap poly"
+1 diff.fill.6 1
+"diff fill must not overlap or touch licon"
+1 diff.fill.7 1
+"diff fill must not overlap areaid:seal"
+1 diff.fill.8 1
+"diff fill must not overlap diff fill block"
+1 diff.fill.9 1
+"Min spacing diff fill to diff fill: 0.4 um"
+1 diff.fill.10 1
+"Min spacing (no touch) diff fill to diff or tap: 0.5 um"
+1 diff.fill.11 1
+"Min spacing (no touch) diff fill to diff fill_block: 0.5 um"
+1 diff.fill.12 1
+"Min spacing (no touch) diff fill to nsdm / psdm: 0.13 um"
+1 diff.fill.13 1
+"Min spacing (no touch) diff fill to poly: 0.5 um"
+1 diff.fill.14 1
+"Min spacing diff fill to nwell: 0.34 um"
+1 diff.fill.15 1
+"Min spacing (no touch) diff fill to HV nwell: 0.33 um"
+1 diff.fill.16 1
+"Min spacing (no touch) diff fill to areaid.seal (SEALID): 1. um"
+1 diff.fill.17 2
+"Min enclosure of diff fill by nwell: 0.18 um"
+" diff fill straddling nwell not allowed "
+1 diff.fill.18 2
+"Min enclosure of diff fill by 5 volt nwell: 0.43 um"
+" diff fill straddling 5 volt nwell not allowed "
+1 diff.fill.19 2
+"Min enclosure, with no overlap, of diff fill by FRAME (areaid.fe): 0.5 um"
+" diff fill straddling FRAME not allowed "
+1 poly.fill.1 1
+"poly fill must be rectangles"
+1 poly.fill.2 1
+"Min width of poly fill:  0.48 um"
+1 poly.fill.3 1
+"Max length of poly fill:  0.72 um"
+1 poly.fill.4 1
+"poly fill must not overlap diff or tap"
+1 poly.fill.5 1
+"poly fill must not overlap poly"
+1 poly.fill.6 1
+"poly fill must not overlap areaid:seal"
+1 poly.fill.7 1
+"poly fill must not overlap poly fill block"
+1 poly.fill.8 1
+"Min spacing poly fill to poly fill: 0.36 um"
+1 poly.fill.9 1
+"Min spacing (no touch) poly fill to poly: 1. um"
+1 poly.fill.10 1
+"Min spacing (no touch) poly fill to poly fill_block: 1. um"
+1 poly.fill.11 1
+"Min spacing (no touch) poly fill to diff fill: 0.3 um"
+1 poly.fill.12 1
+"Min spacing (no touch) poly fill to diff or tap: 1. um"
+1 poly.fill.13 1
+"Min spacing (no touch) poly fill to areaid.seal (SEALID): 1. um"
+1 poly.fill.14 2
+"Min enclosure of poly fill by FRAME (areaid.fe): 0.5 um"
+" poly fill straddling FRAME not allowed "
+1 li.fill.1 1
+"li fill must be rectangles"
+1 li.fill.2 1
+"Min width of li fill:  0.5 um"
+1 li.fill.3 1
+"Max length of li fill:  5.0 um"
+1 li.fill.4 1
+"li fill must not overlap li"
+1 li.fill.5 1
+"li fill must not overlap poly"
+1 li.fill.6 1
+"li fill must not overlap or touch licon"
+1 li.fill.7 1
+"li fill must not overlap or touch mcon"
+1 li.fill.8 1
+"li fill must not overlap areaid:seal"
+1 li.fill.9 1
+"li fill must not overlap li fill block"
+1 li.fill.10 1
+"Min spacing li fill to li fill: 0.5 um"
+1 li.fill.11 1
+"Min spacing (no touch) li fill to li: 0.5 um"
+1 li.fill.12 1
+"Min spacing (no touch) li fill to li fill_block: 0.5 um"
+1 li.fill.13 1
+"Min spacing (no touch) li fill to licon: 0.5 um"
+1 li.fill.14 1
+"Min spacing (no touch) li fill to mcon: 0.5 um"
+1 li.fill.15 1
+"Min spacing (no touch) li fill to areaid.seal (SEALID): 1. um"
+1 li.fill.16 2
+"Min enclosure of LI fill by FRAME (areaid.fe): 0.5 um"
+" LI fill straddling FRAME not allowed "
+1 m1.fill.1 1
+"met1 fill must be rectangles"
+1 m1.fill.2 1
+"Min width of met1 fill:  0.3 um"
+1 m1.fill.3 1
+"Max length of met1 fill:  2. um"
+1 m1.fill.4 1
+"met1 fill must not overlap met1"
+1 m1.fill.5 1
+"met1 fill must not overlap areaid:seal"
+1 m1.fill.6 1
+"met1 fill must not overlap mcon"
+1 m1.fill.7 1
+"met1 fill must not overlap via1"
+1 m1.fill.8 1
+"met1 fill must not overlap met1 fill block"
+1 m1.fill.9 1
+"Min spacing met1 fill to met1 fill: 0.3 um"
+1 m1.fill.10 1
+"Min spacing (no touch) met1 fill to areaid.seal (SEALID): 1. um"
+1 m1.fill.11 1
+"Min spacing (no touch) met1 fill to mcon: 0.3 um"
+1 m1.fill.12 1
+"Min spacing (no touch) met1 fill to met1 dg: 0.3 um"
+1 m1.fill.13 1
+"Min spacing (no touch) met1 fill to via1: 0.3 um"
+1 m1.fill.14 1
+"Min spacing (no touch) met1 fill to met1 fill_block: 0.3 um"
+1 m1.fill.15 2
+"Min enclosure of met1 fill by FRAME (areaid.fe): 0.5 um"
+" met1 fill straddling FRAME not allowed "
+1 m2.fill.1 1
+"met2 fill must be rectangles"
+1 m2.fill.2 1
+"Min width of met2 fill:  0.3 um"
+1 m2.fill.3 1
+"Max length of met2 fill:  2. um"
+1 m2.fill.4 1
+"met2 fill must not overlap met2"
+1 m2.fill.5 1
+"met2 fill must not overlap areaid:seal"
+1 m2.fill.6 1
+"met2 fill must not overlap via1"
+1 m2.fill.7 1
+"met2 fill must not overlap via2"
+1 m2.fill.8 1
+"met2 fill must not overlap met2 fill block"
+1 m2.fill.9 1
+"Min spacing met2 fill to met2 fill: 0.3 um"
+1 m2.fill.10 1
+"Min spacing (no touch) met2 fill to areaid.seal (SEALID): 1. um"
+1 m2.fill.11 1
+"Min spacing (no touch) met2 fill to via1: 0.3 um"
+1 m2.fill.12 1
+"Min spacing (no touch) met2 fill to met2 dg: 0.3 um"
+1 m2.fill.13 1
+"Min spacing (no touch) met2 fill to via2: 0.3 um"
+1 m2.fill.14 1
+"Min spacing (no touch) met2 fill to met2 fill_block: 0.3 um"
+1 m2.fill.15 2
+"Min enclosure of met2 fill by FRAME (areaid.fe): 0.5 um"
+" met2 fill straddling FRAME not allowed "
+1 m3.fill.1 1
+"met3 fill must be rectangles"
+1 m3.fill.2 1
+"Min width of met3 fill:  0.5 um"
+1 m3.fill.3 1
+"Max length of met3 fill:  2. um"
+1 m3.fill.4 1
+"met3 fill must not overlap met3"
+1 m3.fill.5 1
+"met3 fill must not overlap areaid:seal"
+1 m3.fill.6 1
+"met3 fill must not overlap via2"
+1 m3.fill.7 1
+"met3 fill must not overlap via3"
+1 m3.fill.8 1
+"met3 fill must not overlap met3 fill block"
+1 m3.fill.9 1
+"Min spacing met3 fill to met3 fill: 0.3 um"
+1 m3.fill.10 1
+"Min spacing (no touch) met3 fill to areaid.seal (SEALID): 1. um"
+1 m3.fill.11 1
+"Min spacing (no touch) met3 fill to via2: 0.5 um"
+1 m3.fill.12 1
+"Min spacing (no touch) met3 fill to met3 dg: 0.5 um"
+1 m3.fill.13 1
+"Min spacing (no touch) met3 fill to via3: 0.5 um"
+1 m3.fill.14 1
+"Min spacing (no touch) met3 fill to met3 fill_block: 0.5 um"
+1 m3.fill.15 2
+"Min enclosure of met3 fill by FRAME (areaid.fe): 0.5 um"
+" met3 fill straddling FRAME not allowed "
+1 m4.fill.1 1
+"met4 fill must be rectangles"
+1 m4.fill.2 1
+"Min width of met4 fill:  0.5 um"
+1 m4.fill.3 1
+"Max length of met4 fill:  2. um"
+1 m4.fill.4 1
+"met4 fill must not overlap met4"
+1 m4.fill.5 1
+"met4 fill must not overlap areaid:seal"
+1 m4.fill.6 1
+"met4 fill must not overlap via3"
+1 m4.fill.7 1
+"met4 fill must not overlap via4"
+1 m4.fill.8 1
+"met4 fill must not overlap met4 fill block"
+1 m4.fill.9 1
+"Min spacing met4 fill to met4 fill: 0.3 um"
+1 m4.fill.10 1
+"Min spacing (no touch) met4 fill to areaid.seal (SEALID): 1. um"
+1 m4.fill.11 1
+"Min spacing (no touch) met4 fill to via3: 0.5 um"
+1 m4.fill.12 1
+"Min spacing (no touch) met4 fill to met4 dg: 0.5 um"
+1 m4.fill.13 1
+"Min spacing (no touch) met4 fill to via4: 0.5 um"
+1 m4.fill.14 1
+"Min spacing (no touch) met4 fill to met4 fill_block: 0.5 um"
+1 m4.fill.15 2
+"Min enclosure of met4 fill by FRAME (areaid.fe): 0.5 um"
+" met4 fill straddling FRAME not allowed "
+1 m5.fill.1 1
+"met5 fill must be rectangles"
+1 m5.fill.2 1
+"Min width of met5 fill:  2. um"
+1 m5.fill.3 1
+"Max length of met5 fill:  5. um"
+1 m5.fill.4 1
+"met5 fill must not overlap met5"
+1 m5.fill.5 1
+"met5 fill must not overlap areaid:seal"
+1 m5.fill.6 1
+"met5 fill must not overlap via4"
+1 m5.fill.7 1
+"met5 fill must not overlap met5 fill block"
+1 m5.fill.8 1
+"Min spacing met5 fill to met5 fill: 1.6 um"
+1 m5.fill.9 1
+"Min spacing (no touch) met5 fill to areaid.seal (SEALID): 1. um"
+1 m5.fill.10 1
+"Min spacing (no touch) met5 fill to met5 dg: 3. um"
+1 m5.fill.11 1
+"Min spacing (no touch) met5 fill to via4: 3. um"
+1 m5.fill.12 1
+"Min spacing (no touch) met5 fill to met5 fill_block: 3. um"
+1 m5.fill.13 2
+"Min enclosure of met5 fill by FRAME (areaid.fe): 0.5 um"
+" met5 fill straddling FRAME not allowed "
+1 m3.fill.capm.1 1
+"met3 fill should not overlap or touch capm"
+1 m3.fill.capm.2 1
+"Min space met3 fill to capm: 1.2
+1 m4.fill.cap2m.1 1
+"met4 fill should not overlap or touch cap2m"
+1 m4.fill.cap2m.2 1
+"Min space met4 fill to capm: 1.2
+1 CDR.mcon.cover.1 1
+"CDR: mcon must be inside li"
+1 mcon.cover.2 1
+"mcon must be inside met1"
+1 via1.cover.1 1
+"via1 must be inside met1"
+1 via1.cover.2 1
+"via1 must be inside met2"
+1 via2.cover.1 1
+"via2 must be inside met2"
+1 via2.cover.2 1
+"via2 must be inside met3"
+1 via3.cover.1 1
+"via3 must be inside met3"
+1 via3.cover.2 1
+"via3 must be inside met4"
+1 via4.cover.1 1
+"via4 must be inside met4"
+1 via4.cover.2 1
+"via4 must be inside met5"
+1 difftap.res 1
+"WARNING: diff res must fit exactly inside diff drawing"
+1 li.res 1
+"WARNING: li res must fit exactly inside li drawing"
+1 m1.res 1
+"WARNING: met1 res must fit exactly inside met1 drawing"
+1 m2.res 1
+"WARNING: met2 res must fit exactly inside met2 drawing"
+1 m3.res 1
+"WARNING: met3 res must fit exactly inside met3 drawing"
+1 m4.res 1
+"WARNING: met4 res must fit exactly inside met4 drawing"
+1 m5.res 1
+"WARNING: met5 res must fit exactly inside met5 drawing"
+1 li.block.1 1
+"li cannot overlap li blockage"
+1 m1.block.1 1
+"met1 cannot overlap met1 blockage"
+1 m2.block.1 1
+"met2 cannot overlap met2 blockage"
+1 m3.block.1 1
+"met3 cannot overlap met3 blockage"
+1 m4.block.1 1
+"met4 cannot overlap met4 blockage"
+1 m5.block.1 1
+"met5 cannot overlap met5 blockage"
+1 li.block.2 1
+"Min spacing of li to li blockage: 0.17 um"
+1 m1.block.2 1
+"Min spacing of met1 to met1 blockage: 0.14 um"
+1 m2.block.2 1
+"Min spacing of met2 to met2 blockage: 0.14 um"
+1 m3.block.2 1
+"Min spacing of met3 to met3 blockage: 0.3 um"
+1 m4.block.2 1
+"Min spacing of met4 to met4 blockage: 0.3 um"
+1 m5.block.2 1
+"Min spacing of met5 to met5 blockage: 1.6 um"
+1 diff.oldfill.1 1
+"WARNING: cfom/fill (GDS 22:99) is not supported. Use diff/fill (GDS 65:99)"
+1 diff.oldfill.2 1
+"WARNING: cfom/waffleDrop (GDS 22:24) is not supported. Use diff/fill_block (GDS 65:98)"
+1 poly.oldfill.1 1
+"WARNING: cp1m/fill (GDS 28:28) is not supported. Use poly/fill (GDS 66:99)"
+1 poly.oldfill.2 1
+"WARNING: cp1m/waffleDrop (GDS 33:24) is not supported. Use poly/fill_block (GDS 66:98)"
+1 li.oldfill.1 1
+"WARNING: cli1m/fill (GDS 56:28) is not supported. Use li/fill (GDS 67:99)"
+1 m1.oldfill.1 1
+"WARNING: cmm1/fill (GDS 36:28) is not supported. Use met1/fill (GDS 68:99)"
+1 m1.oldfill.2 1
+"WARNING: cmm1/waffleDrop (GDS 62:24) is not supported. Use met1/fill_block (GDS 68:98)"
+1 m2.oldfill.1 1
+"WARNING: cmm2/fill (GDS 41:28) is not supported. Use met2/fill (GDS 69:99)"
+1 m2.oldfill.2 1
+"WARNING: cmm2/waffleDrop (GDS 105:52) is not supported. Use met2/fill_block (GDS 69:98)"
+1 m3.oldfill.1 1
+"WARNING: cmm3/fill (GDS 34:28) is not supported. Use met3/fill (GDS 70:99)"
+1 m3.oldfill.2 1
+"WARNING: cmm3/waffleDrop (GDS 107:52) is not supported. Use met3/fill_block (GDS 70:98)"
+1 m4.oldfill.1 1
+"WARNING: cmm4/fill (GDS 51:28) is not supported. Use met4/fill (GDS 71:99)"
+1 m4.oldfill.2 1
+"WARNING: cmm4/waffleDrop (GDS 112:4) is not supported. Use met4/fill_block (GDS 71:98)"
+1 m5.oldfill.1 1
+"WARNING: cmm5/fill (GDS 59:28)) is not supported. Use met5/fill (GDS 72:99)"
+1 m5.oldfill.2 1
+"WARNING: cmm5/waffleDrop (GDS 117:4) is not supported. Use met5/fill_block (GDS 72:98)"
+1 X 2
+x.*
+CDR*x.*
+1 NWELL 2
+nwell.*
+CDR*nwell.*
+1 DNWELL 2
+dnwell.*
+CDR*dnwell.*
+1 HVTP 1
+hvtp.*
+1 HVTR 1
+hvtr.*
+1 LVTN 2
+lvtn.*
+CDR*lvtn.*
+1 NCM 2
+ncm.*
+CDR*ncm.*
+1 DIFFTAP 4
+difftap.*
+diff.*
+CDR*difftap.*
+CDR*diff.*
+1 TUNM 2
+tunm.*
+CDR*tunm.*
+1 POLY 2
+poly.*
+CDR*poly.*
+1 RPM 3
+rpm.*
+CDR*rpm.*
+CDR*urpm.*
+1 VARAC 1
+varac.*
+1 PHOTO 1
+photo.*
+1 NPC 2
+npc.*
+CDR*npc.*
+1 N_PSD 2
+psd.*
+CDR*psd.*
+1 LICON 2
+licon.*
+CDR*licon.*
+1 LI 2
+li.*
+CDR*li.*
+1 MCON 2
+mcon.*
+CDR*mcon.*
+1 CAPM 4
+capm.*
+cap2m.*
+CDR*capm.*
+CDR*cap2m.*
+1 VPP 1
+vpp.*
+1 M1 2
+m1.*
+CDR*.m1.*
+1 VIA1 2
+via1.*
+CDR*via1.*
+1 M2 2
+m2.*
+CDR*m2.*
+1 VIA2 2
+via2.*
+CDR*via2.*
+1 M3 2
+m3.*
+CDR*m3.*
+1 VIA3 2
+via3.*
+CDR*via3.*
+1 NSM 1
+CDR*nsm.*
+1 M4 2
+m4.*
+CDR*m4.*
+1 VIA4 2
+via4.*
+CDR*via4.*
+1 M5 2
+m5.*
+CDR*m5.*
+1 PAD 2
+pad.*
+CDR*pad.*
+1 HVI 1
+hvi.*
+1 HVNWELL 1
+hvnwell.*
+1 HVDIFFTAP 2
+hvdifftap.*
+CDR*hvdifftap.*
+1 HVPOLY 1
+hvpoly.*
+1 HVNTM 2
+hvntm.*
+CDR*hvntm.*
+1 DENMOS 1
+denmos.*
+1 DEPMOS 1
+depmos.*
+1 VHVI 1
+vhvi.*
+1 UHVI 1
+uhvi.*
+1 PWRES 1
+pwres.*
+1 all_CDR_CDRW 2
+CDR.*
+CDRW.*
+1 only_CDR 1
+CDR.*
+1 only_CDRW 1
+CDRW.*
+1 only_density 2
+*.global.*
+*.local.*
+1 only_fill 1
+*.fill.*

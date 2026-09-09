@@ -1,0 +1,1 @@
+results_db -drc "/home/user23/NS_SAR_ADC/comparator_latch_armstrong.drc_errors.ascii" -ascii;

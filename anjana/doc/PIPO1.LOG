@@ -1,0 +1,71 @@
+********************************************************************************
+Product   : Virtuoso(R) XStream Out
+Program   : @(#)$CDS: strmout version 6.1.7-64b 12/01/2016 05:40 (sjfhw306) $
+          : sub-version  IC6.1.7-64b.500.8 
+Started at: 20-Aug-2026  13:54:18
+User Name : user23
+Host Name : aed
+Directory : /home/user23/NS_SAR_ADC
+CADENCE Design Systems, Inc.
+********************************************************************************
+Info: Cellview Rev Num:99,  Tech Rev Num:59
+
+INFO (XSTRM-217): Reading the layer map file, /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/libs/sky130_fd_pr_main/sky130_fd_pr_main.layermap
+INFO (XSTRM-162): You have not used the viaMap option. If the OpenAccess design has native oaVia instances, use the -viaMap option for preserving oaVia instances in a Stream Out - Stream In round trip. Using the -viaMap option improves performance and VM usage of applications using the Streamed-In design.  For details on the viaMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Options :
+library                                 NS_SAR_Analog
+strmFile                                /home/user23/NS_SAR_ADC/doc/comparator_latch_armstrong.gds
+topCell                                 comparator_latch_armstrong
+view                                    layout
+runDir                                  /home/user23/NS_SAR_ADC/doc
+logFile                                 /home/user23/NS_SAR_ADC/doc/PIPO1.LOG
+techLib                                 NS_SAR_Analog
+hierDepth                               32
+maxVertices                             2048
+layerMap                                 /home/user23/Sky130_cadance_pdk/sky130_release_0.1.0/libs/sky130_fd_pr_main/sky130_fd_pr_main.layermap
+userSkillFile                           /home/user23/NS_SAR_ADC/doc/strmout.il
+labelDepth                              32
+case                                    Preserve
+convertDot                              node
+
+INFO (XSTRM-223): 1. Translating cellView sky130_fd_pr_main/M1M2_C/layout as STRUCTURE M1M2_C$$1.
+INFO (XSTRM-223): 2. Translating cellView sky130_fd_pr_main/nwellTap/layout as STRUCTURE nwellTap$$2.
+INFO (XSTRM-223): 3. Translating cellView sky130_fd_pr_main/polyConn/layout as STRUCTURE polyConn$$3.
+INFO (XSTRM-223): 4. Translating cellView sky130_fd_pr_main/nfet_01v8/layout as STRUCTURE nfet_01v8$$4.
+INFO (XSTRM-223): 5. Translating cellView sky130_fd_pr_main/nfet_01v8/layout as STRUCTURE nfet_01v8$$5.
+INFO (XSTRM-223): 6. Translating cellView sky130_fd_pr_main/nfet_01v8/layout as STRUCTURE nfet_01v8$$6.
+INFO (XSTRM-223): 7. Translating cellView sky130_fd_pr_main/nfet_01v8/layout as STRUCTURE nfet_01v8$$7.
+INFO (XSTRM-223): 8. Translating cellView sky130_fd_pr_main/pfet_01v8/layout as STRUCTURE pfet_01v8$$8.
+INFO (XSTRM-223): 9. Translating cellView sky130_fd_pr_main/pfet_01v8/layout as STRUCTURE pfet_01v8$$9.
+INFO (XSTRM-223): 10. Translating cellView sky130_fd_pr_main/pfet_01v8/layout as STRUCTURE pfet_01v8$$10.
+INFO (XSTRM-223): 11. Translating cellView NS_SAR_Analog/comparator_latch_armstrong/layout as STRUCTURE comparator_latch_armstrong.
+INFO (XSTRM-180): You have not used the objectMap option. The design has instance(s) of at least one of following OpenAccess objects: oaBlockage, oaBoundary, oaRow, and oaMarker. Any information about these objects will not be translated into the generated stream file. Use the objectMap option to translate/preserve these objects using XStream. For details on the objectMap option, refer to the "Design Data Translator's Reference" guide for XStream.
+
+Summary of Objects Translated:
+	Scalar Instances:                       54
+	Array Instances:                        0
+	Polygons:                               0
+	Paths:                                  4
+	Rectangles:                             374
+	Lines:                                  0
+	Arcs:                                   0
+	Donuts:                                 0
+	Dots:                                   0
+	Ellipses:                               0
+	Boundaries:                             0
+	Area Blockages:                         0
+	Layer Blockages:                        0
+	Area Halos:                             0
+	Markers:                                0
+	Rows:                                   0
+	Standard Vias                           7
+	Custom Vias:                            3
+	CdsGen Vias:                            0
+	Pathsegs:                               167
+	Text:                                   0
+	TextDisplay:                            0
+	Cells:                                  11
+
+Elapsed Time: 0.1s   User Time: 0.1s   CPU Time: 0.0s   Peak VM: 7572KB
+INFO (XSTRM-234): Translation completed. '0' error(s) and '0' warning(s) found.

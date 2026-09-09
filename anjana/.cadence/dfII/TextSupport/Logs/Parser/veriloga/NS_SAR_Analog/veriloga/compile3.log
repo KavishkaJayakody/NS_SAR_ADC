@@ -1,0 +1,10 @@
+Reading file: 
+        /home/user23/NS_SAR_ADC/libraries/NS_SAR_Analog/fir_ef_diff/veriloga/veriloga.va
+
+Error found by spectre during AHDL compile.
+    ERROR (VACOMP-2259): "subckt<<--?  fir_ef_diff (ampp ampn topp topn vcm
+        phi_amp phi_d2 phi_rst phi_ef)"
+        "/home/user23/NS_SAR_ADC/libraries/NS_SAR_Analog/fir_ef_diff/veriloga/veriloga.va",
+        line 23: syntax error.
+    ERROR (VACOMP-1814): Maximum allowable errors exceeded. Exiting AHDL
+        compilation....

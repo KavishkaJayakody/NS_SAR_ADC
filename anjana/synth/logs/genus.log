@@ -1,0 +1,100 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2018 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 18.10-p003_1, built Thu Jun 07 23:53:27 +0530 2018
+Options: -files scripts/genus.tcl -log logs/genus.log 
+Date:    Fri Aug 07 06:52:51 2026
+Host:    aed (x86_64 w/Linux 3.10.0-1160.108.1.el7.x86_64) (4cores*8cpus*1physical cpu*Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz 8192KB) (32689660KB)
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+
+Loading tool scripts...
+
+Finished loading tool scripts (5 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source scripts/genus.tcl
+#@ Begin verbose source scripts/genus.tcl
+@file(genus.tcl) 1: set PDK /home/user23/Sky130_cadance_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T
+@file(genus.tcl) 3: set_db init_lib_search_path $PDK/timing
+  Setting attribute of root '/': 'init_lib_search_path' = /home/user23/Sky130_cadance_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/timing
+@file(genus.tcl) 4: set_db library { <FILL_IN>.lib }
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file '<FILL_IN>.lib'
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : A library file does not exist. [LBR-68] [set_db]
+        : File '<FILL_IN>.lib' could not be found. File '<none>' was the last file that was successfully read in.
+        : Make sure that the library file exists or check for a typo in the file name.
+Error   : The data value for this attribute is invalid. [TUI-24] [set_db]
+        : The value ' <FILL_IN>.lib ' cannot be set for attribute 'library'.
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+#@ End verbose source scripts/genus.tcl
+1
+Encountered problems processing file: scripts/genus.tcl
+WARNING: This version of the tool is 2982 days old.
+@genus:root: 2> source scripts/genus.tcl
+Sourcing './scripts/genus.tcl' (Fri Aug 07 06:53:12 +0530 2026)...
+#@ Begin verbose source scripts/genus.tcl
+@file(genus.tcl) 1: set PDK /home/user23/Sky130_cadance_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T
+@file(genus.tcl) 3: set_db init_lib_search_path $PDK/timing
+  Setting attribute of root '/': 'init_lib_search_path' = /home/user23/Sky130_cadance_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/timing
+@file(genus.tcl) 4: set_db library { <FILL_IN>.lib }
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file '<FILL_IN>.lib'
+Error   : A library file does not exist. [LBR-68] [set_db]
+        : File '<FILL_IN>.lib' could not be found. File '<none>' was the last file that was successfully read in.
+Error   : The data value for this attribute is invalid. [TUI-24] [set_db]
+        : The value ' <FILL_IN>.lib ' cannot be set for attribute 'library'.
+#@ End verbose source scripts/genus.tcl
+1
+@genus:root: 3> cat reports/gates.rpt
+1
+@genus:root: 4> cat outputs/gate_driver_netlist.v
+1
+@genus:root: 5> exec ls $PDK/lib
+sky130_ff_1.98_0_nldm.lib
+sky130_ff_1.98_0_nldm.lib.gz
+sky130_ss_1.62_125_nldm.lib.gz
+sky130_tt_1.8_25_nldm.lib
+sky130_tt_1.8_25_nldm.lib.gz
+@genus:root: 6> exec grep -c "^SITE" $PDK/lef/sky130_scl_9T.lef
+0
+child process exited abnormally
+@genus:root: 7> 
+@genus:root: 7> @genus:root: 4> cat outputs/gate_driver_netlist.v
+invalid command name "@genus:root:"
+@genus:root: 8> 1
+[1]
+@genus:root: 9> @genus:root: 5> exec ls $PDK/lib
+invalid command name "@genus:root:"
+@genus:root: 10> sky130_ff_1.98_0_nldm.lib
+invalid command name "sky130_ff_1.98_0_nldm.lib"
+@genus:root: 11> sky130_ff_1.98_0_nldm.lib.gz
+invalid command name "sky130_ff_1.98_0_nldm.lib.gz"
+@genus:root: 12> sky130_ss_1.62_125_nldm.lib.gz
+invalid command name "sky130_ss_1.62_125_nldm.lib.gz"
+@genus:root: 13> sky130_tt_1.8_25_nldm.lib
+invalid command name "sky130_tt_1.8_25_nldm.lib"
+@genus:root: 14> sky130_tt_1.8_25_nldm.lib.gz
+invalid command name "sky130_tt_1.8_25_nldm.lib.gz"
+@genus:root: 15> @genus:root: 6> exec grep -c "^SITE" $PDK/lef/sky130_scl_9T.lef
+invalid command name "@genus:root:"
+@genus:root: 16> 0
+[0]
+@genus:root: 17> child process exited abnormally
+invalid command name "child"
+@genus:root: 18> @genus:root: 7>
+invalid command name "@genus:root:"
+@genus:root: 19> exec grep -n -i "site" $PDK/lef/sky130_scl_9T.lef | head -5
+16:  SITE CoreSite ;
+128:  SITE CoreSite ;
+223:  SITE CoreSite ;
+296:  SITE CoreSite ;
+369:  SITE CoreSite ;
+@genus:root: 20> exec grep -n -i "manufacturinggrid\|^LAYER\|UNITS" $PDK/lef/sky130_scl_9T.lef | head -5
+child process exited abnormally
+@genus:root: 21> exit
+Normal exit.
