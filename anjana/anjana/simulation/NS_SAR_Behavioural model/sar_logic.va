@@ -1,0 +1,96 @@
+// ---------------------------------------------------------------------------
+// sar_logic.va  --  SAR finite state machine (bit-rate controller)
+//
+// Owns everything keyed to the BIT INDEX rather than to absolute time:
+//   cmp_clk       comparator strobe
+//   dac_code[8:0] live CDAC code during the binary search
+//   phi_ef        asserted only during the last n_ef trials (subranging)
+//   dout[8:0]     latched result, valid on eoc
+//
+// phi_ef lives here, NOT in clkgen: only this block knows what bit it is on.
+// Replace this module with your teammate's synthesised logic later; the
+// port list is what matters.
+//
+// Comparator polarity (cmp_pol = 1, the default) assumes cmp_out = 1 means
+// V(topp) > V(topn), i.e. the DAC trial is TOO LARGE and the bit is cleared.
+// Flip cmp_pol if your comparator is wired the other way round.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module sar_logic(conv_start, cmp_out, dac_code, cmp_clk, phi_ef, eoc, dout);
+    input  conv_start, cmp_out;
+    output cmp_clk, phi_ef, eoc;
+    output [8:0] dac_code;
+    output [8:0] dout;
+    electrical conv_start, cmp_out, cmp_clk, phi_ef, eoc;
+    electrical [8:0] dac_code;
+    electrical [8:0] dout;
+
+    parameter integer nb      = 9 from [2:9];   // 8 bits + 1 redundancy
+    parameter integer n_ef    = 5 from [0:9];   // EF injected over last n_ef trials
+    parameter integer cmp_pol = 1 from [0:1];
+    parameter real vdd   = 1.1;
+    parameter real vth   = 0.55;
+    parameter real tr    = 50.0p from (0:inf);
+    parameter real t_set = 1.0n  from (0:inf);  // DAC settling before strobe
+    parameter real t_pw  = 0.4n  from (0:inf);  // strobe width
+
+    integer st, sub, bidx, dcode, dlatch, i, too_big;
+    integer barr[0:8], oarr[0:8];
+    real tnext, v_clk, v_ef, v_eoc;
+
+    analog begin
+        @(initial_step) begin
+            st = 0; sub = 0; bidx = 0; dcode = 0; dlatch = 0;
+            v_clk = 0; v_ef = 0; v_eoc = 0; tnext = 1.0e30;
+            for (i = 0; i < 9; i = i + 1) begin barr[i] = 0; oarr[i] = 0; end
+        end
+
+        @(cross(V(conv_start) - vth, +1)) begin
+            if (st == 0) begin
+                st = 1; bidx = 0; sub = 0;
+                dcode = 1 << (nb - 1);              // first MSB trial
+                tnext = $abstime + t_set;
+            end
+        end
+
+        @(timer(tnext)) begin
+            if (st == 1) begin
+                if (sub == 0) begin
+                    v_clk = 1; sub = 1; tnext = $abstime + t_pw;
+                end else begin
+                    v_clk = 0;
+                    too_big = (cmp_pol == 1) ? (V(cmp_out) > vth)
+                                             : (V(cmp_out) < vth);
+                    if (too_big)
+                        dcode = dcode - (1 << (nb - 1 - bidx));
+                    bidx = bidx + 1;
+                    if (bidx < nb) begin
+                        dcode = dcode + (1 << (nb - 1 - bidx));
+                        sub = 0; tnext = $abstime + t_set;
+                    end else begin
+                        dlatch = dcode;
+                        st = 2; v_eoc = 1; tnext = $abstime + t_pw;
+                    end
+                end
+            end else if (st == 2) begin
+                v_eoc = 0; st = 0; tnext = 1.0e30;
+            end
+        end
+
+        // EF summation only over the last n_ef trials (Fig. 17 subranging)
+        v_ef = ((st == 1) && (bidx >= nb - n_ef)) ? 1 : 0;
+
+        for (i = 0; i < 9; i = i + 1) begin
+            barr[i] = (i < nb) ? ((dcode  >> i) & 1) : 0;
+            oarr[i] = (i < nb) ? ((dlatch >> i) & 1) : 0;
+            V(dac_code[i]) <+ transition(barr[i] * vdd, 0.0, tr, tr);
+            V(dout[i])     <+ transition(oarr[i] * vdd, 0.0, tr, tr);
+        end
+
+        V(cmp_clk) <+ transition(v_clk * vdd, 0.0, tr, tr);
+        V(phi_ef)  <+ transition(v_ef  * vdd, 0.0, tr, tr);
+        V(eoc)     <+ transition(v_eoc * vdd, 0.0, tr, tr);
+    end
+endmodule

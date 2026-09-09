@@ -1,0 +1,5 @@
+
+// Library name: NS_SAR_test
+// Cell name: Sar_3
+// View name: schematic
+subckt Sar_3 CLK B0 B1 B2 Vin VREF

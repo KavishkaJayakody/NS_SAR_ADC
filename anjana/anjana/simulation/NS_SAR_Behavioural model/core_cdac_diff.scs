@@ -1,0 +1,44 @@
+// ---------------------------------------------------------------------------
+// core_cdac_diff.scs  --  differential CDAC built from two real 8-bit arrays
+//
+// Drop-in replacement for the cdac_diff.va placeholder: two
+// core_capacitor_array instances, P and N, driven by the complementary CP/CN
+// buses of core_sar_logic_8bit.  This is the structural version of the actual
+// core, so what you simulate here is what you taped out -- unit-cap value,
+// finite switch resistance, charge injection and all.
+//
+// Port order on core_capacitor_array is
+//   (C_TOP VIN VREF_P VREF_N VCM VDD VSS SAMPLE VREF_CONNECT VCM_CON C0..C8)
+// and the dummy control lands on C8, matching CPC / CNC.
+//
+// Differential transfer, with the dummy cap tied to VREF_N on P and VREF_P
+// on N (exactly what the core FSM does):
+//
+//   V(topp,topn) = vref * (2*code - 256)/256  -  vin_diff ,  vref = VREF_P-VREF_N
+//
+// so differential full scale is +/- vref and 1 LSB = 2*vref/256.  With
+// VREF_P = 1.8 V that is +/-1.8 V differential, i.e. TWICE the +/-0.9 V swing
+// in doc/ADC_parameters.txt -- driving the spec swing costs you 6 dB (one
+// bit).  Either drive the full +/-1.8 V, or set VREF_P = 0.9 V and get the
+// LSB back.  Do not leave this unresolved; it is a whole bit.
+// ---------------------------------------------------------------------------
+simulator lang=spectre
+
+subckt core_cdac_diff (topp topn vinp vinn vcm vrefp vrefn vdd vss \
+                       cp7 cp6 cp5 cp4 cp3 cp2 cp1 cp0 cpc \
+                       cn7 cn6 cn5 cn4 cn3 cn2 cn1 cn0 cnc \
+                       sp sn vcm_con vref_connect)
+parameters c_unit=34.62f ron_sel=1000 ron_vref=1000 ron_vcm=100 \
+           roff=1G cinj_p=0.65f cinj_n=0.5f vth_a=0.9 inj=1
+
+    XP (topp vinp vrefp vrefn vcm vdd vss sp vref_connect vcm_con \
+        cp0 cp1 cp2 cp3 cp4 cp5 cp6 cp7 cpc) core_capacitor_array \
+        c_val=c_unit r_on_sel=ron_sel r_on_vref=ron_vref ron_vcm=ron_vcm \
+        r_off=roff c_inj_p=cinj_p c_inj_n=cinj_n v_thresh=vth_a inj_on=inj
+
+    XN (topn vinn vrefp vrefn vcm vdd vss sn vref_connect vcm_con \
+        cn0 cn1 cn2 cn3 cn4 cn5 cn6 cn7 cnc) core_capacitor_array \
+        c_val=c_unit r_on_sel=ron_sel r_on_vref=ron_vref ron_vcm=ron_vcm \
+        r_off=roff c_inj_p=cinj_p c_inj_n=cinj_n v_thresh=vth_a inj_on=inj
+
+ends core_cdac_diff

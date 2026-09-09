@@ -1,0 +1,75 @@
+// ---------------------------------------------------------------------------
+// core_comparator.va  --  replica of NS_SAR_Analog/comparator, made usable
+//                         inside the noise-shaping loop
+//
+// Same pin list as the core cell (INP INN OUT VDD VSS IBIAS PA_EN PA_EN_N
+// SA_EN), so it drops onto the existing symbol.  Three additions, all of which
+// the NS loop needs and none of which change the core's behaviour when left at
+// their defaults:
+//
+//   CLK / clocked=1  The core cell compares CONTINUOUSLY.  That is fine in a
+//                    stand-alone SAR where the logic only looks at OUT on a
+//                    clock edge, but in the EF loop the top plate is also being
+//                    charge-shared by the FIR, so a continuous comparator
+//                    chatters during phi_ef and the decision that gets latched
+//                    depends on simulator timestep.  Set clocked=0 to get the
+//                    core's exact continuous behaviour back.
+//   vn_cmp           input-referred noise, on from day one.  Leave it at 0 and
+//                    stage-2 SNDR looks wonderful until the real comparator
+//                    arrives.
+//   OUT_N            complement, for a differential SAR latch.
+//
+// PA_EN / PA_EN_N / SA_EN are dummy inputs in the core cell.  They stay dummy
+// here unless use_en=1, in which case the decision only updates while SA_EN is
+// high -- that is the hook for the real preamp/latch enable path.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module core_comparator(INP, INN, OUT, OUT_N, VDD, VSS, IBIAS,
+                       PA_EN, PA_EN_N, SA_EN, CLK);
+    inout  INP, INN, VDD, VSS, IBIAS;
+    input  PA_EN, PA_EN_N, SA_EN, CLK;
+    output OUT, OUT_N;
+    electrical INP, INN, OUT, OUT_N, VDD, VSS, IBIAS;
+    electrical PA_EN, PA_EN_N, SA_EN, CLK;
+
+    parameter real VOS    = 0.0;                  // static offset
+    parameter real GAIN   = 1e6;                  // kept for pin compatibility
+    parameter real TDELAY = 10.0p  from [0:inf);
+    parameter real TRISE  = 100.0p from (0:inf);
+    parameter real TFALL  = 100.0p from (0:inf);
+    parameter real vn_cmp = 100.0u from [0:inf);  // input-referred noise
+    parameter real vth    = 0.9;                  // CLK / enable threshold
+    parameter integer clocked  = 1 from [0:1];
+    parameter integer noise_on = 1 from [0:1];
+    parameter integer use_en   = 0 from [0:1];
+    parameter integer seed_c   = 9973;
+
+    integer sc, dec;
+    real vdiff, vn;
+
+    analog begin
+        @(initial_step) begin
+            sc = seed_c;
+            dec = 0;
+        end
+
+        // ---- clocked (StrongArm-like) decision ---------------------------
+        @(cross(V(CLK) - vth, +1)) begin
+            if (clocked && (!use_en || (V(SA_EN) > vth))) begin
+                vn = noise_on ? $rdist_normal(sc, 0.0, vn_cmp) : 0.0;
+                dec = (V(INP, INN) + VOS + vn > 0.0) ? 1 : 0;
+            end
+        end
+
+        // ---- continuous mode: the core cell's exact behaviour ------------
+        if (!clocked) begin
+            vdiff = V(INP, INN) + VOS;
+            dec = (vdiff > 0.0) ? 1 : 0;
+        end
+
+        V(OUT)   <+ transition(dec       ? V(VDD) : V(VSS), TDELAY, TRISE, TFALL);
+        V(OUT_N) <+ transition(dec       ? V(VSS) : V(VDD), TDELAY, TRISE, TFALL);
+    end
+endmodule

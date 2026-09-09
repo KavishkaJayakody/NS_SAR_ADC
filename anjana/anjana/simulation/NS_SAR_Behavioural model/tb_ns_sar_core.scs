@@ -1,0 +1,133 @@
+// ---------------------------------------------------------------------------
+// tb_ns_sar_core.scs  --  EF NS-SAR built from the REAL 8-bit core blocks
+//
+// Same loop as tb_ns_sar.scs, but cdac_diff / sar_logic / the comparator are
+// replaced by replicas of the cells in NS_SAR_Analog + NS_SAR_Digital:
+//
+//   cdac_diff.va   ->  core_cdac_diff.scs (2 x core_capacitor_array)
+//   sar_logic.va   ->  core_sar_logic_8bit.va
+//   comp_damp (cmp) ->  core_comparator.va      (comp_damp stays as the D-Amp)
+//
+// clkgen, fir_ef_diff, comp_damp (amplifier half) and prng_lfsr are unchanged.
+//
+// Run:  spectre tb_ns_sar_core.scs +escchars +log spectre_core.out
+//
+// LOGIC LEVELS ARE 1.8 V HERE, not the 1.1 V of tb_ns_sar.scs -- the core
+// cells are 1.8 V.  Every 1.1 V block is given vdd=1.8 / vth=0.9 below.
+//
+// Coherent sampling: fin = M*fs/nfft, M prime, M < nfft/(2*OSR).
+//   fs = 10 MHz, nfft = 2048, OSR = 8  ->  M < 128  ->  M = 127
+// For the full-resolution run use nfft=8192 / mbin=499 and stop rises to
+// (8192+200)*tframe = 839 us.
+// ---------------------------------------------------------------------------
+simulator lang=spectre
+global 0
+
+ahdl_include "sw_ideal.va"
+ahdl_include "clkgen.va"
+ahdl_include "comp_damp.va"
+ahdl_include "prng_lfsr.va"
+ahdl_include "core_capacitor_array.va"
+ahdl_include "core_comparator.va"
+ahdl_include "core_sar_logic_8bit.va"
+include "core_cdac_diff.scs"
+include "fir_ef_diff.scs"
+
+// ---- design parameters ----------------------------------------------------
+parameters vdd_v=1.8  vcm_v=0.9  vth_v=0.9
+parameters vrefp_v=1.8 vrefn_v=0.0
+parameters c_u=34.62f  cdac_v=256*c_u          // 8.863 pF per side
+parameters acs_div=14  cf_v=cdac_v/acs_div     // A_CS = cf/(cdac+2cf) = 1/16
+parameters gain_v=30                           // K_EF = gain * A_CS = 1.875
+parameters fs=10M  tframe=1/fs
+parameters nfft=2048  mbin=127  fin=mbin*fs/nfft
+parameters ampl=0.81                           // vin_diff = +/-1.62 V = 0.9*FS
+
+// Sampling settling: the vcm_switch sees the whole 8.86 pF array.  At the
+// core's ron = 1 kohm that is tau = 8.9 ns and t_s would have to exceed 60 ns
+// for 9-bit settling.  ron_vcm is cut to 100 ohm here (tau = 0.89 ns) so a
+// 30 ns window is 30+ tau.  If you keep the 1 kohm switch, raise t_s instead
+// -- do not shorten the window and call the residual a gain error.
+parameters ron_vcm_v=100  t_s_v=30n
+
+// ---- sources --------------------------------------------------------------
+Vcm    (vcm 0)    vsource dc=vcm_v type=dc
+Vdd    (vdd 0)    vsource dc=vdd_v type=dc
+Vrefp  (vrefp 0)  vsource dc=vrefp_v type=dc
+Vrefn  (vrefn 0)  vsource dc=vrefn_v type=dc
+Vvrc   (vref_con 0) vsource dc=0 type=dc      // VREF_CONNECT low = VIN selected
+Vinp   (vinp 0)   vsource dc=vcm_v type=sine ampl=ampl freq=fin
+Vinn   (vinn 0)   vsource dc=vcm_v type=sine ampl=ampl freq=fin sinephase=180
+
+// ---- clock / phase generator ---------------------------------------------
+XCK (phi_rst phi_d2 phi_amp phi_s phi_prn conv_start eoc amp_done) clkgen \
+    vdd=vdd_v vth=vth_v t_frame=tframe t_s=t_s_v use_amp_done=1
+
+// ---- SAR logic (core replica + NS hooks) ---------------------------------
+XSL (clk_unused cmp_out conv_start phi_s \
+     b0 b1 b2 b3 b4 b5 b6 b7 \
+     cp0 cp1 cp2 cp3 cp4 cp5 cp6 cp7 cpc \
+     cn0 cn1 cn2 cn3 cn4 cn5 cn6 cn7 cnc \
+     sp sn vcm_con c_comp phi_ef eoc) core_sar_logic_8bit \
+    nb=8 n_ef=4 cmp_pol=1 vlogic_h=vdd_v Vth=vth_v \
+    use_conv_start=1 t_set=1n t_pw=0.4n
+Vclk (clk_unused 0) vsource dc=0 type=dc      // unused in conv_start mode
+
+// ---- differential CDAC: two real 8-bit arrays ----------------------------
+XDAC (topp topn vinp vinn vcm vrefp vrefn vdd 0 \
+      cp7 cp6 cp5 cp4 cp3 cp2 cp1 cp0 cpc \
+      cn7 cn6 cn5 cn4 cn3 cn2 cn1 cn0 cnc \
+      sp sn vcm_con vref_con) core_cdac_diff \
+    c_unit=c_u ron_vcm=ron_vcm_v vth_a=vth_v inj=1
+
+// ---- comparator (core replica, strobed by C_COMP) ------------------------
+XCMP (topp topn cmp_out cmp_outb vdd 0 ibias vdd 0 vdd c_comp) core_comparator \
+    VOS=0 vn_cmp=100u vth=vth_v clocked=1 noise_on=1 use_en=0
+Ribias (ibias 0) resistor r=1k
+
+// ---- dynamic amplifier (comp_damp used as the D-Amp only) ----------------
+// cmp_clk tied low: its comparator half is unused, XCMP owns the decision.
+// rcm is raised from comp_damp's 2 Mohm default: that resistor sits on the
+// top plates, and with the core array's 8.86 pF it bleeds the stored residue
+// with tau = 17.7 us -- 0.6 %, or ~1.4 LSB, per 100 ns frame.  The EF loop
+// does not shape a leak in its own memory.  200 Mohm puts it at 0.006 %.
+XCA (topp topn ampp ampn vcm cmp_clk_off phi_amp da_out da_outb amp_done) \
+    comp_damp gain=gain_v rout=20k rcm=200M t_amp=2.5n \
+    vn_amp=85u vn_cmp=100u noise_on=1 vdd=vdd_v vth=vth_v
+Vcmpoff (cmp_clk_off 0) vsource dc=0 type=dc
+
+// ---- passive SC FIR (structural, unchanged) ------------------------------
+XFIR (ampp ampn topp topn vcm phi_amp phi_d2 phi_rst phi_ef) fir_ef_diff \
+    cf=cf_v ron=200 roff=1T
+
+// ---- dither LFSR (only with background calibration) ----------------------
+XPR (phi_prn prn) prng_lfsr seed=341 vdd=vdd_v vth=vth_v
+
+// ---- analysis -------------------------------------------------------------
+tran tran stop=(nfft+200)*tframe maxstep=0.5n errpreset=conservative
+
+save topp topn ampp ampn cmp_out eoc phi_ef phi_amp phi_s c_comp sp vcm_con
+save b7 b6 b5 b4 b3 b2 b1 b0
+
+// ---------------------------------------------------------------------------
+// Bring-up order (same as README, adapted to the core blocks)
+//
+//  0. SANITY, NS OFF.  Set n_ef=0 on XSL and cf=1a on XFIR.  You now have a
+//     plain 8-bit SAR: expect SNDR ~ 49.9 dB (ENOB 8) at Nyquist, and DNL/INL
+//     dominated by the array, not by the loop.  If this fails, nothing
+//     downstream is worth debugging.
+//  1. NS ON, noiseless.  noise_on=0 on XCMP and XCA.  Compare against
+//     golden_model.py -- but note it models 9 bits with redundancy, so scale
+//     your expectation down by ~6 dB for the 8-bit core.
+//  2. Sweep gain_v from 26 to 34.  The SNDR peak must sit at 30.  If it sits
+//     anywhere else, A_CS is not 1/16: the array's real total cap is not
+//     256*c_u (parasitics, or a mis-wired dummy), and cf must be re-derived.
+//     This is the cheapest check in the whole flow.
+//  3. noise_on=1, then swap sw_ideal for transmission gates in fir_ef_diff,
+//     then core_capacitor_array for the extracted schematic.
+//  4. Re-extract A_CS after layout and re-tune gain to hold K_EF at 1.875.
+//
+// Post-processing: sample b7..b0 on the rising edge of eoc, drop 200 frames,
+// coherent FFT, integrate bins 1..nfft/(2*OSR) excluding signal + harmonics.
+// golden_model.py:sqnr() does exactly this.
+// ---------------------------------------------------------------------------

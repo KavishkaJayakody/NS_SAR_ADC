@@ -1,0 +1,86 @@
+// ---------------------------------------------------------------------------
+// comp_damp.va  --  dual-mode StrongArm: comparator + reused dynamic amplifier
+//
+// Two details that are NOT cosmetic:
+//
+//  1. rout is FINITE.  The real D-Amp is open loop and dumps charge into
+//     Cres1/Cres2, so its effective gain depends on that load.  An ideal
+//     low-impedance source charges the FIR to exactly G*Vres regardless of
+//     cap size, and K_EF will shift when you swap in the transistor version.
+//
+//  2. vn_amp defaults to 85uV rms (the reference design's value, ~68% of the
+//     total noise budget).  Leave it on from day one, otherwise stage-2 SNDR
+//     looks great and then drops ~10 dB when the real amp appears.
+//
+// Set split_mode = 1 to use this as a plain gain block alongside a separate
+// comparator (the stage-1 partition); amp_en is then ignored for the output.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module comp_damp(inp, inn, outp, outn, vcm, cmp_clk, amp_en,
+                 cmp_out, cmp_outb, amp_done);
+    inout  inp, inn, outp, outn;
+    input  vcm, cmp_clk, amp_en;
+    output cmp_out, cmp_outb, amp_done;
+    electrical inp, inn, outp, outn, vcm, cmp_clk, amp_en;
+    electrical cmp_out, cmp_outb, amp_done;
+
+    parameter real gain   = 30.0   from (0:inf);  // D-Amp gain G
+    parameter real rout   = 20.0k  from (0:inf);  // output impedance
+    parameter real rcm    = 2.0M   from (0:inf);  // weak CM definition
+    parameter real t_amp  = 2.5n   from (0:inf);  // amplification window
+    parameter real vn_amp = 85.0u  from [0:inf);  // input-referred amp noise
+    parameter real vn_cmp = 100.0u from [0:inf);  // comparator noise
+    parameter real voff   = 0.0;                  // static offset
+    parameter real vdd    = 1.1;
+    parameter real vth    = 0.55;
+    parameter real tr     = 50.0p  from (0:inf);
+    parameter integer noise_on = 1 from [0:1];
+    parameter integer seed_a   = 5551;
+    parameter integer seed_c   = 9973;
+
+    integer sa, sc, dec, adone;
+    real vhold, vtgt, tdone;
+
+    analog begin
+        @(initial_step) begin
+            sa = seed_a; sc = seed_c;
+            dec = 0; adone = 0; vhold = 0.0; vtgt = 0.0; tdone = 1.0e30;
+        end
+
+        // ---- compare mode -------------------------------------------------
+        @(cross(V(cmp_clk) - vth, +1)) begin
+            dec = (V(inp, inn) + voff
+                   + (noise_on ? $rdist_normal(sc, 0.0, vn_cmp) : 0.0) > 0.0)
+                  ? 1 : 0;
+        end
+
+        // ---- amplify mode -------------------------------------------------
+        @(cross(V(amp_en) - vth, +1)) begin
+            vhold = V(inp, inn) + voff
+                    + (noise_on ? $rdist_normal(sa, 0.0, vn_amp) : 0.0);
+            adone = 0;
+            tdone = $abstime + t_amp;
+        end
+        @(timer(tdone)) begin
+            adone = 1;
+            tdone = 1.0e30;
+        end
+        @(cross(V(amp_en) - vth, -1)) begin
+            adone = 0;
+            tdone = 1.0e30;
+        end
+
+        vtgt = (V(amp_en) > vth) ? gain * vhold : 0.0;
+
+        // Norton output stage: settles into whatever the FIR presents
+        I(outp, outn) <+ (V(outp, outn) - vtgt) / rout;
+        I(outp, vcm)  <+ V(outp, vcm) / rcm;
+        I(outn, vcm)  <+ V(outn, vcm) / rcm;
+
+        V(cmp_out)  <+ transition(dec       * vdd, 0.0, tr, tr);
+        V(cmp_outb) <+ transition((1 - dec) * vdd, 0.0, tr, tr);
+        V(amp_done) <+ transition(adone     * vdd, 0.0, tr, tr);
+    end
+endmodule

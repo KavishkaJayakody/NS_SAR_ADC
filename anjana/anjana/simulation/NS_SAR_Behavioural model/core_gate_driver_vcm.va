@@ -1,0 +1,33 @@
+// ---------------------------------------------------------------------------
+// core_gate_driver_vcm.va  --  replica of NS_SAR_Analog/gate_driver_vcm
+//
+// Buffers the top-plate reset control into a complementary pair for the
+// transmission gate in core_vcm_switch.  Rails follow VDD/VSS, exactly as the
+// core cell does, so a supply droop shows up in the switch overdrive.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module core_gate_driver_vcm(SAMPLE, VDD, VSS, SW, SW_N);
+    output SW, SW_N;
+    input  SAMPLE;
+    inout  VDD, VSS;
+    electrical SW, SW_N, SAMPLE, VDD, VSS;
+
+    parameter real v_thresh = 0.9;
+    parameter real tr = 1.0p from (0:inf);
+    parameter real tf = 1.0p from (0:inf);
+
+    real o, o_n;
+
+    analog begin
+        if (V(SAMPLE) > v_thresh) begin
+            o = V(VDD); o_n = V(VSS);
+        end else begin
+            o = V(VSS); o_n = V(VDD);
+        end
+
+        V(SW)   <+ transition(o,   0.0, tr, tf);
+        V(SW_N) <+ transition(o_n, 0.0, tr, tf);
+    end
+endmodule

@@ -1,0 +1,48 @@
+HEADER
+"PSFversion" "1.00"
+"simulator" "spectre"
+"version" "18.1.0.143.isr1"
+"date" "11:06:54 PM, Mon Apr 13, 2026"
+"design" "// Generated for: spectre"
+"analysis type" "info.primitives"
+"analysis name" "primitives"
+"analysis description" "Circuit Information"
+"xVecSorted" "unknown"
+"tolerance.relative" 0.00100000
+TYPE
+"primitive" STRUCT(
+"model" STRING *
+"oppoint" STRING *
+"output" STRING *
+"inst" STRING *
+"region" STRING *
+"terminals" STRING *
+) PROP(
+"key" "prim"
+)
+VALUE
+"adc_csv_logger" "primitive" (
+""
+"termcurs fd decimal_val "
+""
+"vth filename m "
+""
+"eoc din[9] din[8] din[7] din[6] din[5] din[4] din[3] din[2] din[1] din[0] "
+)
+"ns_sar_model" "primitive" (
+""
+"termcurs LSB v_in_samp v_dac v_err v_int d_out accum_d osr_cnt d_out_dec v_eoc v_dout0 v_dout1 v_dout2 v_dout3 v_dout4 "
+""
+"Vref N Vth OSR Vhigh m "
+""
+"vin clk dout[4] dout[3] dout[2] dout[1] dout[0] eoc "
+)
+"vsource" "primitive" (
+""
+"v i pwr "
+"tempeff "
+"dc type fundname delay edgetype val0 val1 period rise fall width file offset scale stretch rms pwlfilter rolloff pwlbandwidth allbrkpts pwlperiod pwlperiodstart twidth sinedc ampl freq sinephase ampl2 freq2 sinephase2 fundname2 iqmodfiles fmmodindex fmmodfreq fmmodfiles ammodindex ammodoffset ammodfreq ammodphase damp freqvec amplvec phasevec maxharms td1 tau1 td2 tau2 expperiod data rptstart rpttimes td01 td10 ref jitter rjseed rjrms pjamp pjfreq pjtype seed taps lfsrtaps lfsrseed registerlength triggerthreshold triggerdelthresh triggerdirection transitionreference modulation pam4_mapping oscmacrofile freqscale amplscale noisefile noisetype noiseinterp isnoisy mag phase xfmag pacmag pacphase m tc1 tc2 tnom trise "
+""
+"p n ctlp ctln "
+)
+END

@@ -1,0 +1,109 @@
+# ==========================================
+# Cadence Virtuoso & System Files
+# ==========================================
+# Lock files (CRITICAL: Never commit these, or your teammates get locked out of schematics)
+*.cdslck
+*.cdslck.safe
+
+# Log files and history
+*.log
+*.log.*
+CDS.log
+CDS.log.*
+libManager.log
+libManager.log.*
+.cadence/
+.jrl
+*.jrl
+
+# ==========================================
+# Spectre & Simulation Data
+# ==========================================
+# Entire simulations/ tree — pulled from server via scripts/pull.sh, never committed
+simulations/
+
+# Simulation output directories (also catches any stray copies outside simulations/)
+*/psf/
+*/netlist/
+*/ahdlcmi/
+*/ahdlSimDB/
+Linux-64/
+
+# Compiled VerilogA shared libraries and build artifacts
+*.so
+*.dep
+*.ahdlSimDB
+
+# Spectre raw waveform & result files (binary, can be hundreds of MB)
+*.tran
+*.dat
+*.raw
+*.tr
+*.tr0
+*.ac0
+*.dc0
+*.noise0
+*.mt0
+*.sw0
+*.ic
+*.fc0
+*.pac0
+*.pnoise0
+*.pss0
+*.pxf0
+*.sp
+*.scllog
+
+# ADE / Ocean result files
+*.ocn
+*.measure
+*.info
+
+# ==========================================
+# Layout & Physical Verification (Calibre/Assura)
+# ==========================================
+# DRC and LVS run directories and reports
+svdb/
+.calibre/
+*.drc.results
+*.lvs.report
+*.erc.results
+*.sum
+*.rep
+PIPO.LOG
+*.gds  # Ignore standard GDS files unless explicitly placed in a tapeout release folder
+
+# ==========================================
+# Python & MATLAB (For SNR/SNDR Analysis)
+# ==========================================
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# MATLAB autosaves
+*.asv
+
+# Ignore massive raw data arrays dumped from Cadence (optional, but recommended)
+# You can comment these out if you want to share small datasets
+*.csv
+*.txt
+*.mat
+
+# ==========================================
+# OS Generated Files (VNC/Windows/Mac)
+# ==========================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+# ==========================================
+# Offline Python package cache (vendored wheels, ~68 MB)
+# ==========================================
+temp/
+
+# ==========================================
+# Murmann ADC survey clone (~21 MB, nested git repo)
+# git clone https://github.com/bmurmann/ADC-survey.git ADC
+# ==========================================
+ADC/

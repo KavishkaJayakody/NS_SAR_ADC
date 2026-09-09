@@ -1,0 +1,20 @@
+HEADER
+"PSFversion" "1.00"
+"Time Stamp" "Apr 13 23:06:50 2026"
+TYPE
+"variable" STRUCT(
+"value" FLOAT DOUBLE
+) PROP( "key" "element" )
+VALUE
+"SignalFreq" "variable" ( 647.4609375e3 ) PROP( )
+"t_stop" "variable" ( 22.0862745098039e-6 ) PROP( )
+"CLK_FREQ" "variable" ( 204e6 ) PROP( )
+"OFFSET" "variable" ( 437.5e-3 ) PROP( )
+"Avin" "variable" ( 500e-3 ) PROP( )
+"SAMPLE_FREQ" "variable" ( 51e6 ) PROP( )
+"CYCLES_PER_SAMPLE" "variable" ( 4 ) PROP( )
+"N" "variable" ( 1024 ) PROP( )
+"M" "variable" ( 13 ) PROP( )
+"Vdd" "variable" ( 1 ) PROP( )
+"temp" "variable" ( 27 ) PROP( )
+END

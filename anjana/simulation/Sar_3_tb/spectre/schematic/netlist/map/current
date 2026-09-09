@@ -1,0 +1,18 @@
+( ( nil
+  version "2.1"
+  mapType "incremental"
+  blockName "Sar_3_tb"
+  repList "spectre cmos_sch cmos.sch veriloga schematic"
+  stopList "spectre"
+  globalList "gnd!"
+  hierDelim "."
+  netlistDir "/home/user23/NS_SAR_ADC/simulation/Sar_3_tb/spectre/schematic/netlist"
+ )
+( net
+( "gnd!" "0" )
+ )
+( model
+( "NS_SAR_test/Sar_3_tb/schematic" "Sar_3_tb" )
+ )
+( "Sar_3_tb" "ihnl/cds0/map" )
+ )

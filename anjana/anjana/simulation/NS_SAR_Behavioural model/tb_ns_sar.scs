@@ -1,0 +1,87 @@
+// ---------------------------------------------------------------------------
+// tb_ns_sar.scs  --  self-checking testbench for the EF NS-SAR behavioural model
+//
+// Run:  spectre tb_ns_sar.scs +escchars +log spectre.out
+//
+// Coherent sampling:  fin = M * fs / N  with M prime and M < N/(2*OSR)
+//   fs = 10 MHz, N = 8192, OSR = 8  ->  BW = 625 kHz  ->  M < 512
+//   M = 499  ->  fin = 609.13 kHz
+//
+// For a quick smoke test drop N to 2048 (M = 127) and stop to 210u.
+// ---------------------------------------------------------------------------
+simulator lang=spectre
+global 0
+
+ahdl_include "sw_ideal.va"
+ahdl_include "clkgen.va"
+ahdl_include "sar_logic.va"
+ahdl_include "cdac_diff.va"
+ahdl_include "comp_damp.va"
+ahdl_include "prng_lfsr.va"
+include "fir_ef_diff.scs"
+
+// ---- design parameters ----------------------------------------------------
+parameters vdd_v=1.1  vcm_v=0.55  vref=1.0
+parameters cdac_v=1p  acs_div=14  cf_v=cdac_v/acs_div
+parameters gain_v=30                       // K_EF = gain * A_CS = 1.875
+parameters fs=10M  tframe=1/fs
+parameters nfft=8192  mbin=499  fin=mbin*fs/nfft
+parameters ampl=0.22                       // ~ -1.1 dBFS differential
+
+// ---- sources --------------------------------------------------------------
+Vcm   (vcm 0) vsource dc=vcm_v type=dc
+Vdd   (vdd 0) vsource dc=vdd_v type=dc
+Vinp  (vinp 0) vsource dc=vcm_v type=sine ampl=ampl freq=fin
+Vinn  (vinn 0) vsource dc=vcm_v type=sine ampl=ampl freq=fin sinephase=180
+
+// ---- clock / phase generator ---------------------------------------------
+XCK (phi_rst phi_d2 phi_amp phi_s phi_prn conv_start eoc amp_done) clkgen \
+    vdd=vdd_v t_frame=tframe use_amp_done=1
+
+// ---- SAR logic ------------------------------------------------------------
+// bus order is MSB..LSB: dac_code[8] first, dac_code[0] last
+XSL (conv_start cmp_out \
+     dc8 dc7 dc6 dc5 dc4 dc3 dc2 dc1 dc0 \
+     cmp_clk phi_ef eoc \
+     d8 d7 d6 d5 d4 d3 d2 d1 d0) sar_logic \
+    vdd=vdd_v nb=9 n_ef=5 cmp_pol=1
+
+// ---- CDAC (placeholder - swap for the real 8b core) ----------------------
+XDAC (topp topn vinp vinn vcm \
+      dc8 dc7 dc6 dc5 dc4 dc3 dc2 dc1 dc0 \
+      phi_s prn) cdac_diff \
+    cdac=cdac_v nb=9 vref=vref vdith=0
+
+// ---- dual-mode comparator / dynamic amplifier ----------------------------
+XCA (topp topn ampp ampn vcm cmp_clk phi_amp cmp_out cmp_outb amp_done) \
+    comp_damp gain=gain_v rout=20k t_amp=2.5n \
+    vn_amp=85u vn_cmp=100u noise_on=1 vdd=vdd_v
+
+// ---- passive SC FIR (structural) -----------------------------------------
+XFIR (ampp ampn topp topn vcm phi_amp phi_d2 phi_rst phi_ef) fir_ef_diff \
+    cf=cf_v ron=200 roff=1T
+
+// ---- dither LFSR (only needed with background calibration) ---------------
+XPR (phi_prn prn) prng_lfsr seed=341 vdd=vdd_v
+
+// ---- analysis -------------------------------------------------------------
+// settle for 200 frames, then capture nfft frames
+tran tran stop=(nfft+200)*tframe maxstep=0.5n errpreset=conservative \
+     write=spectre.ic writefinal=spectre.fc
+
+save topp topn ampp ampn cmp_out eoc phi_ef phi_amp phi_s
+save d8 d7 d6 d5 d4 d3 d2 d1 d0
+
+// ---------------------------------------------------------------------------
+// Post-processing
+//   1. Sample d8..d0 on the rising edge of eoc  ->  integer code stream
+//   2. Drop the first 200 samples
+//   3. Hann-free (coherent) FFT of nfft points
+//   4. Integrate noise over bins 1 .. nfft/(2*OSR), excluding the signal bin
+//      and its harmonics
+//
+// Expected with noise_on=0 (SQNR only), 9-bit core, OSR=8, K_EF=1.875:
+//   ~ 88-90 dB.  Sweep gain_v from 26 to 34 and confirm the peak sits at
+//   gain_v = 30.  If the peak is somewhere else, A_CS is not 1/16 and the
+//   charge-sharing network is wrong -- fix that before anything else.
+// ---------------------------------------------------------------------------

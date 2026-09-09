@@ -1,0 +1,41 @@
+// ---------------------------------------------------------------------------
+// core_vcm_switch.va  --  replica of NS_SAR_Analog/vcm_switch
+//
+// Top-plate reset switch.  Two things are kept from the core cell because they
+// change the answer:
+//
+//  1. ron/roff are FINITE.  This switch sees the WHOLE array (256 units), so
+//     tau = ron * C_total.  With the core's ron = 1 kohm and C = 8.86 pF that
+//     is 8.9 ns -- the sampling window must be >= 6.2*tau for 9-bit settling.
+//     Shorten ron or lengthen phi_s; do not pretend the switch is ideal.
+//  2. The hard current clamp (i_limit).  It is what makes an under-sized
+//     sampling window look like gain error rather than like nothing at all.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module core_vcm_switch(A, B, SAMPLE, SAMPLE_N, VDD, VSS);
+    inout A, B, VDD, VSS;
+    input SAMPLE, SAMPLE_N;
+    electrical A, B, SAMPLE, SAMPLE_N, VDD, VSS;
+
+    parameter real ron     = 1000.0 from (0:inf);
+    parameter real roff    = 1.0e9  from (0:inf);
+    parameter real vth     = 0.5;
+    parameter real i_limit = 10.0m  from (0:inf);
+    parameter real ttran   = 20.0p  from (0:inf);
+
+    real g_inst, i_ideal;
+
+    analog begin
+        g_inst = (V(SAMPLE, VSS) > vth) ? 1.0/ron : 1.0/roff;
+        i_ideal = transition(g_inst, 0.0, ttran, ttran) * V(A, B);
+
+        if (i_ideal > i_limit)
+            I(A, B) <+ i_limit;
+        else if (i_ideal < -i_limit)
+            I(A, B) <+ -i_limit;
+        else
+            I(A, B) <+ i_ideal;
+    end
+endmodule

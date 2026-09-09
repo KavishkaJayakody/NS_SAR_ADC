@@ -1,0 +1,41 @@
+Sample switch sizing
+
+Sample switch is an important block f the SAR ADC. It is responsible for capturing the inputs and securing charges inside the capacitor array.
+each capacitor sees eafifectively 2 switching elements as top plate switches(sample switch) and bottom plate switches (MUX switches)
+among them the sample switch is common to all the top plates thus dominantly contribute to the total array behavior than the mux switches since each capacitor bank has multiple MUX switches but single sample switch.
+
+Since the Positive capacitor array and negative capacitor array are identical and has 2 seperate sample switches let us consider a single sample switch.
+
+the Sizing of the switch has few considerations
+*CDAC settling time -> Max Ron resistance
+*Switch non linearities(actually the dependance of Ron on Vin and Vcap)
+*Holding time and charge leakage
+*Charge injection and other noise/ error sources
+
+by the previous calculations we have concluded that the unit capacitor choise to be 4.5x4.5 ~ 43.92pF 
+
+total capacity per array - 43.92fF*256 = 11.244pF
+
+Let us consider the Ron criteria
+Let us assume that the max Voltage difference across the capacitor array happens to be Vref.(In normal operation this differnce is smaller. We assume a worst case scenario where Vin = Vref+ Vref which is highly unlike to happen in normal operation. But the assumption will not negativey affect normal operating conditions)
+
+The input switch will be modelled as a static resistor to analyse switch on case
+
+Vcap = Vdiff_0(1-e^(-t/tau))  tau = Ron*Carray
+
+We will set the capacitor settling time to be 0.5 of a clock period.(10us with 100kHz clk/10.42us for 96kHz clk) choose 10us since it gives a tighter settling time margin.
+
+by 0.5 clk_period the voltage error should be less than 0.5VLSB.
+this gives us
+((2^(N+1)-1)/2^(N+1))2*Vref = Vref(1-e^(-t/tau)
+
+note- 2Vref acounts differential nature
+
+We get
+t/tau = Nln2
+t/RonC = Nln2
+Ron = t/(C*N*ln2)
+t = 5us/N=8/C=11.244pF
+Ron = 5*10^-5/(11.244*10^-15*8*ln2)
+
+The upper bound for the Ron is

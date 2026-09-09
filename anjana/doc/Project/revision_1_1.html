@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Revision and Timeline Rev 1.1 - Silicon Edge</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    @page {
+        size: A4;
+        margin: 0; /* Prevents browser from adding extra margins that break the exact A4 height */
+    }
+    .section {
+        background-color: #fff;
+        width: 210mm;
+        height: 297mm;
+        margin: 10mm auto;
+        padding: 15mm 20mm;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-sizing: border-box;
+        page-break-before: always;
+        break-before: page;
+        position: relative;
+        overflow: hidden;
+    }
+    .section:first-of-type {
+        page-break-before: auto;
+        break-before: auto;
+    }
+    @media print {
+        body { background-color: #fff; }
+        .section { 
+            margin: 0; 
+            box-shadow: none; 
+            /* Keep padding, width, and height intact for exact A4 print sizing */
+        }
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #C8102E; /* Silicon Red */
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+    }
+    .logo img {
+        height: 60px;
+    }
+    .title-block h1 {
+        margin: 0;
+        font-size: 22px;
+        color: #C8102E; /* Silicon Red */
+        text-align: right;
+    }
+    .title-block p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: #8A8F98; /* IC Gray */
+        text-align: right;
+        font-weight: 600;
+    }
+    h2 {
+        font-size: 16px;
+        color: #C8102E; /* Silicon Red */
+        border-bottom: 1px solid #8A8F98; /* IC Gray */
+        padding-bottom: 4px;
+        margin: 12px 0 8px 0;
+    }
+    h3 {
+        font-size: 14px;
+        color: #0A1A2F; /* Deep Silicon Navy */
+        margin: 10px 0 4px 0;
+    }
+    p, ul, li {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+    .footer {
+        position: absolute;
+        bottom: 15mm;
+        left: 20mm;
+        right: 20mm;
+        text-align: center;
+        font-size: 11px;
+        color: #8A8F98; /* IC Gray */
+        border-top: 1px solid #8A8F98;
+        padding-top: 8px;
+    }
+</style>
+</head>
+<body>
+    <div class="section">
+        <header>
+            <div class="logo">
+                <!-- Points to the logo in your resources folder -->
+                <img src="../resources/silicon_edge_logo.png" alt="Silicon Edge Logo">
+            </div>
+            <div class="title-block">
+                <h1>NS SAR ADC Project</h1>
+                <p>Revision 1.1 - Project Timeline and Tasks</p>
+            </div>
+        </header>
+
+        <h2>1. Completed Tasks</h2>
+        <ul>
+            <li>Behavioural modeling of the 8-bit SAR Core.</li>
+            <li>Behavioral modeling of Noise Shaping (NS).</li>
+            <li>Transistor-level implementation of the analog blocks for the SAR core (Unit Caps, Comparator, Switches).</li>
+            <li>Top-level testbench creation</li>
+        </ul>
+
+        <h2>2. Pending Tasks</h2>
+        <ul>
+            <li>Complete a tapeout-ready layout of the SAR core.</li>
+            <li>Select the target application.</li>
+            <li>Select the NS architecture based on the chosen application (filter orders and active/passive implementation).</li>
+            <li>Explore the feasibility of a variable precision (power and accuracy) ADC implementation with NS (8/10/12-bit).</li>
+            <li>Familiarize with NS and explore the possibility of an innovation.</li>
+            <li>Behavioral modeling of the finalized architecture.</li>
+            <li>Transistor-level implementation of the NS block.</li>
+            <li>Layout of top-level blocks.</li>
+            <li>Decide and implement the DSP for NS (on silicon or firmware).</li>
+            <li>SAR control logic implementation (RTL/Synthesis).</li>
+            <li>Post-layout verification (DRC, LVS, PEX) of the SAR core.</li>
+            <li>System-level PVT verification.</li>
+        </ul>
+
+        <h2>3. Expected Timeline Projection</h2>
+        
+        <h3>3.1. Available Time</h3>
+        <ul>
+            <li><strong>May:</strong> 2 weeks</li>
+            <li><strong>June:</strong> 4 weeks</li>
+            <li><strong>July:</strong> 2 weeks</li>
+        </ul>
+
+        <h3>3.2. Timeline Breakdown</h3>
+        <ul>
+            <li><strong>May (2 weeks):</strong> Complete tapeout-ready layout of the SAR core, perform SAR logic implementation, run post-layout verification (DRC/LVS/PEX), select target application, and select architecture.</li>
+            <li><strong>June (4 weeks):</strong> Explore innovation in the selected architecture, perform behavioral modeling, transistor modeling, and layout.</li>
+            <li><strong>July (2 weeks):</strong> Finalize NS layout, complete top-level layout, run top-level testbench and system-level PVT verification, and finalize DSP on silicon decision and implementation.</li>
+        </ul>
+
+        <div class="footer">
+            &copy; 2026 Silicon Edge - Confidential &amp; Proprietary | Project Revision & Timeline Rev 1.1 | Page 1 of 1
+        </div>
+    </div>
+</body>
+</html>

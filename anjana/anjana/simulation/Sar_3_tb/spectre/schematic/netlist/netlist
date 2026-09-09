@@ -1,0 +1,13 @@
+
+// Library name: NS_SAR_test
+// Cell name: Sar_3_tb
+// View name: schematic
+I1 (Vin CLK D\<4\> D\<3\> D\<2\> D\<1\> D\<0\> EOC) ns_sar_model Vref=1 \
+        N=3 Vth=0.5 OSR=4 Vhigh=1
+V1 (CLK 0) vsource type=pulse val0=0 val1=1 period=1/CLK_FREQ delay=1n \
+        rise=10p fall=10p width=0.5/CLK_FREQ
+V3 (VREF 0) vsource dc=Vdd type=dc
+V0 (Vin 0) vsource dc=OFFSET type=sine ampl=Avin freq=SignalFreq
+I2 (EOC 0 0 0 0 0 D\<4\> D\<3\> D\<2\> D\<1\> D\<0\>) adc_csv_logger \
+        vth=0.5 \
+        filename="/home/user23/NS_SAR_ADC/simulation/adc_output.csv"

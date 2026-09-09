@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Apr 13 23:06:50 2026
+// Design library name: NS_SAR_test
+// Design cell name: Sar_3_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0

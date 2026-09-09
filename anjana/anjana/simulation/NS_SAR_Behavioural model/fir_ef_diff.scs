@@ -1,0 +1,56 @@
+// ---------------------------------------------------------------------------
+// fir_ef_diff.scs  --  passive SC FIR error-feedback path (STRUCTURAL)
+//
+// This is deliberately NOT a Verilog-A z-domain filter.  A_CS and the
+// 1 - 2*A_CS signal attenuation only emerge correctly if the caps and the
+// CDAC really share charge.  Build it out of caps and switches from day one
+// and "replacing with real electronics" is just swapping sw_ideal for a
+// transmission gate.
+//
+//   Cres1  -> one-cycle delay          (z^-1 tap)
+//   Cres2  -> shares with Cdelay       (z^-2 tap, 0.5 weight)
+//   Cdelay -> reset to vcm each frame
+//
+// The 0.5 coefficient comes from EQUAL caps splitting charge during phi_d2,
+// not from a 2:1 ratio.  The -1 comes from cross-coupling p to n at phi_ef.
+// Keep all three caps identical unit cells.
+//
+// Sizing:  cf = cdac / 14  gives  A_CS = cf/(cdac + 2*cf) = 1/16
+//          G = 30  ->  K_EF = G*A_CS = 1.875  (optimum at OSR = 8)
+// ---------------------------------------------------------------------------
+simulator lang=spectre
+
+subckt fir_ef_diff (ampp ampn topp topn vcm phi_amp phi_d2 phi_rst phi_ef)
+parameters cf=71.4f ron=200 roff=1T
+
+    // --- FIR capacitors (identical unit cells) -----------------------------
+    C1p (c1p vcm) capacitor c=cf
+    C1n (c1n vcm) capacitor c=cf
+    C2p (c2p vcm) capacitor c=cf
+    C2n (c2n vcm) capacitor c=cf
+    CDp (cdp vcm) capacitor c=cf
+    CDn (cdn vcm) capacitor c=cf
+
+    // --- phi_amp : D-Amp precharges Cres1 and Cres2 ------------------------
+    SA1p (ampp c1p phi_amp) sw_ideal ron=ron roff=roff
+    SA1n (ampn c1n phi_amp) sw_ideal ron=ron roff=roff
+    SA2p (ampp c2p phi_amp) sw_ideal ron=ron roff=roff
+    SA2n (ampn c2n phi_amp) sw_ideal ron=ron roff=roff
+
+    // --- phi_rst : reset Cdelay to vcm -------------------------------------
+    SRp (cdp vcm phi_rst) sw_ideal ron=ron roff=roff
+    SRn (cdn vcm phi_rst) sw_ideal ron=ron roff=roff
+
+    // --- phi_d2 : Cres2 shares with Cdelay -> exact 0.5 --------------------
+    SDp (c2p cdp phi_d2) sw_ideal ron=ron roff=roff
+    SDn (c2n cdn phi_d2) sw_ideal ron=ron roff=roff
+
+    // --- phi_ef : charge-sharing summation onto the CDAC top plates --------
+    //     Cres1  straight  (+1 * z^-1)
+    SE1p (c1p topp phi_ef) sw_ideal ron=ron roff=roff
+    SE1n (c1n topn phi_ef) sw_ideal ron=ron roff=roff
+    //     Cdelay crossed   (-0.5 * z^-2)  <-- the -1 is THIS wiring
+    SE2p (cdp topn phi_ef) sw_ideal ron=ron roff=roff
+    SE2n (cdn topp phi_ef) sw_ideal ron=ron roff=roff
+
+ends fir_ef_diff

@@ -1,0 +1,1422 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2018 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 18.10-p003_1, built Thu Jun 07 23:53:27 +0530 2018
+Options: -files scripts/genus.tcl -log logs/genus.log 
+Date:    Fri Aug 07 06:55:37 2026
+Host:    aed (x86_64 w/Linux 3.10.0-1160.108.1.el7.x86_64) (4cores*8cpus*1physical cpu*Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz 8192KB) (32689660KB)
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+
+Loading tool scripts...
+
+Finished loading tool scripts (4 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source scripts/genus.tcl
+#@ Begin verbose source scripts/genus.tcl
+@file(genus.tcl) 1: set PDK /home/user23/Sky130_cadance_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T
+@file(genus.tcl) 3: set_db init_lib_search_path $PDK/lib
+  Setting attribute of root '/': 'init_lib_search_path' = /home/user23/Sky130_cadance_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lib
+@file(genus.tcl) 4: set_db library {sky130_tt_1.8_25_nldm.lib}
+
+Threads Configured:3
+
+  Message Summary for Library sky130_tt_1.8_25_nldm.lib:
+  ******************************************************
+  Could not find an attribute in the library. [LBR-436]: 127
+  ******************************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.800000, 25.000000) in library 'sky130_tt_1.8_25_nldm.lib'.
+        : The nominal operating condition represents either the nominal PVT values if specified in the library source, or the default PVT values (1.0, 1.0, 1.0).
+Warning : Unusable clock gating integrated cell. [LBR-101]
+        : Clock gating integrated cell name: 'ICGX1'
+        : To use the cell in clock gating, Set cell attribute 'dont_use' false in the library.
+  Setting attribute of root '/': 'library' = sky130_tt_1.8_25_nldm.lib
+@file(genus.tcl) 5: set_db lef_library [list $PDK/lef/sky130_scl_9T.lef]
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'ADDFX1' is not found in the database.
+        : A layer must be defined in the LEF technology LAYER section before it can be referenced from a macro. Review the LEF files specified in the lef_library attribute to see if the layer does not exist or is specified after the one that defines the macro.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'ADDFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CI' in macro 'ADDFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CO' in macro 'ADDFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'S' in macro 'ADDFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'ADDFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'ADDFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'ADDHX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'ADDHX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CO' in macro 'ADDHX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'S' in macro 'ADDHX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'ADDHX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'ADDHX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'AND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'AND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'AND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'AND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'AND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'AND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'AND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'AND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'AND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'AND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'AND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'AND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'AND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'AND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'AND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'AND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'AND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'AND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'ANTENNA' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'ANTENNA' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'ANTENNA' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'AOI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'AOI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'AOI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'AOI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'AOI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'AOI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'AOI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'AOI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C1' in macro 'AOI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'AOI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'AOI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C1' in macro 'AOI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'AOI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'AOI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'AOI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'AOI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'AOI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'AOI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'AOI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'AOI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'BUFX16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'BUFX16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'BUFX16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'BUFX16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'BUFX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'BUFX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'BUFX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'BUFX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'BUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'BUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'BUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'BUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'BUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'BUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'BUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'BUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'CLKAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKBUFX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKBUFX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKBUFX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKBUFX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKBUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKBUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKBUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKBUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKBUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKBUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKBUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKBUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKINVX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKINVX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKINVX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKINVX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKINVX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKINVX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKINVX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKINVX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKINVX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKINVX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKINVX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKINVX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKINVX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKINVX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKINVX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKINVX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKMX2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'CLKMX2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'S0' in macro 'CLKMX2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKMX2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKMX2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKMX2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'CLKXOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'CLKXOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'CLKXOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'CLKXOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'CLKXOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'DFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'DFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'DFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'DFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'RN' in macro 'DFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'DFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'DFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'DFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'DFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'RN' in macro 'DFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'DFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'DFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'DFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'DFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'RN' in macro 'DFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SN' in macro 'DFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'DFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'DFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'DFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'DFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'RN' in macro 'DFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SN' in macro 'DFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'DFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'DFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'DFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'DFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SN' in macro 'DFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'DFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'DFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'DFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'DFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SN' in macro 'DFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'DFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'DFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'DFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'DFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'DFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'DFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'DFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'DFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'DLY1X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DLY1X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DLY1X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'DLY1X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'DLY1X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DLY1X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DLY1X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'DLY1X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'DLY2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DLY2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DLY2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'DLY2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'DLY4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'DLY4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'DLY4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'DLY4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'FILL1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'FILL1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'FILL16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'FILL16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'FILL2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'FILL2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'FILL32' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'FILL32' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'FILL4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'FILL4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'FILL64' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'FILL64' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'FILL8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'FILL8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'ICGX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'E' in macro 'ICGX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'ECK' in macro 'ICGX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'ICGX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'ICGX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'INVX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'INVX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'INVX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'INVX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'INVX16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'INVX16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'INVX16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'INVX16' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'INVX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'INVX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'INVX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'INVX2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'INVX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'INVX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'INVX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'INVX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'INVX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'INVX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'INVX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'INVX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'MX2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'MX2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'S0' in macro 'MX2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'MX2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'MX2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'MX2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'MX2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'MX2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'S0' in macro 'MX2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'MX2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'MX2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'MX2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'MX4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'MX4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'MX4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'MX4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'S0' in macro 'MX4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'S1' in macro 'MX4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'MX4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'MX4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'MX4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'MX4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'MX4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'MX4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'MX4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'S0' in macro 'MX4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'S1' in macro 'MX4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'MX4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'MX4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'MX4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NAND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NAND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NAND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NAND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NAND2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NAND2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NAND2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NAND2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NAND2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NAND2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NAND2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NAND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NAND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NAND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NAND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NAND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NAND3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NAND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NAND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NAND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NAND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NAND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NAND3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NAND3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NAND3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NAND3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NAND3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NAND3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NAND3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NAND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NAND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NAND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'NAND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NAND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NAND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NAND4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NAND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NAND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NAND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'NAND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NAND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NAND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NAND4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NAND4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NAND4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NAND4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'NAND4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NAND4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NAND4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NAND4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NOR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NOR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NOR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NOR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NOR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NOR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NOR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NOR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NOR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NOR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NOR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NOR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NOR3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NOR3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NOR3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NOR3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NOR3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NOR3X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NOR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NOR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NOR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'NOR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NOR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NOR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NOR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NOR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NOR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NOR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'NOR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NOR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NOR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NOR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'NOR4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'NOR4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'NOR4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'NOR4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'NOR4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'NOR4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'NOR4X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'OAI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI211X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'OAI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI211X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI21X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI21X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'OAI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'OAI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI221X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'OAI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'OAI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI221X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'OAI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'OAI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C1' in macro 'OAI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI222X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'OAI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C0' in macro 'OAI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C1' in macro 'OAI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI222X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'OAI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI22X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A0' in macro 'OAI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A1' in macro 'OAI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B0' in macro 'OAI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B1' in macro 'OAI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OAI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OAI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OAI22X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'OR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'OR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'OR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'OR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'OR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'OR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'OR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OR3X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'OR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'OR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'OR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OR3X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'OR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'OR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'OR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'OR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OR4X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'OR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'OR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'C' in macro 'OR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'OR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'OR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'OR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'OR4X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'SDFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'SDFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'SDFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'SDFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'RN' in macro 'SDFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SE' in macro 'SDFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SI' in macro 'SDFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'SDFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'SDFFRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'SDFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'SDFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'SDFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'SDFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'RN' in macro 'SDFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SE' in macro 'SDFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SI' in macro 'SDFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'SDFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'SDFFRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'RN' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SE' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SI' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SN' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'SDFFSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'RN' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SE' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SI' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SN' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'SDFFSRX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'SDFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'SDFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'SDFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'SDFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SE' in macro 'SDFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SI' in macro 'SDFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SN' in macro 'SDFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'SDFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'SDFFSX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'SDFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'SDFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'SDFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'SDFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SE' in macro 'SDFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SI' in macro 'SDFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SN' in macro 'SDFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'SDFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'SDFFSX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'SDFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'SDFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'SDFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'SDFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SE' in macro 'SDFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SI' in macro 'SDFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'SDFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'SDFFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'CK' in macro 'SDFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'SDFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'SDFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'SDFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SE' in macro 'SDFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SI' in macro 'SDFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'SDFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'SDFFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'TBUFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'OE' in macro 'TBUFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'TBUFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'TBUFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'TBUFX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'TBUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'OE' in macro 'TBUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'TBUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'TBUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'TBUFX4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'TBUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'OE' in macro 'TBUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'TBUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'TBUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'TBUFX8' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'TIEHI' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'TIEHI' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'TIEHI' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'TIELO' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'TIELO' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'TIELO' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'TLATSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'G' in macro 'TLATSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'TLATSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'TLATSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'RN' in macro 'TLATSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'SN' in macro 'TLATSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'TLATSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'TLATSRX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'D' in macro 'TLATX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'G' in macro 'TLATX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Q' in macro 'TLATX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'QN' in macro 'TLATX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'TLATX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'TLATX1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'XNOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'XNOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'XNOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'XNOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'XNOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'XNOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'XNOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'XNOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'XNOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'XNOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'XNOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'XNOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'XNOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'XNOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'XNOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'XOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'XOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'XOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'XOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'XOR2X1' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'XOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'XOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'XOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'XOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'XOR2X2' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'A' in macro 'XOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'B' in macro 'XOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VDD' in macro 'XOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'VSS' in macro 'XOR2X4' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'met1' referenced in pin 'Y' in macro 'XOR2X4' is not found in the database.
+Error   : LEF File Interface. [PHYS-100] [set_db]
+        : File '/home/user23/Sky130_cadance_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef' contains an error on or near line '10205'.
+        : Check the LEF file and rerun the command.
+Warning : There are no vertical or horizontal layers. [PHYS-111]
+        : There are no vertical layers.
+Error   : No capacitance or resistance specified. [PHYS-10] [set_db]
+        : Specify the tech LEF first.
+        : Check the LEF technology files.
+Error   : The attribute or the value for this attribute is not allowed at this moment. [TUI-48] [set_db]
+        : attribute: 'lef_library', value: '/home/user23/Sky130_cadance_pdk/sky130_scl_9T_0.1.1/sky130_scl_9T/lef/sky130_scl_9T.lef'
+        : Cannot change the value of the attribute.
+#@ End verbose source scripts/genus.tcl
+1
+Encountered problems processing file: scripts/genus.tcl
+WARNING: This version of the tool is 2982 days old.
+@genus:root: 2> exit
+Normal exit.

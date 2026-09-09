@@ -1,0 +1,94 @@
+// ---------------------------------------------------------------------------
+// clkgen.va  --  frame-rate phase generator for the EF NS-SAR
+//
+// Owns ONLY the once-per-Ts phases.  Bit-rate events (cmp_clk, phi_ef,
+// DAC switching) belong to sar_logic; the D-Amp shut-off belongs to the
+// amplifier itself (amp_done).
+//
+// Frame sequence:
+//   phi_rst -> phi_d2 -> phi_amp -> phi_s -> conv_start -> [wait eoc]
+//   -> phi_prn -> wait for the next frame boundary
+//
+// The frame is LOCKED to t_frame so that fs = 1/t_frame exactly.  This
+// matters: coherent-sampling FFTs need a uniform sample rate, and a purely
+// self-timed loop gives you an fs that drifts with every parameter change.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module clkgen(phi_rst, phi_d2, phi_amp, phi_s, phi_prn, conv_start,
+              eoc, amp_done);
+    output phi_rst, phi_d2, phi_amp, phi_s, phi_prn, conv_start;
+    input  eoc, amp_done;
+    electrical phi_rst, phi_d2, phi_amp, phi_s, phi_prn, conv_start;
+    electrical eoc, amp_done;
+
+    parameter real vdd     = 1.1;
+    parameter real vth     = 0.55;
+    parameter real tr      = 50.0p from (0:inf);   // logic edge rate
+    parameter real t_frame = 100.0n from (0:inf);  // 1/fs
+    parameter real t_gap   = 0.3n  from [0:inf);   // non-overlap deadtime
+    parameter real t_rst   = 3.0n  from (0:inf);   // Cdelay reset
+    parameter real t_d2    = 3.0n  from (0:inf);   // Cres2 -> Cdelay transfer
+    parameter real t_amp   = 2.5n  from (0:inf);   // D-Amp window (max)
+    parameter real t_s     = 6.0n  from (0:inf);   // sampling
+    parameter real t_pw    = 0.5n  from (0:inf);   // strobe pulse width
+    parameter real t_wait  = 500.0n from (0:inf);  // eoc timeout
+    parameter integer use_amp_done = 1 from [0:1]; // 1 = self-timed shut-off
+
+    integer st;
+    real tnext, tfs;
+    real v_rst, v_d2, v_amp, v_s, v_prn, v_cs;
+
+    analog begin
+        @(initial_step) begin
+            st = 11; tfs = 0.0; tnext = 1.0n;
+            v_rst = 0; v_d2 = 0; v_amp = 0; v_s = 0; v_prn = 0; v_cs = 0;
+        end
+
+        @(timer(tnext)) begin
+            case (st)
+                 0: begin v_rst = 0; st =  1; tnext = $abstime + t_gap;  end
+                 1: begin v_d2  = 1; st =  2; tnext = $abstime + t_d2;   end
+                 2: begin v_d2  = 0; st =  3; tnext = $abstime + t_gap;  end
+                 3: begin v_amp = 1; st =  4; tnext = $abstime + t_amp;  end
+                 4: begin v_amp = 0; st =  5; tnext = $abstime + t_gap;  end
+                 5: begin v_s   = 1; st =  6; tnext = $abstime + t_s;    end
+                 6: begin v_s   = 0; st =  7; tnext = $abstime + t_gap;  end
+                 7: begin v_cs  = 1; st =  8; tnext = $abstime + t_pw;   end
+                 8: begin v_cs  = 0; st =  9; tnext = $abstime + t_wait; end
+                 9: begin v_prn = 1; st = 10; tnext = $abstime + t_pw;   end
+                10: begin
+                        v_prn = 0; st = 11;
+                        tnext = (tfs + t_frame > $abstime + t_gap)
+                                ? tfs + t_frame : $abstime + t_gap;
+                    end
+                11: begin
+                        tfs = $abstime;
+                        v_rst = 1; st = 0; tnext = $abstime + t_rst;
+                    end
+            endcase
+        end
+
+        // D-Amp reports its own shut-off -> end phi_amp early
+        @(cross(V(amp_done) - vth, +1)) begin
+            if (use_amp_done && st == 4) begin
+                v_amp = 0; st = 5; tnext = $abstime + t_gap;
+            end
+        end
+
+        // conversion finished -> proceed to the dither strobe
+        @(cross(V(eoc) - vth, +1)) begin
+            if (st == 9) begin
+                v_prn = 1; st = 10; tnext = $abstime + t_pw;
+            end
+        end
+
+        V(phi_rst)    <+ transition(v_rst * vdd, 0.0, tr, tr);
+        V(phi_d2)     <+ transition(v_d2  * vdd, 0.0, tr, tr);
+        V(phi_amp)    <+ transition(v_amp * vdd, 0.0, tr, tr);
+        V(phi_s)      <+ transition(v_s   * vdd, 0.0, tr, tr);
+        V(phi_prn)    <+ transition(v_prn * vdd, 0.0, tr, tr);
+        V(conv_start) <+ transition(v_cs  * vdd, 0.0, tr, tr);
+    end
+endmodule

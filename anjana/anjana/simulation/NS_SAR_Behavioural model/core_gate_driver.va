@@ -1,0 +1,70 @@
+// ---------------------------------------------------------------------------
+// core_gate_driver.va  --  replica of NS_SAR_Analog/gate_driver
+//
+// One per capacitor cell.  Decodes {SAMPLE, VREF} into the three complementary
+// transmission-gate control pairs that select what the bottom plate sees:
+//
+//   SAMPLE | VREF |  bottom plate connects to
+//   -------+------+---------------------------
+//      0   |  0   |  VREF_N          (bit = 0 during conversion)
+//      0   |  1   |  VREF_P          (bit = 1 during conversion)
+//      1   |  0   |  nothing         (isolated)
+//      1   |  1   |  VIN             (bottom-plate sampling)
+//
+// VREF here is the per-bit control line C<i> coming from the SAR logic, NOT a
+// supply.  Kept byte-for-byte equivalent to the core cell so the two can be
+// swapped without touching the netlist.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module core_gate_driver(SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N,
+                        SEL_VREF_N, SEL_VREF_N_N, SAMPLE, VREF);
+    output SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N, SEL_VREF_N, SEL_VREF_N_N;
+    input  SAMPLE, VREF;
+    electrical SEL_VIN, SEL_VIN_N, SEL_VREF_P, SEL_VREF_P_N;
+    electrical SEL_VREF_N, SEL_VREF_N_N, SAMPLE, VREF;
+
+    parameter real vlogic_h = 1.8;
+    parameter real vlogic_l = 0.0;
+    parameter real v_thresh = 0.9;
+    parameter real tr = 1.0p from (0:inf);
+    parameter real tf = 1.0p from (0:inf);
+
+    real o1, o2, o3, o4, o5, o6;
+    integer sel;
+
+    analog begin
+        sel = (V(SAMPLE) > v_thresh ? 2 : 0) + (V(VREF) > v_thresh ? 1 : 0);
+
+        case (sel)
+            0: begin // convert, bit = 0  ->  VREF_N
+                o1=vlogic_l; o2=vlogic_h; o3=vlogic_l; o4=vlogic_h;
+                o5=vlogic_h; o6=vlogic_l;
+            end
+            1: begin // convert, bit = 1  ->  VREF_P
+                o1=vlogic_l; o2=vlogic_h; o3=vlogic_h; o4=vlogic_l;
+                o5=vlogic_l; o6=vlogic_h;
+            end
+            2: begin // sample, bit = 0   ->  isolated
+                o1=vlogic_l; o2=vlogic_h; o3=vlogic_l; o4=vlogic_h;
+                o5=vlogic_l; o6=vlogic_h;
+            end
+            3: begin // sample, bit = 1   ->  VIN
+                o1=vlogic_h; o2=vlogic_l; o3=vlogic_l; o4=vlogic_h;
+                o5=vlogic_l; o6=vlogic_h;
+            end
+            default: begin
+                o1=vlogic_l; o2=vlogic_h; o3=vlogic_l; o4=vlogic_h;
+                o5=vlogic_l; o6=vlogic_h;
+            end
+        endcase
+
+        V(SEL_VIN)      <+ transition(o1, 0.0, tr, tf);
+        V(SEL_VIN_N)    <+ transition(o2, 0.0, tr, tf);
+        V(SEL_VREF_P)   <+ transition(o3, 0.0, tr, tf);
+        V(SEL_VREF_P_N) <+ transition(o4, 0.0, tr, tf);
+        V(SEL_VREF_N)   <+ transition(o5, 0.0, tr, tf);
+        V(SEL_VREF_N_N) <+ transition(o6, 0.0, tr, tf);
+    end
+endmodule

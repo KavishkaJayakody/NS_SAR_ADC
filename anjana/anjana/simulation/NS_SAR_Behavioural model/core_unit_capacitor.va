@@ -1,0 +1,70 @@
+// ---------------------------------------------------------------------------
+// core_unit_capacitor.va  --  replica of NS_SAR_Analog/unit_capacitor{,_dummy}
+//
+// The core's veriloga view is an empty shell (the devices live in its
+// schematic).  This one is populated, so the array can be simulated without
+// the PDK.  Parameter names and defaults are taken from the core cell:
+//
+//     c_val     = 34.62 fF     unit MiM cap
+//     r_on_sel  = 1 kohm       VIN-select transmission gate
+//     r_on_vref = 1 kohm       VREF_P / VREF_N transmission gates
+//     r_off     = 1 Gohm
+//     c_inj_p   = 0.65 fF      NMOS overlap/channel charge injection
+//     c_inj_n   = 0.50 fF      PMOS, driven by the complement
+//
+// `weight` puts W unit cells in parallel: C scales up by W and every switch
+// resistance scales DOWN by W, so the per-cell time constant r_on*c_val is
+// weight-independent -- which is exactly how a real binary array behaves and
+// why the MSB does not settle more slowly than the LSB.
+//
+// Charge injection is modelled as the NET cap (c_inj_p - c_inj_n) from the
+// control line to the bottom plate: the two gates are driven by complementary
+// signals, so their injected charge partly cancels.  It only matters while the
+// bottom plate is isolated (SAMPLE=1, bit=0) -- which is precisely when it is
+// most able to corrupt the sample.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module core_unit_capacitor(BOTTOM_PLATE, TOP_PLATE, SEL_VIN, SEL_VIN_N,
+                           SEL_VREF_N, SEL_VREF_N_N, SEL_VREF_P, SEL_VREF_P_N,
+                           VDD, VIN, VREF_N, VREF_P, VSS);
+    // SEL_* are inout, not input: charge injection is contributed back onto
+    // them, and a Verilog-A input port may not be contributed to.
+    inout  BOTTOM_PLATE, TOP_PLATE, VIN, VREF_N, VREF_P, VDD, VSS;
+    inout  SEL_VIN, SEL_VIN_N, SEL_VREF_N, SEL_VREF_N_N, SEL_VREF_P, SEL_VREF_P_N;
+    electrical BOTTOM_PLATE, TOP_PLATE, VIN, VREF_N, VREF_P, VDD, VSS;
+    electrical SEL_VIN, SEL_VIN_N, SEL_VREF_N, SEL_VREF_N_N, SEL_VREF_P, SEL_VREF_P_N;
+
+    parameter integer weight = 1       from [1:inf);
+    parameter real c_val     = 3.462e-14 from (0:inf);
+    parameter real r_on_sel  = 1000.0    from (0:inf);
+    parameter real r_on_vref = 1000.0    from (0:inf);
+    parameter real r_off     = 1.0e9     from (0:inf);
+    parameter real c_inj_p   = 6.5e-16   from [0:inf);
+    parameter real c_inj_n   = 5.0e-16   from [0:inf);
+    parameter real v_thresh  = 0.9;
+    parameter real ttran     = 20.0p     from (0:inf);
+
+    real gi, gp, gn, w;
+
+    analog begin
+        w = weight;
+
+        gi = (V(SEL_VIN)    > v_thresh) ? w/r_on_sel  : w/r_off;
+        gp = (V(SEL_VREF_P) > v_thresh) ? w/r_on_vref : w/r_off;
+        gn = (V(SEL_VREF_N) > v_thresh) ? w/r_on_vref : w/r_off;
+
+        I(BOTTOM_PLATE, VIN)    <+ transition(gi, 0.0, ttran, ttran) * V(BOTTOM_PLATE, VIN);
+        I(BOTTOM_PLATE, VREF_P) <+ transition(gp, 0.0, ttran, ttran) * V(BOTTOM_PLATE, VREF_P);
+        I(BOTTOM_PLATE, VREF_N) <+ transition(gn, 0.0, ttran, ttran) * V(BOTTOM_PLATE, VREF_N);
+
+        // the capacitor itself
+        I(TOP_PLATE, BOTTOM_PLATE) <+ w * c_val * ddt(V(TOP_PLATE, BOTTOM_PLATE));
+
+        // net switch charge injection onto the bottom plate
+        I(BOTTOM_PLATE, SEL_VIN)    <+ w * (c_inj_p - c_inj_n) * ddt(V(BOTTOM_PLATE, SEL_VIN));
+        I(BOTTOM_PLATE, SEL_VREF_P) <+ w * (c_inj_p - c_inj_n) * ddt(V(BOTTOM_PLATE, SEL_VREF_P));
+        I(BOTTOM_PLATE, SEL_VREF_N) <+ w * (c_inj_p - c_inj_n) * ddt(V(BOTTOM_PLATE, SEL_VREF_N));
+    end
+endmodule

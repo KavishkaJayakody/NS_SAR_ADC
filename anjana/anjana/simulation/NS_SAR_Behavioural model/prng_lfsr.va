@@ -1,0 +1,36 @@
+// ---------------------------------------------------------------------------
+// prng_lfsr.va  --  9-bit maximal-length LFSR (x^9 + x^5 + 1)
+//
+// Drives the dither capacitor in the CDAC.  Only needed once you build the
+// background gain-control loop; leave vdith = 0 in cdac_diff until then.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module prng_lfsr(clk, prn);
+    input  clk;
+    output prn;
+    electrical clk, prn;
+
+    parameter real vdd = 1.1;
+    parameter real vth = 0.55;
+    parameter real tr  = 50.0p from (0:inf);
+    parameter integer seed = 341 from [1:511];
+
+    integer lfsr, fb, b;
+
+    analog begin
+        @(initial_step) begin
+            lfsr = seed;
+            b = lfsr & 1;
+        end
+
+        @(cross(V(clk) - vth, +1)) begin
+            fb = ((lfsr >> 8) ^ (lfsr >> 4)) & 1;
+            lfsr = ((lfsr << 1) | fb) & 511;
+            b = lfsr & 1;
+        end
+
+        V(prn) <+ transition(b * vdd, 0.0, tr, tr);
+    end
+endmodule

@@ -1,0 +1,36 @@
+// ---------------------------------------------------------------------------
+// core_input_select_switch.va  --  replica of NS_SAR_Analog/input_select_switch
+//
+// Routes either VIN or VREF_P onto the array's shared bottom-plate rail.
+// Break-before-make is NOT modelled (nor is it in the core cell): both paths
+// are resistive at all times, one at r_on and the other at r_off, so a wrong
+// polarity shows up as a slow droop instead of an open circuit.
+//
+// Polarity follows the core cell:  SW high -> VIN selected.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module core_input_select_switch(VREF_P, VIN, SW, SW_N, VDD, VSS, VOUT);
+    inout  VREF_P, VIN, VOUT, VDD, VSS;
+    input  SW, SW_N;
+    electrical VREF_P, VIN, SW, SW_N, VDD, VSS, VOUT;
+
+    parameter real r_on     = 100.0 from (0:inf);
+    parameter real r_off    = 1.0e9 from (0:inf);
+    parameter real v_thresh = 0.9;
+    parameter real ttran    = 20.0p from (0:inf);
+
+    real res_ref, res_in;
+
+    analog begin
+        if (V(SW) > v_thresh) begin
+            res_in = r_on;  res_ref = r_off;
+        end else begin
+            res_in = r_off; res_ref = r_on;
+        end
+
+        I(VIN,    VOUT) <+ transition(1.0/res_in,  0.0, ttran, ttran) * V(VIN, VOUT);
+        I(VREF_P, VOUT) <+ transition(1.0/res_ref, 0.0, ttran, ttran) * V(VREF_P, VOUT);
+    end
+endmodule

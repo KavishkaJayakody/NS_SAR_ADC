@@ -1,0 +1,19 @@
+CADENCE IHNL11140
+$model
+NS_SAR_test/Sar_3_tb/schematic Sar_3_tb
+$endmodel
+$net
+gnd! 0
+$endnet
+$param
+CLK_FREQ CLK_FREQ
+OFFSET OFFSET
+M M
+Avin Avin
+SignalFreq SignalFreq
+Vdd Vdd
+SAMPLE_FREQ SAMPLE_FREQ
+t_stop t_stop
+N N
+CYCLES_PER_SAMPLE CYCLES_PER_SAMPLE
+$endparam

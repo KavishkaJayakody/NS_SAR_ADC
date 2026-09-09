@@ -1,0 +1,27 @@
+// ---------------------------------------------------------------------------
+// sw_ideal.va  --  two-terminal voltage-controlled switch
+//
+// Used for every switch in the FIR and the CDAC.  Keep ron/roff FINITE:
+// a 0-ohm / infinite-ohm switch hides phase-overlap bugs that will appear
+// the moment you drop in transmission gates.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module sw_ideal(p, n, ctrl);
+    inout  p, n;
+    input  ctrl;
+    electrical p, n, ctrl;
+
+    parameter real ron   = 200.0   from (0:inf);  // on resistance   [ohm]
+    parameter real roff  = 1.0e12  from (0:inf);  // off resistance  [ohm]
+    parameter real vth   = 0.55;                  // control threshold [V]
+    parameter real ttran = 20.0p   from (0:inf);  // conductance transition [s]
+
+    real g;
+
+    analog begin
+        g = (V(ctrl) > vth) ? 1.0/ron : 1.0/roff;
+        I(p, n) <+ transition(g, 0.0, ttran, ttran) * V(p, n);
+    end
+endmodule

@@ -1,0 +1,217 @@
+// ---------------------------------------------------------------------------
+// core_sar_logic_8bit.va  --  replica of NS_SAR_Digital/digital_SAR_logic_8bit,
+//                             extended with the noise-shaping hooks
+//
+// Same output pin names and same 1.8 V logic levels as the core cell, so it
+// drives core_capacitor_array (or your real one) unchanged:
+//
+//   CP7..CP0 + CPC   bottom-plate controls, P array
+//   CN7..CN0 + CNC   bottom-plate controls, N array (complement)
+//   SP / SN          sample controls
+//   B7..B0           latched result, valid on EOC
+//   C_COMP           comparator strobe
+//   EOC              end of conversion
+//
+// The core's 12 hand-unrolled states (SAMPLE, TRIAL_7, STEP_6..STEP_0, NS1,
+// NS2, DONE) are rewritten as one loop over bidx.  Behaviourally identical,
+// but nb becomes a parameter -- which is what you need the moment you add a
+// redundancy cap (see the warning at the bottom).
+//
+// ADDED FOR NOISE SHAPING
+// -----------------------
+//   CONV_START  handshake from clkgen, replacing the free-running CLK divider.
+//               Set use_conv_start=0 to get the core's divide-by-DIV_RATIO
+//               self-running behaviour back for stand-alone SAR benches.
+//   PHI_S       sampling window, also from clkgen.  SP/SN/VCM_CON are gated by
+//               it.  THIS IS NOT COSMETIC: clkgen's frame runs
+//               phi_rst -> phi_d2 -> phi_amp -> phi_s, so the D-Amp reads the
+//               residue off the top plates BEFORE the next sample.  If SP/SN
+//               went high the instant EOC fired (as the core cell does), the
+//               array would be reconnected to VIN and the residue destroyed
+//               before phi_amp ever saw it -- and the loop would quietly
+//               degenerate into a plain SAR.
+//   PHI_EF      asserted over the last n_ef trials only, so the FIR injects
+//               its charge after the MSBs have settled (the paper's Fig. 17
+//               subranging).  Lives here because only this block knows the
+//               bit index.
+//   VCM_CON     top-plate reset control for the arrays, tracking PHI_S.
+//
+// Between EOC and the next PHI_S the code is HELD, not cleared.  That hold is
+// what keeps the residue standing on the top plates for the D-Amp.
+//
+// Comparator polarity: cmp_pol=1 (default) means COMP high => the DAC trial is
+// too large => clear the bit.  core_capacitor_array gives
+// V(topp,topn) = d - vin_diff, which is exactly this convention.
+//
+// !! NO REDUNDANCY !!  The core array is a plain 8-bit binary array, so nb=8
+// and there is no redundant cap.  The EF charge injected during phi_ef can
+// push the residue past the range the remaining LSB trials can recover, and
+// those errors are NOT shaped.  Two ways out, in order of preference:
+//   (a) add one redundant cap to the array, wire it to a 9th control, and set
+//       nb=9 here;
+//   (b) keep 8 bits and back the EF injection off (smaller cf, i.e. smaller
+//       A_CS) until the overload disappears -- at the cost of K_EF, and hence
+//       of the notch depth.
+// Check for it: sweep the input amplitude and watch SFDR.  Overload shows up
+// as distortion that gets WORSE with OSR, because the NTF does not shape it.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+module core_sar_logic_8bit(CLK, COMP, CONV_START, PHI_S,
+                           B0, B1, B2, B3, B4, B5, B6, B7,
+                           CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CPC,
+                           CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7, CNC,
+                           SP, SN, VCM_CON, C_COMP, PHI_EF, EOC);
+    input  CLK, COMP, CONV_START, PHI_S;
+    output B0, B1, B2, B3, B4, B5, B6, B7;
+    output CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CPC;
+    output CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7, CNC;
+    output SP, SN, VCM_CON, C_COMP, PHI_EF, EOC;
+
+    electrical CLK, COMP, CONV_START, PHI_S;
+    electrical B0, B1, B2, B3, B4, B5, B6, B7;
+    electrical CP0, CP1, CP2, CP3, CP4, CP5, CP6, CP7, CPC;
+    electrical CN0, CN1, CN2, CN3, CN4, CN5, CN6, CN7, CNC;
+    electrical SP, SN, VCM_CON, C_COMP, PHI_EF, EOC;
+
+    parameter integer nb      = 8 from [2:8];   // trials (8 = core, no redundancy)
+    parameter integer n_ef    = 4 from [0:8];   // EF injected over last n_ef trials
+    parameter integer cmp_pol = 1 from [0:1];
+    parameter real vlogic_h = 1.8;
+    parameter real vlogic_l = 0.0;
+    parameter real Vth      = 0.9;
+    parameter real td       = 0.0   from [0:inf);
+    parameter real tr       = 100.0p from (0:inf);
+    parameter real t_set    = 1.0n  from (0:inf); // DAC settling before strobe
+    parameter real t_pw     = 0.4n  from (0:inf); // strobe width
+    // stand-alone (core) mode
+    parameter integer use_conv_start = 1 from [0:1];
+    parameter integer DIV_RATIO      = 2 from [1:inf);
+    // bottom-plate sampling: release the top plate t_bp BEFORE the bottom
+    // plates leave VIN.  Same edge on both is a race, and which one the
+    // simulator picks decides how much signal-dependent charge you keep.
+    parameter real    t_bp           = 0.2n from [0:inf);
+
+    integer st, sub, bidx, code, latch, i, too_big, samp, div_cnt;
+    integer cbit[0:7], obit[0:7];
+    real tnext, v_cclk, v_ef, v_eoc, v_smp;
+
+    analog begin
+        @(initial_step) begin
+            st = 0; sub = 0; bidx = 0; div_cnt = 0;
+            code = 0; latch = 0;
+            v_cclk = 0.0; v_ef = 0.0; v_eoc = 0.0; v_smp = 0.0;
+            tnext = 1.0e30;
+            for (i = 0; i < 8; i = i + 1) begin cbit[i] = 0; obit[i] = 0; end
+        end
+
+        // ---- start of conversion -----------------------------------------
+        @(cross(V(CONV_START) - Vth, +1)) begin
+            if (use_conv_start && (st == 0)) begin
+                st = 1; bidx = 0; sub = 0;
+                code = 1 << (nb - 1);            // MSB up, everything else down
+                tnext = $abstime + t_set;
+            end
+        end
+
+        // ---- stand-alone mode: divided free-running clock ----------------
+        @(cross(V(CLK) - Vth, +1)) begin
+            if (!use_conv_start) begin
+                div_cnt = div_cnt + 1;
+                if (div_cnt >= DIV_RATIO) begin
+                    div_cnt = 0;
+                    if (st == 0) begin
+                        st = 1; bidx = 0; sub = 0;
+                        code = 1 << (nb - 1);
+                        tnext = $abstime + t_set;
+                    end
+                end
+            end
+        end
+
+        // ---- binary search ------------------------------------------------
+        @(timer(tnext)) begin
+            if (st == 1) begin
+                if (sub == 0) begin
+                    v_cclk = 1.0; sub = 1; tnext = $abstime + t_pw;
+                end else begin
+                    v_cclk = 0.0;
+                    too_big = (cmp_pol == 1) ? (V(COMP) > Vth) : (V(COMP) < Vth);
+                    if (too_big)
+                        code = code - (1 << (nb - 1 - bidx));
+                    bidx = bidx + 1;
+                    if (bidx < nb) begin
+                        code = code + (1 << (nb - 1 - bidx));
+                        sub = 0; tnext = $abstime + t_set;
+                    end else begin
+                        latch = code;
+                        st = 2; v_eoc = 1.0; tnext = $abstime + t_pw;
+                    end
+                end
+            end else if (st == 2) begin
+                // idle.  NS mode restarts on CONV_START, stand-alone mode on
+                // the next divided CLK edge; either way nothing is scheduled.
+                v_eoc = 0.0; st = 0; tnext = 1.0e30;
+            end
+        end
+
+        // ---- sampling window ----------------------------------------------
+        // NS mode : PHI_S from clkgen, only honoured while idle
+        // core mode: idle == sampling, exactly like the original cell
+        samp = use_conv_start ? ((st == 0) && (V(PHI_S) > Vth)) : (st == 0);
+        v_smp = samp ? vlogic_h : vlogic_l;
+
+        // ---- EF injection window (last n_ef trials) ------------------------
+        v_ef = ((st == 1) && (bidx >= nb - n_ef)) ? vlogic_h : vlogic_l;
+
+        // ---- bottom-plate controls ----------------------------------------
+        // sampling      : every cap (incl. dummy) -> VIN
+        // converting    : CP = code bit, CN = complement, CPC = 0, CNC = 1
+        for (i = 0; i < 8; i = i + 1) begin
+            cbit[i] = (i < nb) ? ((code  >> i) & 1) : 0;
+            obit[i] = (i < nb) ? ((latch >> i) & 1) : 0;
+        end
+
+        V(CP0) <+ transition((samp ? 1 : cbit[0]) * vlogic_h, td, tr, tr);
+        V(CP1) <+ transition((samp ? 1 : cbit[1]) * vlogic_h, td, tr, tr);
+        V(CP2) <+ transition((samp ? 1 : cbit[2]) * vlogic_h, td, tr, tr);
+        V(CP3) <+ transition((samp ? 1 : cbit[3]) * vlogic_h, td, tr, tr);
+        V(CP4) <+ transition((samp ? 1 : cbit[4]) * vlogic_h, td, tr, tr);
+        V(CP5) <+ transition((samp ? 1 : cbit[5]) * vlogic_h, td, tr, tr);
+        V(CP6) <+ transition((samp ? 1 : cbit[6]) * vlogic_h, td, tr, tr);
+        V(CP7) <+ transition((samp ? 1 : cbit[7]) * vlogic_h, td, tr, tr);
+        V(CPC) <+ transition((samp ? 1 : 0)       * vlogic_h, td, tr, tr);
+
+        V(CN0) <+ transition((samp ? 1 : (1 - cbit[0])) * vlogic_h, td, tr, tr);
+        V(CN1) <+ transition((samp ? 1 : (1 - cbit[1])) * vlogic_h, td, tr, tr);
+        V(CN2) <+ transition((samp ? 1 : (1 - cbit[2])) * vlogic_h, td, tr, tr);
+        V(CN3) <+ transition((samp ? 1 : (1 - cbit[3])) * vlogic_h, td, tr, tr);
+        V(CN4) <+ transition((samp ? 1 : (1 - cbit[4])) * vlogic_h, td, tr, tr);
+        V(CN5) <+ transition((samp ? 1 : (1 - cbit[5])) * vlogic_h, td, tr, tr);
+        V(CN6) <+ transition((samp ? 1 : (1 - cbit[6])) * vlogic_h, td, tr, tr);
+        V(CN7) <+ transition((samp ? 1 : (1 - cbit[7])) * vlogic_h, td, tr, tr);
+        // CNC is high in BOTH phases (VIN while sampling, VREF_P while
+        // converting), exactly as the core cell drives regnc.  It is what
+        // makes the N-side weight sum 256-code against the P-side's code.
+        V(CNC) <+ transition(vlogic_h, td, tr, tr);
+
+        // ---- result bus ----------------------------------------------------
+        V(B0) <+ transition(obit[0] * vlogic_h, td, tr, tr);
+        V(B1) <+ transition(obit[1] * vlogic_h, td, tr, tr);
+        V(B2) <+ transition(obit[2] * vlogic_h, td, tr, tr);
+        V(B3) <+ transition(obit[3] * vlogic_h, td, tr, tr);
+        V(B4) <+ transition(obit[4] * vlogic_h, td, tr, tr);
+        V(B5) <+ transition(obit[5] * vlogic_h, td, tr, tr);
+        V(B6) <+ transition(obit[6] * vlogic_h, td, tr, tr);
+        V(B7) <+ transition(obit[7] * vlogic_h, td, tr, tr);
+
+        // ---- controls ------------------------------------------------------
+        V(VCM_CON) <+ transition(v_smp, td, tr, tr);
+        V(SP)      <+ transition(v_smp, td + t_bp, tr, tr);
+        V(SN)      <+ transition(v_smp, td + t_bp, tr, tr);
+        V(C_COMP)  <+ transition(v_cclk * vlogic_h, td, tr, tr);
+        V(PHI_EF)  <+ transition(v_ef,   td, tr, tr);
+        V(EOC)     <+ transition(v_eoc * vlogic_h, td, tr, tr);
+    end
+endmodule

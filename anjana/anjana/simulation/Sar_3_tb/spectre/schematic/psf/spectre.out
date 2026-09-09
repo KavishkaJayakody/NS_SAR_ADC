@@ -1,0 +1,225 @@
+
+Spectre (R) Circuit Simulator
+Version 18.1.0.143.isr1 64bit -- 4 Sep 2018
+Copyright (C) 1989-2018 Cadence Design Systems, Inc. All rights reserved worldwide. Cadence and Spectre are registered trademarks of Cadence Design Systems, Inc. All others are the property of their respective holders.
+
+Includes RSA BSAFE(R) Cryptographic or Security Protocol Software from RSA Security, Inc.
+
+User: user23   Host: aed   HostID: 7F0100   PID: 26513
+Memory  available: 3.9012 GB  physical: 33.4742 GB
+Linux   : CentOS Linux release 7.9.2009 (Core)
+CPU Type: Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+        Socket: Processors [Frequency] (Hyperthreaded Processor)
+        0:       0 [3423.0] (  4 ),  1 [3492.1] (  5 ),  2 [3769.8] (  6 )
+                 3 [3520.6] (  7 )
+        
+System load averages (1min, 5min, 15min) : 0.9 %, 1.6 %, 2.6 %
+Hyperthreading is enabled
+
+
+Simulating `input.scs' on aed at 11:06:52 PM, Mon Apr 13, 2026 (process id: 26513).
+Current working directory: /home/user23/NS_SAR_ADC/simulation/Sar_3_tb/spectre/schematic/netlist
+Command line:
+    /home/aed/cadence/SPECTRE181/tools.lnx86/bin/spectre -64 input.scs  \
+        +escchars +log ../psf/spectre.out +inter=mpsc  \
+        +mpssession=spectre3_16540_18 -format psfxl -raw ../psf  \
+        +lqtimeout 900 -maxw 5 -maxn 5
+spectre pid = 26513
+
+Loading /home/aed/cadence/SPECTRE181/tools.lnx86/cmi/lib/64bit/5.0/libinfineon_sh.so ...
+Loading /home/aed/cadence/SPECTRE181/tools.lnx86/cmi/lib/64bit/5.0/libphilips_o_sh.so ...
+Loading /home/aed/cadence/SPECTRE181/tools.lnx86/cmi/lib/64bit/5.0/libphilips_sh.so ...
+Loading /home/aed/cadence/SPECTRE181/tools.lnx86/cmi/lib/64bit/5.0/libsparam_sh.so ...
+Loading /home/aed/cadence/SPECTRE181/tools.lnx86/cmi/lib/64bit/5.0/libstmodels_sh.so ...
+Reading file:  /home/user23/NS_SAR_ADC/simulation/Sar_3_tb/spectre/schematic/netlist/input.scs
+Reading file:  /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/etc/configs/mapsubckt.cfg
+Reading file:  /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/etc/configs/spectre.cfg
+Reading file:  /home/user23/NS_SAR_ADC/libraries/NS_SAR_test/NS_SAR_V1/veriloga/veriloga.va
+Reading file:  /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/etc/ahdl/constants.vams
+Reading file:  /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/etc/ahdl/disciplines.vams
+Reading file:  /home/user23/NS_SAR_ADC/libraries/NS_SAR_test/data_logger/veriloga/veriloga.va
+Time for NDB Parsing: CPU = 80.661 ms, elapsed = 138.801 ms.
+Time accumulated: CPU = 100.108 ms, elapsed = 138.805 ms.
+Peak resident memory used = 58 Mbytes.
+
+Opening directory input.ahdlSimDB/ (775)
+Created directory input.ahdlSimDB//d7c6ab7a1179281c4e4fefbccfcda36d.ns_sar_model.ahdlcmi/ (775)
+Created directory input.ahdlSimDB//d7c6ab7a1179281c4e4fefbccfcda36d.ns_sar_model.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for ns_sar_model.
+Finished compilation in 893 ms (elapsed) for ns_sar_model.
+Installed compiled interface for ns_sar_model.
+Opening directory input.ahdlSimDB/ (775)
+Created directory input.ahdlSimDB//6273290eb0204591cc2190534a71a0fc.adc_csv_logger.ahdlcmi/ (775)
+Created directory input.ahdlSimDB//6273290eb0204591cc2190534a71a0fc.adc_csv_logger.ahdlcmi/Linux-64/ (775)
+Compiling ahdlcmi module library for adc_csv_logger.
+Finished compilation in 829 ms (elapsed) for adc_csv_logger.
+Installed compiled interface for adc_csv_logger.
+Reading link:  /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/etc/ahdl/discipline.h
+Reading link:  /home/aed/cadence/SPECTRE181/tools.lnx86/spectre/etc/ahdl/constants.h
+Time for Elaboration: CPU = 69.195 ms, elapsed = 1.80978 s.
+Time accumulated: CPU = 169.416 ms, elapsed = 1.94869 s.
+Peak resident memory used = 71.2 Mbytes.
+
+
+Warning from spectre during hierarchy flattening.
+    WARNING (SPECTRE-17101): The value 'psf' specified using the 'checklimitdest' option will no longer be supported in future releases.
+
+
+Time for EDB Visiting: CPU = 1.076 ms, elapsed = 1.07598 ms.
+Time accumulated: CPU = 170.593 ms, elapsed = 1.94987 s.
+Peak resident memory used = 71.8 Mbytes.
+
+
+Notice from spectre during topology check.
+    Only one connection to node `VREF'.
+
+
+Global user options:
+            vabstol = 1e-06
+            iabstol = 1e-12
+               temp = 27
+               gmin = 1e-12
+             rforce = 1
+           maxnotes = 5
+           maxwarns = 5
+             digits = 5
+               cols = 80
+             pivrel = 0.001
+           sensfile = ../psf/sens.output
+     checklimitdest = psf
+               save = allpub
+             reltol = 0.001
+               tnom = 27
+             scalem = 1
+              scale = 1
+
+Scoped user options:
+
+Circuit inventory:
+              nodes 9
+     adc_csv_logger 1     
+       ns_sar_model 1     
+            vsource 3     
+
+Analysis and control statement inventory:
+               info 7     
+               tran 1     
+
+Output statements:
+             .probe 0     
+           .measure 0     
+               save 0     
+
+Time for parsing: CPU = 2.192 ms, elapsed = 71.255 ms.
+Time accumulated: CPU = 172.857 ms, elapsed = 2.0212 s.
+Peak resident memory used = 72.9 Mbytes.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Pre-Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+Entering remote command mode using MPSC service (spectre, ipi, v0.0, spectre3_16540_18, ).
+
+*****************************************************
+Transient Analysis `tran': time = (0 s -> 22.0863 us)
+*****************************************************
+
+Warning from spectre during IC analysis, during transient analysis `tran'.
+    WARNING (ASL-3218): "/home/user23/NS_SAR_ADC/libraries/NS_SAR_test/data_logger/veriloga/veriloga.va" 19: I2:  Overwriting file /home/user23/NS_SAR_ADC/simulation/adc_output.csv. Saving old contents of file in /home/user23/NS_SAR_ADC/simulation/adc_output.csv~.
+
+DC simulation time: CPU = 706 us, elapsed = 707.15 us.
+
+Opening the PSFXL file ../psf/tran.tran.tran ...
+Important parameter values:
+    start = 0 s
+    outputstart = 0 s
+    stop = 22.0863 us
+    step = 22.0863 ns
+    maxstep = 441.725 ns
+    ic = all
+    useprevic = no
+    skipdc = no
+    reltol = 1e-03
+    abstol(V) = 1 uV
+    abstol(I) = 1 pA
+    temp = 27 C
+    tnom = 27 C
+    tempeffects = all
+    errpreset = moderate
+    method = traponly
+    lteratio = 3.5
+    relref = sigglobal
+    cmin = 0 F
+    gmin = 1 pS
+
+
+Output and IC/nodeset summary:
+                 save   3       (current)
+                 save   9       (voltage)
+
+    tran: time = 552.5 ns     (2.5 %), step = 1.175 ns    (5.32 m%)
+    tran: time = 1.657 us     (7.5 %), step = 640 ps       (2.9 m%)
+    tran: time = 2.761 us    (12.5 %), step = 1.171 ns     (5.3 m%)
+    tran: time = 3.866 us    (17.5 %), step = 1.175 ns    (5.32 m%)
+    tran: time = 4.969 us    (22.5 %), step = 160 ps       (724 u%)
+    tran: time = 6.075 us    (27.5 %), step = 1.171 ns     (5.3 m%)
+    tran: time = 7.178 us    (32.5 %), step = 320.2 ps    (1.45 m%)
+    tran: time = 8.283 us    (37.5 %), step = 1.182 ns    (5.35 m%)
+    tran: time = 9.387 us    (42.5 %), step = 640 ps       (2.9 m%)
+    tran: time = 10.49 us    (47.5 %), step = 1.171 ns     (5.3 m%)
+    tran: time = 11.6 us     (52.5 %), step = 639.7 ps     (2.9 m%)
+    tran: time = 12.7 us     (57.5 %), step = 40 ps        (181 u%)
+    tran: time = 13.8 us     (62.5 %), step = 1.171 ns     (5.3 m%)
+    tran: time = 14.91 us    (67.5 %), step = 319.8 ps    (1.45 m%)
+    tran: time = 16.01 us    (72.5 %), step = 1.182 ns    (5.35 m%)
+    tran: time = 17.12 us    (77.5 %), step = 640 ps       (2.9 m%)
+    tran: time = 18.22 us    (82.5 %), step = 1.171 ns     (5.3 m%)
+    tran: time = 19.33 us    (87.5 %), step = 639.7 ps     (2.9 m%)
+    tran: time = 20.43 us    (92.5 %), step = 1.198 ns    (5.42 m%)
+    tran: time = 21.53 us    (97.5 %), step = 640 ps       (2.9 m%)
+Number of accepted tran steps =             94613
+
+Maximum value achieved for any signal of each quantity: 
+V: V(VREF) = 1 V
+I: I(V1:p) = 0 A
+If your circuit contains signals of the same quantity that are vastly different in size (such as high voltage circuitry combined with low voltage control circuitry), you should consider specifying global option `bin_relref=yes'.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Post-Transient Simulation Summary
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   -   To further speed up simulation, consider
+          add ++aps on command line
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+During simulation, the CPU load for active processors is :
+        Spectre  0 (15.6 %)      1 (12.9 %)      2 (10.7 %)      3 (60.1 %)
+                 4 (8.6 %)       5 (9.3 %)       6 (34.4 %)      7 (15.6 %)
+        Other   
+Initial condition solution time: CPU = 747 us, elapsed = 748.873 us.
+Intrinsic tran analysis time:    CPU = 2.27935 s, elapsed = 2.33895 s.
+Total time required for tran analysis `tran': CPU = 2.28187 s, elapsed = 2.34146 s.
+Time accumulated: CPU = 2.49687 s, elapsed = 4.50222 s.
+Peak resident memory used = 97.4 Mbytes.
+
+finalTimeOP: writing operating point information to rawfile.
+
+Opening the PSF file ../psf/finalTimeOP.info ...
+modelParameter: writing model parameter values to rawfile.
+
+Opening the PSF file ../psf/modelParameter.info ...
+element: writing instance parameter values to rawfile.
+
+Opening the PSF file ../psf/element.info ...
+outputParameter: writing output parameter values to rawfile.
+
+Opening the PSF file ../psf/outputParameter.info ...
+designParamVals: writing netlist parameters to rawfile.
+
+Opening the PSFASCII file ../psf/designParamVals.info ...
+primitives: writing primitives to rawfile.
+
+Opening the PSFASCII file ../psf/primitives.info.primitives ...
+subckts: writing subcircuits to rawfile.
+
+Opening the PSFASCII file ../psf/subckts.info.subckts ...

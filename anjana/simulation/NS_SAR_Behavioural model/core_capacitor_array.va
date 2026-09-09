@@ -1,0 +1,134 @@
+// ---------------------------------------------------------------------------
+// core_capacitor_array.va  --  replica of NS_SAR_Analog/capacitor_array
+//
+// Single-ended 8-bit binary charge-redistribution array, flattened into one
+// module: the 9 gate_drivers, the 256 unit cells, the input_select_switch and
+// the two vcm_switches of the schematic, with the same parameters.  Use two of
+// these (see core_cdac_diff.scs) for the differential core.
+//
+// WHY THIS IS NOT A BEHAVIOURAL RESIDUE EQUATION
+// ----------------------------------------------
+// C_TOP is a REAL FLOATING NODE.  Every cap is an actual ddt() branch, so the
+// total 256*c_val is present at the top plate and the EF FIR's charge-sharing
+// summation sees the right A_CS = Cres/(Cdac + 2*Cres).  The moment C_TOP is
+// driven by a voltage source, A_CS collapses, K_EF goes with it, and the notch
+// silently disappears -- the spectrum still looks shaped, just wrong.  This is
+// the same warning that cdac_diff.va carries, and it is the reason that
+// placeholder existed at all.  This module retires it.
+//
+// PIN / WEIGHT MAP
+// ----------------
+//   C7 = MSB (128 units) ... C0 = LSB (1 unit),  C8 = common/dummy (1 unit)
+//   => 255 + 1 = 256 units = 8.863 pF at the core's c_val = 34.62 fF
+//
+// This mirrors the SAR logic's CP7..CP0 + CPC (and CN7..CN0 + CNC) bus.  If
+// your symbol wires CPC to C0 instead, swap the two nets at the instance --
+// the dummy control is the only one whose position is free.
+//
+// PHASE BEHAVIOUR (from core_gate_driver's truth table)
+//   SAMPLE=1, C<i>=1 : bottom plate -> vin_rail        (bottom-plate sampling)
+//   SAMPLE=1, C<i>=0 : bottom plate isolated
+//   SAMPLE=0, C<i>=1 : bottom plate -> VREF_P
+//   SAMPLE=0, C<i>=0 : bottom plate -> VREF_N
+//
+// VREF_CONNECT picks what vin_rail carries (core's input_select_switch):
+//   vrc_pol=0 (default): VREF_CONNECT high -> VREF_P, low -> VIN
+//   vrc_pol=1          : inverted, matching the core cell's SW polarity
+//
+// TOP-PLATE RESET
+//   C_TOP is shorted to VCM whenever SAMPLE or VCM_CON is high, through the
+//   core's vcm_switch (finite ron, hard current clamp).  Both must be LOW
+//   during the conversion, or the EF charge injected by the FIR drains into
+//   VCM and the noise shaping vanishes.
+//
+// RESIDUE POLARITY
+//   V(C_TOP) = VCM - vin_sampled + Vdac, so differentially
+//   V(topp,topn) = d - vin_diff:  comparator high means the trial is TOO
+//   LARGE.  That is sar_logic's cmp_pol = 1 / core_sar_logic_8bit's default.
+// ---------------------------------------------------------------------------
+`include "constants.vams"
+`include "disciplines.vams"
+
+// on-conductance of one weighted cell, per the gate_driver truth table
+`define CELL(BOT, W, CTRL)                                                     \
+    bit_h = (V(CTRL) > v_thresh);                                              \
+    g_i = ( smp &&  bit_h) ? (W)/r_on_sel  : (W)/r_off;                        \
+    g_p = (!smp &&  bit_h) ? (W)/r_on_vref : (W)/r_off;                        \
+    g_n = (!smp && !bit_h) ? (W)/r_on_vref : (W)/r_off;                        \
+    I(BOT, vin_rail) <+ transition(g_i, 0.0, ttran, ttran) * V(BOT, vin_rail); \
+    I(BOT, VREF_P)   <+ transition(g_p, 0.0, ttran, ttran) * V(BOT, VREF_P);   \
+    I(BOT, VREF_N)   <+ transition(g_n, 0.0, ttran, ttran) * V(BOT, VREF_N);   \
+    I(C_TOP, BOT)    <+ (W) * c_val * ddt(V(C_TOP, BOT));                      \
+    I(BOT, CTRL)     <+ (W) * c_inj * ddt(V(BOT, CTRL));
+
+module core_capacitor_array(C_TOP, VIN, VREF_P, VREF_N, VCM, VDD, VSS,
+                            SAMPLE, VREF_CONNECT, VCM_CON,
+                            C0, C1, C2, C3, C4, C5, C6, C7, C8);
+    inout  C_TOP, VIN, VREF_P, VREF_N, VCM, VDD, VSS;
+    input  SAMPLE, VREF_CONNECT, VCM_CON;
+    // inout, not input: the cells contribute switch charge-injection current
+    // back onto these control lines.  A Verilog-A input port may not be
+    // contributed to, and Spectre will say so.
+    inout  C0, C1, C2, C3, C4, C5, C6, C7, C8;
+    electrical C_TOP, VIN, VREF_P, VREF_N, VCM, VDD, VSS;
+    electrical SAMPLE, VREF_CONNECT, VCM_CON;
+    electrical C0, C1, C2, C3, C4, C5, C6, C7, C8;
+
+    // --- from the core unit cell ------------------------------------------
+    parameter real c_val     = 3.462e-14 from (0:inf); // unit MiM cap
+    parameter real r_on_sel  = 1000.0    from (0:inf); // VIN-select gate
+    parameter real r_on_vref = 1000.0    from (0:inf); // VREF_P/N gates
+    parameter real r_off     = 1.0e9     from (0:inf);
+    parameter real c_inj_p   = 6.5e-16   from [0:inf);
+    parameter real c_inj_n   = 5.0e-16   from [0:inf);
+    parameter real v_thresh  = 0.9;
+    // --- from input_select_switch / vcm_switch ----------------------------
+    parameter real r_on_in   = 100.0     from (0:inf); // input_select_switch
+    parameter real ron_vcm   = 1000.0    from (0:inf); // vcm_switch (see below)
+    parameter real roff_vcm  = 1.0e9     from (0:inf);
+    parameter real i_limit   = 10.0m     from (0:inf); // vcm_switch clamp
+    // --- modelling controls ------------------------------------------------
+    parameter integer vrc_pol = 0        from [0:1];
+    parameter integer inj_on  = 1        from [0:1];
+    parameter real ttran      = 20.0p    from (0:inf);
+
+    electrical vin_rail, b0, b1, b2, b3, b4, b5, b6, b7, b8;
+
+    integer smp, bit_h, vrc;
+    real g_i, g_p, g_n, c_inj, g_vcm, i_vcm;
+
+    analog begin
+        smp   = (V(SAMPLE) > v_thresh);
+        c_inj = inj_on ? (c_inj_p - c_inj_n) : 0.0;
+
+        // ---- input_select_switch: VIN or VREF_P onto the shared rail -----
+        vrc = (V(VREF_CONNECT) > v_thresh);
+        if (vrc_pol) vrc = !vrc;
+        I(vin_rail, VIN)    <+ transition(vrc ? 1.0/r_off : 1.0/r_on_in,
+                                          0.0, ttran, ttran) * V(vin_rail, VIN);
+        I(vin_rail, VREF_P) <+ transition(vrc ? 1.0/r_on_in : 1.0/r_off,
+                                          0.0, ttran, ttran) * V(vin_rail, VREF_P);
+
+        // ---- the array ----------------------------------------------------
+        `CELL(b7, 128, C7)      // MSB
+        `CELL(b6,  64, C6)
+        `CELL(b5,  32, C5)
+        `CELL(b4,  16, C4)
+        `CELL(b3,   8, C3)
+        `CELL(b2,   4, C2)
+        `CELL(b1,   2, C1)
+        `CELL(b0,   1, C0)      // LSB
+        `CELL(b8,   1, C8)      // common / dummy
+
+        // ---- vcm_switch: top-plate reset (SAMPLE or VCM_CON) --------------
+        g_vcm = ((V(SAMPLE) > v_thresh) || (V(VCM_CON) > v_thresh))
+                ? 1.0/ron_vcm : 1.0/roff_vcm;
+        i_vcm = transition(g_vcm, 0.0, ttran, ttran) * V(C_TOP, VCM);
+        if (i_vcm > i_limit)
+            I(C_TOP, VCM) <+ i_limit;
+        else if (i_vcm < -i_limit)
+            I(C_TOP, VCM) <+ -i_limit;
+        else
+            I(C_TOP, VCM) <+ i_vcm;
+    end
+endmodule
